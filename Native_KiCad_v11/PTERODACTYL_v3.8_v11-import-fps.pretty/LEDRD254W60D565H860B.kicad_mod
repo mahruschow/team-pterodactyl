@@ -1,0 +1,138 @@
+(footprint "LEDRD254W60D565H860B"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Radial LED (Round), 2.54 mm pitch, 5.65 mm body diameter, 8.60 mm body height\n\nRadial LED (Round) package with 2.54 mm pitch (lead spacing), 0.60 mm lead width, 0.50 mm lead thickness, 5.65 mm body diameter and 8.60 mm body height")
+	(property "Reference" "REF**"
+		(at 0 -3.6046 0)
+		(layer "F.SilkS")
+		(uuid "889e4084-20bc-426a-b0d7-3b8a38933a8e")
+		(effects
+			(font
+				(size 1.1684 1.1684)
+				(thickness 0.1016)
+			)
+			(justify bottom)
+		)
+	)
+	(property "Value" "LEDRD254W60D565H860B"
+		(at 0 3.4642 0)
+		(layer "F.Fab")
+		(uuid "dc92f4a6-e966-4373-b9d6-2dd85772a277")
+		(effects
+			(font
+				(size 1.1684 1.1684)
+				(thickness 0.1016)
+			)
+			(justify top)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "07b64fa6-188e-45ca-92d5-484d2aa430ff")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8685479f-30f1-480b-bf62-b84187dd91fb")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -2.5946 -2.5946)
+		(end -1.8446 -2.5946)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "48d41df3-bf96-427e-a86e-60c8da54b556")
+	)
+	(fp_line
+		(start -2.2196 -2.9696)
+		(end -2.2196 -2.2196)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "68615718-979a-42b4-b2c7-d0ad1f264e2f")
+	)
+	(fp_line
+		(start 2.5425 -1.2314)
+		(end 2.5425 1.2314)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "f3993979-d85c-48cb-9a05-5e27585e1236")
+	)
+	(fp_arc
+		(start -2.825 0.000001)
+		(mid -0.631694 -2.753475)
+		(end 2.5425 -1.2314)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "3b24900b-e2ae-41d0-b3bd-9b78e36b22ab")
+	)
+	(fp_arc
+		(start 2.5425 1.2314)
+		(mid -0.631694 2.753475)
+		(end -2.825 -0.000001)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "c6ca050c-7085-416c-9a76-595dc9f727f7")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 2.825 0)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "cf8a387d-2c55-4c82-b87b-221b21bb6a5b")
+	)
+	(pad "1" thru_hole circle
+		(at -1.27 0)
+		(size 1.581 1.581)
+		(drill 0.981)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "af2ea531-edfd-46bd-902b-2938d552d192")
+	)
+	(pad "2" thru_hole circle
+		(at 1.27 0)
+		(size 1.581 1.581)
+		(drill 0.981)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "0c393be6-8df6-44c1-a4ac-cfd895468982")
+	)
+	(embedded_fonts no)
+)

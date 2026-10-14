@@ -1,0 +1,125 @@
+(footprint "THERMISTOR10K"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "075dd9ec-08ae-4f3a-96b5-d903570309c6")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Value" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "221dc3b6-d13d-4cef-9c3a-a19de297d9aa")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9d20bde6-bcaf-495c-8a86-4c47f2df4442")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "49c5dd23-8dea-464b-abd5-ae621c714fd1")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start 0 -2.54)
+		(end 0 0)
+		(stroke
+			(width 0.3048)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "9176cafc-ed64-4a2d-b578-4ffadf892c2d")
+	)
+	(fp_line
+		(start 0 0)
+		(end 5.08 0)
+		(stroke
+			(width 0.3048)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "5cd5dfeb-f6df-47f4-a6b6-775688fdfb3e")
+	)
+	(fp_line
+		(start 5.08 -2.54)
+		(end 0 -2.54)
+		(stroke
+			(width 0.3048)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b17618ae-e48a-430b-8347-0448798555cc")
+	)
+	(fp_line
+		(start 5.08 0)
+		(end 5.08 -2.54)
+		(stroke
+			(width 0.3048)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "48194094-1a4b-469c-87f8-10aca20230e1")
+	)
+	(fp_text user "THERM1  10k"
+		(at 2.54 -2.794 0)
+		(layer "F.SilkS")
+		(uuid "491678b1-fa6f-4970-ba48-836b76afe9c1")
+		(effects
+			(font
+				(size 0.747776 0.747776)
+				(thickness 0.065024)
+			)
+			(justify bottom)
+		)
+	)
+	(pad "PIN" thru_hole roundrect
+		(at 3.81 -1.27 180)
+		(size 1.358 1.358)
+		(drill 0.85)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.25)
+		(chamfer_ratio 0.2928932188)
+		(chamfer top_left top_right bottom_left bottom_right)
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "20f0d24c-1b12-4714-957d-137689d86c5a")
+	)
+	(pad "VIN" thru_hole rect
+		(at 1.27 -1.27 180)
+		(size 1.358 1.358)
+		(drill 0.85)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "c41541bc-e343-4da8-a045-5d8db0d57909")
+	)
+	(embedded_fonts no)
+)

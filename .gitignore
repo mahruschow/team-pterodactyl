@@ -1,0 +1,20 @@
+# KiCad local editor state and locks
+*.kicad_prl
+*.lck
+*.kicad_pcb.lck
+*.kicad_sch.lck
+*-backups/
+*.kicad_sch-bak
+*.kicad_pcb-bak
+
+# OS and import artifacts
+.DS_Store
+._*
+__MACOSX/
+.history/
+
+# Generated outputs belong in a reviewed release, not the working source tree
+*.gbr
+*.drl
+*.pos
+*.rpt~

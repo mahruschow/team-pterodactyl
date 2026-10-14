@@ -1,0 +1,12 @@
+Import Report
+=============
+
+Source file: PTERODACTYL_v3.8_v11.brd
+Source format: Eagle
+Output file: PTERODACTYL_v3.8_v11.kicad_pcb
+
+Statistics:
+  Footprints: 39
+  Tracks: 417
+  Vias: 0
+  Zones: 2

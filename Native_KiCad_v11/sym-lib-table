@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "PTERODACTYL_v3.8_v11-eagle-import") (type "KiCad") (uri "${KIPRJMOD}/PTERODACTYL_v3.8_v11-eagle-import.kicad_sym") (options "") (descr ""))
+)

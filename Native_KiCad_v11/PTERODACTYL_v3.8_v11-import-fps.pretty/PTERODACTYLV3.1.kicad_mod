@@ -1,0 +1,110 @@
+(footprint "PTERODACTYLV3.1"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "b676d01c-46d8-4c65-9e96-a63d79849c0a")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Value" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "ba845cf3-169d-4f8f-a06d-3455930b3881")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "63185beb-e245-4730-8d25-18ea2f511149")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "45778ce8-917c-4f69-8139-96a6c94bdb22")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_text user "PTERODACTYL"
+		(at 0 -10.16 0)
+		(layer "F.SilkS")
+		(uuid "3a216408-49eb-4453-8a0e-3283fa5cb78a")
+		(effects
+			(font
+				(size 1.542288 1.542288)
+				(thickness 0.134112)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "v3.8"
+		(at 0 -7.62 0)
+		(layer "F.SilkS")
+		(uuid "23e35dcb-3a03-4b2c-8b91-45cc955390a4")
+		(effects
+			(font
+				(size 1.542288 1.542288)
+				(thickness 0.134112)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "MnSGC"
+		(at 0 -5.08 0)
+		(layer "F.SilkS")
+		(uuid "d6f91f4c-0e4a-4e84-8327-5a21da91dfac")
+		(effects
+			(font
+				(size 1.542288 1.542288)
+				(thickness 0.134112)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "UMN Ballooning"
+		(at 0 -2.54 0)
+		(layer "F.SilkS")
+		(uuid "cadeddd2-31e4-4f0d-95f2-f884216acd80")
+		(effects
+			(font
+				(size 1.542288 1.542288)
+				(thickness 0.134112)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "Ashton Posey"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "46c32099-3ac9-4caf-9b25-fc40147a2dca")
+		(effects
+			(font
+				(size 1.542288 1.542288)
+				(thickness 0.134112)
+			)
+			(justify left bottom)
+		)
+	)
+	(embedded_fonts no)
+)
