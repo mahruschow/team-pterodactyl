@@ -1,0 +1,116 @@
+{
+  "board_net_count": 50,
+  "schematic_net_count": 79,
+  "board_net_name_or_membership_differences": [
+    {
+      "pcb_net": "N$14",
+      "pads": [
+        [
+          "U$26",
+          "NO"
+        ]
+      ],
+      "same_membership_schematic_nets": [
+        "unconnected-(U$26-PadNO)"
+      ]
+    },
+    {
+      "pcb_net": "VCC_2",
+      "pads": [
+        [
+          "U$7",
+          "VIN"
+        ],
+        [
+          "U$8",
+          "VIN"
+        ]
+      ],
+      "same_membership_schematic_nets": [
+        "Net-(U$7-PadVIN)"
+      ]
+    },
+    {
+      "pcb_net": "VCC_3",
+      "pads": [
+        [
+          "U$5",
+          "VIN"
+        ],
+        [
+          "U$7",
+          "VOUT"
+        ]
+      ],
+      "same_membership_schematic_nets": [
+        "Net-(U$5-PadVIN)"
+      ]
+    }
+  ],
+  "extra_footprints": {
+    "U$32": {
+      "library": "PTERODACTYL_v3.8_v11-import-fps:AXIS",
+      "value": "",
+      "pad_count": 0
+    },
+    "U$30": {
+      "library": "PTERODACTYL_v3.8_v11-import-fps:PTERODACTYLV3.1",
+      "value": "",
+      "pad_count": 0
+    },
+    "U$18": {
+      "library": "PTERODACTYL_v3.8_v11-import-fps:HOLE",
+      "value": "",
+      "pad_count": 1
+    },
+    "U$19": {
+      "library": "PTERODACTYL_v3.8_v11-import-fps:HOLE",
+      "value": "",
+      "pad_count": 1
+    },
+    "U$21": {
+      "library": "PTERODACTYL_v3.8_v11-import-fps:HOLE",
+      "value": "",
+      "pad_count": 1
+    },
+    "U$20": {
+      "library": "PTERODACTYL_v3.8_v11-import-fps:HOLE",
+      "value": "",
+      "pad_count": 1
+    }
+  },
+  "schematic_only_net_names": [
+    "Net-(U$5-PadVIN)",
+    "Net-(U$7-PadVIN)",
+    "unconnected-(U$3-Pad27)",
+    "unconnected-(U$3-Pad33)",
+    "unconnected-(U$3-Pad36)",
+    "unconnected-(U$3-Pad37)",
+    "unconnected-(U$6-PadNO)",
+    "unconnected-(U$7-PadNO)",
+    "unconnected-(U$8-PadN/A)",
+    "unconnected-(U$11-PadCBS)",
+    "unconnected-(U$11-PadPS)",
+    "unconnected-(U$11-PadSDO)",
+    "unconnected-(U$12-PadSCL)",
+    "unconnected-(U$12-PadSDA)",
+    "unconnected-(U$13-PadSCL)",
+    "unconnected-(U$13-PadSDA)",
+    "unconnected-(U$15-PadCS)",
+    "unconnected-(U$25-PadKNOWS)",
+    "unconnected-(U$25-PadWHO)",
+    "unconnected-(U$26-PadNO)",
+    "unconnected-(U$28-PadEN)",
+    "unconnected-(U$28-PadLB)",
+    "unconnected-(U$29-PadCS)",
+    "unconnected-(U$29-PadGND1)",
+    "unconnected-(U$29-PadNC)",
+    "unconnected-(U$29-PadRDY)",
+    "unconnected-(U$29-PadRST)",
+    "unconnected-(U$29-PadRTK)",
+    "unconnected-(U$29-PadSCK)",
+    "unconnected-(U$29-PadSDI)",
+    "unconnected-(U$29-PadSDO)",
+    "unconnected-(U$29-PadTMP)"
+  ]
+}

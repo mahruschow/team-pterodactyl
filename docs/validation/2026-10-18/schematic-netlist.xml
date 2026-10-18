@@ -1,0 +1,1924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>C:\Users\saada\Documents\Codex\2026-10-18\here-x20\work\kicad-10-baseline\Native_KiCad_v11\PTERODACTYL_v3.8_v11.kicad_sch</source>
+    <date>2026-10-18T17:30:06</date>
+    <tool>Eeschema 10.0.7</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>PTERODACTYL_v3.8_v11.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="D1">
+      <value>LED: 3</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:LEDRD254W60D565H860B_W</footprint>
+      <fields>
+        <field name="CATEGORY">Opto-Electronic</field>
+        <field name="SUB-CATEGORY">LED</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:LEDRD254W60D565H860B_W</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="LED_RADIALWHITE_" description="LED - Generic"/>
+      <property name="CATEGORY" value="Opto-Electronic"/>
+      <property name="SUB-CATEGORY" value="LED"/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>87436e49-8ce1-44b6-9dcc-2a3bcddad9a4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D2">
+      <value>LED: 4</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:LEDRD254W60D565H860B</footprint>
+      <fields>
+        <field name="CATEGORY">Opto-Electronic</field>
+        <field name="SUB-CATEGORY">LED</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:LEDRD254W60D565H860B</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="LED_RADIALRED_" description="LED - Generic"/>
+      <property name="CATEGORY" value="Opto-Electronic"/>
+      <property name="SUB-CATEGORY" value="LED"/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4b17ce9d-5811-4b5b-ae4f-c9ffee3275dd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D3">
+      <value>LED: 5</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:LEDRD254W60D565H860B_B</footprint>
+      <fields>
+        <field name="CATEGORY">Opto-Electronic</field>
+        <field name="SUB-CATEGORY">LED</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:LEDRD254W60D565H860B_B</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="LED_RADIALBLUE_" description="LED - Generic"/>
+      <property name="CATEGORY" value="Opto-Electronic"/>
+      <property name="SUB-CATEGORY" value="LED"/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>aecf7db4-5ad6-4b29-8bda-8e2e1d54790e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D4">
+      <value>LED: 2</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:LEDRD254W60D565H860B_Y</footprint>
+      <fields>
+        <field name="CATEGORY">Opto-Electronic</field>
+        <field name="SUB-CATEGORY">LED</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:LEDRD254W60D565H860B_Y</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="LED_RADIALYELLOW_" description="LED - Generic"/>
+      <property name="CATEGORY" value="Opto-Electronic"/>
+      <property name="SUB-CATEGORY" value="LED"/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>871c1760-6634-4e3c-9b83-4b1549cc949b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1_10KΩ0">
+      <value>RAXIAL-11.7MM-PITCH_</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:RESAD1176W63L850D250B</footprint>
+      <fields>
+        <field name="CATEGORY">Resistor</field>
+        <field name="SUB-CATEGORY">Fixed</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:RESAD1176W63L850D250B</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="RAXIAL-11.7MM-PITCH_" description="Resistor Fixed - Generic"/>
+      <property name="CATEGORY" value="Resistor"/>
+      <property name="SUB-CATEGORY" value="Fixed"/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>47bd98cf-45b6-41be-b48d-965b67e3c3cd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2_10KΩ0">
+      <value>RAXIAL-11.7MM-PITCH_</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:RESAD1176W63L850D250B</footprint>
+      <fields>
+        <field name="CATEGORY">Resistor</field>
+        <field name="SUB-CATEGORY">Fixed</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:RESAD1176W63L850D250B</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="RAXIAL-11.7MM-PITCH_" description="Resistor Fixed - Generic"/>
+      <property name="CATEGORY" value="Resistor"/>
+      <property name="SUB-CATEGORY" value="Fixed"/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1966efec-e242-4736-af79-4dcd142fdb9d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$1">
+      <value>FEMALE_HEADERS_V1.3</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:FEMALE_HEADERS_V1.3</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:FEMALE_HEADERS_V1.3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="FEMALE_HEADERS_V1.3" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>53a36784-69f9-4cbd-889c-dd58656589d7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="TX4_17"/>
+            <pin num="RX4_16"/>
+            <pin num="3V3_1"/>
+            <pin num="GND_1"/>
+            <pin num="TX1_1"/>
+            <pin num="RX1_0"/>
+            <pin num="3V3_2"/>
+            <pin num="GND_2"/>
+            <pin num="RST"/>
+            <pin num="CS"/>
+            <pin num="MOSI"/>
+            <pin num="MISO"/>
+            <pin num="SCK"/>
+            <pin num="CRX1"/>
+            <pin num="GND_3"/>
+            <pin num="3V3_3"/>
+            <pin num="TX5_20"/>
+            <pin num="RX5_21"/>
+            <pin num="A15"/>
+            <pin num="A14"/>
+            <pin num="TX7_29"/>
+            <pin num="RX7_28"/>
+            <pin num="TX3_14"/>
+            <pin num="RX3_15"/>
+            <pin num="3V3_4"/>
+            <pin num="GND_4"/>
+            <pin num="TX6_24"/>
+            <pin num="RX6_25"/>
+            <pin num="3V3_5"/>
+            <pin num="GND_5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$2">
+      <value>TERMINAL_BLOCK_V1.3</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:TERMINAL_BLOCK_V1.3</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:TERMINAL_BLOCK_V1.3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="TERMINAL_BLOCK_V1.3" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f9a3f200-9ce7-4c06-a596-406945d527e5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="TX4_17"/>
+            <pin num="RX4_16"/>
+            <pin num="3V3_1"/>
+            <pin num="GND_1"/>
+            <pin num="TX1_1"/>
+            <pin num="RX1_0"/>
+            <pin num="3V3_2"/>
+            <pin num="GND_2"/>
+            <pin num="RST"/>
+            <pin num="CS"/>
+            <pin num="MOSI"/>
+            <pin num="MISO"/>
+            <pin num="SCK"/>
+            <pin num="CRX1"/>
+            <pin num="GND_3"/>
+            <pin num="3V3_3"/>
+            <pin num="TX5_20"/>
+            <pin num="RX5_21"/>
+            <pin num="A15"/>
+            <pin num="A14"/>
+            <pin num="TX7_29"/>
+            <pin num="RX7_28"/>
+            <pin num="TX3_14"/>
+            <pin num="RX3_15"/>
+            <pin num="3V3_4"/>
+            <pin num="GND_4"/>
+            <pin num="TX6_24"/>
+            <pin num="RX6_25"/>
+            <pin num="3V3_5"/>
+            <pin num="GND_5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$3">
+      <value>TEENSY41_SIMPLE</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:TEENSY41_SIMPLE</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:TEENSY41_SIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="TEENSY41_SIMPLE" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2c61c42c-55f5-4e22-bd32-ae700bae40d2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="GND3"/>
+            <pin num="0"/>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="3.3V_2"/>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="28"/>
+            <pin num="29"/>
+            <pin num="30"/>
+            <pin num="31"/>
+            <pin num="32"/>
+            <pin num="VIN"/>
+            <pin num="GND1"/>
+            <pin num="3.3V_1"/>
+            <pin num="23"/>
+            <pin num="22"/>
+            <pin num="21"/>
+            <pin num="20"/>
+            <pin num="19"/>
+            <pin num="18"/>
+            <pin num="17"/>
+            <pin num="16"/>
+            <pin num="15"/>
+            <pin num="14"/>
+            <pin num="13"/>
+            <pin num="GND2"/>
+            <pin num="41"/>
+            <pin num="40"/>
+            <pin num="39"/>
+            <pin num="38"/>
+            <pin num="37"/>
+            <pin num="36"/>
+            <pin num="35"/>
+            <pin num="34"/>
+            <pin num="33"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$4">
+      <value>PT8BLOCK</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:PTERODACTYL8BLOCK</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:PTERODACTYL8BLOCK</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="PT8BLOCK" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>244c4b00-730e-4bf4-ab52-e8efe9059ba3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3V3"/>
+            <pin num="A17"/>
+            <pin num="GND"/>
+            <pin num="POM3V7"/>
+            <pin num="GND1"/>
+            <pin num="5V"/>
+            <pin num="GND2"/>
+            <pin num="3V7"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$5">
+      <value>5VREG</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:5VREG</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:5VREG</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="5VREG" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>edbd4f37-a085-4c5c-abe9-7c06298be95d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="VIN"/>
+            <pin num="GND"/>
+            <pin num="VOUT"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$6">
+      <value>3V7SWITCH</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:3V7SWITCH</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:3V7SWITCH</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="3V7SWITCH" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e4824109-eeac-4122-948f-d64ff9c66b8b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="NO"/>
+            <pin num="VOUT"/>
+            <pin num="VIN"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$7">
+      <value>9VSWITCH</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:9VSWITCH</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:9VSWITCH</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="9VSWITCH" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cd036bb1-9741-4d23-908d-99090a660934</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="NO"/>
+            <pin num="VOUT"/>
+            <pin num="VIN"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$8">
+      <value>9VPLUG</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:9VPLUG</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:9VPLUG</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="9VPLUG" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6d756dee-c17f-4b8f-8f1a-bcf84d465bc0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="VIN"/>
+            <pin num="GND"/>
+            <pin num="N/A"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$9">
+      <value>OLED_SIMPLE</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:OLED_SIMPLE</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:OLED_SIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="OLED_SIMPLE" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bad12bce-3070-4cd2-8c6d-7db356f46f22</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="SCL"/>
+            <pin num="SDA"/>
+            <pin num="3V3"/>
+            <pin num="GND"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$10">
+      <value>LSM9DS1_SIMPLE</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:LSM9DS1_SIMPLE</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:LSM9DS1_SIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="LSM9DS1_SIMPLE" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b23da8bb-055f-4765-ad3a-5cf4741402ce</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="GND"/>
+            <pin num="3V"/>
+            <pin num="SDA"/>
+            <pin num="SCL"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$11">
+      <value>MS5611</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:MS5611</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:MS5611</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="MS5611" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8e7c353a-9738-4fb3-b329-eb20fd0b8b55</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="PS"/>
+            <pin num="SDO"/>
+            <pin num="CBS"/>
+            <pin num="SDA"/>
+            <pin num="SCL"/>
+            <pin num="GND"/>
+            <pin num="VCC"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$12">
+      <value>UBLOXM8NTERMINAL</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:UBLOXM8NTERMINAL</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:UBLOXM8NTERMINAL</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="UBLOXM8NTERMINAL" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d29a5415-0c76-49b4-80e5-22c75e875841</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="GND"/>
+            <pin num="SDA"/>
+            <pin num="SCL"/>
+            <pin num="TX"/>
+            <pin num="RX"/>
+            <pin num="VCC"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$13">
+      <value>UBLOXM8NSIMPLE</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:UBLOXM8NSIMPLE</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:UBLOXM8NSIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="UBLOXM8NSIMPLE" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d9be2d37-6c95-44da-afcb-6b3847b53f7b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="GND"/>
+            <pin num="SDA"/>
+            <pin num="SCL"/>
+            <pin num="TX"/>
+            <pin num="RX"/>
+            <pin num="VCC"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$14">
+      <value>XBEE_SIMPLE</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:XBEE_SIMPLE</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:XBEE_SIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="XBEE_SIMPLE" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0c0f2ae8-d14e-40fc-92b3-ff93c88d2b1a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="GND"/>
+            <pin num="5V"/>
+            <pin num="DOUT"/>
+            <pin num="DIN"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$15">
+      <value>UBLOXM9NSIMPLE</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:UBLOXM9NSIMPLE</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:UBLOXM9NSIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="UBLOXM9NSIMPLE" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a3eb9592-d292-469c-905c-7e30b9174e35</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="TX"/>
+            <pin num="RX"/>
+            <pin num="CS"/>
+            <pin num="3V3"/>
+            <pin num="5V"/>
+            <pin num="GND"/>
+            <pin num="SCL"/>
+            <pin num="SDA"/>
+            <pin num="3V1"/>
+            <pin num="GND1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$16">
+      <value>THERMISTOR10K1</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:THERMISTOR10K</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:THERMISTOR10K</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="THERMISTOR10K1" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>89710b73-489f-4e5b-900d-65548bf79d25</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="VIN"/>
+            <pin num="PIN"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$17">
+      <value>BNO055</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:BNO055</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:BNO055</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="BNO055" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d64496a5-1605-4cd1-86e6-5125ef29615f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3V3"/>
+            <pin num="GND"/>
+            <pin num="SCL"/>
+            <pin num="SDA"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$22">
+      <value>UBLOXM9N_NEW_SIMPLE</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:UBLOXM9N_NEW_SIMPLE</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:UBLOXM9N_NEW_SIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="UBLOXM9N_NEW_SIMPLE" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6222ba5e-3aec-4989-8833-23a81b833900</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="GND"/>
+            <pin num="TX"/>
+            <pin num="RX"/>
+            <pin num="VCC"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$23">
+      <value>SERVO</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:PIN6SERVO</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:PIN6SERVO</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="SERVO" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>afbf4026-e1d7-46c3-ac30-0d2e2d1f2e9a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="GND"/>
+            <pin num="VCC"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$24">
+      <value>PBF</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:PULLBEFOREFLIGHT</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:PULLBEFOREFLIGHT</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="PBF" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3bdb3247-700b-49ed-9253-acf85ae1357a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="VIN"/>
+            <pin num="VOUT"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$25">
+      <value>BUTTON</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:PIN31BUTTON</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:PIN31BUTTON</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="BUTTON" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6dbfe97a-eddb-4b23-82f6-ea7df69071d0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="31"/>
+            <pin num="GND"/>
+            <pin num="WHO"/>
+            <pin num="KNOWS"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$26">
+      <value>PIN30SWITCH</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:PIN30SWITCH</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:PIN30SWITCH</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="PIN30SWITCH" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5696c660-46f7-4398-abe1-5ec1efed1d75</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="NO"/>
+            <pin num="VOUT"/>
+            <pin num="VIN"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$27">
+      <value>SERVO22</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:PI22SERVO</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:PI22SERVO</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="SERVO22" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0c0b6442-6ecb-4d5a-89f0-192ad10eb300</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="GND"/>
+            <pin num="VCC"/>
+            <pin num="22"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$28">
+      <value>POWERBOOST</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:5VPOWERBOOST</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:5VPOWERBOOST</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="POWERBOOST" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ab1d9437-74d2-46cc-a977-f74132d5552f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="5V"/>
+            <pin num="GND_1"/>
+            <pin num="LB"/>
+            <pin num="EN"/>
+            <pin num="GND_2"/>
+            <pin num="3.7V"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U$29">
+      <value>MIKROE</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:MIKROE</footprint>
+      <fields>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:MIKROE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="MIKROE" description=""/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b4293ca7-22aa-4e1b-92ee-7aaa533d51fa</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="RDY"/>
+            <pin num="RTK"/>
+            <pin num="CS"/>
+            <pin num="SCK"/>
+            <pin num="SDO"/>
+            <pin num="SDI"/>
+            <pin num="NC"/>
+            <pin num="GND1"/>
+            <pin num="RST"/>
+            <pin num="TMP"/>
+            <pin num="TX"/>
+            <pin num="RX"/>
+            <pin num="SCL"/>
+            <pin num="SDA"/>
+            <pin num="5V"/>
+            <pin num="GND2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="VR_1KΩ0">
+      <value>RAXIAL-11.7MM-PITCH_</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:RESAD1176W63L850D250B</footprint>
+      <fields>
+        <field name="CATEGORY">Resistor</field>
+        <field name="SUB-CATEGORY">Fixed</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:RESAD1176W63L850D250B</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="RAXIAL-11.7MM-PITCH_" description="Resistor Fixed - Generic"/>
+      <property name="CATEGORY" value="Resistor"/>
+      <property name="SUB-CATEGORY" value="Fixed"/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>eb1a60c8-686f-448c-a3f2-a2bc317ee8fb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="VR_4.7KΩ0">
+      <value>RAXIAL-11.7MM-PITCH_</value>
+      <footprint>PTERODACTYL_v3.8_v11-import-fps:RESAD1176W63L850D250B</footprint>
+      <fields>
+        <field name="CATEGORY">Resistor</field>
+        <field name="SUB-CATEGORY">Fixed</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11-import-fps:RESAD1176W63L850D250B</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="PTERODACTYL_v3.8_v11-eagle-import" part="RAXIAL-11.7MM-PITCH_" description="Resistor Fixed - Generic"/>
+      <property name="CATEGORY" value="Resistor"/>
+      <property name="SUB-CATEGORY" value="Fixed"/>
+      <property name="Sheetname" value="PTERODACTYL_v3.8_v11_1"/>
+      <property name="Sheetfile" value="PTERODACTYL_v3.8_v11.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8742acd7-8bf8-4ba4-8f28-a68cb1de7f7b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="3V7SWITCH">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:3V7SWITCH</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="NO" name="NO" type="bidirectional"/>
+        <pin num="VIN" name="VIN" type="bidirectional"/>
+        <pin num="VOUT" name="VOUT" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="5VREG">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:5VREG</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="VIN" name="VIN" type="bidirectional"/>
+        <pin num="VOUT" name="VOUT" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="9VPLUG">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:9VPLUG</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="N/A" name="N/A" type="bidirectional"/>
+        <pin num="VIN" name="VIN" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="9VSWITCH">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:9VSWITCH</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="NO" name="NO" type="bidirectional"/>
+        <pin num="VIN" name="VIN" type="bidirectional"/>
+        <pin num="VOUT" name="VOUT" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="BNO055">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:BNO055</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3V3" name="3V3" type="bidirectional"/>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="SCL" name="SCL" type="bidirectional"/>
+        <pin num="SDA" name="SDA" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="BUTTON">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:PIN31BUTTON</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="31" name="31" type="bidirectional"/>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="KNOWS" name="KNOWS" type="bidirectional"/>
+        <pin num="WHO" name="WHO" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="FEMALE_HEADERS_V1.3">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:FEMALE_HEADERS_V1.3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3V3_1" name="3V3_1" type="bidirectional"/>
+        <pin num="3V3_2" name="3V3_2" type="bidirectional"/>
+        <pin num="3V3_3" name="3V3_3" type="bidirectional"/>
+        <pin num="3V3_4" name="3V3_4" type="bidirectional"/>
+        <pin num="3V3_5" name="3V3_5" type="bidirectional"/>
+        <pin num="A14" name="A14" type="bidirectional"/>
+        <pin num="A15" name="A15" type="bidirectional"/>
+        <pin num="CRX1" name="23" type="bidirectional"/>
+        <pin num="CS" name="10" type="bidirectional"/>
+        <pin num="GND_1" name="GND_1" type="bidirectional"/>
+        <pin num="GND_2" name="GND_2" type="bidirectional"/>
+        <pin num="GND_3" name="GND_3" type="bidirectional"/>
+        <pin num="GND_4" name="GND_4" type="bidirectional"/>
+        <pin num="GND_5" name="GND_5" type="bidirectional"/>
+        <pin num="MISO" name="12" type="bidirectional"/>
+        <pin num="MOSI" name="11" type="bidirectional"/>
+        <pin num="RST" name="9" type="bidirectional"/>
+        <pin num="RX1_0" name="RX1" type="bidirectional"/>
+        <pin num="RX3_15" name="RX3" type="bidirectional"/>
+        <pin num="RX4_16" name="RX4" type="bidirectional"/>
+        <pin num="RX5_21" name="RX5" type="bidirectional"/>
+        <pin num="RX6_25" name="RX6" type="bidirectional"/>
+        <pin num="RX7_28" name="RX7" type="bidirectional"/>
+        <pin num="SCK" name="13" type="bidirectional"/>
+        <pin num="TX1_1" name="TX1" type="bidirectional"/>
+        <pin num="TX3_14" name="TX3" type="bidirectional"/>
+        <pin num="TX4_17" name="TX4" type="bidirectional"/>
+        <pin num="TX5_20" name="TX5" type="bidirectional"/>
+        <pin num="TX6_24" name="TX6" type="bidirectional"/>
+        <pin num="TX7_29" name="TX7" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="LED_RADIALBLUE_">
+      <description>LED - Generic</description>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED_BLUE</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:LEDRD254W60D565H860B_B</field>
+        <field name="Datasheet"/>
+        <field name="Description">LED - Generic</field>
+        <field name="CATEGORY">Opto-Electronic</field>
+        <field name="SUB-CATEGORY">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="LED_RADIALRED_">
+      <description>LED - Generic</description>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED_RED</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:LEDRD254W60D565H860B</field>
+        <field name="Datasheet"/>
+        <field name="Description">LED - Generic</field>
+        <field name="CATEGORY">Opto-Electronic</field>
+        <field name="SUB-CATEGORY">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="LED_RADIALWHITE_">
+      <description>LED - Generic</description>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED_WHITE</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:LEDRD254W60D565H860B_W</field>
+        <field name="Datasheet"/>
+        <field name="Description">LED - Generic</field>
+        <field name="CATEGORY">Opto-Electronic</field>
+        <field name="SUB-CATEGORY">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="LED_RADIALYELLOW_">
+      <description>LED - Generic</description>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED_YELLOW</field>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:LEDRD254W60D565H860B_Y</field>
+        <field name="Datasheet"/>
+        <field name="Description">LED - Generic</field>
+        <field name="CATEGORY">Opto-Electronic</field>
+        <field name="SUB-CATEGORY">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="LSM9DS1_SIMPLE">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:LSM9DS1_SIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3V" name="3V" type="bidirectional"/>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="SCL" name="SCL" type="bidirectional"/>
+        <pin num="SDA" name="SDA" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="MIKROE">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:MIKROE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="5V" name="5V" type="bidirectional"/>
+        <pin num="CS" name="CS" type="bidirectional"/>
+        <pin num="GND1" name="GND1" type="bidirectional"/>
+        <pin num="GND2" name="GND2" type="bidirectional"/>
+        <pin num="NC" name="NC" type="bidirectional"/>
+        <pin num="RDY" name="RDY" type="bidirectional"/>
+        <pin num="RST" name="RST" type="bidirectional"/>
+        <pin num="RTK" name="RTK" type="bidirectional"/>
+        <pin num="RX" name="RX" type="bidirectional"/>
+        <pin num="SCK" name="SCK" type="bidirectional"/>
+        <pin num="SCL" name="SCL" type="bidirectional"/>
+        <pin num="SDA" name="SDA" type="bidirectional"/>
+        <pin num="SDI" name="SDI" type="bidirectional"/>
+        <pin num="SDO" name="SDO" type="bidirectional"/>
+        <pin num="TMP" name="TMP" type="bidirectional"/>
+        <pin num="TX" name="TX" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="MS5611">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:MS5611</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="CBS" name="CBS" type="bidirectional"/>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="PS" name="PS" type="bidirectional"/>
+        <pin num="SCL" name="SCL" type="bidirectional"/>
+        <pin num="SDA" name="SDA" type="bidirectional"/>
+        <pin num="SDO" name="SDO" type="bidirectional"/>
+        <pin num="VCC" name="VCC" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="OLED_SIMPLE">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:OLED_SIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3V3" name="3V3" type="bidirectional"/>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="SCL" name="SCL" type="bidirectional"/>
+        <pin num="SDA" name="SDA" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="PBF">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:PULLBEFOREFLIGHT</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="VIN" name="VIN" type="bidirectional"/>
+        <pin num="VOUT" name="VOUT" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="PIN30SWITCH">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:PIN30SWITCH</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="NO" name="NO" type="bidirectional"/>
+        <pin num="VIN" name="VIN" type="bidirectional"/>
+        <pin num="VOUT" name="VOUT" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="POWERBOOST">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:5VPOWERBOOST</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3.7V" name="3.7V" type="bidirectional"/>
+        <pin num="5V" name="5V" type="bidirectional"/>
+        <pin num="EN" name="EN" type="bidirectional"/>
+        <pin num="GND_1" name="GND_1" type="bidirectional"/>
+        <pin num="GND_2" name="GND_2" type="bidirectional"/>
+        <pin num="LB" name="LB" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="PT8BLOCK">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:PTERODACTYL8BLOCK</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3V3" name="3V3" type="bidirectional"/>
+        <pin num="3V7" name="3V7" type="bidirectional"/>
+        <pin num="5V" name="5V" type="bidirectional"/>
+        <pin num="A17" name="A17" type="bidirectional"/>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="GND1" name="GND1" type="bidirectional"/>
+        <pin num="GND2" name="GND2" type="bidirectional"/>
+        <pin num="POM3V7" name="POM3V7" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="RAXIAL-11.7MM-PITCH_">
+      <description>Resistor Fixed - Generic</description>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:RESAD1176W63L850D250B</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor Fixed - Generic</field>
+        <field name="SPICEMODEL"/>
+        <field name="CATEGORY">Resistor</field>
+        <field name="SPICEEXTRA"/>
+        <field name="SUB-CATEGORY">Fixed</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="SERVO">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:PIN6SERVO</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="6" name="6" type="bidirectional"/>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="VCC" name="VCC" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="SERVO22">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:PI22SERVO</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="22" name="22" type="bidirectional"/>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="VCC" name="VCC" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="TEENSY41_SIMPLE">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:TEENSY41_SIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="0" name="0" type="bidirectional"/>
+        <pin num="1" name="1" type="bidirectional"/>
+        <pin num="2" name="2" type="bidirectional"/>
+        <pin num="3" name="3" type="bidirectional"/>
+        <pin num="3.3V_1" name="3.3V1" type="bidirectional"/>
+        <pin num="3.3V_2" name="3.3V2" type="bidirectional"/>
+        <pin num="4" name="4" type="bidirectional"/>
+        <pin num="5" name="5" type="bidirectional"/>
+        <pin num="6" name="6" type="bidirectional"/>
+        <pin num="7" name="7" type="bidirectional"/>
+        <pin num="8" name="8" type="bidirectional"/>
+        <pin num="9" name="9" type="bidirectional"/>
+        <pin num="10" name="10" type="bidirectional"/>
+        <pin num="11" name="11" type="bidirectional"/>
+        <pin num="12" name="12" type="bidirectional"/>
+        <pin num="13" name="13" type="bidirectional"/>
+        <pin num="14" name="14" type="bidirectional"/>
+        <pin num="15" name="15" type="bidirectional"/>
+        <pin num="16" name="16" type="bidirectional"/>
+        <pin num="17" name="17" type="bidirectional"/>
+        <pin num="18" name="18" type="bidirectional"/>
+        <pin num="19" name="19" type="bidirectional"/>
+        <pin num="20" name="20" type="bidirectional"/>
+        <pin num="21" name="21" type="bidirectional"/>
+        <pin num="22" name="22" type="bidirectional"/>
+        <pin num="23" name="23" type="bidirectional"/>
+        <pin num="24" name="24" type="bidirectional"/>
+        <pin num="25" name="25" type="bidirectional"/>
+        <pin num="26" name="26" type="bidirectional"/>
+        <pin num="27" name="27" type="bidirectional"/>
+        <pin num="28" name="28" type="bidirectional"/>
+        <pin num="29" name="29" type="bidirectional"/>
+        <pin num="30" name="30" type="bidirectional"/>
+        <pin num="31" name="31" type="bidirectional"/>
+        <pin num="32" name="32" type="bidirectional"/>
+        <pin num="33" name="33" type="bidirectional"/>
+        <pin num="34" name="34" type="bidirectional"/>
+        <pin num="35" name="35" type="bidirectional"/>
+        <pin num="36" name="36" type="bidirectional"/>
+        <pin num="37" name="37" type="bidirectional"/>
+        <pin num="38" name="38" type="bidirectional"/>
+        <pin num="39" name="39" type="bidirectional"/>
+        <pin num="40" name="40" type="bidirectional"/>
+        <pin num="41" name="41" type="bidirectional"/>
+        <pin num="GND1" name="GND1" type="bidirectional"/>
+        <pin num="GND2" name="GND2" type="bidirectional"/>
+        <pin num="GND3" name="GND3" type="bidirectional"/>
+        <pin num="VIN" name="VIN" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="TERMINAL_BLOCK_V1.3">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:TERMINAL_BLOCK_V1.3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3V3_1" name="3V3_1" type="bidirectional"/>
+        <pin num="3V3_2" name="3V3_2" type="bidirectional"/>
+        <pin num="3V3_3" name="3V3_3" type="bidirectional"/>
+        <pin num="3V3_4" name="3V3_4" type="bidirectional"/>
+        <pin num="3V3_5" name="3V3_5" type="bidirectional"/>
+        <pin num="A14" name="A14" type="bidirectional"/>
+        <pin num="A15" name="A15" type="bidirectional"/>
+        <pin num="CRX1" name="23" type="bidirectional"/>
+        <pin num="CS" name="10" type="bidirectional"/>
+        <pin num="GND_1" name="GND_1" type="bidirectional"/>
+        <pin num="GND_2" name="GND_2" type="bidirectional"/>
+        <pin num="GND_3" name="GND_3" type="bidirectional"/>
+        <pin num="GND_4" name="GND_4" type="bidirectional"/>
+        <pin num="GND_5" name="GND_5" type="bidirectional"/>
+        <pin num="MISO" name="12" type="bidirectional"/>
+        <pin num="MOSI" name="11" type="bidirectional"/>
+        <pin num="RST" name="9" type="bidirectional"/>
+        <pin num="RX1_0" name="RX1" type="bidirectional"/>
+        <pin num="RX3_15" name="RX3" type="bidirectional"/>
+        <pin num="RX4_16" name="RX4" type="bidirectional"/>
+        <pin num="RX5_21" name="RX5" type="bidirectional"/>
+        <pin num="RX6_25" name="RX6" type="bidirectional"/>
+        <pin num="RX7_28" name="RX7" type="bidirectional"/>
+        <pin num="SCK" name="13" type="bidirectional"/>
+        <pin num="TX1_1" name="TX1" type="bidirectional"/>
+        <pin num="TX3_14" name="TX3" type="bidirectional"/>
+        <pin num="TX4_17" name="TX4" type="bidirectional"/>
+        <pin num="TX5_20" name="TX5" type="bidirectional"/>
+        <pin num="TX6_24" name="TX6" type="bidirectional"/>
+        <pin num="TX7_29" name="TX7" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="THERMISTOR10K1">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:THERMISTOR10K</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="PIN" name="PIN" type="bidirectional"/>
+        <pin num="VIN" name="VIN" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="UBLOXM8NSIMPLE">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:UBLOXM8NSIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="RX" name="RX" type="bidirectional"/>
+        <pin num="SCL" name="SCL" type="bidirectional"/>
+        <pin num="SDA" name="SDA" type="bidirectional"/>
+        <pin num="TX" name="TX" type="bidirectional"/>
+        <pin num="VCC" name="VCC" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="UBLOXM8NTERMINAL">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:UBLOXM8NTERMINAL</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="RX" name="RX" type="bidirectional"/>
+        <pin num="SCL" name="SCL" type="bidirectional"/>
+        <pin num="SDA" name="SDA" type="bidirectional"/>
+        <pin num="TX" name="TX" type="bidirectional"/>
+        <pin num="VCC" name="VCC" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="UBLOXM9NSIMPLE">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:UBLOXM9NSIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3V1" name="3V31" type="bidirectional"/>
+        <pin num="3V3" name="3V30" type="bidirectional"/>
+        <pin num="5V" name="5V" type="bidirectional"/>
+        <pin num="CS" name="CS" type="bidirectional"/>
+        <pin num="GND" name="GND0" type="bidirectional"/>
+        <pin num="GND1" name="GND1" type="bidirectional"/>
+        <pin num="RX" name="RX" type="bidirectional"/>
+        <pin num="SCL" name="SCL" type="bidirectional"/>
+        <pin num="SDA" name="SDA" type="bidirectional"/>
+        <pin num="TX" name="TX" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="UBLOXM9N_NEW_SIMPLE">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:UBLOXM9N_NEW_SIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="GND" name="GND" type="bidirectional"/>
+        <pin num="RX" name="RX" type="bidirectional"/>
+        <pin num="TX" name="TX" type="bidirectional"/>
+        <pin num="VCC" name="VCC" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PTERODACTYL_v3.8_v11-eagle-import" part="XBEE_SIMPLE">
+      <fields>
+        <field name="Reference"/>
+        <field name="Value"/>
+        <field name="Footprint">PTERODACTYL_v3.8_v11:XBEE_SIMPLE</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="5V" name="5V" type="bidirectional"/>
+        <pin num="DIN" name="DIN" type="bidirectional"/>
+        <pin num="DOUT" name="DOUT" type="bidirectional"/>
+        <pin num="GND" name="GND" type="bidirectional"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="PTERODACTYL_v3.8_v11-eagle-import">
+      <uri>${KIPRJMOD}/PTERODACTYL_v3.8_v11-eagle-import.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+5V" class="Default">
+      <node ref="U$28" pin="5V" pinfunction="5V_5V" pintype="bidirectional"/>
+      <node ref="U$4" pin="3V7" pinfunction="3V7_3V7" pintype="bidirectional"/>
+      <node ref="U$4" pin="5V" pinfunction="5V_5V" pintype="bidirectional"/>
+      <node ref="U$6" pin="VIN" pinfunction="VIN_VIN" pintype="bidirectional"/>
+    </net>
+    <net code="2" name="2" class="Default">
+      <node ref="D4" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="U$3" pin="2" pinfunction="2_2" pintype="bidirectional"/>
+    </net>
+    <net code="3" name="3" class="Default">
+      <node ref="D1" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="U$3" pin="3" pinfunction="3_3" pintype="bidirectional"/>
+    </net>
+    <net code="4" name="3V3" class="Default">
+      <node ref="U$1" pin="3V3_1" pinfunction="3V3_1_3V3_1" pintype="bidirectional"/>
+      <node ref="U$1" pin="3V3_2" pinfunction="3V3_2_3V3_2" pintype="bidirectional"/>
+      <node ref="U$1" pin="3V3_3" pinfunction="3V3_3_3V3_3" pintype="bidirectional"/>
+      <node ref="U$1" pin="3V3_4" pinfunction="3V3_4_3V3_4" pintype="bidirectional"/>
+      <node ref="U$1" pin="3V3_5" pinfunction="3V3_5_3V3_5" pintype="bidirectional"/>
+      <node ref="U$10" pin="3V" pinfunction="3V_3V" pintype="bidirectional"/>
+      <node ref="U$11" pin="VCC" pinfunction="VCC_VCC" pintype="bidirectional"/>
+      <node ref="U$12" pin="VCC" pinfunction="VCC_VCC" pintype="bidirectional"/>
+      <node ref="U$13" pin="VCC" pinfunction="VCC_VCC" pintype="bidirectional"/>
+      <node ref="U$14" pin="5V" pinfunction="5V_5V" pintype="bidirectional"/>
+      <node ref="U$15" pin="3V1" pinfunction="3V31_3V1" pintype="bidirectional"/>
+      <node ref="U$15" pin="3V3" pinfunction="3V30_3V3" pintype="bidirectional"/>
+      <node ref="U$17" pin="3V3" pinfunction="3V3_3V3" pintype="bidirectional"/>
+      <node ref="U$2" pin="3V3_1" pinfunction="3V3_1_3V3_1" pintype="bidirectional"/>
+      <node ref="U$2" pin="3V3_2" pinfunction="3V3_2_3V3_2" pintype="bidirectional"/>
+      <node ref="U$2" pin="3V3_3" pinfunction="3V3_3_3V3_3" pintype="bidirectional"/>
+      <node ref="U$2" pin="3V3_4" pinfunction="3V3_4_3V3_4" pintype="bidirectional"/>
+      <node ref="U$2" pin="3V3_5" pinfunction="3V3_5_3V3_5" pintype="bidirectional"/>
+      <node ref="U$22" pin="VCC" pinfunction="VCC_VCC" pintype="bidirectional"/>
+      <node ref="U$23" pin="VCC" pinfunction="VCC_VCC" pintype="bidirectional"/>
+      <node ref="U$27" pin="VCC" pinfunction="VCC_VCC" pintype="bidirectional"/>
+      <node ref="U$29" pin="5V" pinfunction="5V_5V" pintype="bidirectional"/>
+      <node ref="U$3" pin="3.3V_2" pinfunction="3.3V2_3.3V_2" pintype="bidirectional"/>
+      <node ref="U$9" pin="3V3" pinfunction="3V3_3V3" pintype="bidirectional"/>
+    </net>
+    <net code="5" name="3V7" class="Default">
+      <node ref="U$28" pin="3.7V" pinfunction="3.7V_3.7V" pintype="bidirectional"/>
+      <node ref="U$4" pin="POM3V7" pinfunction="POM3V7_POM3V7" pintype="bidirectional"/>
+    </net>
+    <net code="6" name="4" class="Default">
+      <node ref="D2" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="U$3" pin="4" pinfunction="4_4" pintype="bidirectional"/>
+    </net>
+    <net code="7" name="5" class="Default">
+      <node ref="D3" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="U$3" pin="5" pinfunction="5_5" pintype="bidirectional"/>
+    </net>
+    <net code="8" name="5V" class="Default">
+      <node ref="U$15" pin="5V" pinfunction="5V_5V" pintype="bidirectional"/>
+    </net>
+    <net code="9" name="6" class="Default">
+      <node ref="U$23" pin="6" pinfunction="6_6" pintype="bidirectional"/>
+      <node ref="U$3" pin="6" pinfunction="6_6" pintype="bidirectional"/>
+    </net>
+    <net code="10" name="9" class="Default">
+      <node ref="U$1" pin="RST" pinfunction="9_RST" pintype="bidirectional"/>
+      <node ref="U$2" pin="RST" pinfunction="9_RST" pintype="bidirectional"/>
+      <node ref="U$3" pin="9" pinfunction="9_9" pintype="bidirectional"/>
+    </net>
+    <net code="11" name="10" class="Default">
+      <node ref="U$1" pin="CS" pinfunction="10_CS" pintype="bidirectional"/>
+      <node ref="U$2" pin="CS" pinfunction="10_CS" pintype="bidirectional"/>
+      <node ref="U$3" pin="10" pinfunction="10_10" pintype="bidirectional"/>
+    </net>
+    <net code="12" name="11" class="Default">
+      <node ref="U$1" pin="MOSI" pinfunction="11_MOSI" pintype="bidirectional"/>
+      <node ref="U$2" pin="MOSI" pinfunction="11_MOSI" pintype="bidirectional"/>
+      <node ref="U$3" pin="11" pinfunction="11_11" pintype="bidirectional"/>
+    </net>
+    <net code="13" name="12" class="Default">
+      <node ref="U$1" pin="MISO" pinfunction="12_MISO" pintype="bidirectional"/>
+      <node ref="U$2" pin="MISO" pinfunction="12_MISO" pintype="bidirectional"/>
+      <node ref="U$3" pin="12" pinfunction="12_12" pintype="bidirectional"/>
+    </net>
+    <net code="14" name="13" class="Default">
+      <node ref="U$1" pin="SCK" pinfunction="13_SCK" pintype="bidirectional"/>
+      <node ref="U$2" pin="SCK" pinfunction="13_SCK" pintype="bidirectional"/>
+      <node ref="U$3" pin="13" pinfunction="13_13" pintype="bidirectional"/>
+    </net>
+    <net code="15" name="22" class="Default">
+      <node ref="U$27" pin="22" pinfunction="22_22" pintype="bidirectional"/>
+      <node ref="U$3" pin="22" pinfunction="22_22" pintype="bidirectional"/>
+    </net>
+    <net code="16" name="23" class="Default">
+      <node ref="U$1" pin="CRX1" pinfunction="23_CRX1" pintype="bidirectional"/>
+      <node ref="U$2" pin="CRX1" pinfunction="23_CRX1" pintype="bidirectional"/>
+      <node ref="U$3" pin="23" pinfunction="23_23" pintype="bidirectional"/>
+    </net>
+    <net code="17" name="26" class="Default">
+      <node ref="U$3" pin="26" pinfunction="26_26" pintype="bidirectional"/>
+      <node ref="VR_1KΩ0" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="VR_4.7KΩ0" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="18" name="30" class="Default">
+      <node ref="U$26" pin="VIN" pinfunction="VIN_VIN" pintype="bidirectional"/>
+      <node ref="U$3" pin="30" pinfunction="30_30" pintype="bidirectional"/>
+    </net>
+    <net code="19" name="31" class="Default">
+      <node ref="U$25" pin="31" pinfunction="31_31" pintype="bidirectional"/>
+      <node ref="U$3" pin="31" pinfunction="31_31" pintype="bidirectional"/>
+    </net>
+    <net code="20" name="32" class="Default">
+      <node ref="U$24" pin="VIN" pinfunction="VIN_VIN" pintype="bidirectional"/>
+      <node ref="U$3" pin="32" pinfunction="32_32" pintype="bidirectional"/>
+    </net>
+    <net code="21" name="34" class="Default">
+      <node ref="U$14" pin="DOUT" pinfunction="DOUT_DOUT" pintype="bidirectional"/>
+      <node ref="U$3" pin="34" pinfunction="34_34" pintype="bidirectional"/>
+    </net>
+    <net code="22" name="35" class="Default">
+      <node ref="U$14" pin="DIN" pinfunction="DIN_DIN" pintype="bidirectional"/>
+      <node ref="U$3" pin="35" pinfunction="35_35" pintype="bidirectional"/>
+    </net>
+    <net code="23" name="A3V3" class="Default">
+      <node ref="U$16" pin="VIN" pinfunction="VIN_VIN" pintype="bidirectional"/>
+      <node ref="U$3" pin="3.3V_1" pinfunction="3.3V1_3.3V_1" pintype="bidirectional"/>
+      <node ref="U$4" pin="3V3" pinfunction="3V3_3V3" pintype="bidirectional"/>
+    </net>
+    <net code="24" name="A14" class="Default">
+      <node ref="U$1" pin="A14" pinfunction="A14_A14" pintype="bidirectional"/>
+      <node ref="U$2" pin="A14" pinfunction="A14_A14" pintype="bidirectional"/>
+      <node ref="U$3" pin="38" pinfunction="38_38" pintype="bidirectional"/>
+    </net>
+    <net code="25" name="A15" class="Default">
+      <node ref="U$1" pin="A15" pinfunction="A15_A15" pintype="bidirectional"/>
+      <node ref="U$2" pin="A15" pinfunction="A15_A15" pintype="bidirectional"/>
+      <node ref="U$3" pin="39" pinfunction="39_39" pintype="bidirectional"/>
+    </net>
+    <net code="26" name="A16" class="Default">
+      <node ref="R1_10KΩ0" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U$16" pin="PIN" pinfunction="PIN_PIN" pintype="bidirectional"/>
+      <node ref="U$3" pin="40" pinfunction="40_40" pintype="bidirectional"/>
+    </net>
+    <net code="27" name="A17" class="Default">
+      <node ref="R2_10KΩ0" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U$3" pin="41" pinfunction="41_41" pintype="bidirectional"/>
+      <node ref="U$4" pin="A17" pinfunction="A17_A17" pintype="bidirectional"/>
+    </net>
+    <net code="28" name="AGND" class="Default">
+      <node ref="R1_10KΩ0" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R2_10KΩ0" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U$3" pin="GND1" pinfunction="GND1_GND1" pintype="bidirectional"/>
+      <node ref="VR_1KΩ0" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="29" name="GND" class="Default">
+      <node ref="D1" pin="2" pinfunction="C_2" pintype="passive"/>
+      <node ref="D2" pin="2" pinfunction="C_2" pintype="passive"/>
+      <node ref="D3" pin="2" pinfunction="C_2" pintype="passive"/>
+      <node ref="D4" pin="2" pinfunction="C_2" pintype="passive"/>
+      <node ref="U$1" pin="GND_1" pinfunction="GND_1_GND_1" pintype="bidirectional"/>
+      <node ref="U$1" pin="GND_2" pinfunction="GND_2_GND_2" pintype="bidirectional"/>
+      <node ref="U$1" pin="GND_3" pinfunction="GND_3_GND_3" pintype="bidirectional"/>
+      <node ref="U$1" pin="GND_4" pinfunction="GND_4_GND_4" pintype="bidirectional"/>
+      <node ref="U$1" pin="GND_5" pinfunction="GND_5_GND_5" pintype="bidirectional"/>
+      <node ref="U$10" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$11" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$12" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$13" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$14" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$15" pin="GND" pinfunction="GND0_GND" pintype="bidirectional"/>
+      <node ref="U$15" pin="GND1" pinfunction="GND1_GND1" pintype="bidirectional"/>
+      <node ref="U$17" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$2" pin="GND_1" pinfunction="GND_1_GND_1" pintype="bidirectional"/>
+      <node ref="U$2" pin="GND_2" pinfunction="GND_2_GND_2" pintype="bidirectional"/>
+      <node ref="U$2" pin="GND_3" pinfunction="GND_3_GND_3" pintype="bidirectional"/>
+      <node ref="U$2" pin="GND_4" pinfunction="GND_4_GND_4" pintype="bidirectional"/>
+      <node ref="U$2" pin="GND_5" pinfunction="GND_5_GND_5" pintype="bidirectional"/>
+      <node ref="U$22" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$23" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$24" pin="VOUT" pinfunction="VOUT_VOUT" pintype="bidirectional"/>
+      <node ref="U$25" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$26" pin="VOUT" pinfunction="VOUT_VOUT" pintype="bidirectional"/>
+      <node ref="U$27" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$28" pin="GND_1" pinfunction="GND_1_GND_1" pintype="bidirectional"/>
+      <node ref="U$28" pin="GND_2" pinfunction="GND_2_GND_2" pintype="bidirectional"/>
+      <node ref="U$29" pin="GND2" pinfunction="GND2_GND2" pintype="bidirectional"/>
+      <node ref="U$3" pin="GND2" pinfunction="GND2_GND2" pintype="bidirectional"/>
+      <node ref="U$4" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$4" pin="GND1" pinfunction="GND1_GND1" pintype="bidirectional"/>
+      <node ref="U$4" pin="GND2" pinfunction="GND2_GND2" pintype="bidirectional"/>
+      <node ref="U$5" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$8" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+      <node ref="U$9" pin="GND" pinfunction="GND_GND" pintype="bidirectional"/>
+    </net>
+    <net code="30" name="GND_1" class="Default">
+      <node ref="U$3" pin="GND3" pinfunction="GND3_GND3" pintype="bidirectional"/>
+    </net>
+    <net code="31" name="Net-(U$5-PadVIN)" class="Default">
+      <node ref="U$5" pin="VIN" pinfunction="VIN_VIN" pintype="bidirectional"/>
+      <node ref="U$7" pin="VOUT" pinfunction="VOUT_VOUT" pintype="bidirectional"/>
+    </net>
+    <net code="32" name="Net-(U$7-PadVIN)" class="Default">
+      <node ref="U$7" pin="VIN" pinfunction="VIN_VIN" pintype="bidirectional"/>
+      <node ref="U$8" pin="VIN" pinfunction="VIN_VIN" pintype="bidirectional"/>
+    </net>
+    <net code="33" name="RX1" class="Default">
+      <node ref="U$1" pin="RX1_0" pinfunction="RX1_RX1_0" pintype="bidirectional"/>
+      <node ref="U$2" pin="RX1_0" pinfunction="RX1_RX1_0" pintype="bidirectional"/>
+      <node ref="U$3" pin="0" pinfunction="0_0" pintype="bidirectional"/>
+    </net>
+    <net code="34" name="RX2" class="Default">
+      <node ref="U$12" pin="TX" pinfunction="TX_TX" pintype="bidirectional"/>
+      <node ref="U$13" pin="TX" pinfunction="TX_TX" pintype="bidirectional"/>
+      <node ref="U$15" pin="TX" pinfunction="TX_TX" pintype="bidirectional"/>
+      <node ref="U$22" pin="TX" pinfunction="TX_TX" pintype="bidirectional"/>
+      <node ref="U$29" pin="TX" pinfunction="TX_TX" pintype="bidirectional"/>
+      <node ref="U$3" pin="7" pinfunction="7_7" pintype="bidirectional"/>
+    </net>
+    <net code="35" name="RX3" class="Default">
+      <node ref="U$1" pin="RX3_15" pinfunction="RX3_RX3_15" pintype="bidirectional"/>
+      <node ref="U$2" pin="RX3_15" pinfunction="RX3_RX3_15" pintype="bidirectional"/>
+      <node ref="U$3" pin="15" pinfunction="15_15" pintype="bidirectional"/>
+    </net>
+    <net code="36" name="RX4" class="Default">
+      <node ref="U$1" pin="RX4_16" pinfunction="RX4_RX4_16" pintype="bidirectional"/>
+      <node ref="U$15" pin="SCL" pinfunction="SCL_SCL" pintype="bidirectional"/>
+      <node ref="U$2" pin="RX4_16" pinfunction="RX4_RX4_16" pintype="bidirectional"/>
+      <node ref="U$29" pin="SCL" pinfunction="SCL_SCL" pintype="bidirectional"/>
+      <node ref="U$3" pin="16" pinfunction="16_16" pintype="bidirectional"/>
+    </net>
+    <net code="37" name="RX5" class="Default">
+      <node ref="U$1" pin="RX5_21" pinfunction="RX5_RX5_21" pintype="bidirectional"/>
+      <node ref="U$2" pin="RX5_21" pinfunction="RX5_RX5_21" pintype="bidirectional"/>
+      <node ref="U$3" pin="21" pinfunction="21_21" pintype="bidirectional"/>
+    </net>
+    <net code="38" name="RX6" class="Default">
+      <node ref="U$1" pin="RX6_25" pinfunction="RX6_RX6_25" pintype="bidirectional"/>
+      <node ref="U$2" pin="RX6_25" pinfunction="RX6_RX6_25" pintype="bidirectional"/>
+      <node ref="U$3" pin="25" pinfunction="25_25" pintype="bidirectional"/>
+    </net>
+    <net code="39" name="RX7" class="Default">
+      <node ref="U$1" pin="RX7_28" pinfunction="RX7_RX7_28" pintype="bidirectional"/>
+      <node ref="U$2" pin="RX7_28" pinfunction="RX7_RX7_28" pintype="bidirectional"/>
+      <node ref="U$3" pin="28" pinfunction="28_28" pintype="bidirectional"/>
+    </net>
+    <net code="40" name="SCL" class="Default">
+      <node ref="U$10" pin="SCL" pinfunction="SCL_SCL" pintype="bidirectional"/>
+      <node ref="U$11" pin="SCL" pinfunction="SCL_SCL" pintype="bidirectional"/>
+      <node ref="U$17" pin="SCL" pinfunction="SCL_SCL" pintype="bidirectional"/>
+      <node ref="U$3" pin="19" pinfunction="19_19" pintype="bidirectional"/>
+      <node ref="U$9" pin="SCL" pinfunction="SCL_SCL" pintype="bidirectional"/>
+    </net>
+    <net code="41" name="SDA" class="Default">
+      <node ref="U$10" pin="SDA" pinfunction="SDA_SDA" pintype="bidirectional"/>
+      <node ref="U$11" pin="SDA" pinfunction="SDA_SDA" pintype="bidirectional"/>
+      <node ref="U$17" pin="SDA" pinfunction="SDA_SDA" pintype="bidirectional"/>
+      <node ref="U$3" pin="18" pinfunction="18_18" pintype="bidirectional"/>
+      <node ref="U$9" pin="SDA" pinfunction="SDA_SDA" pintype="bidirectional"/>
+    </net>
+    <net code="42" name="TX1" class="Default">
+      <node ref="U$1" pin="TX1_1" pinfunction="TX1_TX1_1" pintype="bidirectional"/>
+      <node ref="U$2" pin="TX1_1" pinfunction="TX1_TX1_1" pintype="bidirectional"/>
+      <node ref="U$3" pin="1" pinfunction="1_1" pintype="bidirectional"/>
+    </net>
+    <net code="43" name="TX2" class="Default">
+      <node ref="U$12" pin="RX" pinfunction="RX_RX" pintype="bidirectional"/>
+      <node ref="U$13" pin="RX" pinfunction="RX_RX" pintype="bidirectional"/>
+      <node ref="U$15" pin="RX" pinfunction="RX_RX" pintype="bidirectional"/>
+      <node ref="U$22" pin="RX" pinfunction="RX_RX" pintype="bidirectional"/>
+      <node ref="U$29" pin="RX" pinfunction="RX_RX" pintype="bidirectional"/>
+      <node ref="U$3" pin="8" pinfunction="8_8" pintype="bidirectional"/>
+    </net>
+    <net code="44" name="TX3" class="Default">
+      <node ref="U$1" pin="TX3_14" pinfunction="TX3_TX3_14" pintype="bidirectional"/>
+      <node ref="U$2" pin="TX3_14" pinfunction="TX3_TX3_14" pintype="bidirectional"/>
+      <node ref="U$3" pin="14" pinfunction="14_14" pintype="bidirectional"/>
+    </net>
+    <net code="45" name="TX4" class="Default">
+      <node ref="U$1" pin="TX4_17" pinfunction="TX4_TX4_17" pintype="bidirectional"/>
+      <node ref="U$15" pin="SDA" pinfunction="SDA_SDA" pintype="bidirectional"/>
+      <node ref="U$2" pin="TX4_17" pinfunction="TX4_TX4_17" pintype="bidirectional"/>
+      <node ref="U$29" pin="SDA" pinfunction="SDA_SDA" pintype="bidirectional"/>
+      <node ref="U$3" pin="17" pinfunction="17_17" pintype="bidirectional"/>
+    </net>
+    <net code="46" name="TX5" class="Default">
+      <node ref="U$1" pin="TX5_20" pinfunction="TX5_TX5_20" pintype="bidirectional"/>
+      <node ref="U$2" pin="TX5_20" pinfunction="TX5_TX5_20" pintype="bidirectional"/>
+      <node ref="U$3" pin="20" pinfunction="20_20" pintype="bidirectional"/>
+    </net>
+    <net code="47" name="TX6" class="Default">
+      <node ref="U$1" pin="TX6_24" pinfunction="TX6_TX6_24" pintype="bidirectional"/>
+      <node ref="U$2" pin="TX6_24" pinfunction="TX6_TX6_24" pintype="bidirectional"/>
+      <node ref="U$3" pin="24" pinfunction="24_24" pintype="bidirectional"/>
+    </net>
+    <net code="48" name="TX7" class="Default">
+      <node ref="U$1" pin="TX7_29" pinfunction="TX7_TX7_29" pintype="bidirectional"/>
+      <node ref="U$2" pin="TX7_29" pinfunction="TX7_TX7_29" pintype="bidirectional"/>
+      <node ref="U$3" pin="29" pinfunction="29_29" pintype="bidirectional"/>
+    </net>
+    <net code="49" name="VCC" class="Default">
+      <node ref="U$3" pin="VIN" pinfunction="VIN_VIN" pintype="bidirectional"/>
+      <node ref="U$5" pin="VOUT" pinfunction="VOUT_VOUT" pintype="bidirectional"/>
+      <node ref="U$6" pin="VOUT" pinfunction="VOUT_VOUT" pintype="bidirectional"/>
+      <node ref="VR_4.7KΩ0" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="50" name="unconnected-(U$3-Pad27)" class="Default">
+      <node ref="U$3" pin="27" pinfunction="27_27" pintype="bidirectional"/>
+    </net>
+    <net code="51" name="unconnected-(U$3-Pad33)" class="Default">
+      <node ref="U$3" pin="33" pinfunction="33_33" pintype="bidirectional"/>
+    </net>
+    <net code="52" name="unconnected-(U$3-Pad36)" class="Default">
+      <node ref="U$3" pin="36" pinfunction="36_36" pintype="bidirectional"/>
+    </net>
+    <net code="53" name="unconnected-(U$3-Pad37)" class="Default">
+      <node ref="U$3" pin="37" pinfunction="37_37" pintype="bidirectional"/>
+    </net>
+    <net code="54" name="unconnected-(U$6-PadNO)" class="Default">
+      <node ref="U$6" pin="NO" pinfunction="NO_NO" pintype="bidirectional"/>
+    </net>
+    <net code="55" name="unconnected-(U$7-PadNO)" class="Default">
+      <node ref="U$7" pin="NO" pinfunction="NO_NO" pintype="bidirectional"/>
+    </net>
+    <net code="56" name="unconnected-(U$8-PadN/A)" class="Default">
+      <node ref="U$8" pin="N/A" pinfunction="N/A_N/A" pintype="bidirectional"/>
+    </net>
+    <net code="57" name="unconnected-(U$11-PadCBS)" class="Default">
+      <node ref="U$11" pin="CBS" pinfunction="CBS_CBS" pintype="bidirectional"/>
+    </net>
+    <net code="58" name="unconnected-(U$11-PadPS)" class="Default">
+      <node ref="U$11" pin="PS" pinfunction="PS_PS" pintype="bidirectional"/>
+    </net>
+    <net code="59" name="unconnected-(U$11-PadSDO)" class="Default">
+      <node ref="U$11" pin="SDO" pinfunction="SDO_SDO" pintype="bidirectional"/>
+    </net>
+    <net code="60" name="unconnected-(U$12-PadSCL)" class="Default">
+      <node ref="U$12" pin="SCL" pinfunction="SCL_SCL" pintype="bidirectional"/>
+    </net>
+    <net code="61" name="unconnected-(U$12-PadSDA)" class="Default">
+      <node ref="U$12" pin="SDA" pinfunction="SDA_SDA" pintype="bidirectional"/>
+    </net>
+    <net code="62" name="unconnected-(U$13-PadSCL)" class="Default">
+      <node ref="U$13" pin="SCL" pinfunction="SCL_SCL" pintype="bidirectional"/>
+    </net>
+    <net code="63" name="unconnected-(U$13-PadSDA)" class="Default">
+      <node ref="U$13" pin="SDA" pinfunction="SDA_SDA" pintype="bidirectional"/>
+    </net>
+    <net code="64" name="unconnected-(U$15-PadCS)" class="Default">
+      <node ref="U$15" pin="CS" pinfunction="CS_CS" pintype="bidirectional"/>
+    </net>
+    <net code="65" name="unconnected-(U$25-PadKNOWS)" class="Default">
+      <node ref="U$25" pin="KNOWS" pinfunction="KNOWS_KNOWS" pintype="bidirectional"/>
+    </net>
+    <net code="66" name="unconnected-(U$25-PadWHO)" class="Default">
+      <node ref="U$25" pin="WHO" pinfunction="WHO_WHO" pintype="bidirectional"/>
+    </net>
+    <net code="67" name="unconnected-(U$26-PadNO)" class="Default">
+      <node ref="U$26" pin="NO" pinfunction="NO_NO" pintype="bidirectional"/>
+    </net>
+    <net code="68" name="unconnected-(U$28-PadEN)" class="Default">
+      <node ref="U$28" pin="EN" pinfunction="EN_EN" pintype="bidirectional"/>
+    </net>
+    <net code="69" name="unconnected-(U$28-PadLB)" class="Default">
+      <node ref="U$28" pin="LB" pinfunction="LB_LB" pintype="bidirectional"/>
+    </net>
+    <net code="70" name="unconnected-(U$29-PadCS)" class="Default">
+      <node ref="U$29" pin="CS" pinfunction="CS_CS" pintype="bidirectional"/>
+    </net>
+    <net code="71" name="unconnected-(U$29-PadGND1)" class="Default">
+      <node ref="U$29" pin="GND1" pinfunction="GND1_GND1" pintype="bidirectional"/>
+    </net>
+    <net code="72" name="unconnected-(U$29-PadNC)" class="Default">
+      <node ref="U$29" pin="NC" pinfunction="NC_NC" pintype="bidirectional"/>
+    </net>
+    <net code="73" name="unconnected-(U$29-PadRDY)" class="Default">
+      <node ref="U$29" pin="RDY" pinfunction="RDY_RDY" pintype="bidirectional"/>
+    </net>
+    <net code="74" name="unconnected-(U$29-PadRST)" class="Default">
+      <node ref="U$29" pin="RST" pinfunction="RST_RST" pintype="bidirectional"/>
+    </net>
+    <net code="75" name="unconnected-(U$29-PadRTK)" class="Default">
+      <node ref="U$29" pin="RTK" pinfunction="RTK_RTK" pintype="bidirectional"/>
+    </net>
+    <net code="76" name="unconnected-(U$29-PadSCK)" class="Default">
+      <node ref="U$29" pin="SCK" pinfunction="SCK_SCK" pintype="bidirectional"/>
+    </net>
+    <net code="77" name="unconnected-(U$29-PadSDI)" class="Default">
+      <node ref="U$29" pin="SDI" pinfunction="SDI_SDI" pintype="bidirectional"/>
+    </net>
+    <net code="78" name="unconnected-(U$29-PadSDO)" class="Default">
+      <node ref="U$29" pin="SDO" pinfunction="SDO_SDO" pintype="bidirectional"/>
+    </net>
+    <net code="79" name="unconnected-(U$29-PadTMP)" class="Default">
+      <node ref="U$29" pin="TMP" pinfunction="TMP_TMP" pintype="bidirectional"/>
+    </net>
+  </nets>
+</export>

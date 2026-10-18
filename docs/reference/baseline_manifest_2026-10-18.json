@@ -1,0 +1,57 @@
+{
+  "workbook_sha256": "a1b6621eb42996d12243888c779e335cfa9c791b8e812494c6bf3cf8ef243fd8",
+  "cost_usd": 141.35,
+  "mass_g": 31.0,
+  "power_w": 0.6782,
+  "energy_wh": 2.0346,
+  "pcb_footprints": 39,
+  "footprint_library_files": 33,
+  "tracks": 417,
+  "vias": 0,
+  "zones": 2,
+  "missing_pcb_library_footprints": [],
+  "saved_drc_errors": 11,
+  "saved_drc_warnings": 428,
+  "saved_drc_types": {
+    "clearance": 11,
+    "silk_edge_clearance": 7,
+    "lib_footprint_mismatch": 12,
+    "text_thickness": 134,
+    "text_height": 134,
+    "silk_overlap": 104,
+    "silk_over_copper": 37
+  },
+  "firmware_archives": {
+    "PTERODACTYL_v19.zip": {
+      "crc_error": null,
+      "main_sketches": [
+        "PTERODACTYL_v19/examples/PTERODACTYL_v3_8_19/PTERODACTYL_v3_8_19.ino",
+        "__MACOSX/PTERODACTYL_v19/examples/PTERODACTYL_v3_8_19/._PTERODACTYL_v3_8_19.ino",
+        "PTERODACTYL_v19/examples/PTERODACTYL_v3_8_19/XBee.ino",
+        "PTERODACTYL_v19/examples/PTERODACTYL_v3_8_19/GPS.ino",
+        "__MACOSX/PTERODACTYL_v19/examples/PTERODACTYL_v3_8_19/._GPS.ino",
+        "PTERODACTYL_v19/examples/PTERODACTYL_v3.6.13_OLD_GPS/PTERODACTYL_v3.6.13_OLD_GPS.ino",
+        "__MACOSX/PTERODACTYL_v19/examples/PTERODACTYL_v3.6.13_OLD_GPS/._PTERODACTYL_v3.6.13_OLD_GPS.ino",
+        "PTERODACTYL_v19/examples/PTERODACTYL_v3.6.13_OLD_GPS/XBee.ino"
+      ]
+    },
+    "PTERODACTYL_v19_1.zip": {
+      "crc_error": null,
+      "main_sketches": [
+        "PTERODACTYL_v19_1/__MACOSX/PTERODACTYL_v19/examples/PTERODACTYL_v3.6.13_OLD_GPS/._PTERODACTYL_v3.6.13_OLD_GPS.ino",
+        "PTERODACTYL_v19_1/__MACOSX/PTERODACTYL_v19/examples/PTERODACTYL_v3_8_19/._GPS.ino",
+        "PTERODACTYL_v19_1/__MACOSX/PTERODACTYL_v19/examples/PTERODACTYL_v3_8_19/._PTERODACTYL_v3_8_19.ino",
+        "PTERODACTYL_v19_1/PTERODACTYL_v19_1/examples/PTERODACTYL_v3.6.13_OLD_GPS/PTERODACTYL_v3.6.13_OLD_GPS.ino",
+        "PTERODACTYL_v19_1/PTERODACTYL_v19_1/examples/PTERODACTYL_v3.6.13_OLD_GPS/XBee.ino",
+        "PTERODACTYL_v19_1/PTERODACTYL_v19_1/examples/PTERODACTYL_v3_8_19_1/GPS.ino",
+        "PTERODACTYL_v19_1/PTERODACTYL_v19_1/examples/PTERODACTYL_v3_8_19_1/PTERODACTYL_v3_8_19_1.ino",
+        "PTERODACTYL_v19_1/PTERODACTYL_v19_1/examples/PTERODACTYL_v3_8_19_1/XBee.ino"
+      ]
+    }
+  },
+  "file_sha256": {
+    "PTERODACTYL_v3.8_v11.kicad_pro": "d4949373e1059bb2e066c4ec25216ec2bf1b9204647da8bf08136299cfbf3056",
+    "PTERODACTYL_v3.8_v11.kicad_sch": "e86f61e4551a0b19fc0c37df61eb4a8e914259a76811860356d987903ef11c35",
+    "PTERODACTYL_v3.8_v11.kicad_pcb": "9047de3483b5518ddfde2072b32a75ff9b0be2efe9ae0608e56bff1abb4c5bc3"
+  }
+}

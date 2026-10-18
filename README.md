@@ -2,6 +2,10 @@
 
 Working files for the UMD near-space PTERODACTYL sensor-board redesign. The current board is an imported **v3.8 v11 baseline**, not a completed next-launch design or a fabrication release.
 
+## Team handoff and planning
+
+Start with [docs/README.md](docs/README.md) for the shared planning directory, then [current status and resume steps](docs/CURRENT_STATUS.md). The directory includes requirements, the development plan, session notes, the supplied parts workbook and native KiCad validation evidence so teammates can continue without the previous chat.
+
 ## Open the design
 
 Use KiCad 10 to open `Native_KiCad_v11/PTERODACTYL_v3.8_v11.kicad_pro`. The project contains a native KiCad schematic, PCB, imported symbol and footprint libraries, and project-local library tables. These files were converted from the supplied Autodesk Fusion/Eagle source; component choices and connectivity still need engineering review.
@@ -18,13 +22,13 @@ Use KiCad 10 to open `Native_KiCad_v11/PTERODACTYL_v3.8_v11.kicad_pro`. The proj
 
 ## Current state
 
-The imported PCB has approximately 97.79 × 97.79 mm outer dimensions, four copper layers, 39 footprints, 417 tracks, and two refilled copper zones. It uses a Teensy 4.1 baseline. The saved PCB DRC reported **11 errors, 428 warnings, and 0 unconnected items**. Schematic ERC and schematic/PCB parity have not been verified. The native schematic file is present, but its symbols, pin mapping, and connectivity require review against the original source.
+The imported PCB has approximately 97.79 × 97.79 mm outer dimensions, four copper layers, 39 footprints, 417 tracks, and two refilled copper zones. It uses a Teensy 4.1 baseline. A fresh KiCad 10.0.7 audit on October 18, 2026 reproduced **11 PCB DRC errors, 428 warnings, and 0 unconnected items**. Schematic ERC reported **33 errors and 10 warnings**, with **52 additional schematic/PCB parity warnings**. These findings remain unresolved. See the [validation report](docs/validation/2026-10-18/VALIDATION_SUMMARY.md) for triage and check limitations, and the [development plan](docs/DEVELOPMENT_PLAN.md) for next steps. The symbols, pin mapping, power architecture and exact module footprints still require engineering review.
 
 The supplied Gerbers say v3.8 **v12** while the editable Fusion source says v3.8 **v11**; the Gerber job metadata also contains a v3.7 identifier. Reconcile those revisions before using any prior files for fabrication.
 
 ## Next-launch work
 
-The intended board should log gyroscope, accelerometer, GPS, pressure, temperature, and derived altitude data. Keep Teensy 4.1 for now. Live telemetry, final sensors, battery, environmental requirements, and the local PCB manufacturer's design rules remain undecided. See `CUSTOM_BOARD_BRIEF.md`.
+The intended board should log gyroscope, accelerometer, orientation, GPS, pressure, humidity, temperature, and derived altitude data. The working selection is Teensy 4.1 with Adafruit BNO055 2472, MS8607 4716 and PA1616D GPS 5440. The lead has specified no telemetry: record onboard to microSD for analysis after recovery. Component placement must address interference. Other optional legacy features, battery, environmental requirements, and the local PCB manufacturer's design rules remain undecided. See `CUSTOM_BOARD_BRIEF.md` and the [version-one requirements draft](docs/V1_REQUIREMENTS.md), which distinguishes the selected baseline from proposed behavior and open decisions.
 
 Before fabrication: agree on the requirements and reference revision; review the schematic and all footprints against component datasheets; check power, pin mapping, routing, and board dimensions; resolve DRC/ERC failures; generate fresh Gerbers and drill files from the approved KiCad board; inspect them in a Gerber viewer; and obtain a hardware review and prototype test.
 
