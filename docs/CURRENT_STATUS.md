@@ -4,13 +4,20 @@ Updated October 18, 2026. Working branch: `saadat-dev`.
 
 ## Where we stopped
 
-**Step 1 is complete. Step 2 is drafted with open decisions. Step 3 has not started in detail.**
+**Step 1 is complete. Step 2 core scope is confirmed. Step 3 has a documented connection map and two checked draft carrier footprints; mechanical approval remains incomplete.**
 
-The editable hardware remains the imported v3.8 v11 baseline. This session changed documentation and added reference/check evidence only. No schematic, PCB, footprint, symbol or firmware design change has been implemented. The newly selected MS8607 and PA1616D are therefore not yet incorporated into the hardware or firmware.
+See [SENSOR_CONNECTION_MAP.md](SENSOR_CONNECTION_MAP.md) for the working interfaces and [FOOTPRINT_REVIEW.md](FOOTPRINT_REVIEW.md) for the new BNO055 #2472 and MS8607 #4716 carrier footprints. The project-local `Pterodactyl_Modules` library is registered, but no footprint has been assigned to the main schematic/PCB. Source-coordinate checks passed for all 15 electrical pads and eight mounting centers; an isolated fixture DRC found zero violations. Those checks do not prove physical fit or circuit correctness.
+
+Exact GPS #5440 geometry remains unverified: the published board file still names PA6H and its last file-specific change was in 2017. Browser access to PJRC's dimension drawing was denied, leaving the full Teensy drawing comparison open. Parts have not been purchased; continue to use the exact spreadsheet products. Mounting hardware, socket height and physical fit remain open.
+
+Saadat selected the core logger with power control, status LEDs and supply monitoring on October 18. Measurement types were reaffirmed. Battery and flight/runtime details are unknown to him; he is primarily designing the PCB. Keep these inputs assigned to the lead/team rather than repeatedly requesting the measurement list. The requirements review and D01-D10 register record the remaining dependencies.
+
+The main schematic and PCB remain the imported v3.8 v11 baseline. New library footprint assets and registration were added alongside documentation, generators and check evidence. No main schematic/PCB, imported footprint, symbol or firmware changes have been implemented. New modules are not yet incorporated into the circuit.
 
 ## Established direction
 
 - Retain Teensy 4.1 with built-in microSD logging.
+- Include power control, status LEDs and supply monitoring. Exclude OLED, remote temperature probes, alternative IMU, heater and servo functions from the selected core scope; exact power/stop controls and pull-before-flight role remain open.
 - Use the supplied parts list as the working selection: Adafruit BNO055 2472, MS8607 4716 and PA1616D GPS 5440.
 - **No telemetry.** The lead's reply, supplied by Saadat, calls for recording onboard and analyzing after recovery. Plan to remove XBee/radio-only hardware and transmit/receive/relay code during implementation. GPS reception remains required.
 - Explicitly review spacing and interference, including magnetic effects, GPS placement, power/ground noise, thermal effects and final-enclosure fit. Validate simultaneous operation on the prototype.
@@ -21,9 +28,9 @@ The editable hardware remains the imported v3.8 v11 baseline. This session chang
 - 10 Hz motion/orientation/magnetic logging, 1 Hz environment/GPS/health logging.
 - Automatic standalone startup, independent sampling schedules, structured logs and explicit invalid/stale status.
 - Four-hour bench endurance run. The workbook's three-hour duration is a budget assumption, not an accepted mission duration.
-- Core prototype with power switching, status indicators and supply monitoring; OLED, remote thermistors, servos, heater and launch controls still need scope decisions.
+- Exact power architecture, indicator behavior, supply-monitoring circuit and launch/stop workflow remain to be designed.
 
-See [V1_REQUIREMENTS.md](V1_REQUIREMENTS.md) for acceptance proposals and D01-D10 decisions. Only D05 (no telemetry) is resolved in that register. Do not treat unanswered questions as approval to remove other optional features.
+See [V1_REQUIREMENTS.md](V1_REQUIREMENTS.md) for acceptance proposals and D01-D10 decisions. D01 (core feature package) and D05 (no telemetry) are resolved. D03 has confirmed measurement types but open performance targets; D10 has excluded heater/actuators but open control workflow. Feature selection is not approval of a specific circuit or proof of flight suitability.
 
 ## Known validation results
 
@@ -49,10 +56,10 @@ The physical DRC reproduced the October 7 categories/counts. Parity triage found
 ## Next concrete actions
 
 1. Check Git status and branch before editing. Work on `saadat-dev` and preserve any teammate changes. Fetch and inspect remote changes before integrating them.
-2. Read the requirements decision register. Obtain feature scope, battery/input details, mission duration, measurement expectations, enclosure and manufacturer when available. These inputs need not delay core module documentation research.
-3. Start Step 3: create `docs/SENSOR_CONNECTION_MAP.md`. For each module pin, record physical pin/header position, voltage, signal direction, Teensy connection, bus address/settings, pull-up behavior and whether it is intentionally unused. Cite official schematics/datasheets and record the exact board revision.
-4. Treat existing Teensy I2C pins 18/19 and GPS Serial2 pins 7 RX/8 TX as **candidates from the old design**, not an approved new pin map. Verify them and GPS TX-to-Teensy-RX wiring before reuse. Review existing A3V3/3V3 and AGND/GND/GND_1 distinctions before changing power nets.
-5. Obtain manufacturer mechanical files for all selected breakouts. Verify header spacing, holes, outline, height, connector access and antenna placement. Do not reuse an old footprint merely because it has a matching sensor name.
+2. Use the confirmed core scope. Track battery/input details, mission duration, quantitative measurement targets, enclosure and manufacturer with the lead/team when available. These inputs need not delay core module documentation research, but must be resolved before their stated design gates.
+3. Finish Step 3 mechanical verification: obtain exact PA1616D #5440 geometry and complete the Teensy drawing comparison when access is available. Do not bypass the denied browser access or approve the legacy PA6H geometry as #5440. Select mounting hardware/height and review the two existing draft footprints using FOOTPRINT_REVIEW.md. Physical fit requires purchased modules or appropriate dimensioned evidence.
+4. Use the documented working map: Teensy I2C 18 SDA / 19 SCL, GPS TX to Teensy 7 RX2, GPS RX to Teensy 8 TX2. Pins are supported by PJRC and agree with legacy net membership. Verify module-level behavior on the bench; review A3V3/3V3 and AGND/GND/GND_1 before power-net edits.
+5. Use non-QT BNO055 #2472 geometry, not the imported BNO055 footprint. BNO055 and MS8607 are proposed to receive 3.3 V through VIN, with 3Vo left separate. Verify socket/fastener height, module envelopes, USB/microSD access, sensor exposure and GPS antenna space before placement approval. Battery-dependent rail generation remains Step 5 work.
 6. Carry the ERC/DRC/parity findings into schematic/layout cleanup after the feature and power choices are sufficiently defined. Avoid blanket no-connect markers, automatic footprint replacement, or reduced clearance rules merely to suppress findings.
 7. During firmware adaptation, replace MS5611 acquisition and u-blox assumptions, add humidity, remove telemetry code, and address the legacy GPS-dependent update timing and interactive startup waits. Configure a reproducible Teensy build before claiming compilation success.
 

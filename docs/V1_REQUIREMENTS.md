@@ -1,6 +1,6 @@
 # Version-one requirements — Step 2
 
-Prepared October 18, 2026. Status: working draft. Saadat supplied the lead's clarification: no telemetry; record onboard and analyze after landing. Other optional-feature and mission inputs remain open. No hardware population decisions below have been implemented.
+Prepared October 18, 2026. Status: core feature scope confirmed by Saadat; detailed performance and mission requirements remain open. No telemetry; record onboard and analyze after landing. No hardware population decisions below have been implemented.
 
 ## Purpose and status meanings
 
@@ -11,6 +11,10 @@ Build a balloon payload carrier PCB that uses Teensy 4.1 and the selected sensor
 - **Open:** missing mission or mechanical information; resolve by the stated milestone.
 
 The carrier approach is the working interpretation of the breakout products. Module mounting style and exact board revisions are still to be verified. This document defines proposed behavior and acceptance work; it does not claim the hardware or firmware already provides it.
+
+Step 3 clarification: Saadat confirmed the modules have not been purchased and directed use of the spreadsheet's exact product numbers. BNO055 #2472 therefore means the non-QT board; do not substitute a QT footprint. See [the module map](SENSOR_CONNECTION_MAP.md) for verified interfaces and outstanding mechanical checks.
+
+On October 18, Saadat selected the core logger with power control, status LEDs and supply monitoring. He reaffirmed gyroscope, acceleration, GPS, pressure, temperature and altitude measurements from the lead's direction. Humidity remains included through the supplied MS8607 selection; orientation/magnetic diagnostics remain in the working logging plan. Measurement types are established; numerical ranges, accuracy and sampling targets are not yet approved. Saadat is primarily designing the PCB and does not currently know the battery or flight duration. Those inputs remain assigned to the lead/team and do not block Step 3 interface research.
 
 ## Team clarification supplied by Saadat
 
@@ -24,23 +28,23 @@ For version one, exclude the XBee radio, telemetry-specific connectors and radio
 | --- | --- | --- | --- |
 | Processor and microSD | U$3, Teensy 4.1 | Retain Teensy and built-in microSD; record onboard for analysis after recovery. | Baseline; lead clarification |
 | Motion and orientation | U$17 BNO055 | Use Adafruit product 2472; verify purchased PCB revision and footprint. Record calibration/validity with measurements. | Baseline |
-| Alternative IMU | U$10 LSM9DS1 | Remove from the proposed populated design after feature scope is settled. Preserve original reference files. | Proposed; BNO055 is selected |
+| Alternative IMU | U$10 LSM9DS1 | Exclude from the core design; BNO055 is selected. Preserve original reference files. | Core scope confirmed by Saadat |
 | Pressure, humidity and temperature | U$11 MS5611 | Replace with Adafruit MS8607 product 4716 and add humidity logging. | Baseline |
 | GPS position and time | U$12/U$13/U$15/U$22/U$29 alternatives | Replace populated GPS alternatives with Adafruit PA1616D product 5440. Retain NMEA fields actually available from this receiver. | Baseline |
-| Power entry and switching | U$5/U$6/U$7/U$8/U$28 | Choose one battery/input architecture after voltage range is known; provide on/off control and reviewed USB/external-power behavior. | Function proposed; circuit open |
-| Status indicators | D1-D4 | Provide distinct indications for logging, degraded sensors and storage failure; exact LED count/pins to be selected. | Proposed |
-| Supply monitoring | Pin 26 and existing divider | Retain a voltage measurement if compatible with the selected source. Recalculate the divider and protection for maximum input voltage; do not reuse values blindly. | Proposed |
-| OLED | U$9 | Optional; core logging must start and operate without a display. | Awaiting feature-package choice |
-| External/internal thermistors | U$16 and firmware pins 40/41 | Optional connectors for measurements away from board electronics. MS8607 temperature is a local sensor reading, not an assumed battery or external-air temperature. | Awaiting feature-package choice and measurement locations |
+| Power entry and switching | U$5/U$6/U$7/U$8/U$28 | Choose one battery/input architecture after voltage range is known; provide on/off control and reviewed USB/external-power behavior. | Function confirmed; circuit open |
+| Status indicators | D1-D4 | Include status LEDs. Proposed indications distinguish logging, degraded sensors and storage failure; exact LED count/pins and patterns to be selected. | Function confirmed; indication scheme proposed |
+| Supply monitoring | Pin 26 and existing divider | Include supply-voltage monitoring. Recalculate the divider and protection for maximum input voltage; do not reuse values blindly. | Function confirmed; monitored rail and circuit open |
+| OLED | U$9 | Exclude from the selected core package. | Core scope confirmed by Saadat |
+| External/internal thermistors | U$16 and firmware pins 40/41 | Exclude remote probes from the selected core package. MS8607 temperature is a local sensor reading, not an assumed battery or external-air temperature. Revisit scope only if the required measurement location needs a remote probe. | Core scope confirmed; measurement location open |
 | Telemetry | U$14 XBee, firmware pins 34/35 | Exclude from version one: remove radio-only circuitry and transmit/receive/relay code during implementation. Review shared signals before removal; pins become available only after mapping. | Resolved: no telemetry, per lead clarification supplied by Saadat |
 | General button and switch | U$25/U$26, firmware pins 31/30 | A user control may mark events or request a clean logging stop. Avoid mandatory startup interaction in the proposed flight mode. | Proposed; workflow to agree |
 | Pull-before-flight | U$24 | Keep decision open until its actual intended power/arming role is traced and the team confirms the launch workflow. Logging should not depend on an inferred launch event. | Open before schematic freeze |
-| Servo outputs | U$23/U$27 | Omit from the proposed core prototype unless the team needs an actuator. Do not assign an actuation purpose or retain automatic command behavior without requirements. | Awaiting feature-package choice |
-| Heater control | Firmware pins 28/29, thermistor pin 20 | Disabled in proposed first prototype; keep decision open until thermal design and power budget justify a heater. | Proposed; thermal requirement open |
-| General breakout/terminal connectors | U$1/U$2/U$4 | Retain only interfaces needed by the selected feature set; identify every signal and power pin. | Open after feature choice |
+| Servo outputs | U$23/U$27 | Exclude from the selected core package; no actuation behavior required. | Core scope confirmed by Saadat |
+| Heater control | Firmware pins 28/29, thermistor pin 20 | Exclude from the selected core package. If later thermal requirements require heating, explicitly revise scope and power budget. | Core scope confirmed; thermal suitability unverified |
+| General breakout/terminal connectors | U$1/U$2/U$4 | Retain only interfaces needed by the selected core package; identify every signal and power pin. | Scope set; interface mapping pending |
 | Mounting and orientation markings | U$18-U$21 holes, U$30/U$32 graphics | Retain mounting intent and visible axes; verify coordinates, fasteners and enclosure fit before layout approval. | Baseline intent, dimensions open |
 
-Recommended initial package: the four selected modules, microSD, power control, status indication and supply monitoring. Telemetry is excluded. OLED and remote temperature probes remain options if the team needs them. No existing connector or component has been removed during this requirements step.
+Selected package: the four selected modules, microSD, power control, status LEDs and supply monitoring. Telemetry, the alternative IMU, OLED, remote temperature probes, servos and heater are outside this version-one core scope. Exact power/stop controls and any pull-before-flight role remain open. No existing connector or component has been removed during this requirements step.
 
 ## Proposed measurement and logging behavior
 
@@ -56,7 +60,7 @@ These are prototype starting targets, not final science requirements or sensor m
 | MS8607 temperature | 1 Hz | °C at the sensor location; do not label as ambient or battery temperature without placement validation. |
 | GPS | Configure 1 Hz solutions initially; record each complete selected solution | Latitude/longitude in decimal degrees, altitude in m with its datum documented, UTC date/time when valid, fix quality, satellites and available quality indicators. Preserve source time and receive time. |
 | Derived pressure altitude | 1 Hz, only from valid pressure | m; store the model/version and reference pressure, and distinguish standard-pressure or launch-relative altitude from GPS altitude. |
-| Supply voltage and system health | 1 Hz if voltage measurement is fitted | V, per-device status, communication errors, dropped-record count, buffer high-water mark and SD-write failures. |
+| Supply voltage and system health | 1 Hz proposed | V, per-device status, communication errors, dropped-record count, buffer high-water mark and SD-write failures. |
 
 The legacy sketch initializes a 100 ms data delay, but GPS initialization changes that delay. The proposed design uses separate schedules so a GPS setting or missing fix does not change IMU sampling or block environmental logging. Ten hertz is a starting rate for general motion tracking; vibration/shock characterization may need substantially different sampling and filtering, which must be specified before claiming that capability.
 
@@ -89,16 +93,16 @@ No battery endurance, accuracy, temperature capability or interference performan
 
 | ID | Decision / current state | Owner | Required by | Work that can proceed now |
 | --- | --- | --- | --- | --- |
-| D01 | Core package versus OLED/thermistors versus all original functions: user question pending. | Saadat/team | Before deleting optional circuitry or freezing connector/pin allocation (Steps 3-5) | Verify the four selected modules. |
+| D01 | Resolved October 18: Saadat selected core logger with power control, status LEDs and supply monitoring. OLED, remote probes, alternate IMU, servos and heater excluded from core scope. | Saadat, direct reply | Apply during Steps 3-7 | Map selected interfaces and review shared circuitry before implementation. |
 | D02 | Battery chemistry, cell count, capacity, maximum/minimum voltage, connector and USB use: unknown. | Team; design calculations by Codex | Before power schematic (Step 5) | Inventory loads and verify module supplies. |
-| D03 | Science purpose, required bandwidth/rates, ranges and accuracy: unknown; rates above proposed. | Lead/team | Before final sensor configuration, firmware performance acceptance and design sign-off | Prepare configurable logging architecture and datasheet comparison. |
+| D03 | Measurement types reaffirmed October 18: gyro, acceleration, GPS, pressure, temperature and altitude; humidity retained from workbook selection. Quantitative ranges, accuracy and rates remain open; rates above proposed. | Lead/team | Before final sensor configuration, firmware performance acceptance and design sign-off | Prepare configurable logging architecture and datasheet comparison without requesting the measurement list again. |
 | D04 | Flight plus prelaunch/recovery powered duration and reserve: unknown; workbook assumes three hours. | Lead/team | Before battery sizing and endurance acceptance | Use the explicitly provisional four-hour bench scenario. |
 | D05 | Resolved: no telemetry. Local microSD recording and analysis after recovery. | Lead, clarification supplied by Saadat | Apply during Steps 3-7 | Remove radio-only requirements from pin, power, layout and firmware plans; retain GPS reception. |
 | D06 | Enclosure, mount dimensions, weight limit, module retention and remote temperature locations: unknown. | Team | Before placement/layout approval (Step 7); earlier for connector choices | Verify module mechanical drawings. |
 | D07 | Expected external/internal temperatures, pressure/altitude profile and sensor exposure: unknown. | Lead/team | Before environmental acceptance and final hardware sign-off | Continue with selected sensors; document specific conflicts only if found. |
 | D08 | Manufacturer, stackup, board thickness, quantities, assembly responsibility and total budget: unknown. | Team/manufacturer | Rules before layout sign-off; commercial details before order | Keep design portable; do not assume historical Gerbers define the release. |
 | D09 | Acceptable data loss after abrupt power removal and whether a clean-stop control is required: unknown. | Lead/team | Before storage strategy and power design freeze (Steps 5-6) | Define fault logging and measure actual SD behavior. |
-| D10 | Launch/arming workflow and any heater/actuator requirement: unknown. | Lead/team | Before enabling outputs or freezing associated circuitry | Trace the original circuits; leave actions disabled in proposals. |
+| D10 | Heater and actuators excluded by selected core scope. Launch/power/stop workflow and pull-before-flight role remain open. | Lead/team | Before power/control circuitry freeze (Steps 5-6) | Trace original control circuits; do not carry legacy actuation behavior into the logger. |
 
 Unknowns remain explicit. A proposed default is not a team-approved flight requirement. Resolve decisions at their dependency milestone rather than blocking unrelated module research.
 
@@ -111,4 +115,44 @@ Unknowns remain explicit. A proposed default is not a team-approved flight requi
 
 ## Step 2 completion state
 
-Feature inventory, proposed behavior, acceptance checks and decision deadlines are documented. Telemetry is resolved and the lead's interference/spacing requirement is explicit. The remaining feature, mission, power and mechanical requirements are provisional pending team answers. Step 3 research on the selected core modules can proceed without making those unresolved decisions.
+Feature inventory, proposed behavior, acceptance checks and decision deadlines are documented. Core scope and no telemetry are resolved; the lead's interference/spacing requirement is explicit. Step 2 is ready to support Step 3 interface work. Full requirements freeze remains open for mission, power, mechanical and quantitative performance inputs from the team.
+
+## Step 2 working review — October 18 continuation
+
+Saadat requested continuing Step 2 after the handoff was published. The immediate task is to settle product scope and mission needs. The questions below collect missing requirements; none of the suggested answers becomes approved through silence.
+
+### Decisions to address first
+
+1. **Feature package (D01/D10):** core package selected by Saadat. Power/stop controls and any pull-before-flight role still need definition. The selection does not approve a particular power circuit.
+2. **Power and runtime (D02/D04):** unknown to Saadat, who is primarily designing the PCB. Lead/team to supply battery and runtime information by the decision-register milestones. Continue module supply/load research without assuming a battery voltage or treating the workbook's three hours as a flight requirement.
+3. **Measurement purpose (D03/D07):** measurement types have been supplied. The table below concerns remaining numerical performance and placement needs for the lead/team; it is not a request to repeat the sensor list or choose new sensors.
+
+| Measurement | Information needed from the team | Consequence for the design |
+| --- | --- | --- |
+| Acceleration and rotation | General payload motion, or vibration/shock analysis? Expected range and fastest event of interest? | Sets sampling/filtering requirements and determines whether the proposed 10 Hz logs meet the objective. |
+| Orientation and magnetic field | Relative attitude changes or absolute heading? Required error and mounting-axis definition? | Sets calibration procedure and allowable magnetic interference during combined operation. |
+| Position and altitude | Track reconstruction, peak altitude, or both? Required position/altitude error and time resolution? | Sets GPS logging expectations and how pressure-derived altitude is compared with GPS altitude. |
+| Pressure, humidity and temperature | Measure air inside the enclosure, outside air, or a specific component? Expected conditions and acceptable error? | Sets exposure, probe needs, thermal placement and reference-test conditions. |
+| Timing | Is correlation with another payload or event required, and to what precision? | Sets synchronization and timestamp acceptance requirements. |
+
+### Information to collect before the later design gates
+
+Keep D06-D10 in the decision register until answered: enclosure/mounting and weight allowance; operating environment; manufacturer and build budget; tolerated power-loss data loss and stop procedure; launch/arming and any actuation needs. These have different deadlines and do not all prevent interface research.
+
+An unsent brief for the team/lead, if Saadat chooses to share it:
+
+> We have selected the core logger: Teensy 4.1, BNO055, MS8607, PA1616D, microSD, power control, status LEDs and supply monitoring, with no telemetry. The measurement list is recorded. To finalize the PCB and test requirements, please share battery/input details, total powered duration and reserve, measurement ranges/accuracy/timing targets, intended temperature measurement location, enclosure/mounting limits, operating conditions, manufacturing/budget constraints and the power/recording-stop workflow when available.
+
+### Completion checklist
+
+- [x] Selected modules, local recording and no telemetry recorded with their source.
+- [x] Legacy features inventoried; proposed logging behavior and verification methods documented.
+- [x] Interference review and simultaneous-operation testing required.
+- [x] Open decisions assigned an owner and a design milestone.
+- [x] Saadat selected the core feature package; heater/actuators are outside scope (D01 and part of D10).
+- [ ] Team has defined launch/power/stop workflow and any pull-before-flight role (remaining D10).
+- [ ] Team has accepted measurement goals and initial logging targets, or explicitly assigned unresolved targets to a later milestone (D03).
+- [ ] Power/runtime inputs and mechanical/environmental constraints are recorded as confirmed values or explicitly deferred decisions with owners (D02/D04/D06/D07).
+- [ ] Manufacturing and data-retention constraints have an agreed resolution milestone (D08/D09).
+
+The documentation deliverable for Step 2 exists. Requirements freeze remains open. Record each answer in the existing decision register with its source/date, update affected requirements, and keep deferred decisions visible at their downstream gates. A completed planning checklist does not establish tested hardware performance.

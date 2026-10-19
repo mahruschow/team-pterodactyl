@@ -9,6 +9,8 @@ Start here when joining the project or resuming work. This directory contains th
 3. [Development plan](DEVELOPMENT_PLAN.md) — the ten steps from imported baseline to tested hardware.
 4. [October 18 session notes](sessions/2026-10-18.md) — work completed, decisions and limitations.
 5. [Baseline review](BASELINE_REVIEW.md) and [native validation summary](validation/2026-10-18/VALIDATION_SUMMARY.md) — evidence behind the current issue list.
+6. [Module connection and mechanical review](SENSOR_CONNECTION_MAP.md) — Step 3 pin map, power/pull-up review, footprint mismatch and remaining verification gates.
+7. [Carrier footprint review](FOOTPRINT_REVIEW.md) — two native draft footprints, pad numbering, assembly assumptions and test evidence.
 
 ## Directory contents
 
@@ -18,18 +20,25 @@ docs/
   CURRENT_STATUS.md             Current handoff and next actions
   DEVELOPMENT_PLAN.md            Milestones and completion criteria
   V1_REQUIREMENTS.md             Requirements and decision register
+  SENSOR_CONNECTION_MAP.md       Step 3 interfaces and mechanical review
+  FOOTPRINT_REVIEW.md            Draft carrier library and approval gates
   BASELINE_REVIEW.md             Repository/source/tool inventory
   sessions/
     2026-10-18.md                Session record
   reference/
     Budgets_2026-10-18.xlsx       Unchanged supplied parts workbook
     baseline_manifest_2026-10-18.json
+    step3-source-manifest.json   Manufacturer CAD commits, URLs and hashes
+    step3-cad-geometry.json      Extracted header/outline/hole coordinates
+    step3-carrier-pad-map.csv    Carrier-to-manufacturer pad mapping
+    step3-gps-cad-history.json   GPS CAD age/revision evidence
   validation/2026-10-18/
     VALIDATION_SUMMARY.md        Findings, triage and commands
     baseline-erc.json            Native schematic check report
     baseline-drc.json            Native PCB and parity check report
     schematic-netlist.xml        Native KiCad-exported netlist
     net-comparison.json         PCB/schematic pad-membership comparison
+    step3-footprints/           Native coordinate check, fixture, DRC and SVGs
 ```
 
 ## Keeping this handoff useful

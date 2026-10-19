@@ -12,7 +12,7 @@ Build a custom Teensy 4.1 balloon flight board that records gyro, acceleration, 
 | Motion | BNO055 and LSM9DS1 footprints | Use the selected BNO055 breakout; verify ranges, interfaces, axes and footprint |
 | Position and time | Several alternative u-blox GPS footprints on shared UART nets | Use the selected PA1616D breakout; verify mounting and antenna setup |
 | Pressure, humidity and local temperature | MS5611 pressure sensor | Replace with selected MS8607; log measured quantities and separately derived pressure altitude |
-| Remote temperature | 10 kΩ thermistor | Optional; define whether external-air or battery temperature measurements are needed |
+| Remote temperature | 10 kΩ thermistor | Excluded from selected core scope; MS8607 provides local temperature. Revisit only if the team requires a remote measurement location |
 | Radio | XBee footprint | Exclude radio-only hardware and firmware from version one; telemetry is not required |
 | Power | 3.7 V and 9 V options, boost/regulator | Review battery choice and cold-temperature performance |
 
@@ -22,8 +22,8 @@ The Montana State [NEBP engineering lesson](https://eclipse.montana.edu/educatio
 
 - Required measurement rates, ranges, and accuracy. Initial prototype rate proposals and acceptance checks are in the version-one requirements draft.
 - Expected maximum altitude, flight duration, and minimum temperature.
-- Telemetry is resolved: none. OLED, remote temperature probes, heater, controls and servo requirements remain open.
-- Which components from the existing board should be retained, removed, or replaced.
+- Core scope is resolved: selected modules, microSD, power control, status LEDs and supply monitoring. Exclude telemetry, alternative IMU, OLED, remote probes, heater and servos. Exact power/stop controls and pull-before-flight role remain open.
+- Map shared circuitry before implementing removals and replacements; see the requirements feature table.
 - Battery and enclosure details; no new size or weight limit has been specified.
 - Name and design rules of the local PCB manufacturer.
 

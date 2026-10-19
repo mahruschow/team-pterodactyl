@@ -1,0 +1,83 @@
+{
+  "review_date": "2026-10-18",
+  "files": [
+    {
+      "repository": "Adafruit-BNO055-Breakout-PCB",
+      "commit": "64c5a387aa807edb01eff440d1cd07ce4b608642",
+      "file": "Adafruit BNO055 STEMMA QT.brd",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-BNO055-Breakout-PCB/64c5a387aa807edb01eff440d1cd07ce4b608642/Adafruit%20BNO055%20STEMMA%20QT.brd",
+      "sha256": "f3beeaba3b9b8b36b72486bb36e5402a7707927164a0961747fd45bdb1ec0404"
+    },
+    {
+      "repository": "Adafruit-BNO055-Breakout-PCB",
+      "commit": "64c5a387aa807edb01eff440d1cd07ce4b608642",
+      "file": "Adafruit BNO055 STEMMA QT.sch",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-BNO055-Breakout-PCB/64c5a387aa807edb01eff440d1cd07ce4b608642/Adafruit%20BNO055%20STEMMA%20QT.sch",
+      "sha256": "656dfc3fe09ee88c0e04bc03816494d07e971745dccd528c87cda2c7ce25e71c"
+    },
+    {
+      "repository": "Adafruit-BNO055-Breakout-PCB",
+      "commit": "64c5a387aa807edb01eff440d1cd07ce4b608642",
+      "file": "Adafruit BNO055.brd",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-BNO055-Breakout-PCB/64c5a387aa807edb01eff440d1cd07ce4b608642/Adafruit%20BNO055.brd",
+      "sha256": "52ad6a1b1521c4b4de9cc72a8d316cc08c6cd63a64ed77e590fc846be0e076ba"
+    },
+    {
+      "repository": "Adafruit-BNO055-Breakout-PCB",
+      "commit": "64c5a387aa807edb01eff440d1cd07ce4b608642",
+      "file": "Adafruit BNO055.sch",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-BNO055-Breakout-PCB/64c5a387aa807edb01eff440d1cd07ce4b608642/Adafruit%20BNO055.sch",
+      "sha256": "8cd9131adb78c1a137b493672f08d3adcb1f0bfd5d062b327bec11c270560a9b"
+    },
+    {
+      "repository": "Adafruit-BNO055-Breakout-PCB",
+      "commit": "64c5a387aa807edb01eff440d1cd07ce4b608642",
+      "file": "license.txt",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-BNO055-Breakout-PCB/64c5a387aa807edb01eff440d1cd07ce4b608642/license.txt",
+      "sha256": "1f63e1f4676a433423b2c2ff1ccd9e80093f341f10b81f0ac0106342bc7bbe89"
+    },
+    {
+      "repository": "Adafruit-MS8607-PCB",
+      "commit": "56dfd5af979fb63cff98ebcfe2170644b4439430",
+      "file": "Adafruit MS8607.brd",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-MS8607-PCB/56dfd5af979fb63cff98ebcfe2170644b4439430/Adafruit%20MS8607.brd",
+      "sha256": "b934e2e1cc743b48e1141385f11722f6b817003f227f7512b7b2d94a8aa9cab1"
+    },
+    {
+      "repository": "Adafruit-MS8607-PCB",
+      "commit": "56dfd5af979fb63cff98ebcfe2170644b4439430",
+      "file": "Adafruit MS8607.sch",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-MS8607-PCB/56dfd5af979fb63cff98ebcfe2170644b4439430/Adafruit%20MS8607.sch",
+      "sha256": "73fced3369bb8f68b0e37c4b0dacaae50501aaf82dee526c833ac1b0d247dcd6"
+    },
+    {
+      "repository": "Adafruit-MS8607-PCB",
+      "commit": "56dfd5af979fb63cff98ebcfe2170644b4439430",
+      "file": "license.txt",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-MS8607-PCB/56dfd5af979fb63cff98ebcfe2170644b4439430/license.txt",
+      "sha256": "075dad5e5fc96c27014fabc269f4f5732909cffd178a486f546d982b6cf86b74"
+    },
+    {
+      "repository": "Adafruit-Ultimate-GPS",
+      "commit": "70430c1240b49c1e054f1edee84ad0b5ec8ebe56",
+      "file": "Adafruit Ultimate GPS.brd",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-Ultimate-GPS/70430c1240b49c1e054f1edee84ad0b5ec8ebe56/Adafruit%20Ultimate%20GPS.brd",
+      "sha256": "c96754d8951fbebea9df1a92edbf44dfc95f798195e27a9ee84d290d72c33dac"
+    },
+    {
+      "repository": "Adafruit-Ultimate-GPS",
+      "commit": "70430c1240b49c1e054f1edee84ad0b5ec8ebe56",
+      "file": "Adafruit Ultimate GPS.sch",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-Ultimate-GPS/70430c1240b49c1e054f1edee84ad0b5ec8ebe56/Adafruit%20Ultimate%20GPS.sch",
+      "sha256": "125b84473458b9d1cb98bf663840489c26e92cb14b46d8eea1fe84437719b988"
+    },
+    {
+      "repository": "Adafruit-Ultimate-GPS",
+      "commit": "70430c1240b49c1e054f1edee84ad0b5ec8ebe56",
+      "file": "license.txt",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-Ultimate-GPS/70430c1240b49c1e054f1edee84ad0b5ec8ebe56/license.txt",
+      "sha256": "075dad5e5fc96c27014fabc269f4f5732909cffd178a486f546d982b6cf86b74"
+    }
+  ],
+  "scope": "Manufacturer CAD reviewed; GPS file names PA6H and is not an approved PA1616D footprint."
+}

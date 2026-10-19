@@ -1,0 +1,115 @@
+{
+  "kicad_version": "10.0.7",
+  "source_geometry_sha256": "5f770f5844ed768901ae9c52d98a9142f4d7fe2d85dde97deb525e8e087e6c6a",
+  "scope": "Native load and source coordinate/pin ordering, drill and pad-count checks; not physical fit or circuit validation",
+  "footprints": [
+    {
+      "name": "Adafruit_BNO055_2472_Carrier",
+      "sha256": "f5963faf913c4c3f264193e741f1cef02fc325219de3699c82b7cf313b49277b",
+      "electrical_pad_count": 10,
+      "mounting_hole_count": 4,
+      "pads": [
+        {
+          "pad": "1",
+          "source_net": "5.0V",
+          "x_mm": 0.0,
+          "y_mm": 0.0
+        },
+        {
+          "pad": "2",
+          "source_net": "3.3V",
+          "x_mm": 2.54,
+          "y_mm": 0.0
+        },
+        {
+          "pad": "3",
+          "source_net": "GND",
+          "x_mm": 5.08,
+          "y_mm": 0.0
+        },
+        {
+          "pad": "4",
+          "source_net": "SDA_5V",
+          "x_mm": 7.62,
+          "y_mm": 0.0
+        },
+        {
+          "pad": "5",
+          "source_net": "SCL_5V",
+          "x_mm": 10.16,
+          "y_mm": 0.0
+        },
+        {
+          "pad": "6",
+          "source_net": "RST_5V",
+          "x_mm": 12.7,
+          "y_mm": 0.0
+        },
+        {
+          "pad": "7",
+          "source_net": "PS0_3V",
+          "x_mm": 2.54,
+          "y_mm": -17.78
+        },
+        {
+          "pad": "8",
+          "source_net": "PS1_3V",
+          "x_mm": 5.08,
+          "y_mm": -17.78
+        },
+        {
+          "pad": "9",
+          "source_net": "INT_3V",
+          "x_mm": 7.62,
+          "y_mm": -17.78
+        },
+        {
+          "pad": "10",
+          "source_net": "I2CADDR_3V",
+          "x_mm": 10.16,
+          "y_mm": -17.78
+        }
+      ],
+      "result": "pass"
+    },
+    {
+      "name": "Adafruit_MS8607_4716_Carrier",
+      "sha256": "2dc4be3bb56c6d8262751f333d48e96c46bc02a8a3c6973869fa5d9085830bd6",
+      "electrical_pad_count": 5,
+      "mounting_hole_count": 4,
+      "pads": [
+        {
+          "pad": "1",
+          "source_net": "VCC",
+          "x_mm": 0.0,
+          "y_mm": 0.0
+        },
+        {
+          "pad": "2",
+          "source_net": "3.3V",
+          "x_mm": 2.54,
+          "y_mm": 0.0
+        },
+        {
+          "pad": "3",
+          "source_net": "GND",
+          "x_mm": 5.08,
+          "y_mm": 0.0
+        },
+        {
+          "pad": "4",
+          "source_net": "SCL",
+          "x_mm": 7.62,
+          "y_mm": 0.0
+        },
+        {
+          "pad": "5",
+          "source_net": "SDA",
+          "x_mm": 10.16,
+          "y_mm": 0.0
+        }
+      ],
+      "result": "pass"
+    }
+  ]
+}

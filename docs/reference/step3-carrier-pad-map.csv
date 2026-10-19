@@ -1,0 +1,16 @@
+footprint,pad,function,source_header,source_pad,source_net,x_mm,y_mm
+Adafruit_BNO055_2472_Carrier,1,VIN,JP1,1,5.0V,0,0
+Adafruit_BNO055_2472_Carrier,2,3Vo,JP1,2,3.3V,2.54,0
+Adafruit_BNO055_2472_Carrier,3,GND,JP1,3,GND,5.08,0
+Adafruit_BNO055_2472_Carrier,4,SDA,JP1,4,SDA_5V,7.62,0
+Adafruit_BNO055_2472_Carrier,5,SCL,JP1,5,SCL_5V,10.16,0
+Adafruit_BNO055_2472_Carrier,6,RST,JP1,6,RST_5V,12.7,0
+Adafruit_BNO055_2472_Carrier,7,PS0,JP2,1,PS0_3V,2.54,-17.78
+Adafruit_BNO055_2472_Carrier,8,PS1,JP2,2,PS1_3V,5.08,-17.78
+Adafruit_BNO055_2472_Carrier,9,INT,JP2,3,INT_3V,7.62,-17.78
+Adafruit_BNO055_2472_Carrier,10,ADR,JP2,4,I2CADDR_3V,10.16,-17.78
+Adafruit_MS8607_4716_Carrier,1,VIN,JP2,1,VCC,0,0
+Adafruit_MS8607_4716_Carrier,2,3Vo,JP2,2,3.3V,2.54,0
+Adafruit_MS8607_4716_Carrier,3,GND,JP2,3,GND,5.08,0
+Adafruit_MS8607_4716_Carrier,4,SCL,JP2,4,SCL,7.62,0
+Adafruit_MS8607_4716_Carrier,5,SDA,JP2,5,SDA,10.16,0

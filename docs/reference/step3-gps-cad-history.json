@@ -1,0 +1,11 @@
+{
+  "checked_date": "2026-10-18",
+  "repository": "https://github.com/adafruit/Adafruit-Ultimate-GPS",
+  "branches": [
+    "master"
+  ],
+  "board_path": "Adafruit Ultimate GPS.brd",
+  "last_board_commit": "c8ae9a95d82f77d3bbd023754dee658959864e5c",
+  "last_board_commit_date": "2017-11-12T17:25:03Z",
+  "conclusion": "Published board predates selected PA1616D #5440 and its September 2024 holder revision; exact mechanical approval remains open."
+}
