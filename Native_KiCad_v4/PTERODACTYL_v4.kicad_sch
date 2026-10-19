@@ -1425,7 +1425,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Pterodactyl_v4:Pololu_S9V11F5_Logical"
+		(symbol "Pterodactyl_v4:Pololu_S9V11F5_Header"
 			(pin_numbers
 				(hide yes)
 			)
@@ -1443,7 +1443,7 @@
 					)
 				)
 			)
-			(property "Value" "Pololu_S9V11F5_Logical"
+			(property "Value" "Pololu_S9V11F5_Header"
 				(at 0 6.35 0)
 				(effects
 					(font
@@ -1451,7 +1451,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Pterodactyl_Modules:Pololu_S9V11F5_SSW_Carrier"
 				(at 0 0 0)
 				(hide yes)
 				(effects
@@ -1469,7 +1469,7 @@
 					)
 				)
 			)
-			(property "Description" "DRAFT logical 5 V step-up/step-down regulator module, 2-16 V input; physical pin order not yet verified"
+			(property "Description" "Pololu 2836 three-pin carrier interface; inductor side up: VIN/GND/VOUT left to right at bottom edge. EN stays on module; 3 V startup minimum"
 				(at 0 0 0)
 				(hide yes)
 				(effects
@@ -1478,7 +1478,7 @@
 					)
 				)
 			)
-			(symbol "Pololu_S9V11F5_Logical_0_1"
+			(symbol "Pololu_S9V11F5_Header_0_1"
 				(rectangle
 					(start -7.62 5.08)
 					(end 7.62 -5.08)
@@ -1491,7 +1491,7 @@
 					)
 				)
 			)
-			(symbol "Pololu_S9V11F5_Logical_1_1"
+			(symbol "Pololu_S9V11F5_Header_1_1"
 				(pin power_in line
 					(at -12.7 2.54 0)
 					(length 5.08)
@@ -1503,24 +1503,6 @@
 						)
 					)
 					(number "VIN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -12.7 -2.54 0)
-					(length 5.08)
-					(name "EN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "EN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -6427,7 +6409,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Pterodactyl_v4:Pololu_S9V11F5_Logical")
+		(lib_id "Pterodactyl_v4:Pololu_S9V11F5_Header")
 		(at 345.44 60.96 0)
 		(unit 1)
 		(body_style 1)
@@ -6457,7 +6439,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Pterodactyl_Modules:Pololu_S9V11F5_SSW_Carrier"
 			(at 345.44 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -6479,7 +6461,7 @@
 				)
 			)
 		)
-		(property "Description" "DRAFT logical 5 V step-up/step-down regulator module, 2-16 V input; physical pin order not yet verified"
+		(property "Description" "Pololu 2836 three-pin carrier interface; inductor side up: VIN/GND/VOUT left to right at bottom edge. EN stays on module; 3 V startup minimum"
 			(at 345.44 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -6501,7 +6483,7 @@
 				)
 			)
 		)
-		(property "Notes" "5 V buck-boost, 2-16 V in. Footprint pending pinout verification. EN left at internal pull-up"
+		(property "Notes" "Three-pin carrier; EN not brought to carrier. 3 V minimum at module VIN to start; 2 V running minimum. Socket/retention fit pending"
 			(at 345.44 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -6514,9 +6496,6 @@
 		)
 		(pin "VIN"
 			(uuid "5bd576a3-ada9-5488-a2c9-fb81afe58356")
-		)
-		(pin "EN"
-			(uuid "02319bb9-4ba8-5b54-a76f-4c9f798e680b")
 		)
 		(pin "VOUT"
 			(uuid "cb32230c-6df9-518a-a103-a52b4eecc5bc")
@@ -6697,10 +6676,6 @@
 				)
 			)
 		)
-	)
-	(no_connect
-		(at 332.74 63.5)
-		(uuid "b6e9874a-de78-57c5-9840-01e30eadcc54")
 	)
 	(symbol
 		(lib_id "Device:C_Polarized")
@@ -14035,7 +14010,7 @@
 		)
 		(uuid "cd886cc7-e060-5e4f-bf97-1c066129a558")
 	)
-	(text "U2 and U5 have no footprint yet: U2 pinout and U5 (#5440) geometry must be verified first (M01)."
+	(text "U2 uses the verified three-pin module interface; installed fit pending. U5 footprint unassigned: exact #5440 geometry needs M01 confirmation."
 		(exclude_from_sim no)
 		(at 15.24 22.86 0)
 		(effects

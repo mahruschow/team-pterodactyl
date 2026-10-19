@@ -6,11 +6,15 @@ Open `Native_KiCad_v4/PTERODACTYL_v4.kicad_pro` in KiCad 10 and switch to the PC
 
 ![Draft v4 board, top view](validation/2026-10-19/step7-pcb/v4-top.png)
 
+## Current footprint update
+
+U2 now has a three-pin regulator footprint, increasing the main board to 50 footprints. U5 remains an unassigned GPS envelope; its separate legacy comparison footprint is explicitly unverified. Fresh checks: 0 enabled physical DRC violations, only U5 missing in parity, 12 unconnected items including the newly exposed regulator VIN/VOUT. Existing 192 track segments, 10 vias and all 49 prior footprint positions/pads/nets are preserved. See [REGULATOR_GPS_FOOTPRINTS.md](REGULATOR_GPS_FOOTPRINTS.md). Earlier autoroute metrics below describe the pre-integration checkpoint.
+
 ## What the board contains
 
 - **Outline:** the legacy 97.79 × 97.79 mm outline with rounded corners (copied from the v3.8 board, A1), and four M3 mounting holes at the legacy positions.
 - **Layers:** 4 copper layers. In1.Cu and In2.Cu are solid GND planes, so every GND through-hole pad connects without tracks and all signals get a continuous return path (PC6, PC14). They are marked as power planes, with a rule area forbidding tracks, so routing cannot cut them; vias may pass through. F.Cu and B.Cu are for routing.
-- **Parts:** all 49 footprints from the v4 schematic, with nets assigned from the KiCad-exported netlist. Every footprint carries the schematic's fields, and J4 is marked DNP. The board stays linked to the schematic, so *Update PCB from Schematic* works normally.
+- **Parts:** 50 assigned footprints from the v4 schematic, with nets assigned from the KiCad-exported netlist. Every footprint carries the schematic's fields, and J4 is marked DNP. The board stays linked to the schematic, so *Update PCB from Schematic* works normally.
 - **Placement** follows the Step 4 floor plan:
   - BNO055 top-left, MS8607 top-centre, GPS envelope top-right.
   - Teensy along the bottom-left (microSD at the left edge, USB/VIN end toward the power section).
@@ -22,8 +26,8 @@ Open `Native_KiCad_v4/PTERODACTYL_v4.kicad_pro` in KiCad 10 and switch to the PC
   - Power: 0.5 mm / 0.25 mm, for VBAT_IN, VBAT_FUSED, VBAT_PROT, VBAT_SW and +5V (about 0.7 A regulator startup).
   - Supply3V3: 0.3 mm / 0.2 mm, for +3V3 and SENSOR_3V3 (about 160 mA peak). This is narrow enough to pass between 2.54 mm pads.
 - **Envelopes:**
-  - U5 (GPS) and U2 (regulator) have no verified footprints yet. Each is drawn as a labelled box on F.Fab/F.CrtYd with a rule area that keeps footprints, and on the outer layers tracks and vias, out (PC10). The inner GND planes continue underneath.
-  - Their pads are missing, so their nets end short of them.
+  - U5 (GPS) has no revision-verified footprint yet. It is drawn as a labelled box on F.Fab/F.CrtYd with a rule area that keeps footprints, and on the outer layers tracks and vias, out (PC10). The inner GND planes continue underneath.
+  - GPS pads are missing; U2 now has actual VIN/GND/VOUT pads, with VIN/VOUT still needing routing.
 
 ## Checks
 
@@ -91,7 +95,7 @@ Do not rerun `tools/build_v4_pcb.py` or `tools/autoroute_v4_pcb.py` once hand ro
 ## What is not done yet
 
 1. **Routing:** first pass done; finish and clean up per the list above.
-2. **U2 and U5 footprints:** the regulator pinout check and M01 (GPS geometry).
+2. **U5 footprint:** close M01 (current GPS geometry) before assignment; U2 is now integrated, with physical fit/retention still pending.
 3. **Track widths:** net classes are set (Power 0.5 mm). Confirm them against the manufacturer's rules and the measured currents.
 4. **Silkscreen references:** currently on the assembly layer only (F.Fab). Place them on silkscreen during routing.
 5. **Manufacturer rules (D08):** minimum track/space, drill sizes and stackup must be set once a fabricator is chosen.

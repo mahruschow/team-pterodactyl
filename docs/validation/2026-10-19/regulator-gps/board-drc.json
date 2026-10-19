@@ -1,0 +1,321 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-19T18:27:41",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [
+        {
+            "description": "Missing footprint U5 (Adafruit PA1616D #5440)",
+            "items": [],
+            "severity": "warning",
+            "type": "missing_footprint"
+        }
+    ],
+    "source": "PTERODACTYL_v4.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTH pad VIN [/VBAT_SW] of U2",
+                    "pos": {
+                        "x": 182.2745,
+                        "y": 145.167
+                    },
+                    "uuid": "7a7e7a8b-056b-4814-8d7c-1c539da83ace"
+                },
+                {
+                    "description": "Track [/VBAT_SW] on F.Cu, length 1.8959 mm",
+                    "pos": {
+                        "x": 185.0376,
+                        "y": 126.7946
+                    },
+                    "uuid": "6bb37f70-47f7-40d5-bd1c-52af0d1cf995"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [+5V] on B.Cu, length 2.3590 mm",
+                    "pos": {
+                        "x": 161.016,
+                        "y": 139.632
+                    },
+                    "uuid": "2578cded-5d6d-45df-9f58-d4b61b0c9a30"
+                },
+                {
+                    "description": "PTH pad 1 [+5V] of TP2",
+                    "pos": {
+                        "x": 106.246,
+                        "y": 117.555
+                    },
+                    "uuid": "ca6a10c5-f351-4993-bb1c-38ae4bc3ce0c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [+5V] on B.Cu, length 6.1122 mm",
+                    "pos": {
+                        "x": 163.375,
+                        "y": 139.632
+                    },
+                    "uuid": "3506825c-3a3e-444f-8450-58162fe68286"
+                },
+                {
+                    "description": "PTH pad 1 [+5V] of C4",
+                    "pos": {
+                        "x": 173.799,
+                        "y": 143.552
+                    },
+                    "uuid": "5cd8c650-e063-4561-9e4c-5276f4a6b0fe"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTH pad VOUT [+5V] of U2",
+                    "pos": {
+                        "x": 187.3545,
+                        "y": 145.167
+                    },
+                    "uuid": "248f7de7-02ff-429b-970b-387d7b5b5317"
+                },
+                {
+                    "description": "PTH pad 1 [+5V] of C4",
+                    "pos": {
+                        "x": 173.799,
+                        "y": 143.552
+                    },
+                    "uuid": "5cd8c650-e063-4561-9e4c-5276f4a6b0fe"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTH pad 1 [/SENSOR_3V3] of C6",
+                    "pos": {
+                        "x": 101.599,
+                        "y": 88.552
+                    },
+                    "uuid": "de5c6a6c-e57b-4d94-9f4b-4d5001cb581b"
+                },
+                {
+                    "description": "Track [/SENSOR_3V3] on F.Cu, length 2.2132 mm",
+                    "pos": {
+                        "x": 108.534,
+                        "y": 86.987
+                    },
+                    "uuid": "13b384de-bd1a-4762-a788-00b3b50780a3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [/SENSOR_3V3] on F.Cu, length 2.2132 mm",
+                    "pos": {
+                        "x": 108.534,
+                        "y": 86.987
+                    },
+                    "uuid": "13b384de-bd1a-4762-a788-00b3b50780a3"
+                },
+                {
+                    "description": "PTH pad 1 [/SENSOR_3V3] of C8",
+                    "pos": {
+                        "x": 132.599,
+                        "y": 81.052
+                    },
+                    "uuid": "07d20971-9a64-48d1-8943-c44e6a3e5cd6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTH pad 1 [/SENSOR_3V3] of TP4",
+                    "pos": {
+                        "x": 114.646,
+                        "y": 117.555
+                    },
+                    "uuid": "236fc3f4-a5e3-49d8-b245-6a09170e1ac1"
+                },
+                {
+                    "description": "Track [/SENSOR_3V3] on F.Cu, length 2.2132 mm",
+                    "pos": {
+                        "x": 108.534,
+                        "y": 86.987
+                    },
+                    "uuid": "13b384de-bd1a-4762-a788-00b3b50780a3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTH pad 1 [/SENSOR_3V3] of C8",
+                    "pos": {
+                        "x": 132.599,
+                        "y": 81.052
+                    },
+                    "uuid": "07d20971-9a64-48d1-8943-c44e6a3e5cd6"
+                },
+                {
+                    "description": "PTH pad 1 [/SENSOR_3V3] of C9",
+                    "pos": {
+                        "x": 140.599,
+                        "y": 81.052
+                    },
+                    "uuid": "fbedd92d-2099-4193-9234-6c4c7645374d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTH pad 1 [/SENSOR_3V3] of U4",
+                    "pos": {
+                        "x": 140.105,
+                        "y": 75.229
+                    },
+                    "uuid": "b409da8f-2264-475e-b0f6-26298f6e2726"
+                },
+                {
+                    "description": "PTH pad 1 [/SENSOR_3V3] of C9",
+                    "pos": {
+                        "x": 140.599,
+                        "y": 81.052
+                    },
+                    "uuid": "fbedd92d-2099-4193-9234-6c4c7645374d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTH pad 1 [/SENSOR_3V3] of C9",
+                    "pos": {
+                        "x": 140.599,
+                        "y": 81.052
+                    },
+                    "uuid": "fbedd92d-2099-4193-9234-6c4c7645374d"
+                },
+                {
+                    "description": "Track [/SENSOR_3V3] on B.Cu, length 3.4500 mm",
+                    "pos": {
+                        "x": 142.599,
+                        "y": 86.602
+                    },
+                    "uuid": "f299a353-ab47-49f6-ba7c-e3e38a101b21"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [/SENSOR_3V3] on B.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 146.049,
+                        "y": 86.602
+                    },
+                    "uuid": "108791d0-3350-4559-b960-eade2d83c6ca"
+                },
+                {
+                    "description": "PTH pad 1 [/SENSOR_3V3] of C10",
+                    "pos": {
+                        "x": 161.599,
+                        "y": 94.052
+                    },
+                    "uuid": "9fd2e48d-b216-4da7-bb73-c2974a7283ac"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTH pad 1 [/SENSOR_3V3] of C11",
+                    "pos": {
+                        "x": 169.599,
+                        "y": 94.052
+                    },
+                    "uuid": "f81935cf-4682-432e-b6f0-5b3b8afd80eb"
+                },
+                {
+                    "description": "PTH pad 1 [/SENSOR_3V3] of C10",
+                    "pos": {
+                        "x": 161.599,
+                        "y": 94.052
+                    },
+                    "uuid": "9fd2e48d-b216-4da7-bb73-c2974a7283ac"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": []
+}

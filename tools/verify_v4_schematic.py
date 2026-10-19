@@ -36,7 +36,6 @@ EXPECTED={
 }
 # Deliberately unconnected, each with a documented reason.
 EXPECTED_NC={
-    'U2.EN':'internal pull-up keeps regulator enabled',
     'U3.2':'BNO055 3Vo regulator output','U3.7':'PS0 onboard pull-down','U3.8':'PS1 onboard pull-down',
     'U3.9':'INT unused (polling)','U3.10':'ADR onboard pull-down (0x28)',
     'U4.2':'MS8607 3Vo regulator output',
@@ -46,7 +45,7 @@ EXPECTED_NC={
 }
 UNUSED_TEENSY={'6','10','11','12','13','20','21','22','23','24','25','27','28','29','33','34','35','36','37','38','39','40','41'}
 EXPECTED_NC.update({'U1.'+p:'spare Teensy pin, no carrier connection' for p in UNUSED_TEENSY})
-NO_FOOTPRINT={'U2':'regulator pinout not yet verified','U5':'exact #5440 geometry pending (M01)'}
+NO_FOOTPRINT={'U5':'exact #5440 geometry pending (M01); legacy comparison footprint deliberately unassigned'}
 
 
 def main():

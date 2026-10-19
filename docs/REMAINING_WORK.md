@@ -4,6 +4,8 @@ Updated October 19, 2026 by Saadat (with Claude). Branch: `saadat-dev`. This is 
 
 ## Where the project is
 
+**Footprint update:** [REGULATOR_GPS_FOOTPRINTS.md](REGULATOR_GPS_FOOTPRINTS.md). U2 is assigned and placed; U5 remains unassigned. Fresh checks find 12 unconnected items, only U5 missing, and zero ERC/enabled physical DRC violations. GPS legacy comparison geometry is drafted but M01 is still open. Earlier autoroute counts below are historical.
+
 | Step | State | Proof / where to look |
 | --- | --- | --- |
 | 1. Check the old v3.8 design | ✅ Done | [VALIDATION_SUMMARY.md](validation/2026-10-18/VALIDATION_SUMMARY.md) |
@@ -39,7 +41,7 @@ See [V4_DESIGN_REVIEW.md](V4_DESIGN_REVIEW.md) for exact locations, failure case
 - [ ] Make required SD file opening transactional and implement storage failure recovery.
 - [ ] Correct the power contract: at least 3 V at regulator VIN for startup, with battery and wiring margin.
 - [ ] Track GPS RMC validity/age when combining its fields with GGA.
-- [ ] Derive placement separation checks from the current PCB rather than the saved placement JSON.
+- [x] Derive placement separation checks from the current PCB rather than the saved placement JSON; deliberate in-memory IMU move is detected.
 
 ### Needs the team lead (blocking)
 Send [TEAM_LEAD_REQUESTS.md](TEAM_LEAD_REQUESTS.md). The most important items:
@@ -54,14 +56,14 @@ Send [TEAM_LEAD_REQUESTS.md](TEAM_LEAD_REQUESTS.md). The most important items:
 ### Saadat (PCB design)
 - [x] First-pass autoroute (DRC clean; 6 supply connections open).
 - [ ] Hand clean-up per [the clean-up list](PCB_LAYOUT_V4.md#clean-up-list-for-hand-routing): finish the 6 connections, move TP1/TP2 near the power section, review against PC6/PC7/PC11, then silkscreen labels, outer GND pours and stitching vias.
-- [ ] Make the Pololu S9V11F5 regulator footprint once its pinout is confirmed.
-- [ ] Make the GPS #5440 footprint once its geometry is known (M01).
+- [x] Create, verify, assign and place the Pololu S9V11F5 three-pin carrier footprint. Installed socket/retention fit remains open.
+- [ ] Confirm current GPS #5440 geometry (M01), then revise/approve and assign the newly created UNVERIFIED legacy comparison footprint.
 - [ ] Set the manufacturer's rules once R5 is answered, and rerun the checks.
 
 ### A teammate can do now (no hardware needed)
 - [ ] **Review** the schematic PDF and [POWER_ARCHITECTURE.md](POWER_ARCHITECTURE.md); note questions in an issue or the session notes.
 - [ ] **Confirm part ratings** from datasheets: PTC fuse voltage, IRLML6402 Vds/Vgs, ferrite bead current, JST connectors. These are marked "(candidate)" in the [BOM](validation/2026-10-19/step5-schematic/bom.csv).
-- [ ] **Find the Pololu S9V11F5 pinout and dimension drawing** (Pololu product #2836 page or its PCB drawing) so the footprint can be made.
+- [x] Find and inspect the Pololu S9V11F5 pinout, dimension drawing and DXF; local source copies and hashes are in `reference/regulator-gps/`.
 - [ ] **Write a log-checking script** for the firmware's CSV files: headers, sequence numbers, timing, units (LOG-04). See the formats in [FIRMWARE_V4.md](FIRMWARE_V4.md).
 - [ ] **Review the floor plan and interference rules** in [PLACEMENT_AND_INTERFERENCE.md](PLACEMENT_AND_INTERFERENCE.md).
 

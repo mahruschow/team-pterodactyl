@@ -4,6 +4,8 @@ Start here when joining the project or resuming work. This directory contains th
 
 ## Reading order
 
+Latest implementation: [Regulator and GPS footprints](REGULATOR_GPS_FOOTPRINTS.md) — assigned regulator carrier, unassigned GPS comparison draft, source evidence, validation and remaining fit gates.
+
 Read the [October 19 v4 design review](V4_DESIGN_REVIEW.md) for the latest independent checks, seven prioritized findings and Step 1–7 completion assessment. Hardware and firmware fixes remain open.
 
 0. [What's done and what's left](REMAINING_WORK.md) — one-page progress table and to-do list by owner (lead, Saadat, teammate).

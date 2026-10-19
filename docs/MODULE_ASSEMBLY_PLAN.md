@@ -36,6 +36,10 @@ Native KiCad SVG export passed. An independent checker verified all 15 pin funct
 
 `Pterodactyl_Modules:Adafruit_PA1616D_5440_Logical` represents nine reviewed interface functions. Pin identifiers are signal names (VIN, GND, TX, RX, 3V3_OUT, EN, VBAT, FIX, PPS), not asserted physical positions. The duplicated pin-number text is hidden; names remain visible. `3V3_OUT` denotes the breakout pin printed 3.3V. It is a regulator output, separate from VIN; TX/FIX/PPS are outputs, RX/EN inputs, and VBAT a power input. The footprint field is intentionally blank. Native SVG load and all nine logical names/types pass. A future physical footprint must map to these names explicitly or use a reviewed symbol revision. [Adafruit pin functions](https://learn.adafruit.com/adafruit-ultimate-gps/pinouts), [selected product](https://www.adafruit.com/product/5440).
 
+## October 19 regulator/GPS update
+
+The source-checked regulator carrier and an explicitly unverified legacy GPS comparison footprint are documented in [REGULATOR_GPS_FOOTPRINTS.md](REGULATOR_GPS_FOOTPRINTS.md). U2 is integrated in v4; GPS remains unassigned. M01, M03 and M04 are not closed by these digital checks.
+
 ## Remaining closure record
 
 | ID | Evidence needed | Who/action | Gate |

@@ -1,0 +1,83 @@
+{
+  "kicad": "10.0.7",
+  "result": "pass",
+  "regulator_pads": 3,
+  "gps_legacy_pads": 9,
+  "gps_legacy_mounting_holes": 2,
+  "regulator_dxf_header_centres_mm": [
+    [
+      1.27,
+      1.27
+    ],
+    [
+      3.8099999999999996,
+      1.27
+    ],
+    [
+      6.35,
+      1.27
+    ]
+  ],
+  "erc_violations": 0,
+  "fixture_drc_violations": 0,
+  "board_physical_drc_violations": 0,
+  "board_unconnected_items": 12,
+  "missing_footprints": [
+    "U5"
+  ],
+  "nets_checked": 32,
+  "intentional_no_connects": 35,
+  "separations": [
+    {
+      "rule": "PC1",
+      "gap_mm": 44.364,
+      "minimum_mm": 40.0
+    },
+    {
+      "rule": "PC2",
+      "gap_mm": 35.05,
+      "minimum_mm": 25.0
+    },
+    {
+      "rule": "PC3",
+      "gap_mm": 30.74,
+      "minimum_mm": 20.0
+    },
+    {
+      "rule": "PC4-teensy",
+      "gap_mm": 30.16,
+      "minimum_mm": 20.0
+    },
+    {
+      "rule": "PC4-power",
+      "gap_mm": 20.7,
+      "minimum_mm": 20.0
+    },
+    {
+      "rule": "PC5-teensy",
+      "gap_mm": 42.59,
+      "minimum_mm": 25.0
+    },
+    {
+      "rule": "PC5-power",
+      "gap_mm": 33.763,
+      "minimum_mm": 25.0
+    }
+  ],
+  "manual_move_regression": "pass: moving IMU in memory fails PC1",
+  "routing": {
+    "track_segments": 192,
+    "track_length_mm": 1249.6,
+    "vias": 10,
+    "i2c_longest_mm": 110.5,
+    "i2c_pass": true,
+    "thin_power_nets": [],
+    "tracks_in_envelopes": [],
+    "inner_plane_tracks": []
+  },
+  "footprint_sha256": {
+    "Pololu_S9V11F5_SSW_Carrier": "5f24b507b11d9cce9c970153a0024edc40d80b8938ce968a6b9a497a48e83bb9",
+    "Adafruit_GPS_5440_UNVERIFIED_Legacy_Carrier": "1b7045c5f9ddec5768e48de37627e20c1725841f9c3230a6b37d7ac4846cebd7"
+  },
+  "scope": "Nominal regulator source geometry and legacy GPS comparison only; #5440 revision/physical fit, retention and remaining routing are NOT approved."
+}

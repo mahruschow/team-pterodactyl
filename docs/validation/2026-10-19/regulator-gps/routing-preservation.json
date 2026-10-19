@@ -1,0 +1,12 @@
+{
+  "baseline_commit": "a1a8b21c06db0bc1d97db3002f9fb971e769016d",
+  "before_sha256": "17a6d8496e73a3a48e90fa0358cf4c1d9767c6fc199abf2847f7b43011c2e78f",
+  "after_sha256": "ad8eb9f3c4259f27205e51727118be48b8206148c8480f144efbb7ba8048e03d",
+  "existing_footprints_preserved": 49,
+  "existing_track_and_via_objects_preserved": 202,
+  "track_geometry_net_identity_and_via_drills_unchanged": true,
+  "existing_footprint_positions_orientations_pads_nets_unchanged": true,
+  "new_footprint": "U2",
+  "new_tracks": 0,
+  "gps_assigned": false
+}

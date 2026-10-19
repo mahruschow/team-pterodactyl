@@ -1,6 +1,8 @@
 # Step 5 — power architecture and schematic change plan
 
-Prepared October 19, 2026. Working branch: `saadat-dev`. Status: **draft v4 schematic implemented and checked; ready for team review.** The imported v3.8 schematic and PCB are unchanged. No v4 PCB exists yet (Step 7).
+Prepared October 19, 2026. Working branch: `saadat-dev`. Status: **draft v4 schematic implemented and checked; ready for team review.** The imported v3.8 schematic and PCB are unchanged. A partially routed v4 PCB now exists; see PCB_LAYOUT_V4.md.
+
+**October 19 footprint update:** U2 now uses a source-checked three-pin carrier footprint; EN stays on the module. See [REGULATOR_GPS_FOOTPRINTS.md](REGULATOR_GPS_FOOTPRINTS.md). The regulator needs at least 3 V at VIN to start, with margin for battery sag and upstream losses; 2 V is its running minimum. Battery compatibility remains conditional on the final power contract.
 
 ## Legacy power design (read-only review)
 
@@ -49,14 +51,14 @@ At an assumed 85 % converter efficiency, battery draw is about 1.0 W typical. Th
 
 ```text
 Battery ─ J1 ─ PTC fuse ─ reverse-protection P-MOSFET ─ J2 off-board panel switch ─┬─ battery-sense divider ─ RC ─ Teensy A12 (pin 26)
-                                                                             └─ 5 V buck-boost (2–16 V in) ─ 5V ─ bulk caps ─ Teensy VIN
+                                                                             └─ 5 V buck-boost (3 V startup min; 2–16 V running) ─ 5V ─ bulk caps ─ Teensy VIN
 Teensy 3.3 V out ─ ferrite bead + 10 µF ─ SENSOR_3V3 ─ BNO055 / MS8607 / GPS VIN (10 µF + 100 nF each)
 Teensy VUSB/VIN pads cut on the module; USB is for data/programming only
 ```
 
 | Block | Proposal | Why |
 | --- | --- | --- |
-| 5 V regulator | Pololu S9V11F5 module (5 V step-up/step-down, 2–16 V input, 1.5 A when input ≥ output, < 0.2 mA quiescent, 2.54 mm pins, no reverse protection). [Product page](https://www.pololu.com/product/2836) | One part covers a 1S LiPo (3.0–4.2 V), 4 × lithium AA (about 4–7.2 V), 2S packs and 9 V. The battery choice (D02) then does not change the board. Like the legacy design, it is a through-hole module, so it is hand-assemblable. Pinout and footprint must be verified before the footprint is drawn (same rule as M01). |
+| 5 V regulator | Pololu S9V11F5 module (5 V step-up/step-down, 3 V startup minimum / 2–16 V running input, 1.5 A when input ≥ output, < 0.2 mA quiescent, 2.54 mm pins, no reverse protection). [Product page](https://www.pololu.com/product/2836) | One part covers a 1S LiPo (3.0–4.2 V), 4 × lithium AA (about 4–7.2 V), 2S packs and 9 V. Battery choice (D02) must satisfy the loaded startup voltage and current requirements, including upstream losses; 3.0 V at a battery terminal is not sufficient startup margin. Like the legacy design, it is a through-hole module, so it is hand-assemblable. Pinout and nominal footprint geometry are now checked and integrated; socket fit and retention remain open. |
 | Sensor 3.3 V | Teensy 3.3 V output through a ferrite bead | One 3.3 V source, so the sensors cannot back-power Teensy pins through I2C/UART during power-up. Load is well under 250 mA. A dedicated LDO is only needed if T5 or T3 shows noise problems; a DNP footprint can be added. |
 | Reverse protection | P-MOSFET in the high side (low drop) | A Schottky diode would waste about 0.3–0.4 V, which matters for a 1S cell. |
 | Fuse | PTC resettable, about 0.75–1 A hold | Above the 260 mA peak and regulator startup current; protects wiring. |

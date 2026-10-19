@@ -1,7 +1,7 @@
 """Check the draft v4 PCB: native DRC with schematic parity, Step 4 separations, 3D render.
 
 Run with KiCad Python; optional first argument selects kicad-cli.exe.
-Uses Native_KiCad_v4/placement.json written by tools/build_v4_pcb.py. Once tracks exist
+Reads current footprint courtyards and named module envelopes from the PCB. Once tracks exist
 it also reports routing metrics: I2C length (PC11), power track widths, vias, and
 tracks inside the U2/U5 envelopes (which must stay empty).
 """
@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parents[1]
 PCB=ROOT/'Native_KiCad_v4/PTERODACTYL_v4.kicad_pcb'
 OUT=ROOT/'docs/validation/2026-10-19/step7-pcb'
 POWER={'J1','F1','Q1','D1','R1','J2','C1','R2','R3','C2','U2','C3','C4'}
-EXPECTED_MISSING={'U2','U5'}
+EXPECTED_MISSING={'U5'}
 # Step 4 PC1-PC7 (PLACEMENT_AND_INTERFERENCE.md): (rule, group a, group b, minimum mm)
 RULES=[('PC1',{'U3'},POWER,40.0),('PC2',{'U3'},{'U1'},25.0),('PC3',{'U3'},{'U5'},20.0),
        ('PC4-teensy',{'U5'},{'U1'},20.0),('PC4-power',{'U5'},POWER,20.0),
@@ -40,7 +40,7 @@ def routing_metrics(placement):
     minimum={'Power':POWER_MIN_MM,'Supply3V3':SUPPLY3V3_MIN_MM}
     thin=sorted({t.GetNetname() for t in tracks if pcbnew.ToMM(t.GetWidth())<minimum.get(t.GetNetClassName(),0)-1e-6})
     inside=[]
-    for ref in ('U2','U5'):
+    for ref in EXPECTED_MISSING:
         x0,y0,x1,y1=placement[ref]
         for t in tracks+vias:
             for p in (t.GetStart(),t.GetEnd()):
@@ -50,6 +50,28 @@ def routing_metrics(placement):
     i2c=round(max(length.get('/I2C_SDA',0),length.get('/I2C_SCL',0)),1)
     return {'track_segments':len(tracks),'track_length_mm':round(sum(length.values()),1),'vias':len(vias),
             'i2c_longest_mm':i2c,'i2c_pass':i2c<=PC11_MAX_MM,'thin_power_nets':thin,'tracks_in_envelopes':sorted(set(inside)),'inner_plane_tracks':inner}
+
+
+def actual_placement(board=None):
+    """Measure the board being checked, including any manual placement edits."""
+    import pcbnew
+    board=board if board is not None else pcbnew.LoadBoard(str(PCB))
+    edge=board.GetBoardEdgesBoundingBox()
+    ox,oy=pcbnew.ToMM(edge.GetLeft()),pcbnew.ToMM(edge.GetTop())
+    def bounds(b):
+        return [pcbnew.ToMM(b.GetLeft())-ox,pcbnew.ToMM(b.GetTop())-oy,
+                pcbnew.ToMM(b.GetRight())-ox,pcbnew.ToMM(b.GetBottom())-oy]
+    placement={}
+    for fp in board.GetFootprints():
+        fp.BuildCourtyardCaches()
+        c=fp.GetCourtyard(pcbnew.F_CrtYd)
+        placement[fp.GetReference()]=bounds(c.BBox() if c.OutlineCount() else fp.GetBoundingBox(False))
+    for z in board.Zones():
+        if z.GetIsRuleArea() and z.GetZoneName()=='U5_ENVELOPE':
+            placement['U5']=bounds(z.Outline().BBox())
+    required=set().union(*(a|b for _,a,b,_ in RULES))
+    assert required<=placement.keys(),('missing placement geometry',sorted(required-placement.keys()))
+    return placement
 
 
 def main():
@@ -68,7 +90,7 @@ def main():
     parity=report.get('schematic_parity',[])
     missing={v['description'].split()[2] for v in parity if v['type']=='missing_footprint'}
     other_parity=[v['description'] for v in parity if v['type']!='missing_footprint']
-    placement=json.loads((ROOT/'Native_KiCad_v4/placement.json').read_text())['courtyards_local_mm']
+    placement=actual_placement()
     separations=[]
     for rule,a,b,minimum in RULES:
         d=min(gap(placement[x],placement[y]) for x in a for y in b)
@@ -86,8 +108,8 @@ def main():
     result={'pcb_sha256':hashlib.sha256(PCB.read_bytes()).hexdigest(),'drc_violations':dict(violations),
             'unconnected_items':len(report.get('unconnected_items',[])),'parity_missing_footprints':sorted(missing),
             'separations':separations,'routing':routing,'problems':problems,'result':'pass' if not problems else 'fail',
-            'scope':'Draft placement with inner GND planes; tracks not yet routed, so unconnected items are expected. '
-                    'Not a fabrication check: U2/U5 footprints, routing, manufacturer rules and review remain.'}
+            'scope':'Draft routed placement with inner GND planes; unconnected items are reported but do not fail this draft check. '
+                    'Not a fabrication check: GPS revision/footprint, remaining routing, manufacturer rules and review remain.'}
     (OUT/'pcb-check.json').write_text(json.dumps(result,indent=2)+'\n',newline='\n')
     assert not problems,problems
     print('PASS: DRC 0 violations; parity only missing %s; %d Step 4 separations met; %d unconnected.'%(

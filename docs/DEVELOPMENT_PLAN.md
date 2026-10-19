@@ -8,6 +8,8 @@ Team clarification supplied by Saadat on October 18: no telemetry. Version one r
 
 ## Steps and completion criteria
 
+Latest October 19 update: [REGULATOR_GPS_FOOTPRINTS.md](REGULATOR_GPS_FOOTPRINTS.md) records U2's checked three-pin footprint and targeted integration into the schematic/PCB. A GPS comparison footprint exists but remains unassigned pending M01. Current checks: 0 ERC/enabled physical DRC violations, only U5 missing, 12 unconnected items. The regulator requires at least 3 V at its input to start. The stage table below retains earlier checkpoint details; this update supersedes its U2-missing and routing-count statements. Physical fit/retention and full Step 7 closure remain open.
+
 | Step | Concrete work | Deliverable and completion criterion | Status |
 | --- | --- | --- | --- |
 | 1. Record and validate the starting point | Inspect branch and local edits, read current project instructions, preserve the supplied workbook, inventory design files/libraries/firmware, locate toolchains, and run fresh ERC/DRC and schematic/PCB checks when KiCad is available. | Baseline report, source snapshot and hashes, plus fresh native check reports or explicit tooling gaps. | Complete: KiCad 10.0.7 audit recorded 33 ERC errors/10 warnings, 11 DRC errors/428 warnings and 52 parity warnings. These remain to be resolved during design work. |

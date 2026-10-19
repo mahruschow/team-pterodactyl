@@ -47,8 +47,8 @@ PARTS=[
      {'1':'VBAT_SENSE','2':'GND'},{'Notes':'16 V in -> 2.89 V at ADC'},False),
     ('C2','Device:C','100n','Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm',(114,24),
      {'1':'VBAT_SENSE','2':'GND'},{},False),
-    ('U2','Pterodactyl_v4:Pololu_S9V11F5_Logical','Pololu S9V11F5','',(136,24),
-     {'VIN':'VBAT_SW','GND':'GND','VOUT':'+5V','EN':NC},{'MPN':'Pololu #2836','Notes':'5 V buck-boost, 2-16 V in. Footprint pending pinout verification. EN left at internal pull-up'},False),
+    ('U2','Pterodactyl_v4:Pololu_S9V11F5_Header','Pololu S9V11F5','Pterodactyl_Modules:Pololu_S9V11F5_SSW_Carrier',(136,24),
+     {'VIN':'VBAT_SW','GND':'GND','VOUT':'+5V'},{'MPN':'Pololu #2836','Notes':'Three-pin carrier; EN not brought to carrier. 3 V minimum at module VIN to start; 2 V running minimum. Socket/retention fit pending'},False),
     # 5 V and 3.3 V distribution
     ('C3','Device:C_Polarized','100u 10V','Capacitor_THT:CP_Radial_D6.3mm_P2.50mm',(14,52),{'1':'+5V','2':'GND'},{'Notes':'At Teensy VIN'},False),
     ('C4','Device:C','100n','Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm',(24,52),{'1':'+5V','2':'GND'},{},False),
@@ -102,7 +102,7 @@ PWR_FLAGS={'GND':'battery return',
 NOTES=[
     (6,5,'PTERODACTYL v4 carrier - DRAFT generated from tools/generate_v4_schematic.py. Connections by label; see docs/POWER_ARCHITECTURE.md.'),
     (6,7,'Battery -> J1 -> F1 -> Q1 (reverse protection) -> J2 panel switch -> VBAT_SW -> U2 5 V buck-boost -> +5V -> Teensy VIN.'),
-    (6,9,'U2 and U5 have no footprint yet: U2 pinout and U5 (#5440) geometry must be verified first (M01).'),
+    (6,9,'U2 uses the verified three-pin module interface; installed fit pending. U5 footprint unassigned: exact #5440 geometry needs M01 confirmation.'),
     (6,11,'Teensy: cut the VUSB/VIN pads before applying external power (PJRC). +3V3 is the Teensy 3.3 V output (250 mA external max).'),
     (6,13,'I2C at 100 kHz for bring-up (see PLACEMENT_AND_INTERFERENCE.md). No GPIO may exceed 3.3 V.'),
 ]
@@ -192,18 +192,18 @@ def teensy_symbol():
 
 
 def write_power_library():
-    """v4 library: logical regulator (named pins avoid asserting an unverified pin order) and curated Teensy."""
+    """v4 library: three-pin regulator carrier interface and curated Teensy."""
     pin=lambda kind,x,y,a,n:[Sym('pin'),Sym(kind),Sym('line'),at(x,y,a),[Sym('length'),5.08],
         [Sym('name'),n,font()],[Sym('number'),n,font()]]
     prop=lambda k,v,y,hide=False:[Sym('property'),k,v,at(0,y,0)]+([[Sym('hide'),Sym('yes')]] if hide else [])+[font()]
-    sym=[Sym('symbol'),'Pololu_S9V11F5_Logical',[Sym('pin_numbers'),[Sym('hide'),Sym('yes')]],
+    sym=[Sym('symbol'),'Pololu_S9V11F5_Header',[Sym('pin_numbers'),[Sym('hide'),Sym('yes')]],
         [Sym('pin_names'),[Sym('offset'),1.016]],[Sym('exclude_from_sim'),Sym('no')],[Sym('in_bom'),Sym('yes')],[Sym('on_board'),Sym('yes')],
-        prop('Reference','U',8.89),prop('Value','Pololu_S9V11F5_Logical',6.35),prop('Footprint','',0,True),
+        prop('Reference','U',8.89),prop('Value','Pololu_S9V11F5_Header',6.35),prop('Footprint','Pterodactyl_Modules:Pololu_S9V11F5_SSW_Carrier',0,True),
         prop('Datasheet','https://www.pololu.com/product/2836',0,True),
-        prop('Description','DRAFT logical 5 V step-up/step-down regulator module, 2-16 V input; physical pin order not yet verified',0,True),
-        [Sym('symbol'),'Pololu_S9V11F5_Logical_0_1',[Sym('rectangle'),[Sym('start'),-7.62,5.08],[Sym('end'),7.62,-5.08],
+        prop('Description','Pololu 2836 three-pin carrier interface; inductor side up: VIN/GND/VOUT left to right at bottom edge. EN stays on module; 3 V startup minimum',0,True),
+        [Sym('symbol'),'Pololu_S9V11F5_Header_0_1',[Sym('rectangle'),[Sym('start'),-7.62,5.08],[Sym('end'),7.62,-5.08],
             [Sym('stroke'),[Sym('width'),0.254],[Sym('type'),Sym('default')]],[Sym('fill'),[Sym('type'),Sym('background')]]]],
-        [Sym('symbol'),'Pololu_S9V11F5_Logical_1_1',pin('power_in',-12.7,2.54,0,'VIN'),pin('input',-12.7,-2.54,0,'EN'),
+        [Sym('symbol'),'Pololu_S9V11F5_Header_1_1',pin('power_in',-12.7,2.54,0,'VIN'),
             pin('power_out',12.7,2.54,180,'VOUT'),pin('power_in',0,-10.16,90,'GND')],
         [Sym('embedded_fonts'),Sym('no')]]
     lib=[Sym('kicad_symbol_lib'),[Sym('version'),20251024],[Sym('generator'),'kicad_symbol_editor'],[Sym('generator_version'),'10.0'],sym,teensy_symbol()]

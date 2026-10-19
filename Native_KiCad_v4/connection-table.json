@@ -108,15 +108,14 @@
    }
   },
   "U2": {
-   "lib_id": "Pterodactyl_v4:Pololu_S9V11F5_Logical",
+   "lib_id": "Pterodactyl_v4:Pololu_S9V11F5_Header",
    "value": "Pololu S9V11F5",
-   "footprint": "",
+   "footprint": "Pterodactyl_Modules:Pololu_S9V11F5_SSW_Carrier",
    "dnp": false,
    "pins": {
     "VIN": "VBAT_SW",
     "GND": "GND",
-    "VOUT": "+5V",
-    "EN": null
+    "VOUT": "+5V"
    }
   },
   "C3": {

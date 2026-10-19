@@ -2,7 +2,7 @@
 	(version 20251024)
 	(generator "kicad_symbol_editor")
 	(generator_version "10.0")
-	(symbol "Pololu_S9V11F5_Logical"
+	(symbol "Pololu_S9V11F5_Header"
 		(pin_numbers
 			(hide yes)
 		)
@@ -20,7 +20,7 @@
 				)
 			)
 		)
-		(property "Value" "Pololu_S9V11F5_Logical"
+		(property "Value" "Pololu_S9V11F5_Header"
 			(at 0 6.35 0)
 			(effects
 				(font
@@ -28,7 +28,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Pterodactyl_Modules:Pololu_S9V11F5_SSW_Carrier"
 			(at 0 0 0)
 			(hide yes)
 			(effects
@@ -46,7 +46,7 @@
 				)
 			)
 		)
-		(property "Description" "DRAFT logical 5 V step-up/step-down regulator module, 2-16 V input; physical pin order not yet verified"
+		(property "Description" "Pololu 2836 three-pin carrier interface; inductor side up: VIN/GND/VOUT left to right at bottom edge. EN stays on module; 3 V startup minimum"
 			(at 0 0 0)
 			(hide yes)
 			(effects
@@ -55,7 +55,7 @@
 				)
 			)
 		)
-		(symbol "Pololu_S9V11F5_Logical_0_1"
+		(symbol "Pololu_S9V11F5_Header_0_1"
 			(rectangle
 				(start -7.62 5.08)
 				(end 7.62 -5.08)
@@ -68,7 +68,7 @@
 				)
 			)
 		)
-		(symbol "Pololu_S9V11F5_Logical_1_1"
+		(symbol "Pololu_S9V11F5_Header_1_1"
 			(pin power_in line
 				(at -12.7 2.54 0)
 				(length 5.08)
@@ -80,24 +80,6 @@
 					)
 				)
 				(number "VIN"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin input line
-				(at -12.7 -2.54 0)
-				(length 5.08)
-				(name "EN"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "EN"
 					(effects
 						(font
 							(size 1.27 1.27)

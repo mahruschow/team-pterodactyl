@@ -1,0 +1,26 @@
+{
+  "retrieved": "2026-10-19",
+  "sources": [
+    {
+      "file": "pololu-s9v11f5-dimensions.pdf",
+      "url": "https://www.pololu.com/file/0J1272/pololu-5v-step-up-step-down-voltage-regulator-s9v11f5-dimensions.pdf",
+      "sha256": "68aa791e6f45b5466e1974069edc54a57e14df98624a25268ef660f6617c0f1a",
+      "attribution": "Pololu Corporation"
+    },
+    {
+      "file": "reg20a-drill.dxf",
+      "url": "https://www.pololu.com/file/0J1271/reg20a-drill.dxf",
+      "sha256": "423e2ecf8e0aa6614ea6c0b0f3544b4ca6c64b50f16c0cc2b892f9413a220da8",
+      "attribution": "Pololu Corporation"
+    },
+    {
+      "file": "pololu-pinout.jpg",
+      "url": "https://a.pololu-files.com/picture/0J7676.1200.jpg?5bafbdcc9aff1d21b674e817d7ee5ab9",
+      "sha256": "24d54e8508ef52317f31ad690cbd6f4d5c55b2e43c41fee427fda007688fe1e8",
+      "attribution": "Pololu Corporation"
+    }
+  ],
+  "gps_source_manifest": "../step3-source-manifest.json",
+  "gps_geometry": "../step3-cad-geometry.json",
+  "gps_5440_revision_verified": false
+}

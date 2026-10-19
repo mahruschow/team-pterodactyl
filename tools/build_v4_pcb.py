@@ -4,8 +4,8 @@ Run with KiCad Python; optional first argument selects kicad-cli. Writes
 Native_KiCad_v4/PTERODACTYL_v4.kicad_pcb (placement + ground planes, no tracks).
 Overwrites that board, so only use it before routing or hand edits begin.
 
-U2 (regulator) and U5 (GPS) have no verified footprints: they are drawn as
-labelled keep-out envelopes and their pads are absent from the board.
+U5 (GPS) has no revision-verified footprint: its envelope has no pads.
+U2 uses the reviewed three-pin regulator carrier footprint.
 """
 from pathlib import Path
 import json,subprocess,sys,tempfile,xml.etree.ElementTree as ET
@@ -31,11 +31,11 @@ PLACE={
     'J1':(90.0,56.0,90),'F1':(81.5,56.0,0),'Q1':(81.5,60.5,0),'D1':(66.0,56.0,0),'R1':(66.0,59.5,0),
     'J2':(90.0,66.0,90),'C1':(82.0,66.0,0),'R2':(66.0,63.5,0),'R3':(66.0,66.8,0),'C2':(82.0,74.0,0),
     'C3':(66.0,84.5,0),'C4':(73.2,86.0,0),
+    'U2':(80.5,78.0,0),
 }
 for i in range(10):PLACE['TP%d'%(i+1)]=(1.0+i*4.2,60.0,0)
 ENVELOPES={  # reference: (x, y, w, h, label)
     'U5':(60.5,8.0,36.2,27.3,'U5 GPS #5440 envelope 34.2x25.3 +1 mm - footprint pending M01'),
-    'U2':(80.5,78.0,9.6,13.4,'U2 Pololu S9V11F5 7.6x11.4 +1 mm - footprint pending pinout check'),
 }
 EDGE_MARGIN=0.5
 HOLE_KEEPOUT=4.0

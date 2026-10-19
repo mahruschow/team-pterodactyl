@@ -4,6 +4,8 @@ Updated October 19, 2026. Working branch: `saadat-dev`.
 
 ## Where we stopped
 
+**Latest footprint work:** [REGULATOR_GPS_FOOTPRINTS.md](REGULATOR_GPS_FOOTPRINTS.md). U2 now has a source-checked three-pin carrier footprint assigned and placed; the unverified GPS comparison footprint exists separately and U5 remains unassigned. ERC and enabled physical DRC: 0 violations; parity: only U5; 12 unconnected items including the newly exposed regulator connections. All existing routing and the other 49 footprints are preserved. The placement checker now measures actual PCB geometry and detects a deliberate moved-IMU violation. Connector fit/retention, GPS M01 and remaining routing still need closure. Earlier review/implementation entries below describe their historical checkpoints.
+
 **Latest review (October 19, source commit `8933189`):** [V4_DESIGN_REVIEW.md](V4_DESIGN_REVIEW.md). Fresh ERC and enabled physical DRC checks report zero violations, but the board has 10 unconnected items and missing U2/U5 footprints. Actual separation targets pass and the firmware compiles. Newly identified work: propagate sensor read failures, bound BNO055 reset waits, recover incomplete SD sessions, validate GPS field freshness, document the regulator's 3 V startup minimum, and measure current PCB geometry in the placement checker. These findings are unresolved; Steps 2–7 remain drafts. This review publication changes documentation and evidence only.
 
 **Step 1 is complete. Step 2 core scope is confirmed. Step 3 has a documented connection map and three checked draft carrier footprints (BNO055, MS8607 and Teensy), matching sensor symbols, a GPS logical symbol and concrete assembly proposals; mechanical approval remains incomplete.**
