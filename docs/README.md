@@ -4,6 +4,7 @@ Start here when joining the project or resuming work. This directory contains th
 
 ## Reading order
 
+0. [What's done and what's left](REMAINING_WORK.md) — one-page progress table and to-do list by owner (lead, Saadat, teammate).
 1. [Current status and resume checklist](CURRENT_STATUS.md) — where we stopped and the next concrete actions.
 2. [Version-one requirements](V1_REQUIREMENTS.md) — agreed baseline, proposals and unresolved decisions.
 3. [Development plan](DEVELOPMENT_PLAN.md) — the ten steps from imported baseline to tested hardware.
@@ -31,6 +32,7 @@ Start here when joining the project or resuming work. This directory contains th
 ```text
 docs/
   README.md                     Start here
+  REMAINING_WORK.md             One-page progress and to-do list
   CURRENT_STATUS.md             Current handoff and next actions
   DEVELOPMENT_PLAN.md            Milestones and completion criteria
   V1_REQUIREMENTS.md             Requirements and decision register

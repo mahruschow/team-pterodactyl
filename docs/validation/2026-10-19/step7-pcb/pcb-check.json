@@ -1,5 +1,5 @@
 {
-  "pcb_sha256": "e5f62b153e40e708e200f10e87a0f6840c2e35634a4349d162985c4fcc09292d",
+  "pcb_sha256": "4c07c3a4321e366302c332423819227deaaf345472d74856873d5e09d64fa07a",
   "drc_violations": {},
   "unconnected_items": 57,
   "parity_missing_footprints": [
@@ -50,6 +50,15 @@
       "pass": true
     }
   ],
+  "routing": {
+    "track_segments": 0,
+    "track_length_mm": 0,
+    "vias": 0,
+    "i2c_longest_mm": 0,
+    "i2c_pass": true,
+    "thin_power_nets": [],
+    "tracks_in_envelopes": []
+  },
   "problems": [],
   "result": "pass",
   "scope": "Draft placement with inner GND planes; tracks not yet routed, so unconnected items are expected. Not a fabrication check: U2/U5 footprints, routing, manufacturer rules and review remain."

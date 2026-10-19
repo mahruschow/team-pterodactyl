@@ -130,8 +130,10 @@ def main():
         x0,y0=origin[0]+x,origin[1]+y
         for layer in (pcbnew.F_Fab,pcbnew.F_CrtYd):rect(board,layer,x0,y0,x0+w,y0+h,0.05 if layer==pcbnew.F_CrtYd else 0.1)
         text(board,pcbnew.F_Fab,x0+w/2,y0+h/2,label.replace(' - ','\n'),0.8)
-        z=pcbnew.ZONE(board);z.SetIsRuleArea(True);z.SetLayer(pcbnew.F_Cu);z.SetDoNotAllowFootprints(True)
-        z.SetDoNotAllowTracks(False);z.SetDoNotAllowVias(False);z.SetDoNotAllowZoneFills(False);z.SetDoNotAllowPads(False)
+        # Keep footprints, tracks and vias out (PC10) until the real footprint exists; inner GND planes stay.
+        z=pcbnew.ZONE(board);z.SetIsRuleArea(True);outer=pcbnew.LSET();outer.AddLayer(pcbnew.F_Cu);outer.AddLayer(pcbnew.B_Cu)
+        z.SetLayerSet(outer);z.SetDoNotAllowFootprints(True)
+        z.SetDoNotAllowTracks(True);z.SetDoNotAllowVias(True);z.SetDoNotAllowZoneFills(False);z.SetDoNotAllowPads(False)
         z.SetZoneName(ref+'_ENVELOPE')
         o=z.Outline();o.NewOutline()
         for px,py in [(x0,y0),(x0+w,y0),(x0+w,y0+h),(x0,y0+h)]:o.Append(pcbnew.FromMM(px),pcbnew.FromMM(py))

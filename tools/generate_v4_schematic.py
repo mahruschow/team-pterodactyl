@@ -108,6 +108,20 @@ NOTES=[
 ]
 
 
+def netclass(name,track,clearance,via,drill,priority):
+    return {'name':name,'track_width':track,'clearance':clearance,'via_diameter':via,'via_drill':drill,
+            'microvia_diameter':0.3,'microvia_drill':0.1,'diff_pair_width':0.2,'diff_pair_gap':0.25,'diff_pair_via_gap':0.25,
+            'wire_width':6,'bus_width':12,'line_style':0,'priority':priority,
+            'pcb_color':'rgba(0, 0, 0, 0.000)','schematic_color':'rgba(0, 0, 0, 0.000)'}
+
+
+# Power class: 0.5 mm tracks for battery/supply nets (about 0.7 A regulator startup).
+NET_SETTINGS={'meta':{'version':4},
+    'classes':[netclass('Default',0.25,0.2,0.6,0.3,2147483647),netclass('Power',0.5,0.25,0.8,0.4,0)],
+    'netclass_patterns':[{'netclass':'Power','pattern':p} for p in
+                         ['/VBAT_IN','/VBAT_FUSED','/VBAT_PROT','/VBAT_SW','+5V','+3V3','/SENSOR_3V3']]}
+
+
 def uid(*parts):return str(uuid.uuid5(NS,'/'.join(parts)))
 
 
@@ -261,7 +275,7 @@ def main():
     for ref,lib_id,value,footprint,(gx,gy),mapping,fields,dnp in PARTS:
         endpoints=sheet.place(ref,lib_id,value,footprint,gx*G,gy*G,fields=fields,dnp=dnp)
         unused=set(endpoints)-set(mapping)
-        if ref=='U1':mapping=dict(mapping,**{p:NC for p in unused})
+        if ref=='U1':mapping=dict(mapping,**{p:NC for p in sorted(unused)})  # sorted: stable output
         assert set(mapping)==set(endpoints),(ref,set(endpoints)^set(mapping))
         for number,net in mapping.items():
             x,y,a=endpoints[number];sheet.connect(net,x,y,a)
@@ -284,7 +298,7 @@ def main():
           [Sym('lib_symbols')]+list(sheet.lib_symbols.values())]+sheet.items+[
           [Sym('sheet_instances'),[Sym('path'),'/',[Sym('page'),'1']]],[Sym('embedded_fonts'),Sym('no')]]
     (OUT/(NAME+'.kicad_sch')).write_text(dump(root)+'\n',encoding='utf-8',newline='\n')
-    (OUT/(NAME+'.kicad_pro')).write_text(json.dumps({'meta':{'filename':NAME+'.kicad_pro','version':3}},indent=2)+'\n',newline='\n')
+    (OUT/(NAME+'.kicad_pro')).write_text(json.dumps({'meta':{'filename':NAME+'.kicad_pro','version':3},'net_settings':NET_SETTINGS},indent=2)+'\n',newline='\n')
     (OUT/'sym-lib-table').write_text('(sym_lib_table\n\t(version 7)\n'
         '\t(lib (name "Pterodactyl_Modules") (type "KiCad") (uri "${KIPRJMOD}/../Native_KiCad_v11/Pterodactyl_Modules.kicad_sym") (options "") (descr "Draft module pin contracts"))\n'
         '\t(lib (name "Pterodactyl_v4") (type "KiCad") (uri "${KIPRJMOD}/Pterodactyl_v4.kicad_sym") (options "") (descr "Draft v4 regulator and Teensy symbols"))\n'

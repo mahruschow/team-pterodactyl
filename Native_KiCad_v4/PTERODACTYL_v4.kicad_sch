@@ -10610,24 +10610,60 @@
 		(uuid "78bf1301-9153-59d1-88fb-eae9b32ef243")
 	)
 	(no_connect
-		(at 91.44 190.5)
-		(uuid "9f42b47b-f7fa-5870-8589-19a65fb7f5b0")
-	)
-	(no_connect
 		(at 60.96 208.28)
 		(uuid "6fa45b61-d4f9-547d-b222-e2d19ad80301")
+	)
+	(no_connect
+		(at 60.96 210.82)
+		(uuid "42153af9-921b-58db-9218-5233f45b8c47")
+	)
+	(no_connect
+		(at 60.96 213.36)
+		(uuid "aeea6234-6e2c-5e94-8335-b0d5e3562c8e")
 	)
 	(no_connect
 		(at 91.44 213.36)
 		(uuid "470f3c58-a6a0-56f1-af84-8ca782ccea8f")
 	)
 	(no_connect
-		(at 91.44 223.52)
-		(uuid "9046d721-6d92-5ded-ae2f-fbbc7a98ceb1")
+		(at 91.44 195.58)
+		(uuid "9d9d2321-c7da-588e-9fc8-19d59755439c")
+	)
+	(no_connect
+		(at 91.44 193.04)
+		(uuid "9186e070-2748-5c2f-bbbd-ce118e1f1cc5")
+	)
+	(no_connect
+		(at 91.44 190.5)
+		(uuid "9f42b47b-f7fa-5870-8589-19a65fb7f5b0")
+	)
+	(no_connect
+		(at 91.44 187.96)
+		(uuid "770c3586-112f-5571-a95e-6bd5b8ee7002")
+	)
+	(no_connect
+		(at 60.96 223.52)
+		(uuid "6ffafecc-a7ff-5b19-9031-e00e090fdc58")
+	)
+	(no_connect
+		(at 60.96 226.06)
+		(uuid "01be3bc5-6969-52bc-b167-8d879dfd5421")
+	)
+	(no_connect
+		(at 60.96 231.14)
+		(uuid "c1f7840b-c3c2-5bf8-a9d4-4ef5eba8c4a9")
 	)
 	(no_connect
 		(at 60.96 233.68)
 		(uuid "16800f8d-4cfa-5c35-857b-4c117887ab39")
+	)
+	(no_connect
+		(at 60.96 236.22)
+		(uuid "d63e9052-894c-5b9f-9166-c0765da6d1f5")
+	)
+	(no_connect
+		(at 91.44 243.84)
+		(uuid "dcc8582e-4223-5bae-b49c-7429a7d9d2ef")
 	)
 	(no_connect
 		(at 91.44 241.3)
@@ -10638,34 +10674,6 @@
 		(uuid "abc17556-aaf8-50bf-8d44-f6063ffa3b68")
 	)
 	(no_connect
-		(at 91.44 243.84)
-		(uuid "dcc8582e-4223-5bae-b49c-7429a7d9d2ef")
-	)
-	(no_connect
-		(at 91.44 226.06)
-		(uuid "7b6e5d5c-2559-5c82-a5e4-e77ca44de312")
-	)
-	(no_connect
-		(at 91.44 193.04)
-		(uuid "9186e070-2748-5c2f-bbbd-ce118e1f1cc5")
-	)
-	(no_connect
-		(at 60.96 210.82)
-		(uuid "42153af9-921b-58db-9218-5233f45b8c47")
-	)
-	(no_connect
-		(at 91.44 231.14)
-		(uuid "d1a5ed51-1b80-51f6-9460-ced2d7a86e94")
-	)
-	(no_connect
-		(at 60.96 223.52)
-		(uuid "6ffafecc-a7ff-5b19-9031-e00e090fdc58")
-	)
-	(no_connect
-		(at 60.96 236.22)
-		(uuid "d63e9052-894c-5b9f-9166-c0765da6d1f5")
-	)
-	(no_connect
 		(at 91.44 236.22)
 		(uuid "93910f70-d922-56b7-92bd-a4d7da16ea4c")
 	)
@@ -10674,32 +10682,24 @@
 		(uuid "b27c4d31-4af5-5fd7-8f15-75c1150ee22b")
 	)
 	(no_connect
-		(at 91.44 187.96)
-		(uuid "770c3586-112f-5571-a95e-6bd5b8ee7002")
-	)
-	(no_connect
-		(at 60.96 213.36)
-		(uuid "aeea6234-6e2c-5e94-8335-b0d5e3562c8e")
-	)
-	(no_connect
-		(at 60.96 198.12)
-		(uuid "569bed77-45cd-53b3-8fc6-94e12f3176cc")
-	)
-	(no_connect
-		(at 91.44 195.58)
-		(uuid "9d9d2321-c7da-588e-9fc8-19d59755439c")
-	)
-	(no_connect
-		(at 60.96 231.14)
-		(uuid "c1f7840b-c3c2-5bf8-a9d4-4ef5eba8c4a9")
-	)
-	(no_connect
-		(at 60.96 226.06)
-		(uuid "01be3bc5-6969-52bc-b167-8d879dfd5421")
+		(at 91.44 231.14)
+		(uuid "d1a5ed51-1b80-51f6-9460-ced2d7a86e94")
 	)
 	(no_connect
 		(at 91.44 228.6)
 		(uuid "1dc34f0c-a767-5484-987e-5cc46790b038")
+	)
+	(no_connect
+		(at 91.44 226.06)
+		(uuid "7b6e5d5c-2559-5c82-a5e4-e77ca44de312")
+	)
+	(no_connect
+		(at 91.44 223.52)
+		(uuid "9046d721-6d92-5ded-ae2f-fbbc7a98ceb1")
+	)
+	(no_connect
+		(at 60.96 198.12)
+		(uuid "569bed77-45cd-53b3-8fc6-94e12f3176cc")
 	)
 	(symbol
 		(lib_id "Pterodactyl_Modules:Adafruit_BNO055_2472")
