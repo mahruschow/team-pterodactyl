@@ -4,6 +4,8 @@ Start here when joining the project or resuming work. This directory contains th
 
 ## Reading order
 
+Read the [October 19 v4 design review](V4_DESIGN_REVIEW.md) for the latest independent checks, seven prioritized findings and Step 1–7 completion assessment. Hardware and firmware fixes remain open.
+
 0. [What's done and what's left](REMAINING_WORK.md) — one-page progress table and to-do list by owner (lead, Saadat, teammate).
 1. [Current status and resume checklist](CURRENT_STATUS.md) — where we stopped and the next concrete actions.
 2. [Version-one requirements](V1_REQUIREMENTS.md) — agreed baseline, proposals and unresolved decisions.

@@ -4,6 +4,8 @@ Updated October 19, 2026. Working branch: `saadat-dev`.
 
 ## Where we stopped
 
+**Latest review (October 19, source commit `8933189`):** [V4_DESIGN_REVIEW.md](V4_DESIGN_REVIEW.md). Fresh ERC and enabled physical DRC checks report zero violations, but the board has 10 unconnected items and missing U2/U5 footprints. Actual separation targets pass and the firmware compiles. Newly identified work: propagate sensor read failures, bound BNO055 reset waits, recover incomplete SD sessions, validate GPS field freshness, document the regulator's 3 V startup minimum, and measure current PCB geometry in the placement checker. These findings are unresolved; Steps 2–7 remain drafts. This review publication changes documentation and evidence only.
+
 **Step 1 is complete. Step 2 core scope is confirmed. Step 3 has a documented connection map and three checked draft carrier footprints (BNO055, MS8607 and Teensy), matching sensor symbols, a GPS logical symbol and concrete assembly proposals; mechanical approval remains incomplete.**
 
 **Step 4 (October 19) has a draft placement and interference plan ready for team review:** [PLACEMENT_AND_INTERFERENCE.md](PLACEMENT_AND_INTERFERENCE.md). It sets out a floor plan on the legacy 97.79 mm outline (BNO055 top-left, MS8607 top-centre, GPS envelope top-right, Teensy bottom-left with microSD at the board edge, power region bottom-right), placement/routing rules PC1–PC15, magnetic-field and I2C bus estimates, and prototype test matrix T1–T11. An isolated native fixture passes 17 placement checks with zero DRC violations. Approval waits on team review, assumptions A1–A6 and M01–M04. Inputs needed from the lead, for both Step 3 and Step 4, are collected in [TEAM_LEAD_REQUESTS.md](TEAM_LEAD_REQUESTS.md) (R1–R9).

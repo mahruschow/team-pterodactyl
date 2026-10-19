@@ -29,6 +29,18 @@ The clean-up list is in [PCB_LAYOUT_V4.md](PCB_LAYOUT_V4.md#clean-up-list-for-ha
 
 ## To-do list
 
+### Review findings to close
+
+See [V4_DESIGN_REVIEW.md](V4_DESIGN_REVIEW.md) for exact locations, failure cases and validation expectations.
+
+- [ ] Finish U2/U5 footprints and all open supply connections; require clean parity and zero unconnected items.
+- [ ] Propagate actual sensor transfer/CRC failures rather than logging invalid or stale values as `OK`.
+- [ ] Add a timeout inside the BNO055 post-reset polling path so other streams continue on failure.
+- [ ] Make required SD file opening transactional and implement storage failure recovery.
+- [ ] Correct the power contract: at least 3 V at regulator VIN for startup, with battery and wiring margin.
+- [ ] Track GPS RMC validity/age when combining its fields with GGA.
+- [ ] Derive placement separation checks from the current PCB rather than the saved placement JSON.
+
 ### Needs the team lead (blocking)
 Send [TEAM_LEAD_REQUESTS.md](TEAM_LEAD_REQUESTS.md). The most important items:
 

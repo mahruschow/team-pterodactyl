@@ -1,0 +1,19 @@
+Memory Usage on Teensy 4.1:
+  FLASH: code:113236, data:15052, headers:8924   free for files:7989252
+   RAM1: variables:20064, code:110280, padding:20792   free for local variables:373152
+   RAM2: variables:12416  free for malloc/new:511872
+
+
+Used library            Version Path
+Wire                    1.0     C:\Users\saada\AppData\Local\Arduino15\packages\teensy\hardware\avr\1.62.0\libraries\Wire
+SD                      2.0.0   C:\Users\saada\AppData\Local\Arduino15\packages\teensy\hardware\avr\1.62.0\libraries\SD
+SdFat                   2.1.2   C:\Users\saada\AppData\Local\Arduino15\packages\teensy\hardware\avr\1.62.0\libraries\SdFat
+SPI                     1.0     C:\Users\saada\AppData\Local\Arduino15\packages\teensy\hardware\avr\1.62.0\libraries\SPI
+Adafruit Unified Sensor 1.1.15  C:\Users\saada\OneDrive\Documents\Arduino\libraries\Adafruit_Unified_Sensor
+Adafruit BNO055         1.6.4   C:\Users\saada\OneDrive\Documents\Arduino\libraries\Adafruit_BNO055
+Adafruit BusIO          1.17.4  C:\Users\saada\OneDrive\Documents\Arduino\libraries\Adafruit_BusIO
+Adafruit MS8607         1.0.4   C:\Users\saada\OneDrive\Documents\Arduino\libraries\Adafruit_MS8607
+Adafruit GPS Library    1.9.0   C:\Users\saada\OneDrive\Documents\Arduino\libraries\Adafruit_GPS_Library
+
+Used platform Version Path
+teensy:avr    1.62.0  C:\Users\saada\AppData\Local\Arduino15\packages\teensy\hardware\avr\1.62.0
