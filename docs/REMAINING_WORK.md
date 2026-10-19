@@ -12,20 +12,20 @@ Updated October 19, 2026 by Saadat (with Claude). Branch: `saadat-dev`. This is 
 | 4. Placement and interference | 🟡 Drafted; needs team review | [PLACEMENT_AND_INTERFERENCE.md](PLACEMENT_AND_INTERFERENCE.md) |
 | 5. Power design and schematic | 🟡 Drafted and checked (ERC clean) | [POWER_ARCHITECTURE.md](POWER_ARCHITECTURE.md), [schematic PDF](validation/2026-10-19/step5-schematic/PTERODACTYL_v4.pdf) |
 | 6. Firmware | 🟡 Written; compiles; not run on hardware | [FIRMWARE_V4.md](FIRMWARE_V4.md) |
-| 7. PCB layout | 🟡 Parts placed and checked; **not routed** | [PCB_LAYOUT_V4.md](PCB_LAYOUT_V4.md), [render](validation/2026-10-19/step7-pcb/v4-top.png) |
+| 7. PCB layout | 🟡 Placed and **first-pass autorouted** (DRC clean; 6 supply connections left) | [PCB_LAYOUT_V4.md](PCB_LAYOUT_V4.md), [render](validation/2026-10-19/step7-pcb/v4-top.png), [copper](validation/2026-10-19/step7-pcb/v4-copper.pdf) |
 | 8. Order prototype | ⬜ Not started | — |
 | 9. Build and test | ⬜ Not started | — |
 | 10. Flight version | ⬜ Not started | — |
 
-**What we can show today:** the v4 schematic PDF, the placed v4 board render and the floor plan. **What we can't show yet:** a routed board or anything running on hardware.
+**What we can show today:** the v4 schematic PDF, the autorouted v4 board (render and copper PDF) and the floor plan. **What we can't show yet:** a finished, reviewed layout or anything running on hardware.
 
 ## Routing status (Step 7)
 
-A Freerouting autoroute was tried on October 19. Freerouting 2.5.0's Windows command-line build crashed on start-up (a packaging bug in that build; see `validation/2026-10-19/step7-pcb/freerouting.log`). The board was not changed. Ways forward:
-- Run the portable Freerouting `.jar` with a Java 25 runtime (only Java 17 is installed on Saadat's machine), using `tools/autoroute_v4_pcb.py`.
-- Or route by hand in KiCad.
+A first-pass autoroute with Freerouting 2.5.0 (portable `.jar` on a Java 25 runtime) is in the board:
+- DRC has 0 violations, nothing is routed on the inner GND planes, and I2C is 110.5 mm long.
+- 6 supply connections are still open (SENSOR_3V3 decoupling and two +5V points), because the test-point row above the Teensy is a bottleneck.
 
-Either way, the result must be reviewed against PC6, PC10 and PC11 (supply returns, nothing noisy under the GPS, I2C ≤ 150 mm) and checked with `tools/check_v4_pcb.py`.
+The clean-up list is in [PCB_LAYOUT_V4.md](PCB_LAYOUT_V4.md#clean-up-list-for-hand-routing). From here, routing is done by hand in KiCad.
 
 ## To-do list
 
@@ -40,7 +40,8 @@ Send [TEAM_LEAD_REQUESTS.md](TEAM_LEAD_REQUESTS.md). The most important items:
 - [ ] **D10:** how the logger is started and stopped (switch, button, pull-before-flight).
 
 ### Saadat (PCB design)
-- [ ] Route the board: autoroute first pass, then hand clean-up, or route by hand. Then place silkscreen labels and add outer-layer GND pours.
+- [x] First-pass autoroute (DRC clean; 6 supply connections open).
+- [ ] Hand clean-up per [the clean-up list](PCB_LAYOUT_V4.md#clean-up-list-for-hand-routing): finish the 6 connections, move TP1/TP2 near the power section, review against PC6/PC7/PC11, then silkscreen labels, outer GND pours and stitching vias.
 - [ ] Make the Pololu S9V11F5 regulator footprint once its pinout is confirmed.
 - [ ] Make the GPS #5440 footprint once its geometry is known (M01).
 - [ ] Set the manufacturer's rules once R5 is answered, and rerun the checks.
@@ -57,7 +58,7 @@ Send [TEAM_LEAD_REQUESTS.md](TEAM_LEAD_REQUESTS.md). The most important items:
 - [ ] Run the firmware on a Teensy with the modules (the "not verified" list in FIRMWARE_V4.md).
 
 ### Before ordering a prototype (Step 8)
-- [ ] Routed board passes DRC with 0 unconnected, apart from anything explicitly accepted.
+- [ ] Routed board passes DRC with 0 unconnected (U2/U5 connections once their footprints exist).
 - [ ] Team design review of the schematic and layout.
 - [ ] Fresh Gerbers and drill files generated and inspected. The old v12 Gerbers are reference only.
 

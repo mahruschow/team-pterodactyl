@@ -26,6 +26,7 @@ def gap(a,b):
 
 PC11_MAX_MM=150.0
 POWER_MIN_MM=0.5
+SUPPLY3V3_MIN_MM=0.3
 
 
 def routing_metrics(placement):
@@ -36,7 +37,8 @@ def routing_metrics(placement):
     vias=[t for t in board.GetTracks() if t.GetClass()=='PCB_VIA']
     length=collections.defaultdict(float)
     for t in tracks:length[t.GetNetname()]+=pcbnew.ToMM(t.GetLength())
-    thin=sorted({t.GetNetname() for t in tracks if t.GetNetClassName()=='Power' and pcbnew.ToMM(t.GetWidth())<POWER_MIN_MM-1e-6})
+    minimum={'Power':POWER_MIN_MM,'Supply3V3':SUPPLY3V3_MIN_MM}
+    thin=sorted({t.GetNetname() for t in tracks if pcbnew.ToMM(t.GetWidth())<minimum.get(t.GetNetClassName(),0)-1e-6})
     inside=[]
     for ref in ('U2','U5'):
         x0,y0,x1,y1=placement[ref]
@@ -44,9 +46,10 @@ def routing_metrics(placement):
             for p in (t.GetStart(),t.GetEnd()):
                 x,y=pcbnew.ToMM(p.x)-ox,pcbnew.ToMM(p.y)-oy
                 if x0<x<x1 and y0<y<y1:inside.append((ref,t.GetNetname()));break
+    inner=sorted({t.GetNetname() for t in tracks if t.GetLayer() in (pcbnew.In1_Cu,pcbnew.In2_Cu)})
     i2c=round(max(length.get('/I2C_SDA',0),length.get('/I2C_SCL',0)),1)
     return {'track_segments':len(tracks),'track_length_mm':round(sum(length.values()),1),'vias':len(vias),
-            'i2c_longest_mm':i2c,'i2c_pass':i2c<=PC11_MAX_MM,'thin_power_nets':thin,'tracks_in_envelopes':sorted(set(inside))}
+            'i2c_longest_mm':i2c,'i2c_pass':i2c<=PC11_MAX_MM,'thin_power_nets':thin,'tracks_in_envelopes':sorted(set(inside)),'inner_plane_tracks':inner}
 
 
 def main():
@@ -58,6 +61,8 @@ def main():
                     '--output',str(OUT/'v4-top.png'),str(PCB)],check=True,capture_output=True)
     subprocess.run([cli,'pcb','export','pdf','--layers','Edge.Cuts,F.Fab,F.Courtyard,F.Silkscreen','--mode-single',
                     '--output',str(OUT/'v4-assembly.pdf'),str(PCB)],check=True,capture_output=True)
+    subprocess.run([cli,'pcb','export','pdf','--layers','F.Cu,B.Cu,Edge.Cuts,F.Fab','--mode-single',
+                    '--output',str(OUT/'v4-copper.pdf'),str(PCB)],check=True,capture_output=True)
     report=json.loads(drc.read_text())
     violations=collections.Counter(v['type'] for v in report['violations'])
     parity=report.get('schematic_parity',[])
@@ -74,6 +79,7 @@ def main():
         if not routing['i2c_pass']:problems.append(('PC11 I2C length',routing['i2c_longest_mm']))
         if routing['thin_power_nets']:problems.append(('power width',routing['thin_power_nets']))
         if routing['tracks_in_envelopes']:problems.append(('envelope',routing['tracks_in_envelopes']))
+        if routing['inner_plane_tracks']:problems.append(('inner GND plane cut',routing['inner_plane_tracks']))
     if violations:problems.append(('drc',dict(violations)))
     if missing!=EXPECTED_MISSING or other_parity:problems.append(('parity',sorted(missing),other_parity))
     problems+=[('separation',s) for s in separations if not s['pass']]

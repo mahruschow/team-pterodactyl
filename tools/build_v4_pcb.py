@@ -140,6 +140,15 @@ def main():
         board.Add(z);placed[ref]=[x,y,x+w,y+h]
     gnd=nets['GND']
     for layer in (pcbnew.In1_Cu,pcbnew.In2_Cu):outline_zone(board,layer,gnd,origin,size)
+    # Inner layers are solid GND planes (PC6, PC14): mark them as power planes and forbid tracks
+    # there, so neither an autorouter nor hand routing cuts them. Vias may pass through.
+    inner=pcbnew.LSET()
+    for layer in (pcbnew.In1_Cu,pcbnew.In2_Cu):board.SetLayerType(layer,pcbnew.LT_POWER);inner.AddLayer(layer)
+    k=pcbnew.ZONE(board);k.SetIsRuleArea(True);k.SetLayerSet(inner);k.SetZoneName('INNER_PLANES_NO_TRACKS')
+    k.SetDoNotAllowTracks(True);k.SetDoNotAllowVias(False);k.SetDoNotAllowPads(False);k.SetDoNotAllowFootprints(False);k.SetDoNotAllowZoneFills(False)
+    o=k.Outline();o.NewOutline()
+    for x,y in [(0,0),(size[0],0),(size[0],size[1]),(0,size[1])]:o.Append(pcbnew.FromMM(origin[0]+x),pcbnew.FromMM(origin[1]+y))
+    board.Add(k)
     pcbnew.ZONE_FILLER(board).Fill(board.Zones())
     text(board,pcbnew.F_SilkS,origin[0]+48,origin[1]+size[1]-3,'PTERODACTYL v4 DRAFT - not for fabrication',1.2)
     board.SetFileName(str(PCB));pcbnew.SaveBoard(str(PCB),board)

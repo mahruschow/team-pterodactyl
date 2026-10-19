@@ -115,11 +115,13 @@ def netclass(name,track,clearance,via,drill,priority):
             'pcb_color':'rgba(0, 0, 0, 0.000)','schematic_color':'rgba(0, 0, 0, 0.000)'}
 
 
-# Power class: 0.5 mm tracks for battery/supply nets (about 0.7 A regulator startup).
+# Power: 0.5 mm for battery and +5V nets (about 0.7 A regulator startup).
+# Supply3V3: 0.3 mm for the 3.3 V rails (about 160 mA peak), narrow enough to pass between 2.54 mm pads.
 NET_SETTINGS={'meta':{'version':4},
-    'classes':[netclass('Default',0.25,0.2,0.6,0.3,2147483647),netclass('Power',0.5,0.25,0.8,0.4,0)],
-    'netclass_patterns':[{'netclass':'Power','pattern':p} for p in
-                         ['/VBAT_IN','/VBAT_FUSED','/VBAT_PROT','/VBAT_SW','+5V','+3V3','/SENSOR_3V3']]}
+    'classes':[netclass('Default',0.25,0.2,0.6,0.3,2147483647),netclass('Power',0.5,0.25,0.8,0.4,0),
+               netclass('Supply3V3',0.3,0.2,0.6,0.3,1)],
+    'netclass_patterns':[{'netclass':'Power','pattern':p} for p in ['/VBAT_IN','/VBAT_FUSED','/VBAT_PROT','/VBAT_SW','+5V']]
+                       +[{'netclass':'Supply3V3','pattern':p} for p in ['+3V3','/SENSOR_3V3']]}
 
 
 def uid(*parts):return str(uuid.uuid5(NS,'/'.join(parts)))

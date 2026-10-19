@@ -1,7 +1,7 @@
 {
-  "pcb_sha256": "4c07c3a4321e366302c332423819227deaaf345472d74856873d5e09d64fa07a",
+  "pcb_sha256": "ddf8d872f57f75e21ece7f463fefe91dc6f6dc9c58eda5992ed8851e2dc353b8",
   "drc_violations": {},
-  "unconnected_items": 57,
+  "unconnected_items": 10,
   "parity_missing_footprints": [
     "U2",
     "U5"
@@ -51,13 +51,14 @@
     }
   ],
   "routing": {
-    "track_segments": 0,
-    "track_length_mm": 0,
-    "vias": 0,
-    "i2c_longest_mm": 0,
+    "track_segments": 192,
+    "track_length_mm": 1249.6,
+    "vias": 10,
+    "i2c_longest_mm": 110.5,
     "i2c_pass": true,
     "thin_power_nets": [],
-    "tracks_in_envelopes": []
+    "tracks_in_envelopes": [],
+    "inner_plane_tracks": []
   },
   "problems": [],
   "result": "pass",
