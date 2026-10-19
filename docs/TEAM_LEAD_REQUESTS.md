@@ -39,7 +39,7 @@ The draft floor plan in [PLACEMENT_AND_INTERFERENCE.md](PLACEMENT_AND_INTERFEREN
 
 ## Needed soon for Step 5
 
-Worth asking at the same time:
+The v4 schematic uses a regulator that accepts 2–16 V, so the battery choice no longer blocks the schematic. It still decides the battery connector, fuse rating and input capacitor voltage. Worth asking at the same time:
 
 - Battery type, nominal/minimum voltage and capacity.
 - Required powered duration. The workbook's three hours is a budgeting assumption, not an accepted requirement.

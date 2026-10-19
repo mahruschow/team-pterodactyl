@@ -1,0 +1,504 @@
+{
+ "generated_by": "tools/generate_v4_schematic.py",
+ "pwr_flags": {
+  "GND": "battery return",
+  "SENSOR_3V3": "+3V3 through FB1",
+  "VBAT_SW": "battery through protection and switch"
+ },
+ "parts": {
+  "J1": {
+   "lib_id": "Connector_Generic:Conn_01x02",
+   "value": "Battery",
+   "footprint": "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical",
+   "dnp": false,
+   "pins": {
+    "1": "VBAT_IN",
+    "2": "GND"
+   }
+  },
+  "F1": {
+   "lib_id": "Device:Polyfuse",
+   "value": "PTC 0.7A hold",
+   "footprint": "Fuse:Fuse_Bourns_MF-RHT070",
+   "dnp": false,
+   "pins": {
+    "1": "VBAT_IN",
+    "2": "VBAT_FUSED"
+   }
+  },
+  "Q1": {
+   "lib_id": "Transistor_FET:Q_PMOS_GSD",
+   "value": "IRLML6402",
+   "footprint": "Package_TO_SOT_SMD:SOT-23",
+   "dnp": false,
+   "pins": {
+    "1": "Q1_GATE",
+    "2": "VBAT_PROT",
+    "3": "VBAT_FUSED"
+   }
+  },
+  "D1": {
+   "lib_id": "Device:D_Zener",
+   "value": "10V",
+   "footprint": "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal",
+   "dnp": false,
+   "pins": {
+    "1": "VBAT_PROT",
+    "2": "Q1_GATE"
+   }
+  },
+  "R1": {
+   "lib_id": "Device:R",
+   "value": "100k",
+   "footprint": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+   "dnp": false,
+   "pins": {
+    "1": "Q1_GATE",
+    "2": "GND"
+   }
+  },
+  "J2": {
+   "lib_id": "Connector_Generic:Conn_01x02",
+   "value": "Power switch",
+   "footprint": "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical",
+   "dnp": false,
+   "pins": {
+    "1": "VBAT_PROT",
+    "2": "VBAT_SW"
+   }
+  },
+  "C1": {
+   "lib_id": "Device:C_Polarized",
+   "value": "47u 25V",
+   "footprint": "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm",
+   "dnp": false,
+   "pins": {
+    "1": "VBAT_SW",
+    "2": "GND"
+   }
+  },
+  "R2": {
+   "lib_id": "Device:R",
+   "value": "100k 1%",
+   "footprint": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+   "dnp": false,
+   "pins": {
+    "1": "VBAT_SW",
+    "2": "VBAT_SENSE"
+   }
+  },
+  "R3": {
+   "lib_id": "Device:R",
+   "value": "22k 1%",
+   "footprint": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+   "dnp": false,
+   "pins": {
+    "1": "VBAT_SENSE",
+    "2": "GND"
+   }
+  },
+  "C2": {
+   "lib_id": "Device:C",
+   "value": "100n",
+   "footprint": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
+   "dnp": false,
+   "pins": {
+    "1": "VBAT_SENSE",
+    "2": "GND"
+   }
+  },
+  "U2": {
+   "lib_id": "Pterodactyl_v4:Pololu_S9V11F5_Logical",
+   "value": "Pololu S9V11F5",
+   "footprint": "",
+   "dnp": false,
+   "pins": {
+    "VIN": "VBAT_SW",
+    "GND": "GND",
+    "VOUT": "+5V",
+    "EN": null
+   }
+  },
+  "C3": {
+   "lib_id": "Device:C_Polarized",
+   "value": "100u 10V",
+   "footprint": "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm",
+   "dnp": false,
+   "pins": {
+    "1": "+5V",
+    "2": "GND"
+   }
+  },
+  "C4": {
+   "lib_id": "Device:C",
+   "value": "100n",
+   "footprint": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
+   "dnp": false,
+   "pins": {
+    "1": "+5V",
+    "2": "GND"
+   }
+  },
+  "FB1": {
+   "lib_id": "Device:FerriteBead",
+   "value": "Ferrite",
+   "footprint": "Inductor_THT:L_Axial_L5.0mm_D3.6mm_P10.00mm_Horizontal_Murata_BL01RN1A2A2",
+   "dnp": false,
+   "pins": {
+    "1": "+3V3",
+    "2": "SENSOR_3V3"
+   }
+  },
+  "C5": {
+   "lib_id": "Device:C",
+   "value": "10u",
+   "footprint": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
+   "dnp": false,
+   "pins": {
+    "1": "SENSOR_3V3",
+    "2": "GND"
+   }
+  },
+  "C6": {
+   "lib_id": "Device:C",
+   "value": "10u",
+   "footprint": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
+   "dnp": false,
+   "pins": {
+    "1": "SENSOR_3V3",
+    "2": "GND"
+   }
+  },
+  "C7": {
+   "lib_id": "Device:C",
+   "value": "100n",
+   "footprint": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
+   "dnp": false,
+   "pins": {
+    "1": "SENSOR_3V3",
+    "2": "GND"
+   }
+  },
+  "C8": {
+   "lib_id": "Device:C",
+   "value": "10u",
+   "footprint": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
+   "dnp": false,
+   "pins": {
+    "1": "SENSOR_3V3",
+    "2": "GND"
+   }
+  },
+  "C9": {
+   "lib_id": "Device:C",
+   "value": "100n",
+   "footprint": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
+   "dnp": false,
+   "pins": {
+    "1": "SENSOR_3V3",
+    "2": "GND"
+   }
+  },
+  "C10": {
+   "lib_id": "Device:C",
+   "value": "10u",
+   "footprint": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
+   "dnp": false,
+   "pins": {
+    "1": "SENSOR_3V3",
+    "2": "GND"
+   }
+  },
+  "C11": {
+   "lib_id": "Device:C",
+   "value": "100n",
+   "footprint": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
+   "dnp": false,
+   "pins": {
+    "1": "SENSOR_3V3",
+    "2": "GND"
+   }
+  },
+  "R4": {
+   "lib_id": "Device:R",
+   "value": "680",
+   "footprint": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+   "dnp": false,
+   "pins": {
+    "1": "STATUS1",
+    "2": "LED1_A"
+   }
+  },
+  "R5": {
+   "lib_id": "Device:R",
+   "value": "680",
+   "footprint": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+   "dnp": false,
+   "pins": {
+    "1": "STATUS2",
+    "2": "LED2_A"
+   }
+  },
+  "R6": {
+   "lib_id": "Device:R",
+   "value": "680",
+   "footprint": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+   "dnp": false,
+   "pins": {
+    "1": "STATUS3",
+    "2": "LED3_A"
+   }
+  },
+  "R7": {
+   "lib_id": "Device:R",
+   "value": "680",
+   "footprint": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+   "dnp": false,
+   "pins": {
+    "1": "STATUS4",
+    "2": "LED4_A"
+   }
+  },
+  "D2": {
+   "lib_id": "Device:LED",
+   "value": "Red",
+   "footprint": "LED_THT:LED_D5.0mm",
+   "dnp": false,
+   "pins": {
+    "1": "GND",
+    "2": "LED1_A"
+   }
+  },
+  "D3": {
+   "lib_id": "Device:LED",
+   "value": "Yellow",
+   "footprint": "LED_THT:LED_D5.0mm",
+   "dnp": false,
+   "pins": {
+    "1": "GND",
+    "2": "LED2_A"
+   }
+  },
+  "D4": {
+   "lib_id": "Device:LED",
+   "value": "Green",
+   "footprint": "LED_THT:LED_D5.0mm",
+   "dnp": false,
+   "pins": {
+    "1": "GND",
+    "2": "LED3_A"
+   }
+  },
+  "D5": {
+   "lib_id": "Device:LED",
+   "value": "Orange",
+   "footprint": "LED_THT:LED_D5.0mm",
+   "dnp": false,
+   "pins": {
+    "1": "GND",
+    "2": "LED4_A"
+   }
+  },
+  "U1": {
+   "lib_id": "Pterodactyl_v4:Teensy41_Carrier",
+   "value": "Teensy 4.1",
+   "footprint": "Pterodactyl_Modules:Teensy41_SSW_Carrier",
+   "dnp": false,
+   "pins": {
+    "VIN": "+5V",
+    "GND1": "GND",
+    "GND2": "GND",
+    "GND3": "GND",
+    "3.3V_1": "+3V3",
+    "3.3V_2": "+3V3",
+    "2": "STATUS1",
+    "3": "STATUS2",
+    "4": "STATUS3",
+    "5": "STATUS4",
+    "7": "GPS_TXD",
+    "8": "GPS_RXD",
+    "9": "IMU_RST",
+    "18": "I2C_SDA",
+    "19": "I2C_SCL",
+    "26": "VBAT_SENSE",
+    "30": "SW_MODE",
+    "31": "BTN_USER",
+    "32": "PBF_SENSE",
+    "0": "SPARE_0",
+    "1": "SPARE_1",
+    "14": "SPARE_14",
+    "15": "SPARE_15",
+    "16": "SPARE_16",
+    "17": "SPARE_17",
+    "22": null,
+    "10": null,
+    "13": null,
+    "41": null,
+    "28": null,
+    "34": null,
+    "35": null,
+    "33": null,
+    "40": null,
+    "21": null,
+    "11": null,
+    "38": null,
+    "24": null,
+    "29": null,
+    "36": null,
+    "37": null,
+    "23": null,
+    "12": null,
+    "6": null,
+    "20": null,
+    "27": null,
+    "25": null,
+    "39": null
+   }
+  },
+  "U3": {
+   "lib_id": "Pterodactyl_Modules:Adafruit_BNO055_2472",
+   "value": "Adafruit BNO055 #2472",
+   "footprint": "Pterodactyl_Modules:Adafruit_BNO055_2472_Carrier",
+   "dnp": false,
+   "pins": {
+    "1": "SENSOR_3V3",
+    "2": null,
+    "3": "GND",
+    "4": "I2C_SDA",
+    "5": "I2C_SCL",
+    "6": "IMU_RST",
+    "7": null,
+    "8": null,
+    "9": null,
+    "10": null
+   }
+  },
+  "U4": {
+   "lib_id": "Pterodactyl_Modules:Adafruit_MS8607_4716",
+   "value": "Adafruit MS8607 #4716",
+   "footprint": "Pterodactyl_Modules:Adafruit_MS8607_4716_Carrier",
+   "dnp": false,
+   "pins": {
+    "1": "SENSOR_3V3",
+    "2": null,
+    "3": "GND",
+    "4": "I2C_SCL",
+    "5": "I2C_SDA"
+   }
+  },
+  "U5": {
+   "lib_id": "Pterodactyl_Modules:Adafruit_PA1616D_5440_Logical",
+   "value": "Adafruit PA1616D #5440",
+   "footprint": "",
+   "dnp": false,
+   "pins": {
+    "VIN": "SENSOR_3V3",
+    "GND": "GND",
+    "TX": "GPS_TXD",
+    "RX": "GPS_RXD",
+    "3V3_OUT": null,
+    "EN": null,
+    "VBAT": null,
+    "FIX": null,
+    "PPS": null
+   }
+  },
+  "SW1": {
+   "lib_id": "Switch:SW_SPDT",
+   "value": "Mode",
+   "footprint": "Button_Switch_THT:SW_Slide_SPDT_Straight_CK_OS102011MS2Q",
+   "dnp": false,
+   "pins": {
+    "2": "SW_MODE",
+    "1": "GND",
+    "3": null
+   }
+  },
+  "SW2": {
+   "lib_id": "Switch:SW_Push",
+   "value": "User",
+   "footprint": "Button_Switch_THT:SW_PUSH_6mm",
+   "dnp": false,
+   "pins": {
+    "1": "BTN_USER",
+    "2": "GND"
+   }
+  },
+  "J3": {
+   "lib_id": "Connector_Generic:Conn_01x02",
+   "value": "Pull-before-flight",
+   "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
+   "dnp": false,
+   "pins": {
+    "1": "PBF_SENSE",
+    "2": "GND"
+   }
+  },
+  "J4": {
+   "lib_id": "Connector_Generic:Conn_01x08",
+   "value": "Spare I/O",
+   "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical",
+   "dnp": true,
+   "pins": {
+    "1": "+3V3",
+    "2": "GND",
+    "3": "SPARE_0",
+    "4": "SPARE_1",
+    "5": "SPARE_14",
+    "6": "SPARE_15",
+    "7": "SPARE_16",
+    "8": "SPARE_17"
+   }
+  },
+  "TP1": {
+   "pins": {
+    "1": "VBAT_PROT"
+   }
+  },
+  "TP2": {
+   "pins": {
+    "1": "+5V"
+   }
+  },
+  "TP3": {
+   "pins": {
+    "1": "+3V3"
+   }
+  },
+  "TP4": {
+   "pins": {
+    "1": "SENSOR_3V3"
+   }
+  },
+  "TP5": {
+   "pins": {
+    "1": "GND"
+   }
+  },
+  "TP6": {
+   "pins": {
+    "1": "I2C_SDA"
+   }
+  },
+  "TP7": {
+   "pins": {
+    "1": "I2C_SCL"
+   }
+  },
+  "TP8": {
+   "pins": {
+    "1": "GPS_TXD"
+   }
+  },
+  "TP9": {
+   "pins": {
+    "1": "GPS_RXD"
+   }
+  },
+  "TP10": {
+   "pins": {
+    "1": "VBAT_SENSE"
+   }
+  }
+ }
+}

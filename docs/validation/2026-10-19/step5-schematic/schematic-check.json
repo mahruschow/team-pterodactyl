@@ -1,0 +1,16 @@
+{
+  "schematic_sha256": "872a8c395e83195323de9f3fc1e3ba186e42f8003345c0bd80969e589341d606",
+  "erc_violations": 0,
+  "erc_types": [],
+  "nets_checked": 32,
+  "intentional_no_connects": 36,
+  "components": 51,
+  "teensy_footprint": "Pterodactyl_Modules:Teensy41_SSW_Carrier",
+  "parts_without_footprint": {
+    "U2": "regulator pinout not yet verified",
+    "U5": "exact #5440 geometry pending (M01)"
+  },
+  "problems": [],
+  "result": "pass",
+  "scope": "Native ERC, exported netlist against an independent expected net list, and BOM export. Not a simulation, part-rating approval or physical test."
+}

@@ -20,6 +20,8 @@ Start here when joining the project or resuming work. This directory contains th
 
 11. [Placement and interference plan](PLACEMENT_AND_INTERFERENCE.md) — Step 4 draft floor plan, placement/routing rules, estimates and prototype test matrix.
 
+12. [Power architecture and v4 schematic](POWER_ARCHITECTURE.md) — Step 5 legacy power findings, load budget, battery-agnostic architecture, schematic implementation and checks.
+
 ## Directory contents
 
 ```text
@@ -34,6 +36,7 @@ docs/
   TEENSY_MECHANICAL_REVIEW.md    Teensy drawing comparison and carrier review
   TEAM_LEAD_REQUESTS.md          Inputs needed from the lead/team
   PLACEMENT_AND_INTERFERENCE.md  Step 4 floor plan, rules and test matrix
+  POWER_ARCHITECTURE.md          Step 5 power design and v4 schematic record
   BASELINE_REVIEW.md             Repository/source/tool inventory
   sessions/
     2026-10-18.md                Session record
@@ -56,6 +59,7 @@ docs/
     step3-teensy/               Carrier check, positive/negative DRC fixtures and SVG
   validation/2026-10-19/
     step4-placement/            Draft placement fixture, separation checks, DRC and SVG
+    step5-schematic/            v4 ERC, netlist comparison, BOM and PDF
 ```
 
 ## Keeping this handoff useful
