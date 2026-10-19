@@ -16,6 +16,10 @@ Start here when joining the project or resuming work. This directory contains th
 
 9. [Teensy drawing comparison](TEENSY_MECHANICAL_REVIEW.md) — supplied PNG, matching nominal geometry, implemented SSW carrier and remaining fit/retention requirements.
 
+10. [Open requests for the team lead](TEAM_LEAD_REQUESTS.md) — plain-language Steps 1–3 summary and the inputs needed to close Step 3 and approve placement.
+
+11. [Placement and interference plan](PLACEMENT_AND_INTERFERENCE.md) — Step 4 draft floor plan, placement/routing rules, estimates and prototype test matrix.
+
 ## Directory contents
 
 ```text
@@ -27,9 +31,13 @@ docs/
   SENSOR_CONNECTION_MAP.md       Step 3 interfaces and mechanical review
   FOOTPRINT_REVIEW.md            Draft carrier library and approval gates
   MODULE_ASSEMBLY_PLAN.md        Connector/height proposal and closure record
+  TEENSY_MECHANICAL_REVIEW.md    Teensy drawing comparison and carrier review
+  TEAM_LEAD_REQUESTS.md          Inputs needed from the lead/team
+  PLACEMENT_AND_INTERFERENCE.md  Step 4 floor plan, rules and test matrix
   BASELINE_REVIEW.md             Repository/source/tool inventory
   sessions/
     2026-10-18.md                Session record
+    2026-10-19.md                Step 4 session record
   reference/
     Budgets_2026-10-18.xlsx       Unchanged supplied parts workbook
     baseline_manifest_2026-10-18.json
@@ -46,6 +54,8 @@ docs/
     step3-footprints/           Native coordinate check, fixture, DRC and SVGs
     step3-symbols/              Sensor pin-contract/GPS logical checks and SVGs
     step3-teensy/               Carrier check, positive/negative DRC fixtures and SVG
+  validation/2026-10-19/
+    step4-placement/            Draft placement fixture, separation checks, DRC and SVG
 ```
 
 ## Keeping this handoff useful

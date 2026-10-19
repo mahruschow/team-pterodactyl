@@ -1,0 +1,214 @@
+{
+  "kicad_version": "10.0.7",
+  "source_outline_sha256": "9047de3483b5518ddfde2072b32a75ff9b0be2efe9ae0608e56bff1abb4c5bc3",
+  "board_local_origin_mm": [
+    99.504,
+    56.007
+  ],
+  "board_size_mm": [
+    97.993,
+    97.993
+  ],
+  "hole_centres_local_mm": [
+    [
+      94.082,
+      94.082
+    ],
+    [
+      94.082,
+      3.912
+    ],
+    [
+      3.912,
+      94.082
+    ],
+    [
+      3.912,
+      3.912
+    ]
+  ],
+  "courtyard_extents_local_mm": {
+    "U_IMU": [
+      1.0,
+      8.000000000000007,
+      29.760000000000005,
+      30.410000000000004
+    ],
+    "U_ENV": [
+      31.999999999999986,
+      3.0010000000000048,
+      59.489999999999995,
+      22.869999999999997
+    ],
+    "U_MCU": [
+      0.5,
+      65.46000000000001,
+      64.54,
+      86.54999999999998
+    ],
+    "Z_GPS": [
+      60.5,
+      8.0,
+      96.7,
+      35.3
+    ],
+    "Z_PWR": [
+      81.0,
+      58.0,
+      96.8,
+      88.0
+    ]
+  },
+  "teensy_drawing_allowances_local_mm": [
+    [
+      63.432,
+      69.95500000000001,
+      78.532,
+      82.055
+    ],
+    [
+      -18.22800000000001,
+      67.95500000000001,
+      1.8719999999999999,
+      84.055
+    ]
+  ],
+  "checks": [
+    {
+      "rule": "E1",
+      "item": "U_IMU",
+      "board_edge_margin_mm": 1.0,
+      "minimum": 0.5,
+      "pass": true
+    },
+    {
+      "rule": "E2",
+      "item": "U_IMU",
+      "hole_centre_distance_mm": 4.09,
+      "minimum": 4.0,
+      "pass": true
+    },
+    {
+      "rule": "E1",
+      "item": "U_ENV",
+      "board_edge_margin_mm": 3.0,
+      "minimum": 0.5,
+      "pass": true
+    },
+    {
+      "rule": "E2",
+      "item": "U_ENV",
+      "hole_centre_distance_mm": 28.09,
+      "minimum": 4.0,
+      "pass": true
+    },
+    {
+      "rule": "E1",
+      "item": "U_MCU",
+      "board_edge_margin_mm": 0.5,
+      "minimum": 0.5,
+      "pass": true
+    },
+    {
+      "rule": "E2",
+      "item": "U_MCU",
+      "hole_centre_distance_mm": 7.53,
+      "minimum": 4.0,
+      "pass": true
+    },
+    {
+      "rule": "E1",
+      "item": "Z_GPS",
+      "board_edge_margin_mm": 1.29,
+      "minimum": 0.5,
+      "pass": true
+    },
+    {
+      "rule": "E2",
+      "item": "Z_GPS",
+      "hole_centre_distance_mm": 4.09,
+      "minimum": 4.0,
+      "pass": true
+    },
+    {
+      "rule": "E1",
+      "item": "Z_PWR",
+      "board_edge_margin_mm": 1.19,
+      "minimum": 0.5,
+      "pass": true
+    },
+    {
+      "rule": "E2",
+      "item": "Z_PWR",
+      "hole_centre_distance_mm": 6.08,
+      "minimum": 4.0,
+      "pass": true
+    },
+    {
+      "rule": "P1",
+      "a": "U_IMU",
+      "b": "Z_PWR",
+      "edge_gap_mm": 58.2,
+      "minimum": 40.0,
+      "reason": "magnetometer vs regulator/inductor and battery current",
+      "pass": true
+    },
+    {
+      "rule": "P2",
+      "a": "U_IMU",
+      "b": "U_MCU",
+      "edge_gap_mm": 35.05,
+      "minimum": 25.0,
+      "reason": "magnetometer vs Teensy/SD supply current",
+      "pass": true
+    },
+    {
+      "rule": "P3",
+      "a": "Z_GPS",
+      "b": "U_MCU",
+      "edge_gap_mm": 30.16,
+      "minimum": 20.0,
+      "reason": "GPS vs processor/SD digital activity",
+      "pass": true
+    },
+    {
+      "rule": "P4",
+      "a": "Z_GPS",
+      "b": "Z_PWR",
+      "edge_gap_mm": 22.7,
+      "minimum": 20.0,
+      "reason": "GPS vs switching regulator noise",
+      "pass": true
+    },
+    {
+      "rule": "P5",
+      "a": "U_ENV",
+      "b": "U_MCU",
+      "edge_gap_mm": 42.59,
+      "minimum": 25.0,
+      "reason": "pressure/temperature sensor vs Teensy heat",
+      "pass": true
+    },
+    {
+      "rule": "P6",
+      "a": "U_ENV",
+      "b": "Z_PWR",
+      "edge_gap_mm": 41.19,
+      "minimum": 25.0,
+      "reason": "pressure/temperature sensor vs regulator heat",
+      "pass": true
+    },
+    {
+      "rule": "P7",
+      "a": "U_IMU",
+      "b": "Z_GPS",
+      "edge_gap_mm": 30.74,
+      "minimum": 20.0,
+      "reason": "magnetometer vs GPS current and coin-cell holder",
+      "pass": true
+    }
+  ],
+  "drc_violation_types": [],
+  "drc_unconnected": 0,
+  "scope": "Draft placement envelopes and planning separations on the legacy outline. Not a layout, circuit, enclosure or interference validation."
+}
