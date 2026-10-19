@@ -4,7 +4,9 @@ Start here when joining the project or resuming work. This directory contains th
 
 ## Reading order
 
-Latest implementation: [Regulator and GPS footprints](REGULATOR_GPS_FOOTPRINTS.md) — assigned regulator carrier, unassigned GPS comparison draft, source evidence, validation and remaining fit gates.
+Latest implementation: [Power routing](POWER_ROUTING.md) — regulator/5 V/sensor rails connected, test points relocated, fresh DRC and preservation evidence. GPS remains absent.
+
+Previous implementation: [Regulator and GPS footprints](REGULATOR_GPS_FOOTPRINTS.md) — assigned regulator carrier, unassigned GPS comparison draft, source evidence, validation and remaining fit gates.
 
 Read the [October 19 v4 design review](V4_DESIGN_REVIEW.md) for the latest independent checks, seven prioritized findings and Step 1–7 completion assessment. Hardware and firmware fixes remain open.
 

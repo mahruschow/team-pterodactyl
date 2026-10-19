@@ -1,12 +1,16 @@
 # Step 7 — draft v4 PCB layout
 
-Prepared October 19, 2026. Working branch: `saadat-dev`. Status: **placed and first-pass autorouted; 6 supply connections and clean-up left for hand routing.** Not for fabrication.
+Prepared October 19, 2026. Working branch: `saadat-dev`. Status: **all currently placed footprints routed; GPS footprint/wiring and final layout review remain.** Not for fabrication.
 
 Open `Native_KiCad_v4/PTERODACTYL_v4.kicad_pro` in KiCad 10 and switch to the PCB editor. A top-view render is in [v4-top.png](validation/2026-10-19/step7-pcb/v4-top.png). Both copper layers are in [v4-copper.pdf](validation/2026-10-19/step7-pcb/v4-copper.pdf), and an assembly drawing in [v4-assembly.pdf](validation/2026-10-19/step7-pcb/v4-assembly.pdf).
 
 ![Draft v4 board, top view](validation/2026-10-19/step7-pcb/v4-top.png)
 
-## Current footprint update
+## Current routing update
+
+**Latest routing checkpoint:** [POWER_ROUTING.md](POWER_ROUTING.md). All connections among the 50 placed footprints are now routed: 0 enabled physical DRC violations, 0 unconnected items, and only U5/GPS missing in schematic parity. U5 is still absent, so this does not mean all schematic connections are implemented. TP1/TP2/TP4 were moved near their rails; a 68.667 mm unloaded TP1 spur was removed. No new vias; original signal routes and design rules are preserved. GPS geometry, layout/assembly review and fabrication gates remain open.
+
+## Previous footprint checkpoint
 
 U2 now has a three-pin regulator footprint, increasing the main board to 50 footprints. U5 remains an unassigned GPS envelope; its separate legacy comparison footprint is explicitly unverified. Fresh checks: 0 enabled physical DRC violations, only U5 missing in parity, 12 unconnected items including the newly exposed regulator VIN/VOUT. Existing 192 track segments, 10 vias and all 49 prior footprint positions/pads/nets are preserved. See [REGULATOR_GPS_FOOTPRINTS.md](REGULATOR_GPS_FOOTPRINTS.md). Earlier autoroute metrics below describe the pre-integration checkpoint.
 
@@ -29,7 +33,7 @@ U2 now has a three-pin regulator footprint, increasing the main board to 50 foot
   - U5 (GPS) has no revision-verified footprint yet. It is drawn as a labelled box on F.Fab/F.CrtYd with a rule area that keeps footprints, and on the outer layers tracks and vias, out (PC10). The inner GND planes continue underneath.
   - GPS pads are missing; U2 now has actual VIN/GND/VOUT pads, with VIN/VOUT still needing routing.
 
-## Checks
+## Historical pre-routing checks
 
 `tools/check_v4_pcb.py` runs native DRC with schematic parity and re-measures the Step 4 separations on the actual placement:
 
@@ -80,21 +84,17 @@ Freerouting oscillated between 6 and 10 unrouted on every pass. The bottleneck i
 
 ### Clean-up list for hand routing
 
-1. Route the 6 open supply connections:
-   - SENSOR_3V3 to C6, C8, C9, C10, C11, U4 VIN and TP4;
-   - +5V to TP2 and C4.
+1. **Done for present footprints:** regulator VIN/VOUT, +5V, SENSOR_3V3 and their test-point/decoupling connections. TP1/TP2 are now in the power area and TP4 beside the sensor rail; the long TP1 spur was removed. See POWER_ROUTING.md.
+2. Confirm current GPS #5440 geometry, assign U5, then route and check its connections. Do not interpret today's zero-unconnected result as GPS completion.
+3. Review the full layout against PC6/PC7/PC11, including the existing I2C topology, return paths and ADC filter placement. Targeted new power routes passed DRC and the In2 GND plot was visually reviewed; prototype interference/load testing remains necessary.
+4. Tidy remaining autorouter detours and place readable silkscreen labels. Evaluate outer GND pours/stitching after GPS integration and final route review.
+5. Apply the selected manufacturer's rules/stackup, refill zones and rerun DRC/parity before review sign-off.
 
-   Consider moving the test-point row out of the Teensy fan-out area first.
-2. Move TP1 (VBAT_PROT) and TP2 (+5V) next to the power section. Their autorouted stubs run across the board. They carry no load current, but they are unnecessary long traces.
-3. Review every supply track against PC6 (return directly beneath, which the inner planes give) and PC7 (nothing near the BNO055). Also check the I2C daisy-chain order (PC11).
-4. Tidy autorouter artefacts: odd angles, detours and unnecessary vias.
-5. Then place silkscreen labels, add outer-layer GND pours and stitching vias, and rerun `tools/check_v4_pcb.py`.
-
-Do not rerun `tools/build_v4_pcb.py` or `tools/autoroute_v4_pcb.py` once hand routing starts; both replace board content.
+Do not rerun `tools/build_v4_pcb.py` or `tools/autoroute_v4_pcb.py`; both replace board content.
 
 ## What is not done yet
 
-1. **Routing:** first pass done; finish and clean up per the list above.
+1. **Routing:** all present footprints connected; GPS connections and final review/cleanup remain.
 2. **U5 footprint:** close M01 (current GPS geometry) before assignment; U2 is now integrated, with physical fit/retention still pending.
 3. **Track widths:** net classes are set (Power 0.5 mm). Confirm them against the manufacturer's rules and the measured currents.
 4. **Silkscreen references:** currently on the assembly layer only (F.Fab). Place them on silkscreen during routing.

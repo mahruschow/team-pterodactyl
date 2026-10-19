@@ -1,0 +1,83 @@
+{
+  "baseline_commit": "d40fba39517a56c89a117eb53626e348364bf136",
+  "pcb_sha256": "d2a399f70dbf0db0399d3e9082aa70aae5c53f49dde9b3b1f4418831c817bdbf",
+  "result": "pass",
+  "physical_drc_violations": 0,
+  "unconnected_items_for_present_footprints": 0,
+  "missing_footprints": [
+    "U5"
+  ],
+  "unchanged_footprints": 47,
+  "moved_testpoints_mm": {
+    "TP1": [
+      177,
+      119.202
+    ],
+    "TP2": [
+      174,
+      137
+    ],
+    "TP4": [
+      152.5,
+      89.5
+    ]
+  },
+  "preserved_existing_track_and_via_objects": 197,
+  "removed_unloaded_tp1_spur_segments": 5,
+  "removed_spur_length_mm": 68.667,
+  "added_power_track_segments": 37,
+  "added_vias": 0,
+  "protected_files_unchanged": [
+    "Native_KiCad_v4/PTERODACTYL_v4.kicad_pro",
+    "Native_KiCad_v4/PTERODACTYL_v4.kicad_sch",
+    "Native_KiCad_v4/Pterodactyl_v4.kicad_sym"
+  ],
+  "separations": [
+    {
+      "rule": "PC1",
+      "gap_mm": 44.364,
+      "minimum_mm": 40.0
+    },
+    {
+      "rule": "PC2",
+      "gap_mm": 35.05,
+      "minimum_mm": 25.0
+    },
+    {
+      "rule": "PC3",
+      "gap_mm": 30.74,
+      "minimum_mm": 20.0
+    },
+    {
+      "rule": "PC4-teensy",
+      "gap_mm": 30.16,
+      "minimum_mm": 20.0
+    },
+    {
+      "rule": "PC4-power",
+      "gap_mm": 20.7,
+      "minimum_mm": 20.0
+    },
+    {
+      "rule": "PC5-teensy",
+      "gap_mm": 42.59,
+      "minimum_mm": 25.0
+    },
+    {
+      "rule": "PC5-power",
+      "gap_mm": 33.763,
+      "minimum_mm": 25.0
+    }
+  ],
+  "routing": {
+    "track_segments": 224,
+    "track_length_mm": 1344.6,
+    "vias": 10,
+    "i2c_longest_mm": 110.5,
+    "i2c_pass": true,
+    "thin_power_nets": [],
+    "tracks_in_envelopes": [],
+    "inner_plane_tracks": []
+  },
+  "scope": "Routing closure for 50 currently placed footprints only. U5/GPS is absent; zero unconnected items does not close GPS wiring or fabrication approval. Manufacturer rules, mechanical fit, EMI/thermal/load tests and full layout review remain."
+}

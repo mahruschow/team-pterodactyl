@@ -2,6 +2,8 @@
 
 **U2 now has a source-checked regulator footprint in the v4 schematic and PCB. The GPS has a separate, explicitly unverified comparison footprint; U5 remains unassigned.** Neither installed mechanical fit nor fabrication approval is implied.
 
+**Later update:** the power connections described below as open were completed in [POWER_ROUTING.md](POWER_ROUTING.md). The results here preserve the footprint-integration checkpoint.
+
 ## Regulator carrier
 
 Library: `Pterodactyl_Modules:Pololu_S9V11F5_SSW_Carrier`, in the existing shared `Native_KiCad_v11/Pterodactyl_Modules.pretty` library registered by the v4 project. This library location does not mean the legacy v3.8 board was changed.

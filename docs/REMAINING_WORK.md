@@ -4,6 +4,8 @@ Updated October 19, 2026 by Saadat (with Claude). Branch: `saadat-dev`. This is 
 
 ## Where the project is
 
+**Latest routing checkpoint:** [POWER_ROUTING.md](POWER_ROUTING.md). All connections among the 50 placed footprints are now routed: 0 enabled physical DRC violations, 0 unconnected items, and only U5/GPS missing in schematic parity. U5 is still absent, so this does not mean all schematic connections are implemented. TP1/TP2/TP4 were moved near their rails; a 68.667 mm unloaded TP1 spur was removed. No new vias; original signal routes and design rules are preserved. GPS geometry, layout/assembly review and fabrication gates remain open.
+
 **Footprint update:** [REGULATOR_GPS_FOOTPRINTS.md](REGULATOR_GPS_FOOTPRINTS.md). U2 is assigned and placed; U5 remains unassigned. Fresh checks find 12 unconnected items, only U5 missing, and zero ERC/enabled physical DRC violations. GPS legacy comparison geometry is drafted but M01 is still open. Earlier autoroute counts below are historical.
 
 | Step | State | Proof / where to look |
@@ -14,7 +16,7 @@ Updated October 19, 2026 by Saadat (with Claude). Branch: `saadat-dev`. This is 
 | 4. Placement and interference | 🟡 Drafted; needs team review | [PLACEMENT_AND_INTERFERENCE.md](PLACEMENT_AND_INTERFERENCE.md) |
 | 5. Power design and schematic | 🟡 Drafted and checked (ERC clean) | [POWER_ARCHITECTURE.md](POWER_ARCHITECTURE.md), [schematic PDF](validation/2026-10-19/step5-schematic/PTERODACTYL_v4.pdf) |
 | 6. Firmware | 🟡 Written; compiles; not run on hardware | [FIRMWARE_V4.md](FIRMWARE_V4.md) |
-| 7. PCB layout | 🟡 Placed and **first-pass autorouted** (DRC clean; 6 supply connections left) | [PCB_LAYOUT_V4.md](PCB_LAYOUT_V4.md), [render](validation/2026-10-19/step7-pcb/v4-top.png), [copper](validation/2026-10-19/step7-pcb/v4-copper.pdf) |
+| 7. PCB layout | 🟡 All placed footprints routed; GPS footprint/wiring and final review remain | [PCB_LAYOUT_V4.md](PCB_LAYOUT_V4.md), [render](validation/2026-10-19/step7-pcb/v4-top.png), [copper](validation/2026-10-19/step7-pcb/v4-copper.pdf) |
 | 8. Order prototype | ⬜ Not started | — |
 | 9. Build and test | ⬜ Not started | — |
 | 10. Flight version | ⬜ Not started | — |
@@ -23,11 +25,7 @@ Updated October 19, 2026 by Saadat (with Claude). Branch: `saadat-dev`. This is 
 
 ## Routing status (Step 7)
 
-A first-pass autoroute with Freerouting 2.5.0 (portable `.jar` on a Java 25 runtime) is in the board:
-- DRC has 0 violations, nothing is routed on the inner GND planes, and I2C is 110.5 mm long.
-- 6 supply connections are still open (SENSOR_3V3 decoupling and two +5V points), because the test-point row above the Teensy is a bottleneck.
-
-The clean-up list is in [PCB_LAYOUT_V4.md](PCB_LAYOUT_V4.md#clean-up-list-for-hand-routing). From here, routing is done by hand in KiCad.
+The targeted power-routing pass closes all 12 previously reported unconnected items. It adds 37 power segments and removes five segments of the unloaded TP1 spur. The board now has 224 segments / 10 vias, with no inner-plane tracks; I2C remains 110.5 mm. See [POWER_ROUTING.md](POWER_ROUTING.md) for current checks and images. The historical first-pass counts below describe earlier milestones.
 
 ## To-do list
 
@@ -55,7 +53,8 @@ Send [TEAM_LEAD_REQUESTS.md](TEAM_LEAD_REQUESTS.md). The most important items:
 
 ### Saadat (PCB design)
 - [x] First-pass autoroute (DRC clean; 6 supply connections open).
-- [ ] Hand clean-up per [the clean-up list](PCB_LAYOUT_V4.md#clean-up-list-for-hand-routing): finish the 6 connections, move TP1/TP2 near the power section, review against PC6/PC7/PC11, then silkscreen labels, outer GND pours and stitching vias.
+- [x] Finish open power connections on present footprints; move TP1/TP2 near power and TP4 near the sensor rail. Current DRC: 0 violations / 0 unconnected, with U5 still absent.
+- [ ] Finish [layout cleanup](PCB_LAYOUT_V4.md#clean-up-list-for-hand-routing): full route/return-path review, silkscreen, and outer GND/stitching decisions; add GPS only after M01.
 - [x] Create, verify, assign and place the Pololu S9V11F5 three-pin carrier footprint. Installed socket/retention fit remains open.
 - [ ] Confirm current GPS #5440 geometry (M01), then revise/approve and assign the newly created UNVERIFIED legacy comparison footprint.
 - [ ] Set the manufacturer's rules once R5 is answered, and rerun the checks.
