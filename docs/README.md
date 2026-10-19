@@ -22,6 +22,10 @@ Start here when joining the project or resuming work. This directory contains th
 
 12. [Power architecture and v4 schematic](POWER_ARCHITECTURE.md) — Step 5 legacy power findings, load budget, battery-agnostic architecture, schematic implementation and checks.
 
+13. [v4 firmware](FIRMWARE_V4.md) — Step 6 logger behaviour, log formats, LEDs/controls, pinned build and what is untested.
+
+14. [Draft v4 PCB layout](PCB_LAYOUT_V4.md) — Step 7 placement, ground planes, checks, render and what remains before routing sign-off.
+
 ## Directory contents
 
 ```text
@@ -37,6 +41,8 @@ docs/
   TEAM_LEAD_REQUESTS.md          Inputs needed from the lead/team
   PLACEMENT_AND_INTERFERENCE.md  Step 4 floor plan, rules and test matrix
   POWER_ARCHITECTURE.md          Step 5 power design and v4 schematic record
+  FIRMWARE_V4.md                 Step 6 firmware behaviour and build record
+  PCB_LAYOUT_V4.md               Step 7 draft board record
   BASELINE_REVIEW.md             Repository/source/tool inventory
   sessions/
     2026-10-18.md                Session record
@@ -60,6 +66,8 @@ docs/
   validation/2026-10-19/
     step4-placement/            Draft placement fixture, separation checks, DRC and SVG
     step5-schematic/            v4 ERC, netlist comparison, BOM and PDF
+    step6-firmware/             Teensy 4.1 build log
+    step7-pcb/                  v4 board DRC/parity, separations, render and assembly PDF
 ```
 
 ## Keeping this handoff useful

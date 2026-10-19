@@ -1,0 +1,16 @@
+# Arduino CLI sketch project file. Versions are the ones used for the
+# October 19, 2026 Step 6 build (see docs/FIRMWARE_V4.md).
+default_fqbn: teensy:avr:teensy41
+profiles:
+  teensy41:
+    notes: Pinned Step 6 build environment
+    fqbn: teensy:avr:teensy41
+    platforms:
+      - platform: teensy:avr (1.62.0)
+        platform_index_url: https://www.pjrc.com/teensy/package_teensy_index.json
+    libraries:
+      - Adafruit BNO055 (1.6.4)
+      - Adafruit MS8607 (1.0.4)
+      - Adafruit GPS Library (1.9.0)
+      - Adafruit Unified Sensor (1.1.15)
+      - Adafruit BusIO (1.17.4)

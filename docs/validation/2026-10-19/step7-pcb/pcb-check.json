@@ -1,0 +1,56 @@
+{
+  "pcb_sha256": "e5f62b153e40e708e200f10e87a0f6840c2e35634a4349d162985c4fcc09292d",
+  "drc_violations": {},
+  "unconnected_items": 57,
+  "parity_missing_footprints": [
+    "U2",
+    "U5"
+  ],
+  "separations": [
+    {
+      "rule": "PC1",
+      "gap_mm": 44.36,
+      "minimum": 40.0,
+      "pass": true
+    },
+    {
+      "rule": "PC2",
+      "gap_mm": 35.05,
+      "minimum": 25.0,
+      "pass": true
+    },
+    {
+      "rule": "PC3",
+      "gap_mm": 30.74,
+      "minimum": 20.0,
+      "pass": true
+    },
+    {
+      "rule": "PC4-teensy",
+      "gap_mm": 30.16,
+      "minimum": 20.0,
+      "pass": true
+    },
+    {
+      "rule": "PC4-power",
+      "gap_mm": 20.7,
+      "minimum": 20.0,
+      "pass": true
+    },
+    {
+      "rule": "PC5-teensy",
+      "gap_mm": 42.59,
+      "minimum": 25.0,
+      "pass": true
+    },
+    {
+      "rule": "PC5-power",
+      "gap_mm": 33.76,
+      "minimum": 25.0,
+      "pass": true
+    }
+  ],
+  "problems": [],
+  "result": "pass",
+  "scope": "Draft placement with inner GND planes; tracks not yet routed, so unconnected items are expected. Not a fabrication check: U2/U5 footprints, routing, manufacturer rules and review remain."
+}
