@@ -1,6 +1,6 @@
 # Step 3 — carrier footprint review
 
-October 18, 2026. Two **draft carrier footprints** have been created and registered in the project-local library `Pterodactyl_Modules`. The main schematic and PCB have not been changed or assigned these footprints. No modules have been purchased, so physical fit remains untested.
+October 18, 2026. Three **draft carrier footprints** have been created and registered in the project-local library `Pterodactyl_Modules`. The main schematic and PCB have not been changed or assigned these footprints. No modules have been purchased, so physical fit remains untested.
 
 ## Available footprints
 
@@ -8,8 +8,11 @@ October 18, 2026. Two **draft carrier footprints** have been created and registe
 | --- | --- | ---: | --- |
 | `Pterodactyl_Modules:Adafruit_BNO055_2472_Carrier` | Adafruit #2472, non-STEMMA-QT BNO055 | 10, both header rows | Four NPTH carrier holes at manufacturer module-hole centers |
 | `Pterodactyl_Modules:Adafruit_MS8607_4716_Carrier` | Adafruit #4716 MS8607 | 5 | Four NPTH carrier holes at manufacturer module-hole centers |
+| `Pterodactyl_Modules:Teensy41_SSW_Carrier` | Teensy 4.1, side headers | 48, preserved imported identifiers | Two SSW-124 sockets; enclosure retention pending |
 
-The library lives in `Native_KiCad_v11/Pterodactyl_Modules.pretty`. `fp-lib-table` uses `${KIPRJMOD}`, so cloning the repository preserves the path. Open the project in KiCad and use the Footprint Editor library browser to inspect `Pterodactyl_Modules`. These footprints will require corresponding module symbols during Step 5; do not assign the new numeric pads to the old imported symbol by name alone.
+The library lives in `Native_KiCad_v11/Pterodactyl_Modules.pretty`. `fp-lib-table` uses `${KIPRJMOD}`, so cloning the repository preserves the path. Open the project in KiCad and use the Footprint Editor library browser to inspect `Pterodactyl_Modules`. Matching `Adafruit_BNO055_2472` and `Adafruit_MS8607_4716` symbols are now registered in the same project-local namespace, with default footprint fields and all 15 pins checked. Use these during Step 5; do not assign the new numeric pads to the old imported symbol by name alone. See [assembly and symbol review](MODULE_ASSEMBLY_PLAN.md).
+
+The sensor details below apply to the BNO055/MS8607 pair. Teensy uses its own [mechanical review and native checks](TEENSY_MECHANICAL_REVIEW.md); the new GPS symbol is logical only and has no footprint.
 
 ## Pad numbering contract
 
@@ -28,13 +31,13 @@ Footprint origin is VIN pad 1. Manufacturer Eagle coordinates are converted as `
 ## Geometry and assembly assumptions
 
 - Header centers, row offsets, module outline arcs and mounting centers come from the pinned manufacturer CAD listed in the [source manifest](reference/step3-source-manifest.json).
-- Header pads are provisionally 1.8 mm diameter with 1.0 mm finished drill; VIN is a 1.8 mm square pad. Select actual mating headers/sockets and check recommended drill/tolerance before release.
+- Header pads are 1.8 mm diameter with 1.04 mm nominal finished drill; VIN is a 1.8 mm square pad. This revision follows the proposed Samtec SSW single-row socket drawing. Confirm fabricator tolerances and the configured parts before release; see MODULE_ASSEMBLY_PLAN.md.
 - Module CAD holes are 2.5 mm. The carrier currently proposes 2.7 mm **non-plated** clearance holes at the same centers. This is an assembly choice, not a copied manufacturer requirement. Confirm screw/standoff size, magnetic material suitability near BNO055, washer/head dimensions, and clearance to copper.
 - Drawing-layer circles show a provisional 3 mm radius around fastener centers. They are reference envelopes, not enforced copper or component keepouts. Review them when routing and placing other parts.
 - F.Fab contains the module outline. It is **not** on Edge.Cuts and will not cut that outline into the carrier. The MS8607 source's internal layer-20 segments are also preserved on F.Fab for review, not copied as carrier milling.
 - F.CrtYd reserves the module outer rectangle plus a provisional 1 mm margin. This does not include a guaranteed plugged-in STEMMA cable envelope, an electrical interference distance or a thermal isolation distance. The current proposal uses headers and leaves STEMMA ports unplugged.
 - `NO PARTS UNDER MODULE` on Dwgs.User is an assembly constraint for the initial design, not a KiCad rule area. Before placing other carrier components underneath, prove clearance using the chosen sockets/standoffs, underside components, solder joints and tolerance stack.
-- Socket height, retention, final fasteners and enclosure remain unselected. No 3D models were added, so KiCad's 3D view cannot yet prove the assembled height or fit.
+- Candidate sockets/headers and a nominal 12 mm carrier-to-module spacing are specified in MODULE_ASSEMBLY_PLAN.md. Final fastener parts, tolerance stack, retention and enclosure remain open. No 3D models were added, so KiCad's 3D view cannot yet prove the assembled height or fit.
 
 ## Verification performed
 
@@ -51,7 +54,7 @@ To reproduce from the repository root, use ordinary Python 3 for `tools/generate
 
 ## Teensy and GPS status
 
-**Teensy:** the imported footprint's two rows were previously found to contain 24 positions each, at 2.54 mm pitch and 15.24 mm separation. Signal functions have been checked, but its complete outline/USB/SD/underside geometry has not been approved. A browser attempt to inspect PJRC's dimension drawing was denied by browser security policy during this continuation. No alternative route was used to bypass that denial. The existing Teensy footprint was left unchanged; full drawing and physical mounting checks remain open.
+**Teensy:** Saadat supplied the PJRC PNG locally, closing the blocked-drawing dependency. Native readback confirms the nominal 60.96 × 17.78 mm outline, two 24-position rows, 2.54 mm pitch and 15.24 mm row separation; the main PCB instance matches the library pads. The [mechanical review](TEENSY_MECHANICAL_REVIEW.md) records 47 carrier drills at 0.85 mm and one at 0.90 mm, missing courtyard/F.Fab graphics and approximate USB geometry. The new separate `Teensy41_SSW_Carrier` addresses those drill and graphics issues using SSW sockets, 1.04 mm holes, F.Fab/courtyard and an enforced front-side component keepout. Its 48 pad identities/coordinates and positive/negative DRC controls pass. Installed USB/SD/underside fit and retention remain open. The imported Teensy footprint and main board were not changed.
 
 **GPS:** a fresh check found only the `master` branch in Adafruit's Ultimate GPS PCB repository. The last commit affecting `Adafruit Ultimate GPS.brd` was `c8ae9a95d82f77d3bbd023754dee658959864e5c`, November 12, 2017. It still names PA6H, predating the selected PA1616D #5440 and its September 2024 holder revision. The top-level Adafruit CAD-parts listing checked in this continuation did not provide a #5440 entry. These checks did not establish exact #5440 mechanics. [Recorded history](reference/step3-gps-cad-history.json), [official repository history](https://github.com/adafruit/Adafruit-Ultimate-GPS/commits/master/Adafruit%20Ultimate%20GPS.brd).
 
@@ -59,12 +62,12 @@ Do not release a GPS carrier footprint from that older file. The remaining evide
 
 ## Remaining Step 3 work
 
-1. Resolve the exact GPS mechanical evidence and complete the Teensy drawing comparison.
-2. Select header/socket and fastener arrangements, including module height and retention; revise the provisional carrier drills/envelopes if needed.
-3. Review symbol-to-footprint pin mapping before assignment during schematic work.
+1. Obtain exact GPS mechanical evidence; review the implemented Teensy carrier and verify installed access/retention.
+2. Review the selected candidate socket/header family, 12 mm spacing and fastener envelope in MODULE_ASSEMBLY_PLAN.md; confirm exact hardware and tolerances.
+3. Symbol-to-footprint mapping is now checked for both sensor modules. Wire them using SENSOR_CONNECTION_MAP.md during Step 5 and run circuit ERC then.
 4. Check actual module fit after purchase and retain the bench interface tests in Step 6.
 
-Step 3 has progressed from documentation to native footprint assets, but mechanical release is still open. Interference planning can proceed with these draft envelopes. Battery-dependent circuit design remains Step 5 work.
+Step 3 now includes native symbols, footprints and an assembly proposal, but mechanical release is still open. Interference planning can proceed with these draft envelopes. Battery-dependent circuit design remains Step 5 work.
 
 ## Attribution
 

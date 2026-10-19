@@ -5,7 +5,7 @@
   "footprints": [
     {
       "name": "Adafruit_BNO055_2472_Carrier",
-      "sha256": "f5963faf913c4c3f264193e741f1cef02fc325219de3699c82b7cf313b49277b",
+      "sha256": "fef1d1d852f78d09ee4fec9e4df4d59c0a6a14c05e65dc11aa4fd07c0b22e0b2",
       "electrical_pad_count": 10,
       "mounting_hole_count": 4,
       "pads": [
@@ -74,7 +74,7 @@
     },
     {
       "name": "Adafruit_MS8607_4716_Carrier",
-      "sha256": "2dc4be3bb56c6d8262751f333d48e96c46bc02a8a3c6973869fa5d9085830bd6",
+      "sha256": "95d1c6f60ffc9281e6250b75541a3fb055ac01a779f8bc379114de1b679291a6",
       "electrical_pad_count": 5,
       "mounting_hole_count": 4,
       "pads": [

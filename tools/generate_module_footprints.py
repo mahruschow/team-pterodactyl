@@ -85,7 +85,7 @@ def generate():
                 pad_number += 1
                 pos = transform(p['x'], p['y'])
                 shape = 'rect' if pad_number == 1 else 'circle'
-                out.append(f'  (pad "{pad_number}" thru_hole {shape} (at {xy(pos)}) (size 1.8 1.8) (drill 1) (layers "*.Cu" "*.Mask"))')
+                out.append(f'  (pad "{pad_number}" thru_hole {shape} (at {xy(pos)}) (size 1.8 1.8) (drill 1.04) (layers "*.Cu" "*.Mask"))')
                 # Place labels vertically toward the module interior, on Fab only.
                 label_y = pos[1] - 3.1 if p['y'] < height/2 else pos[1] + 3.1
                 out.append(f'  (fp_text user "{pad_number}:{label}" (at {num(pos[0])} {num(label_y)} 90) (layer "F.Fab") (effects (font (size 0.6 0.6) (thickness 0.1))))')

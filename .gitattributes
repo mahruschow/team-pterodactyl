@@ -1,3 +1,4 @@
 # Preserve exact bytes of generated artifacts referenced by SHA-256 evidence.
 Native_KiCad_v11/Pterodactyl_Modules.pretty/*.kicad_mod text eol=lf
 docs/reference/step3-cad-geometry.json text eol=lf
+Native_KiCad_v11/Pterodactyl_Modules.kicad_sym text eol=lf

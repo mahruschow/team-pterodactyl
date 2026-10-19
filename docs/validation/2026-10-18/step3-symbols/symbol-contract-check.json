@@ -1,0 +1,127 @@
+{
+  "kicad_version": "10.0.7",
+  "symbol_library_sha256": "fb72478fe5dd59d34b91a1c0ce252b077f37f0da2e4d703b4a073e9ea96dbc35",
+  "scope": "Native SVG export and symbol pin/function/type/default-footprint contract; not main schematic ERC or physical fit",
+  "symbols": [
+    {
+      "symbol": "Adafruit_BNO055_2472",
+      "footprint": "Adafruit_BNO055_2472_Carrier",
+      "footprint_sha256": "fef1d1d852f78d09ee4fec9e4df4d59c0a6a14c05e65dc11aa4fd07c0b22e0b2",
+      "pins": {
+        "1": [
+          "VIN",
+          "power_in"
+        ],
+        "2": [
+          "3Vo",
+          "power_out"
+        ],
+        "3": [
+          "GND",
+          "power_in"
+        ],
+        "4": [
+          "SDA",
+          "bidirectional"
+        ],
+        "5": [
+          "SCL",
+          "bidirectional"
+        ],
+        "6": [
+          "RST",
+          "input"
+        ],
+        "7": [
+          "PS0",
+          "input"
+        ],
+        "8": [
+          "PS1",
+          "input"
+        ],
+        "9": [
+          "INT",
+          "output"
+        ],
+        "10": [
+          "ADR",
+          "input"
+        ]
+      },
+      "result": "pass"
+    },
+    {
+      "symbol": "Adafruit_MS8607_4716",
+      "footprint": "Adafruit_MS8607_4716_Carrier",
+      "footprint_sha256": "95d1c6f60ffc9281e6250b75541a3fb055ac01a779f8bc379114de1b679291a6",
+      "pins": {
+        "1": [
+          "VIN",
+          "power_in"
+        ],
+        "2": [
+          "3Vo",
+          "power_out"
+        ],
+        "3": [
+          "GND",
+          "power_in"
+        ],
+        "4": [
+          "SCL",
+          "bidirectional"
+        ],
+        "5": [
+          "SDA",
+          "bidirectional"
+        ]
+      },
+      "result": "pass"
+    },
+    {
+      "symbol": "Adafruit_PA1616D_5440_Logical",
+      "footprint": null,
+      "pins": {
+        "VIN": [
+          "VIN",
+          "power_in"
+        ],
+        "GND": [
+          "GND",
+          "power_in"
+        ],
+        "TX": [
+          "TX",
+          "output"
+        ],
+        "RX": [
+          "RX",
+          "input"
+        ],
+        "3V3_OUT": [
+          "3V3_OUT",
+          "power_out"
+        ],
+        "EN": [
+          "EN",
+          "input"
+        ],
+        "VBAT": [
+          "VBAT",
+          "power_in"
+        ],
+        "FIX": [
+          "FIX",
+          "output"
+        ],
+        "PPS": [
+          "PPS",
+          "output"
+        ]
+      },
+      "scope": "Logical interface only; no verified physical pad order or footprint",
+      "result": "pass"
+    }
+  ]
+}

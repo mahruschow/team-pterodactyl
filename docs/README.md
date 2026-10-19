@@ -10,7 +10,11 @@ Start here when joining the project or resuming work. This directory contains th
 4. [October 18 session notes](sessions/2026-10-18.md) — work completed, decisions and limitations.
 5. [Baseline review](BASELINE_REVIEW.md) and [native validation summary](validation/2026-10-18/VALIDATION_SUMMARY.md) — evidence behind the current issue list.
 6. [Module connection and mechanical review](SENSOR_CONNECTION_MAP.md) — Step 3 pin map, power/pull-up review, footprint mismatch and remaining verification gates.
-7. [Carrier footprint review](FOOTPRINT_REVIEW.md) — two native draft footprints, pad numbering, assembly assumptions and test evidence.
+7. [Carrier footprint review](FOOTPRINT_REVIEW.md) — three native draft footprints, pad numbering, assembly assumptions and test evidence.
+
+8. [Module assembly proposal and closure gates](MODULE_ASSEMBLY_PLAN.md) — candidate connectors, spacing calculation, symbol validation and M01–M04 evidence checklist.
+
+9. [Teensy drawing comparison](TEENSY_MECHANICAL_REVIEW.md) — supplied PNG, matching nominal geometry, implemented SSW carrier and remaining fit/retention requirements.
 
 ## Directory contents
 
@@ -22,6 +26,7 @@ docs/
   V1_REQUIREMENTS.md             Requirements and decision register
   SENSOR_CONNECTION_MAP.md       Step 3 interfaces and mechanical review
   FOOTPRINT_REVIEW.md            Draft carrier library and approval gates
+  MODULE_ASSEMBLY_PLAN.md        Connector/height proposal and closure record
   BASELINE_REVIEW.md             Repository/source/tool inventory
   sessions/
     2026-10-18.md                Session record
@@ -39,6 +44,8 @@ docs/
     schematic-netlist.xml        Native KiCad-exported netlist
     net-comparison.json         PCB/schematic pad-membership comparison
     step3-footprints/           Native coordinate check, fixture, DRC and SVGs
+    step3-symbols/              Sensor pin-contract/GPS logical checks and SVGs
+    step3-teensy/               Carrier check, positive/negative DRC fixtures and SVG
 ```
 
 ## Keeping this handoff useful

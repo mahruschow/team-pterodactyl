@@ -114,7 +114,7 @@ The workbook sensor estimates total 54 mA. That arithmetic is useful for prelimi
 | BNO055 #2472 / non-QT | Outline 26.67 × 20.32 mm; 2.54 mm header pitch; rows at Y=1.27 and 19.05 mm; four 2.5 mm mounting holes at X=2.54/24.13, Y=2.54/17.78 mm | Source geometry established for target family; create a new complete carrier footprint and check printed fit/height before release |
 | MS8607 #4716 | Outer extent 25.4 × 17.78 mm; 2.54 mm header pitch; holes at X=2.54/22.86, Y=2.54/15.24 mm, diameter 2.5 mm | Source geometry extracted. CAD also contains internal layer-20 segments around the sensor region; preserve/review this detail instead of reducing the module to a rectangle |
 | PA1616D #5440 | Product envelope 34.2 × 25.3 × 11.4 mm. Older PA6H CAD extent 25.4 × 34.29 mm in its X/Y orientation, two mounting holes | Envelope is useful for initial placement; exact header/hole/underside geometry not approved |
-| Teensy 4.1 | Existing carrier has two 24-position side rows at 2.54 mm pitch, 15.24 mm row separation | Pin-function map checked; full outline, connector/SD overhang, underside parts and socket height still need comparison with the official drawing and chosen mounting hardware |
+| Teensy 4.1 | Existing carrier has two 24-position side rows at 2.54 mm pitch, 15.24 mm row separation | Supplied PJRC drawing confirms nominal outline and side-header grid. New SSW carrier fixes draft drills/courtyard and enforces a component keepout; installed connector/SD/underside fit and retention remain open; see TEENSY_MECHANICAL_REVIEW.md |
 
 Module-hole drill sizes describe the manufacturer's board, not automatically the correct carrier fastener clearance. Header drills must match the chosen mating headers/sockets and fabrication process. The proposed mechanical approach is a top-mounted header carrier, subject to retention and enclosure requirements. [PJRC mechanical drawings](https://www.pjrc.com/store/teensy41.html#tech).
 
@@ -132,12 +132,17 @@ The native netlist places Teensy `3.3V_1` on `A3V3`, `3.3V_2` on `3V3`, `GND1` o
 - [x] Official I2C/UART functions, address compatibility and breakout VIN/logic strategy documented.
 - [x] Every sensor header function assigned a connection or explicit unused disposition; GPS pad numbering remains provisional.
 - [x] Manufacturer CAD commits and hashes recorded; BNO055 mismatch identified; MS8607 coordinates extracted.
-- [ ] Exact #5440 mechanical/revision match and full Teensy mechanical comparison.
+- [x] Compare supplied PJRC drawing with Teensy nominal outline and all 48 side-header positions; record drill/clearance issues.
+- [x] Create and native-check a separate Teensy carrier with all 48 pin identities/positions preserved, selected socket drills and component keepout.
+- [x] Create/check GPS logical symbol without assuming physical pad numbers or assigning an unverified footprint.
+- [ ] Exact #5440 mechanical/revision match and remaining installed access/retention/fit checks.
 - [x] Create and source-check BNO055 #2472 and MS8607 #4716 draft carrier footprints; registered as `Pterodactyl_Modules`.
-- [ ] Complete remaining module footprints, select mounting hardware/height and check physical fit.
+- [x] Create matching sensor symbols and check all 15 symbol-to-footprint pin functions and numbers.
+- [x] Specify candidate sensor connectors and nominal 12 mm spacing in [MODULE_ASSEMBLY_PLAN.md](MODULE_ASSEMBLY_PLAN.md).
+- [ ] Close M01–M04: remaining module mechanics, exact hardware/tolerances and physical fit.
 - [ ] Set final current limits, rail source, battery-dependent circuitry and optional reset/control/LED GPIOs.
 - [ ] Bench-check voltage levels, simultaneous I2C/UART operation and failure recovery (Step 6).
 
-Step 3's connection research and two native draft footprints are documented, but mechanical approval is incomplete. Step 4 placement/interference planning can use the known envelopes while retaining these gates. An isolated footprint fixture passed DRC; the unchanged main board was not rechecked. No physical verification or firmware compilation was performed.
+Step 3's connection research, two sensor footprint-symbol pairs, a Teensy carrier, an unassigned GPS logical symbol and assembly proposals are documented, but mechanical approval is incomplete. Step 4 placement/interference planning can use the known envelopes while retaining these gates. An isolated footprint fixture passed DRC; the unchanged main board was not rechecked. No physical verification or firmware compilation was performed.
 
 Evidence: [source manifest](reference/step3-source-manifest.json), [CAD geometry extraction](reference/step3-cad-geometry.json), and the existing [baseline netlist](validation/2026-10-18/schematic-netlist.xml). Raw manufacturer files were inspected in a scratch directory; the manifest links immutable upstream versions so the team can reproduce the comparison. The geometry file records CAD facts, not an approved KiCad footprint.

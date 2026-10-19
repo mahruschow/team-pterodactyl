@@ -1,0 +1,31 @@
+{
+  "kicad_version": "10.0.7",
+  "footprint_sha256": "216eb9e6c09df8b509d35f068c3b0dd3704538fe103d3953be7b0902f68ab184",
+  "preserved_pad_count": 48,
+  "drill_mm": 1.04,
+  "pad_size_mm": 1.8,
+  "tests": [
+    {
+      "case": "clear",
+      "violation_types": [],
+      "expected_rejection": false,
+      "result": "pass"
+    },
+    {
+      "case": "component_outside",
+      "violation_types": [],
+      "expected_rejection": false,
+      "result": "pass"
+    },
+    {
+      "case": "component_inside",
+      "violation_types": [
+        "items_not_allowed",
+        "courtyards_overlap"
+      ],
+      "expected_rejection": true,
+      "result": "pass"
+    }
+  ],
+  "scope": "Native geometry, isolated fixture DRC and deliberate keepout intrusion; not circuit, physical fit or retention validation"
+}

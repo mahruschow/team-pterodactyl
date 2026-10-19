@@ -48,7 +48,7 @@ def main():
             x,y = pcbnew.ToMM(pad.GetPosition().x), pcbnew.ToMM(pad.GetPosition().y)
             close(x, source_pad['x']-origin['x'])
             close(y, origin['y']-source_pad['y'])
-            close(pcbnew.ToMM(pad.GetDrillSize().x),1.0)
+            close(pcbnew.ToMM(pad.GetDrillSize().x),1.04)
             close(pcbnew.ToMM(pad.GetSize().x),1.8)
             close(pcbnew.ToMM(pad.GetSize().y),1.8)
             details.append({'pad':str(index),'source_net':source_pad['net'],'x_mm':x,'y_mm':y})

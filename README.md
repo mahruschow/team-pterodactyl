@@ -6,7 +6,7 @@ Working files for the UMD near-space PTERODACTYL sensor-board redesign. The curr
 
 Start with [docs/README.md](docs/README.md) for the shared planning directory, then [current status and resume steps](docs/CURRENT_STATUS.md). The directory includes requirements, the development plan, session notes, the supplied parts workbook and native KiCad validation evidence so teammates can continue without the previous chat.
 
-Step 3 now includes a project-local `Pterodactyl_Modules` library with draft BNO055 #2472 and MS8607 #4716 carrier footprints. They are not assigned to the main circuit. See [the footprint review](docs/FOOTPRINT_REVIEW.md) for pin mapping, validation and outstanding physical-fit requirements.
+Step 3 now includes a project-local `Pterodactyl_Modules` library with draft BNO055 #2472/MS8607 #4716 carrier footprints with matching symbols, a Teensy SSW carrier, and an unassigned GPS #5440 logical symbol, plus documented connector/mounting proposals. They are not assigned to the main circuit. See [the footprint review](docs/FOOTPRINT_REVIEW.md) for pin mapping, validation and outstanding physical-fit requirements.
 
 ## Open the design
 
