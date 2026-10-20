@@ -1,86 +1,48 @@
 # What's done and what's left
 
-Updated October 19, 2026 by Saadat (with Claude). Branch: `saadat-dev`. This is the one-page checklist for keeping the team in sync. Details are in the linked documents. [CURRENT_STATUS.md](CURRENT_STATUS.md) stays the full resume record.
+Updated October 19, 2026. Branch: `saadat-dev`. Current design checkpoint: `f55657f`.
 
-## Where the project is
+For the teammate meeting, use [TEAM_MEETING_2026-10-20.md](TEAM_MEETING_2026-10-20.md): completed work, remaining tasks, inputs needed, proposed owners and a decision log.
 
-**Latest layout cleanup:** [LAYOUT_REVIEW_CLEANUP.md](LAYOUT_REVIEW_CLEANUP.md). C2 is now 4.493 mm from the carrier ADC pin; I2C follows Teensy → MS8607 → BNO055 (135.163/128.209 mm). Added three return-path stitching vias and readable silkscreen. Fresh enabled physical DRC and present-footprint unconnected counts are both 0; U5 remains missing. See the review for unchanged geometry, test evidence and remaining power-integrity/mechanical/manufacturer gates.
+## Current status
 
-**Latest routing checkpoint:** [POWER_ROUTING.md](POWER_ROUTING.md). All connections among the 50 placed footprints are now routed: 0 enabled physical DRC violations, 0 unconnected items, and only U5/GPS missing in schematic parity. U5 is still absent, so this does not mean all schematic connections are implemented. TP1/TP2/TP4 were moved near their rails; a 68.667 mm unloaded TP1 spur was removed. No new vias; original signal routes and design rules are preserved. GPS geometry, layout/assembly review and fabrication gates remain open.
+The v4 schematic and carrier PCB are implemented for 50 placed footprints. Latest enabled physical DRC: **0 violations / 0 unconnected items**, with **only missing U5/GPS** in parity. This excludes the missing GPS connections and does not approve fabrication. Firmware compiles but has not been validated on complete hardware.
 
-**Footprint update:** [REGULATOR_GPS_FOOTPRINTS.md](REGULATOR_GPS_FOOTPRINTS.md). U2 is assigned and placed; U5 remains unassigned. Fresh checks find 12 unconnected items, only U5 missing, and zero ERC/enabled physical DRC violations. GPS legacy comparison geometry is drafted but M01 is still open. Earlier autoroute counts below are historical.
+| Step | Current state |
+| --- | --- |
+| 1 — Legacy baseline review | Completed and documented |
+| 2 — Requirements | Core scope agreed; quantitative mission, power and operating inputs open |
+| 3 — Module interfaces / mounting | Four carrier footprints integrated; GPS geometry and physical-fit gates open |
+| 4 — Placement / interference | Plan, spacing checks and test matrix prepared; measured performance and team approval open |
+| 5 — Power / schematic | ERC-clean draft; candidate ratings, battery contract, BOM and review open |
+| 6 — Firmware | Compiles; four reliability fixes and hardware tests open |
+| 7 — PCB | Present footprints routed; ADC/I2C/silkscreen cleanup done; GPS and final release review open |
+| 8–10 — Prototype, test, flight version | Not completed |
 
-| Step | State | Proof / where to look |
-| --- | --- | --- |
-| 1. Check the old v3.8 design | ✅ Done | [VALIDATION_SUMMARY.md](validation/2026-10-18/VALIDATION_SUMMARY.md) |
-| 2. Requirements | 🟡 Scope agreed; numbers open | [V1_REQUIREMENTS.md](V1_REQUIREMENTS.md) |
-| 3. Module wiring and mounting | 🟡 Drafted; needs GPS geometry and a test fit | [SENSOR_CONNECTION_MAP.md](SENSOR_CONNECTION_MAP.md), [MODULE_ASSEMBLY_PLAN.md](MODULE_ASSEMBLY_PLAN.md) |
-| 4. Placement and interference | 🟡 Drafted; needs team review | [PLACEMENT_AND_INTERFERENCE.md](PLACEMENT_AND_INTERFERENCE.md) |
-| 5. Power design and schematic | 🟡 Drafted and checked (ERC clean) | [POWER_ARCHITECTURE.md](POWER_ARCHITECTURE.md), [schematic PDF](validation/2026-10-19/step5-schematic/PTERODACTYL_v4.pdf) |
-| 6. Firmware | 🟡 Written; compiles; not run on hardware | [FIRMWARE_V4.md](FIRMWARE_V4.md) |
-| 7. PCB layout | 🟡 All placed footprints routed; GPS footprint/wiring and final review remain | [PCB_LAYOUT_V4.md](PCB_LAYOUT_V4.md), [render](validation/2026-10-19/step7-pcb/v4-top.png), [copper](validation/2026-10-19/step7-pcb/v4-copper.pdf) |
-| 8. Order prototype | ⬜ Not started | — |
-| 9. Build and test | ⬜ Not started | — |
-| 10. Flight version | ⬜ Not started | — |
+## Completed implementation
 
-**What we can show today:** the v4 schematic PDF, the autorouted v4 board (render and copper PDF) and the floor plan. **What we can't show yet:** a finished, reviewed layout or anything running on hardware.
+- [x] Integrate source-checked BNO055, MS8607, Teensy and S9V11F5 carrier footprints.
+- [x] Route all present power connections and relocate rail test points.
+- [x] Place C2 near the ADC, correct I2C order and add local return stitching.
+- [x] Add readable silkscreen and measure current PCB geometry in the checks.
+- [x] Document the regulator's 3 V startup minimum; final battery margin is still open.
+- [x] Compile the new logger and record the source-review findings.
 
-## Routing status (Step 7)
+## Remaining work
 
-The targeted power-routing pass closes all 12 previously reported unconnected items. It adds 37 power segments and removes five segments of the unloaded TP1 spur. The board now has 224 segments / 10 vias, with no inner-plane tracks; I2C remains 110.5 mm. See [POWER_ROUTING.md](POWER_ROUTING.md) for current checks and images. The historical first-pass counts below describe earlier milestones.
+- [ ] **GPS:** obtain current #5440 geometry, approve/assign U5 and route it. The legacy comparison footprint remains unverified.
+- [ ] **Power/BOM:** verify candidate fuse, MOSFET, bead, connector/capacitor ratings; settle the battery/startup contract; review C1/C4 proximity and transients; add exact assembly hardware to the BOM.
+- [ ] **Firmware:** propagate sensor transfer/CRC failures, bound BNO reset waits, recover SD partial-open/write failures, and reject stale GPS RMC fields.
+- [ ] **Mechanical:** enclosure, orientation, retention, header/socket fit, antenna/sensor exposure and USB/SD access; close M01–M04 with actual evidence.
+- [ ] **Fabrication:** apply chosen manufacturer rules/stackup, independently review the complete design, require clean parity and zero unconnected items with GPS installed, then generate and inspect fresh Gerbers/drills.
+- [ ] **Prototype:** assemble and test startup/current/rails, sensor/GPS logging, storage failures, endurance, magnetic/GPS interference and thermal effects.
 
-## To-do list
+## Team inputs needed
 
-### Review findings to close
+Exact parts on hand/purchasing; battery and powered runtime; required measurement rates/ranges/accuracy; enclosure and mounting; sensor exposure; start/stop/data-loss requirements; PCB supplier, budget and assembly responsibility. See [TEAM_LEAD_REQUESTS.md](TEAM_LEAD_REQUESTS.md). No message has been sent on the team's behalf.
 
-See [V4_DESIGN_REVIEW.md](V4_DESIGN_REVIEW.md) for exact locations, failure cases and validation expectations.
+## Current evidence and collaboration
 
-- [ ] Finish U2/U5 footprints and all open supply connections; require clean parity and zero unconnected items.
-- [ ] Propagate actual sensor transfer/CRC failures rather than logging invalid or stale values as `OK`.
-- [ ] Add a timeout inside the BNO055 post-reset polling path so other streams continue on failure.
-- [ ] Make required SD file opening transactional and implement storage failure recovery.
-- [ ] Correct the power contract: at least 3 V at regulator VIN for startup, with battery and wiring margin.
-- [ ] Track GPS RMC validity/age when combining its fields with GGA.
-- [x] Derive placement separation checks from the current PCB rather than the saved placement JSON; deliberate in-memory IMU move is detected.
+Use [LAYOUT_REVIEW_CLEANUP.md](LAYOUT_REVIEW_CLEANUP.md) and `validation/2026-10-19/layout-review/` for current PCB checks/views. The board now has 233 tracks and 17 vias; SDA/SCL are 135.163/128.209 mm. Earlier autoroute/Step 5 exports are historical.
 
-### Needs the team lead (blocking)
-Send [TEAM_LEAD_REQUESTS.md](TEAM_LEAD_REQUESTS.md). The most important items:
-
-- [ ] **R1:** approval to buy one of each module (Teensy 4.1, BNO055 #2472, MS8607 #4716, GPS #5440). This unblocks the GPS footprint, the test fit and firmware testing.
-- [ ] **R3/R6:** enclosure and how the board is mounted in flight.
-- [ ] **R7 / D02:** battery type and where it sits.
-- [ ] **R8:** venting, and whether temperature/humidity should be outside air.
-- [ ] **R5 / D08:** PCB manufacturer, which sets the design rules.
-- [ ] **D10:** how the logger is started and stopped (switch, button, pull-before-flight).
-
-### Saadat (PCB design)
-- [x] First-pass autoroute (DRC clean; 6 supply connections open).
-- [x] Finish open power connections on present footprints; move TP1/TP2 near power and TP4 near the sensor rail. Current DRC: 0 violations / 0 unconnected, with U5 still absent.
-- [x] Review and correct I2C order, ADC filter proximity and labels; add local ground stitching. See LAYOUT_REVIEW_CLEANUP.md.
-- [ ] Final independent layout review, power-transient/decoupling verification and GPS integration after M01; reassess optional outer pours after GPS routing.
-- [x] Create, verify, assign and place the Pololu S9V11F5 three-pin carrier footprint. Installed socket/retention fit remains open.
-- [ ] Confirm current GPS #5440 geometry (M01), then revise/approve and assign the newly created UNVERIFIED legacy comparison footprint.
-- [ ] Set the manufacturer's rules once R5 is answered, and rerun the checks.
-
-### A teammate can do now (no hardware needed)
-- [ ] **Review** the schematic PDF and [POWER_ARCHITECTURE.md](POWER_ARCHITECTURE.md); note questions in an issue or the session notes.
-- [ ] **Confirm part ratings** from datasheets: PTC fuse voltage, IRLML6402 Vds/Vgs, ferrite bead current, JST connectors. These are marked "(candidate)" in the [BOM](validation/2026-10-19/step5-schematic/bom.csv).
-- [x] Find and inspect the Pololu S9V11F5 pinout, dimension drawing and DXF; local source copies and hashes are in `reference/regulator-gps/`.
-- [ ] **Write a log-checking script** for the firmware's CSV files: headers, sequence numbers, timing, units (LOG-04). See the formats in [FIRMWARE_V4.md](FIRMWARE_V4.md).
-- [ ] **Review the floor plan and interference rules** in [PLACEMENT_AND_INTERFERENCE.md](PLACEMENT_AND_INTERFERENCE.md).
-
-### Once modules arrive
-- [ ] Measure the GPS board and close M01; dry-fit all modules (M04).
-- [ ] Run the firmware on a Teensy with the modules (the "not verified" list in FIRMWARE_V4.md).
-
-### Before ordering a prototype (Step 8)
-- [ ] Routed board passes DRC with 0 unconnected (U2/U5 connections once their footprints exist).
-- [ ] Team design review of the schematic and layout.
-- [ ] Fresh Gerbers and drill files generated and inspected. The old v12 Gerbers are reference only.
-
-## How to stay in sync
-
-1. Pull `saadat-dev` before starting. For bigger changes, work on your own branch and open a pull request.
-2. Read the latest note in [sessions/](sessions/), then this file.
-3. **Generated files:** the v4 schematic comes from `tools/generate_v4_schematic.py` and the pre-routing board from `tools/build_v4_pcb.py`. Once someone edits the schematic or routes the board by hand in KiCad, stop rerunning those generators, because they overwrite the files.
-4. After changing anything, rerun the matching check (`tools/verify_v4_schematic.py`, `tools/check_v4_pcb.py`, or the firmware compile) and update this checklist and CURRENT_STATUS.md.
+Pull the branch after preserving any local work. Agree a single PCB editor at a time and review each handoff. Do not rerun full schematic/PCB generators or the whole-board autorouter. After targeted changes, run the relevant checks (`tools/verify_v4_layout.py` with KiCad Python for the current layout), update the status/session notes and keep the remaining GPS gate explicit.

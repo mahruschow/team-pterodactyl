@@ -4,6 +4,8 @@ Start here when joining the project or resuming work. This directory contains th
 
 ## Reading order
 
+**Meeting handoff:** [October 20 teammate meeting](TEAM_MEETING_2026-10-20.md) organizes completed work, outstanding tasks, team inputs, proposed owners and a decision log.
+
 Latest implementation: [Layout review and cleanup](LAYOUT_REVIEW_CLEANUP.md) — ADC filter placement, I2C order, local ground stitching, readable silkscreen and validation.
 
 Previous implementation: [Power routing](POWER_ROUTING.md) — regulator/5 V/sensor rails connected, test points relocated, fresh DRC and preservation evidence. GPS remains absent.
