@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-20",
+  "base_commit": "5a22f0bd148e3d9e8b922bb1d5bcb414af9615af",
+  "firmware": "4.0.2-draft",
+  "host_result": "PASS: 16 parameterized groups; actual firmware/drivers, fake peripherals",
+  "source_sha256": {
+    "Firmware_v4/PTERODACTYL_v4/config.h": "27bcc4e78e84939ddc51cacc7fd5591e70ffe26e79ede8c9f54bdaa67e5050e8",
+    "Firmware_v4/PTERODACTYL_v4/metadata.cpp": "dfc96400bbd5f0ae116cb3943a7f46506de002b0444687f9f51083ca3aad78d9",
+    "Firmware_v4/PTERODACTYL_v4/PTERODACTYL_v4.ino": "ccbd00235928c49e5e0886e1cefa3ea34428344d79ff5b0fe912571c786f05da",
+    "Firmware_v4/PTERODACTYL_v4/sketch.yaml": "b86705e3f86dd8672699925a03d355feef25026882e3ae7feecd4ed962f0f580",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/Adafruit_BNO055.cpp": "e194916de0eca8464949fa7204594d0a9fa92f832de43dff50b64eb7a920a909",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/Adafruit_BNO055.h": "772aaad076bd372de56bf40215ac0ef7df971d9768007afdf54d407bcb0a9f73",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/LICENSE": "cbe1999a9939970840681fa08a27ee753dc74a88631bd716a1a906ecbba88749",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/README.md": "bb3005291928d62eebea3d8845593e1fb7336eaa32267cf172700620151361f8",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/utility/imumaths.h": "e6161fda664ac7b7970693326b94607b5e777d7c27cace82bdf65f2454c8a184",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/utility/matrix.h": "70eea45f22c896ce515d751bf17fb612ddc204d344e76f2aa7e7b38d19fd8e81",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/utility/quaternion.h": "87b6113b44b2e57586d1cc8710ebe966fdbd085030d420324758bebdafd09fdc",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/utility/vector.h": "1901021bedb9d924121483400a818bff4c81ee0d1e4353133f5349a45d14c29b",
+    "Firmware_v4/PTERODACTYL_v4/src/ms8607/Adafruit_MS8607.cpp": "1bbd751f81ec597aa0c52434ebfcc871ab2a46dfddb8878233567ad32bd9b145",
+    "Firmware_v4/PTERODACTYL_v4/src/ms8607/Adafruit_MS8607.h": "db4ddd31d7c3527cfef9898a90d1fe555ac97922c34237545d8a7851ba5683ba",
+    "Firmware_v4/PTERODACTYL_v4/src/ms8607/README.md": "e69f29801aa455092d67694e868992602c399cf00b47338234b57e78dfed31c9",
+    "Firmware_v4/PTERODACTYL_v4/storage.cpp": "6790e4c5792a9cf36d7526e574948d69f21693ab55453cb20c8c79148712e5bf",
+    "Firmware_v4/PTERODACTYL_v4/storage.h": "70cd9f31ac87b4cb8efbebf4b1a7cba4a3257724062f1b9bbee8a03e06009267",
+    "tests/firmware/fakes/Adafruit_GPS.h": "5b37b4e5e5c80d25e68ab323fca947781e07eee4b2a7e15ec239005640ca0c7d",
+    "tests/firmware/fakes/Adafruit_I2CDevice.h": "db4cba90cf064b3079810694765bf68e505e586ae4ab6c175a98577b7ec731a5",
+    "tests/firmware/fakes/Adafruit_Sensor.h": "40d3df7c3e07b4a5a7a4f3211503c20511ee201f9b134a9cbe56b46d4d86fdb0",
+    "tests/firmware/fakes/Arduino.h": "8950ac58360359b72f57dcbb0d3c7ef5d087dc936f2c3ec3c53ef2a2006aab27",
+    "tests/firmware/fakes/SD.h": "02a7b305dfd8c4bf2c624b7d1570b7401bfbdc7424a414e33b99836ed73f7db2",
+    "tests/firmware/fakes/Wire.h": "830174f84aca4a35de5858b891df97371d75b00290026dca01dd08c7821405ef",
+    "tests/firmware/reliability_test.cpp": "ecc0c6b42c8c3b3c4b6852b3a9d5b1ec5063fdc99bb17eb872cff56c195af2dd",
+    "tools/test_firmware_reliability.py": "394daa190b98c74f811c8dcc01a1c9849c906d150de117d2ecc58c33a87f8bf5"
+  },
+  "ms8607_upstream": {
+    "version": "1.0.4",
+    "source": "installed Arduino library",
+    "declared_url": "https://github.com/adafruit/Adafruit_MS8607",
+    "license": "MIT license and attribution embedded in both files",
+    "original_sha256": {
+      "Adafruit_MS8607.cpp": "a8e8fd19c5540ce27921b4e410c837b68829c786e5047f873785502edb3b30aa",
+      "Adafruit_MS8607.h": "14ded25e20e04414cd72a6b35ad327d73fdee79c89d24f6ec5600a13c4af2cc6",
+      "library.properties": "bd228bc8f09d046f046658c27324fe6a18f87c89b074843113dd1f51b91c790c"
+    }
+  }
+}

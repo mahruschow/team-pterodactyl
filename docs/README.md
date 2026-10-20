@@ -6,7 +6,9 @@ Start here when joining the project or resuming work. This directory contains th
 
 **Meeting handoff:** [October 20 teammate meeting](TEAM_MEETING_2026-10-20.md) organizes completed work, outstanding tasks, team inputs, proposed owners and a decision log.
 
-Latest implementation: [Firmware reliability](FIRMWARE_RELIABILITY.md) — checked SD sessions/recovery, bounded BNO reset, cooldown, host failure tests and current build evidence.
+Latest implementation: [Sensor read validity](SENSOR_READ_VALIDITY.md) — checked sensor transfers/CRC, empty failed-data records, health/recovery behavior and sixteen host fault-test groups.
+
+Previous firmware implementation: [Firmware reliability](FIRMWARE_RELIABILITY.md) — checked SD sessions/recovery, bounded BNO reset, cooldown, host failure tests and current build evidence.
 
 Latest PCB implementation: [Layout review and cleanup](LAYOUT_REVIEW_CLEANUP.md) — ADC filter placement, I2C order, local ground stitching, readable silkscreen and validation.
 

@@ -97,17 +97,18 @@ bool Adafruit_BNO055::begin(adafruit_bno055_opmode_t mode,
     return false;
 
   /* Make sure we have the right device */
-  uint8_t id = read8(BNO055_CHIP_ID_ADDR);
-  if (id != BNO055_ID) {
+  uint8_t id = 0;
+  bool idRead = readLen(BNO055_CHIP_ID_ADDR, &id, 1);
+  if (!idRead || id != BNO055_ID) {
     delay(1000); // hold on for boot
-    id = read8(BNO055_CHIP_ID_ADDR);
-    if (id != BNO055_ID) {
+    idRead = readLen(BNO055_CHIP_ID_ADDR, &id, 1);
+    if (!idRead || id != BNO055_ID) {
       return false; // still not? ok bail
     }
   }
 
   /* Switch to config mode (just in case since this is the default) */
-  setMode(OPERATION_MODE_CONFIG);
+  if (!setMode(OPERATION_MODE_CONFIG)) return false;
 
   /* Reset */
   if (!write8(BNO055_SYS_TRIGGER_ADDR, 0x20))
@@ -129,10 +130,10 @@ bool Adafruit_BNO055::begin(adafruit_bno055_opmode_t mode,
   delay(50);
 
   /* Set to normal power mode */
-  write8(BNO055_PWR_MODE_ADDR, POWER_MODE_NORMAL);
+  if (!write8(BNO055_PWR_MODE_ADDR, POWER_MODE_NORMAL)) return false;
   delay(10);
 
-  write8(BNO055_PAGE_ID_ADDR, 0);
+  if (!write8(BNO055_PAGE_ID_ADDR, 0)) return false;
 
   /* Set the output units */
   /*
@@ -152,10 +153,10 @@ bool Adafruit_BNO055::begin(adafruit_bno055_opmode_t mode,
   delay(10);
   */
 
-  write8(BNO055_SYS_TRIGGER_ADDR, 0x0);
+  if (!write8(BNO055_SYS_TRIGGER_ADDR, 0x0)) return false;
   delay(10);
   /* Set the requested operating mode (see section 3.3) */
-  setMode(mode);
+  if (!setMode(mode)) return false;
   delay(20);
 
   return true;
@@ -179,10 +180,11 @@ bool Adafruit_BNO055::begin(adafruit_bno055_opmode_t mode,
  *            OPERATION_MODE_NDOF_FMC_OFF,
  *            OPERATION_MODE_NDOF]
  */
-void Adafruit_BNO055::setMode(adafruit_bno055_opmode_t mode) {
+bool Adafruit_BNO055::setMode(adafruit_bno055_opmode_t mode) {
+  if (!write8(BNO055_OPR_MODE_ADDR, mode)) return false;
   _mode = mode;
-  write8(BNO055_OPR_MODE_ADDR, _mode);
   delay(30);
+  return true;
 }
 
 /*!
@@ -250,22 +252,16 @@ void Adafruit_BNO055::setAxisSign(adafruit_bno055_axis_remap_sign_t remapsign) {
  *  @param  usextal
  *          use external crystal boolean
  */
-void Adafruit_BNO055::setExtCrystalUse(boolean usextal) {
+bool Adafruit_BNO055::setExtCrystalUse(boolean usextal) {
   adafruit_bno055_opmode_t modeback = _mode;
-
-  /* Switch to config mode (just in case since this is the default) */
-  setMode(OPERATION_MODE_CONFIG);
+  if (!setMode(OPERATION_MODE_CONFIG)) return false;
   delay(25);
-  write8(BNO055_PAGE_ID_ADDR, 0);
-  if (usextal) {
-    write8(BNO055_SYS_TRIGGER_ADDR, 0x80);
-  } else {
-    write8(BNO055_SYS_TRIGGER_ADDR, 0x00);
-  }
+  if (!write8(BNO055_PAGE_ID_ADDR, 0)) return false;
+  if (!write8(BNO055_SYS_TRIGGER_ADDR, usextal ? 0x80 : 0x00)) return false;
   delay(10);
-  /* Set the requested operating mode (see section 3.3) */
-  setMode(modeback);
+  if (!setMode(modeback)) return false;
   delay(20);
+  return true;
 }
 
 /*!
@@ -373,7 +369,13 @@ void Adafruit_BNO055::getRevInfo(adafruit_bno055_rev_info_t *info) {
  */
 void Adafruit_BNO055::getCalibration(uint8_t *sys, uint8_t *gyro,
                                      uint8_t *accel, uint8_t *mag) {
-  uint8_t calData = read8(BNO055_CALIB_STAT_ADDR);
+  getCalibrationChecked(sys, gyro, accel, mag);
+}
+
+bool Adafruit_BNO055::getCalibrationChecked(uint8_t *sys, uint8_t *gyro,
+                                           uint8_t *accel, uint8_t *mag) {
+  uint8_t calData = 0;
+  if (!readLen(BNO055_CALIB_STAT_ADDR, &calData, 1)) return false;
   if (sys != NULL) {
     *sys = (calData >> 6) & 0x03;
   }
@@ -386,6 +388,7 @@ void Adafruit_BNO055::getCalibration(uint8_t *sys, uint8_t *gyro,
   if (mag != NULL) {
     *mag = calData & 0x03;
   }
+  return true;
 }
 
 /*!
@@ -410,6 +413,13 @@ int8_t Adafruit_BNO055::getTemp() {
  *  @return  vector from specified source
  */
 imu::Vector<3> Adafruit_BNO055::getVector(adafruit_vector_type_t vector_type) {
+  imu::Vector<3> result;
+  getVectorChecked(vector_type, result);
+  return result;
+}
+
+bool Adafruit_BNO055::getVectorChecked(adafruit_vector_type_t vector_type,
+                                       imu::Vector<3> &result) {
   imu::Vector<3> xyz;
   uint8_t buffer[6];
   memset(buffer, 0, 6);
@@ -418,7 +428,7 @@ imu::Vector<3> Adafruit_BNO055::getVector(adafruit_vector_type_t vector_type) {
   x = y = z = 0;
 
   /* Read vector data (6 bytes) */
-  readLen((adafruit_bno055_reg_t)vector_type, buffer, 6);
+  if (!readLen((adafruit_bno055_reg_t)vector_type, buffer, 6)) return false;
 
   x = ((int16_t)buffer[0]) | (((int16_t)buffer[1]) << 8);
   y = ((int16_t)buffer[2]) | (((int16_t)buffer[3]) << 8);
@@ -467,7 +477,8 @@ imu::Vector<3> Adafruit_BNO055::getVector(adafruit_vector_type_t vector_type) {
     break;
   }
 
-  return xyz;
+  result = xyz;
+  return true;
 }
 
 /*!
@@ -475,6 +486,12 @@ imu::Vector<3> Adafruit_BNO055::getVector(adafruit_vector_type_t vector_type) {
  *  @return quaternion reading
  */
 imu::Quaternion Adafruit_BNO055::getQuat() {
+  imu::Quaternion result(0, 0, 0, 0);
+  getQuatChecked(result);
+  return result;
+}
+
+bool Adafruit_BNO055::getQuatChecked(imu::Quaternion &result) {
   uint8_t buffer[8];
   memset(buffer, 0, 8);
 
@@ -482,7 +499,7 @@ imu::Quaternion Adafruit_BNO055::getQuat() {
   x = y = z = w = 0;
 
   /* Read quat data (8 bytes) */
-  readLen(BNO055_QUATERNION_DATA_W_LSB_ADDR, buffer, 8);
+  if (!readLen(BNO055_QUATERNION_DATA_W_LSB_ADDR, buffer, 8)) return false;
   w = (((uint16_t)buffer[1]) << 8) | ((uint16_t)buffer[0]);
   x = (((uint16_t)buffer[3]) << 8) | ((uint16_t)buffer[2]);
   y = (((uint16_t)buffer[5]) << 8) | ((uint16_t)buffer[4]);
@@ -496,7 +513,8 @@ imu::Quaternion Adafruit_BNO055::getQuat() {
    */
   const double scale = (1.0 / (1 << 14));
   imu::Quaternion quat(scale * w, scale * x, scale * y, scale * z);
-  return quat;
+  result = quat;
+  return true;
 }
 
 /*!

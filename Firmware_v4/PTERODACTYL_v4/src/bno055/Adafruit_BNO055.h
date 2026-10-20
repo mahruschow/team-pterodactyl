@@ -284,12 +284,12 @@ public:
 
   bool begin(adafruit_bno055_opmode_t mode = OPERATION_MODE_NDOF,
              uint32_t resetTimeoutMs = 1000);
-  void setMode(adafruit_bno055_opmode_t mode);
+  bool setMode(adafruit_bno055_opmode_t mode);
   adafruit_bno055_opmode_t getMode();
   void setAxisRemap(adafruit_bno055_axis_remap_config_t remapcode);
   void setAxisSign(adafruit_bno055_axis_remap_sign_t remapsign);
   void getRevInfo(adafruit_bno055_rev_info_t *);
-  void setExtCrystalUse(boolean usextal);
+  bool setExtCrystalUse(boolean usextal);
   void getSystemStatus(uint8_t *system_status, uint8_t *self_test_result,
                        uint8_t *system_error);
   void getCalibration(uint8_t *system, uint8_t *gyro, uint8_t *accel,
@@ -297,6 +297,10 @@ public:
 
   imu::Vector<3> getVector(adafruit_vector_type_t vector_type);
   imu::Quaternion getQuat();
+  // Checked APIs leave caller outputs unchanged on transfer failure.
+  bool getQuatChecked(imu::Quaternion &result);
+  bool getVectorChecked(adafruit_vector_type_t type, imu::Vector<3> &result);
+  bool getCalibrationChecked(uint8_t *sys, uint8_t *gyro, uint8_t *accel, uint8_t *mag);
   int8_t getTemp();
 
   /* Adafruit_Sensor implementation */

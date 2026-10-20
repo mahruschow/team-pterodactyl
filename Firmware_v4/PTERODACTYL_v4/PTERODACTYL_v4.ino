@@ -6,7 +6,7 @@
 // - Each power-up (or restart after a clean stop) creates a new session folder Snnn; nothing is overwritten.
 // - Independent schedules: IMU 10 Hz, environment 1 Hz, health 1 Hz, GPS on each GGA sentence.
 // - Every record has session, sequence number, monotonic millis() and a status field;
-//   known missing readings are empty; sensor-transfer and GPS freshness fixes remain open.
+//   failed sensor transfers/CRC produce empty fields; GPS freshness remains open.
 // - Files stay open; sync is scheduled each second. SD faults close the session and retry in a new folder.
 // - SW_MODE to GND requests close; failures latch the fault LED. Hardware timing still needs testing.
 
@@ -14,7 +14,7 @@
 #include <SD.h>
 #include <Adafruit_Sensor.h>
 #include "src/bno055/Adafruit_BNO055.h"
-#include <Adafruit_MS8607.h>
+#include "src/ms8607/Adafruit_MS8607.h"
 #include <Adafruit_GPS.h>
 #include "config.h"
 #include "storage.h"
@@ -28,6 +28,7 @@ char line[320];
 
 // ---------------------------------------------------------------- device state
 bool imuOk = false, envOk = false;
+bool imuReady = false, envReady = false; // initialized separately from latest read status
 uint8_t imuConsecutiveFails = 0;
 uint32_t imuFailTotal = 0, envFailTotal = 0, imuResets = 0, gpsParseFails = 0, overruns = 0;
 uint8_t calSys = 0;
@@ -96,8 +97,9 @@ void startLogging(const char *reason) {
 // ---------------------------------------------------------------- devices
 bool initImu() {
   calSys = 0;
-  const bool ok = bno.begin(OPERATION_MODE_NDOF, BNO_RESET_TIMEOUT_MS);
-  if (ok) bno.setExtCrystalUse(true);
+  bool ok = bno.begin(OPERATION_MODE_NDOF, BNO_RESET_TIMEOUT_MS);
+  if (ok) ok = bno.setExtCrystalUse(true);
+  imuReady = ok;
   lastImuAttemptMs = millis();  // cooldown starts after the blocking attempt
   imuAttempted = true;
   return ok;
@@ -111,36 +113,45 @@ void resetImu(uint32_t now) {
   pinMode(PIN_IMU_RST, INPUT);
   delay(700);  // BNO055 power-on reset time; blocks other streams once per reset (logged)
   imuResets++;
-  imuOk = initImu();
+  initImu();
+  imuOk = false;  // reset success is not yet a successful measurement
   imuConsecutiveFails = 0;
   char detail[40];
-  snprintf(detail, sizeof(detail), "ok=%d blocked_ms=%lu", imuOk, (unsigned long)(millis() - now));
+  snprintf(detail, sizeof(detail), "ready=%d blocked_ms=%lu", imuReady, (unsigned long)(millis() - now));
   event("IMU_RESET", detail);
 }
 
 void sampleImu(uint32_t now) {
-  if (!imuOk && imuAttempted && now - lastImuAttemptMs < IMU_RETRY_MS) {
+  if (!imuReady && imuAttempted && now - lastImuAttemptMs < IMU_RETRY_MS) {
     record(S_IMU, now, "INIT_WAIT,,,,,,,,,,,,,,,,,");
     return;
   }
   if (!i2cPresent(BNO055_ADDR)) {
-    imuOk = false; imuFailTotal++;
+    imuReady = imuOk = false; calSys = 0; imuFailTotal++;
     record(S_IMU, now, "NO_RESPONSE,,,,,,,,,,,,,,,,,");
     if (++imuConsecutiveFails >= IMU_FAILS_BEFORE_RESET) resetImu(now);
     return;
   }
-  if (!imuOk) {                          // device answered again: re-initialise before trusting data
+  if (!imuReady) {                       // device answered again: re-initialise before trusting data
     imuOk = initImu();
     if (!imuOk) { imuFailTotal++; record(S_IMU, now, "INIT_FAIL,,,,,,,,,,,,,,,,,"); return; }
     event("IMU_REINIT", "ok");
   }
-  imuConsecutiveFails = 0;
-  imu::Quaternion q = bno.getQuat();
-  imu::Vector<3> a = bno.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
-  imu::Vector<3> g = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);   // deg/s from library
-  imu::Vector<3> m = bno.getVector(Adafruit_BNO055::VECTOR_MAGNETOMETER);
+  imu::Quaternion q;
+  imu::Vector<3> a, g, m;
   uint8_t cs, cg, ca, cm;
-  bno.getCalibration(&cs, &cg, &ca, &cm);
+  if (!bno.getQuatChecked(q) ||
+      !bno.getVectorChecked(Adafruit_BNO055::VECTOR_ACCELEROMETER, a) ||
+      !bno.getVectorChecked(Adafruit_BNO055::VECTOR_GYROSCOPE, g) ||
+      !bno.getVectorChecked(Adafruit_BNO055::VECTOR_MAGNETOMETER, m) ||
+      !bno.getCalibrationChecked(&cs, &cg, &ca, &cm)) {
+    imuOk = false; calSys = 0; imuFailTotal++;
+    record(S_IMU, now, "READ_FAIL,,,,,,,,,,,,,,,,,");
+    if (++imuConsecutiveFails >= IMU_FAILS_BEFORE_RESET) resetImu(now);
+    return;
+  }
+  imuOk = true;
+  imuConsecutiveFails = 0;
   calSys = cs;
   const float d2r = PI / 180.0f;
   record(S_IMU, now, "OK,%.5f,%.5f,%.5f,%.5f,%.3f,%.3f,%.3f,%.5f,%.5f,%.5f,%.2f,%.2f,%.2f,%u,%u,%u,%u",
@@ -150,21 +161,22 @@ void sampleImu(uint32_t now) {
 
 void sampleEnv(uint32_t now) {
   if (!i2cPresent(MS8607_PT_ADDR) || !i2cPresent(MS8607_RH_ADDR)) {
-    envOk = false; envFailTotal++;
+    envReady = envOk = false; envFailTotal++;
     record(S_ENV, now, "NO_RESPONSE,,,,");
     return;
   }
-  if (!envOk) {
-    envOk = ms8607.begin(&Wire);
+  if (!envReady) {
+    envReady = envOk = ms8607.begin(&Wire);
     if (!envOk) { envFailTotal++; record(S_ENV, now, "INIT_FAIL,,,,"); return; }
     event("ENV_REINIT", "ok");
   }
   sensors_event_t pressure, temperature, humidity;
   if (!ms8607.getEvent(&pressure, &temperature, &humidity)) {
-    envFailTotal++;
+    envOk = false; envFailTotal++;
     record(S_ENV, now, "READ_FAIL,,,,");
     return;
   }
+  envOk = true;
   float pa = pressure.pressure * 100.0f;  // library reports hPa
   float alt = 44330.0f * (1.0f - powf(pa / ISA_P0_PA, 0.190295f));
   record(S_ENV, now, "OK,%.1f,%.2f,%.2f,%.1f", pa, temperature.temperature, humidity.relative_humidity, alt);
@@ -248,7 +260,7 @@ void setup() {
   Wire.begin();
   Wire.setClock(I2C_CLOCK_HZ);
   imuOk = initImu();
-  envOk = ms8607.begin(&Wire);
+  envReady = envOk = ms8607.begin(&Wire);
 
   gps.begin(GPS_BAUD);
   gps.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);

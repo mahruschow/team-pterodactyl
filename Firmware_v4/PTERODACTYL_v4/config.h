@@ -4,7 +4,7 @@
 #pragma once
 #include <Arduino.h>
 
-#define FW_VERSION "4.0.1-draft"
+#define FW_VERSION "4.0.2-draft"
 
 // Status LEDs (STATUS1-4 through 680 ohm resistors)
 constexpr uint8_t PIN_LED_FAULT = 2;   // STATUS1, red: any fault

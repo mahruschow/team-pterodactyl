@@ -13,13 +13,16 @@ static void reset() {
   closeSession();
   disk = FakeDisk();
   bnoBus = FakeBnoBus();
+  msBus = FakeMsBus();
   Wire.present = true;
   clockMs = 100;
   storageFaults = 0;
   lastSdAttemptMs = 0;
   for (auto &s : streams) { s.seq = 0; s.writeFails = 0; }
   stopRequested = false;
-  imuOk = envOk = true;
+  imuReady = imuOk = true;
+  envReady = envOk = ms8607.begin(&Wire);
+  CHECK(envReady);
   imuAttempted = false;
   imuConsecutiveFails = 0;
   imuFailTotal = envFailTotal = imuResets = overruns = 0;
@@ -261,7 +264,7 @@ static void bnoResetTimeouts() {
 static void initCooldownAndOtherStreams() {
   reset();
   CHECK(startStorage(writeMetadata));
-  imuOk = false;
+  imuReady = imuOk = false;
   bnoBus.readyAfterMs = 100000;
   sampleImu(millis());
   CHECK(!imuOk && bnoBus.resetWrites == 1);
@@ -299,15 +302,250 @@ static void bootWithFailedImu() {
   CHECK(stopRequested && session == -1 && disk.mounts == 0);
 }
 
+static std::vector<std::string> csvLastRow(const std::string &path) {
+  const std::string &text = disk.files.at(path)->bytes;
+  CHECK(!text.empty() && text.back() == '\n');
+  const auto start = text.rfind('\n', text.size() - 2);
+  std::string row = text.substr(start + 1, text.size() - start - 2);
+  std::vector<std::string> fields;
+  size_t pos = 0;
+  while (true) {
+    auto comma = row.find(',', pos);
+    fields.push_back(row.substr(pos, comma == std::string::npos ? comma : comma - pos));
+    if (comma == std::string::npos) break;
+    pos = comma + 1;
+  }
+  return fields;
+}
+static void invalidRow(const std::string &file, size_t count, const char *status) {
+  auto fields = csvLastRow("S000/" + file);
+  CHECK(fields.size() == count && fields[3] == status);
+  for (size_t n = 4; n < count; ++n) CHECK(fields[n].empty());
+}
+static void bnoFixture() {
+  auto words = [](std::initializer_list<int16_t> values) {
+    std::vector<uint8_t> result;
+    for (int16_t value : values) {
+      result.push_back(uint16_t(value) & 0xff);
+      result.push_back(uint16_t(value) >> 8);
+    }
+    return result;
+  };
+  bnoBus.registers[0x20] = words({16384, -8192, 4096, -16384});
+  bnoBus.registers[0x08] = words({100, -200, 300});
+  bnoBus.registers[0x14] = words({16, -32, 48});
+  bnoBus.registers[0x0e] = words({160, -320, 480});
+  bnoBus.registers[0x35] = {0xe4};
+}
+
+static void bnoCheckedValues() {
+  reset();
+  bnoFixture();
+  imu::Quaternion q;
+  imu::Vector<3> a, g, m;
+  uint8_t cs, cg, ca, cm;
+  CHECK(bno.getQuatChecked(q));
+  CHECK(q.w() == 1 && q.x() == -0.5 && q.y() == 0.25 && q.z() == -1);
+  CHECK(bno.getVectorChecked(Adafruit_BNO055::VECTOR_ACCELEROMETER, a));
+  CHECK(a.x() == 1 && a.y() == -2 && a.z() == 3);
+  CHECK(bno.getVectorChecked(Adafruit_BNO055::VECTOR_GYROSCOPE, g));
+  CHECK(g.x() == 1 && g.y() == -2 && g.z() == 3);
+  CHECK(bno.getVectorChecked(Adafruit_BNO055::VECTOR_MAGNETOMETER, m));
+  CHECK(m.x() == 10 && m.y() == -20 && m.z() == 30);
+  CHECK(bno.getCalibrationChecked(&cs, &cg, &ca, &cm));
+  CHECK(cs == 3 && cg == 2 && ca == 1 && cm == 0);
+  CHECK(startStorage(writeMetadata));
+  sampleImu(millis());
+  auto row = csvLastRow("S000/imu.csv");
+  CHECK(row.size() == 21 && row[3] == "OK");
+  CHECK(std::abs(std::stod(row[11]) - PI / 180) < 0.00001);
+  CHECK(imuOk && calSys == 3);
+  // A short quaternion transfer must preserve the caller's previous object.
+  bnoBus.registers[0x20].pop_back();
+  CHECK(!bno.getQuatChecked(q));
+  CHECK(q.w() == 1 && q.x() == -0.5);
+  bnoBus.failReadReg = 0x08;
+  CHECK(!bno.getVectorChecked(Adafruit_BNO055::VECTOR_ACCELEROMETER, a));
+  CHECK(a.y() == -2);
+  bnoBus.failReadReg = 0x35;
+  CHECK(!bno.getCalibrationChecked(&cs, &cg, &ca, &cm));
+  CHECK(cs == 3 && cg == 2 && ca == 1 && cm == 0);
+}
+
+static void bnoTransferFailures() {
+  for (int reg : {0x20, 0x08, 0x14, 0x0e, 0x35}) {
+    for (bool shortRead : {false, true}) {
+      reset();
+      bnoFixture();
+      CHECK(startStorage(writeMetadata));
+      sampleImu(millis()); // establish prior valid data
+      if (shortRead) bnoBus.registers[reg].pop_back();
+      else bnoBus.failReadReg = reg;
+      sampleImu(millis());
+      invalidRow("imu.csv", 21, "READ_FAIL");
+      CHECK(!imuOk && imuReady && calSys == 0 && imuFailTotal == 1);
+      CHECK(imuConsecutiveFails == 1 && imuResets == 0);
+      updateLeds(millis());
+      CHECK(pins[PIN_LED_FAULT] == HIGH && pins[PIN_LED_CAL] == LOW);
+      sampleEnv(millis()); // unrelated stream continues
+      CHECK(csvLastRow("S000/env.csv")[3] == "OK");
+      bnoBus.failReadReg = -1;
+      bnoFixture();
+      sampleImu(millis());
+      CHECK(csvLastRow("S000/imu.csv")[3] == "OK");
+      CHECK(imuOk && imuConsecutiveFails == 0 && imuFailTotal == 1);
+    }
+  }
+  reset();
+  bnoFixture();
+  CHECK(startStorage(writeMetadata));
+  bnoBus.failReadReg = 0x20;
+  for (int n = 0; n < IMU_FAILS_BEFORE_RESET; ++n) sampleImu(millis());
+  CHECK(imuResets == 1 && imuFailTotal == IMU_FAILS_BEFORE_RESET);
+  CHECK(imuReady && !imuOk); // reset/config success is not valid sample data
+  invalidRow("imu.csv", 21, "READ_FAIL");
+}
+
+static void bnoConfigurationFailures() {
+  for (int reg : {0x3d, 0x3e, 0x07, 0x3f}) {
+    reset();
+    bnoBus.failWriteReg = reg;
+    CHECK(!initImu() && !imuReady);
+  }
+  reset();
+  bnoBus.failReadReg = 0;
+  CHECK(!initImu() && !imuReady);
+  reset();
+  CHECK(bno.begin());
+  bnoBus.failWriteReg = 0x3f;
+  CHECK(!bno.setExtCrystalUse(true));
+}
+
+struct MsFault { const char *op; int addr, cmd, call; };
+static void msFault(const MsFault &fault) {
+  msBus.failOperation = fault.op;
+  msBus.failAddress = fault.addr;
+  msBus.failCommand = fault.cmd;
+  msBus.failCall = fault.call;
+  msBus.matches = 0;
+}
+static void msValuesAndWrappers() {
+  reset();
+  sensors_event_t p{}, t{}, h{};
+  CHECK(ms8607.getEvent(&p, &t, &h));
+  CHECK(p.type == SENSOR_TYPE_PRESSURE && p.pressure > 0);
+  CHECK(t.type == SENSOR_TYPE_AMBIENT_TEMPERATURE && std::isfinite(t.temperature));
+  CHECK(h.type == SENSOR_TYPE_RELATIVE_HUMIDITY && h.relative_humidity == 56.5f);
+  CHECK(startStorage(writeMetadata));
+  sampleEnv(millis());
+  CHECK(csvLastRow("S000/env.csv")[3] == "OK");
+  msBus.badHumidityCrc = true;
+  CHECK(!ms8607.getHumiditySensor()->getEvent(&h));
+  CHECK(h.version == 0 && h.relative_humidity == 0);
+  msFault({"write", 0x76, 0x58, 1});
+  CHECK(!ms8607.getTemperatureSensor()->getEvent(&t));
+  CHECK(t.version == 0);
+  msFault({"write", 0x76, 0x48, 1});
+  CHECK(!ms8607.getPressureSensor()->getEvent(&p));
+  CHECK(p.version == 0);
+}
+
+static void msMeasurementFailures() {
+  const MsFault faults[] = {
+    {"write", 0x76, 0x58, 1},             // start temperature conversion
+    {"write_then_read", 0x76, 0x00, 1},   // temperature ADC response
+    {"write", 0x76, 0x48, 1},             // start pressure conversion
+    {"write_then_read", 0x76, 0x00, 2},   // pressure ADC response
+    {"write", 0x40, 0xf5, 1},             // start humidity conversion
+    {"read", 0x40, -1, 1},                // humidity response/short read
+  };
+  for (const auto &fault : faults) {
+    reset();
+    CHECK(startStorage(writeMetadata));
+    sampleEnv(millis());
+    CHECK(csvLastRow("S000/env.csv")[3] == "OK");
+    msFault(fault);
+    sampleEnv(millis());
+    invalidRow("env.csv", 8, "READ_FAIL");
+    CHECK(!envOk && envReady && envFailTotal == 1);
+    updateLeds(millis());
+    CHECK(pins[PIN_LED_FAULT] == HIGH);
+    sampleImu(millis());
+    CHECK(csvLastRow("S000/imu.csv")[3] == "OK");
+    msBus.failOperation.clear();
+    sampleEnv(millis());
+    CHECK(envOk && envFailTotal == 1 && csvLastRow("S000/env.csv")[3] == "OK");
+    // Public driver must clear prior events instead of exposing cached values.
+    sensors_event_t p{}, t{}, h{};
+    CHECK(ms8607.getEvent(&p, &t, &h));
+    msFault(fault);
+    CHECK(!ms8607.getEvent(&p, &t, &h));
+    CHECK(p.version == 0 && t.version == 0 && h.version == 0);
+  }
+  reset();
+  CHECK(startStorage(writeMetadata));
+  sampleEnv(millis());
+  msBus.badHumidityCrc = true;
+  sampleEnv(millis());
+  invalidRow("env.csv", 8, "READ_FAIL");
+  CHECK(!envOk && envFailTotal == 1);
+  msBus.badHumidityCrc = false;
+  sampleEnv(millis());
+  CHECK(envOk && csvLastRow("S000/env.csv")[3] == "OK");
+}
+
+static void msInitializationFailures() {
+  std::vector<MsFault> faults = {
+    {"begin", 0x76, -1, 1}, {"begin", 0x40, -1, 1},
+    {"write", 0x76, 0x1e, 1}, {"write", 0x40, 0xfe, 1},
+    {"write_then_read", 0x40, 0xe7, 1}, {"write", 0x40, 0xe6, 1},
+  };
+  for (int reg = 0xa0; reg <= 0xac; reg += 2)
+    faults.push_back({"write_then_read", 0x76, reg, 1});
+  for (const auto &fault : faults) {
+    reset();
+    auto *originalWrapper = ms8607.getTemperatureSensor();
+    msFault(fault);
+    CHECK(!ms8607.begin(&Wire));
+    sensors_event_t p{}, t{}, h{};
+    CHECK(!ms8607.getEvent(&p, &t, &h));
+    msBus.failOperation.clear();
+    CHECK(ms8607.begin(&Wire));
+    CHECK(ms8607.getTemperatureSensor() == originalWrapper);
+    CHECK(ms8607.getEvent(&p, &t, &h));
+  }
+  reset();
+  CHECK(startStorage(writeMetadata));
+  envReady = envOk = false;
+  msBus.badPromCrc = true;
+  sampleEnv(millis());
+  invalidRow("env.csv", 8, "INIT_FAIL");
+  CHECK(!envReady && !envOk && envFailTotal == 1);
+  msBus.badPromCrc = false;
+  sampleEnv(millis());
+  CHECK(envReady && envOk && csvLastRow("S000/env.csv")[3] == "OK");
+  // Corrupt coefficient data while leaving the stored fixture CRC unchanged.
+  msBus.prom[2] ^= 1;
+  CHECK(!ms8607.begin(&Wire));
+  msBus.prom[2] ^= 1;
+  CHECK(ms8607.reset());
+  sensors_event_t p{}, t{}, h{};
+  CHECK(!ms8607.getEvent(&p, &t, &h));
+  CHECK(ms8607.init(0));
+  CHECK(ms8607.getEvent(&p, &t, &h));
+}
+
 int main() {
   try {
     for (auto test : {successfulSessions, incompleteSessions, mountDirectoryAndExhaustion,
                       exclusiveFiles, writeAndSyncRecovery, cleanStopAndFailedClose,
                       retryTimingAndRollover, bnoResetTimeouts,
-                      initCooldownAndOtherStreams, bootWithFailedImu}) {
+                      initCooldownAndOtherStreams, bootWithFailedImu,
+                      bnoCheckedValues, bnoTransferFailures, bnoConfigurationFailures,
+                      msValuesAndWrappers, msMeasurementFailures, msInitializationFailures}) {
       test();
     }
-    std::cout << "PASS: 10 groups; actual sketch/storage/metadata/BNO driver with fake hardware\n";
+    std::cout << "PASS: 16 groups; actual sketch/storage/metadata/BNO/MS drivers with fake hardware\n";
   } catch (const std::exception &error) {
     std::cerr << "FAIL: " << error.what() << "\n";
     return 1;

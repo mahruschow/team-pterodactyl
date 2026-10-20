@@ -15,7 +15,7 @@ The v4 schematic and carrier PCB are implemented for 50 placed footprints. Lates
 | 3 — Module interfaces / mounting | Four carrier footprints integrated; GPS geometry and physical-fit gates open |
 | 4 — Placement / interference | Plan, spacing checks and test matrix prepared; measured performance and team approval open |
 | 5 — Power / schematic | ERC-clean draft; candidate ratings, battery contract, BOM and review open |
-| 6 — Firmware | SD recovery and BNO reset timeout implemented/host-tested; sensor validity, GPS freshness and hardware tests open |
+| 6 — Firmware | SD recovery, BNO timeout and sensor transfer/CRC handling implemented/host-tested; GPS freshness and hardware tests open |
 | 7 — PCB | Present footprints routed; ADC/I2C/silkscreen cleanup done; GPS and final release review open |
 | 8–10 — Prototype, test, flight version | Not completed |
 
@@ -33,7 +33,8 @@ The v4 schematic and carrier PCB are implemented for 50 placed footprints. Lates
 
 - [ ] **GPS:** obtain current #5440 geometry, approve/assign U5 and route it. The legacy comparison footprint remains unverified.
 - [ ] **Power/BOM:** verify candidate fuse, MOSFET, bead, connector/capacitor ratings; settle the battery/startup contract; review C1/C4 proximity and transients; add exact assembly hardware to the BOM.
-- [ ] **Firmware:** propagate sensor transfer/CRC failures and reject stale GPS RMC fields; add CSV validation. SD recovery and BNO timeout/cooldown are implemented and host-tested; verify them on hardware.
+- [x] Implement and host-test [sensor transfer/CRC validity](SENSOR_READ_VALIDITY.md), empty failed-data rows and recovery.
+- [ ] **Firmware:** reject stale/mismatched GPS RMC fields and add CSV validation. SD recovery, BNO timeout/cooldown and sensor error paths still need hardware verification.
 - [ ] **Mechanical:** enclosure, orientation, retention, header/socket fit, antenna/sensor exposure and USB/SD access; close M01–M04 with actual evidence.
 - [ ] **Fabrication:** apply chosen manufacturer rules/stackup, independently review the complete design, require clean parity and zero unconnected items with GPS installed, then generate and inspect fresh Gerbers/drills.
 - [ ] **Prototype:** assemble and test startup/current/rails, sensor/GPS logging, storage failures, endurance, magnetic/GPS interference and thermal effects.

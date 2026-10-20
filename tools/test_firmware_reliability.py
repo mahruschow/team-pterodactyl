@@ -28,6 +28,7 @@ def main():
             str(TESTS / "reliability_test.cpp"),
             str(FW / "storage.cpp"), str(FW / "metadata.cpp"),
             str(FW / "src/bno055/Adafruit_BNO055.cpp"),
+            str(FW / "src/ms8607/Adafruit_MS8607.cpp"),
             "-o", str(exe),
         ]
         subprocess.run(command, check=True, timeout=300)
