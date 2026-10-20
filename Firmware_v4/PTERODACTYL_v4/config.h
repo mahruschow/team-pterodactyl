@@ -4,7 +4,7 @@
 #pragma once
 #include <Arduino.h>
 
-#define FW_VERSION "4.0.0-draft"
+#define FW_VERSION "4.0.1-draft"
 
 // Status LEDs (STATUS1-4 through 680 ohm resistors)
 constexpr uint8_t PIN_LED_FAULT = 2;   // STATUS1, red: any fault
@@ -36,6 +36,8 @@ constexpr uint32_t GPS_STALE_MS     = 3000;  // GGA older than this is stale
 constexpr uint32_t DEBOUNCE_MS      = 50;
 
 // Fault handling
+constexpr uint32_t BNO_RESET_TIMEOUT_MS = 1000; // post-software-reset CHIP_ID poll budget
+constexpr uint32_t IMU_RETRY_MS = 5000;         // after a completed init/reset attempt
 constexpr uint8_t IMU_FAILS_BEFORE_RESET = 5;  // consecutive failed reads before hardware reset
 
 // Battery sense

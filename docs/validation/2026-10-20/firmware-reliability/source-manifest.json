@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-20",
+  "base_commit": "e1663f7d4aa2fdae9f75584f3f3a39a280f00c63",
+  "firmware": "4.0.1-draft",
+  "host_compiler": "Zig 0.13.0 c++ (C++17, -Wall -Wextra -Werror)",
+  "host_tests": "PASS: 10 parameterized groups, fake peripherals; no hardware",
+  "source_sha256": {
+    "Firmware_v4/PTERODACTYL_v4/config.h": "c1436ad374217e9263ebf37ba6b263c0e52dde2be854362ec549ef899b0a07f1",
+    "Firmware_v4/PTERODACTYL_v4/metadata.cpp": "dfc96400bbd5f0ae116cb3943a7f46506de002b0444687f9f51083ca3aad78d9",
+    "Firmware_v4/PTERODACTYL_v4/PTERODACTYL_v4.ino": "7b1c6e8198d5bcf3e0b00c1591b3bc5652aa9a97778a9a91a1a0a1dc4b982925",
+    "Firmware_v4/PTERODACTYL_v4/sketch.yaml": "5af10919e13556493be0cc7b2f51338b5aaaf9898fb17485daa38b869b0427e8",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/Adafruit_BNO055.cpp": "fb1874679a6c0bc6f6734a4edde11c17bee93726f9d59fadf4bc97308f516274",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/Adafruit_BNO055.h": "53bb16551a4e2de7b3776676eed0db25ce2d07b873914db6c5c3a6ae1e1053ad",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/LICENSE": "cbe1999a9939970840681fa08a27ee753dc74a88631bd716a1a906ecbba88749",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/README.md": "89cd2fc092c3aed780f8f7fd2fca9d3ab6a138ce9d066475d1252ddd930a2ee2",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/utility/imumaths.h": "e6161fda664ac7b7970693326b94607b5e777d7c27cace82bdf65f2454c8a184",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/utility/matrix.h": "70eea45f22c896ce515d751bf17fb612ddc204d344e76f2aa7e7b38d19fd8e81",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/utility/quaternion.h": "87b6113b44b2e57586d1cc8710ebe966fdbd085030d420324758bebdafd09fdc",
+    "Firmware_v4/PTERODACTYL_v4/src/bno055/utility/vector.h": "1901021bedb9d924121483400a818bff4c81ee0d1e4353133f5349a45d14c29b",
+    "Firmware_v4/PTERODACTYL_v4/storage.cpp": "6790e4c5792a9cf36d7526e574948d69f21693ab55453cb20c8c79148712e5bf",
+    "Firmware_v4/PTERODACTYL_v4/storage.h": "70cd9f31ac87b4cb8efbebf4b1a7cba4a3257724062f1b9bbee8a03e06009267",
+    "tests/firmware/fakes/Adafruit_GPS.h": "5b37b4e5e5c80d25e68ab323fca947781e07eee4b2a7e15ec239005640ca0c7d",
+    "tests/firmware/fakes/Adafruit_I2CDevice.h": "480f2d895ca2fac525c5182af84184e8131f0cd0cef1251a6bd6947fc5c8d83a",
+    "tests/firmware/fakes/Adafruit_MS8607.h": "01ff33446371cbf9a8e0f23f1da7f45b160806947a066bda102d7e3bc14d93a5",
+    "tests/firmware/fakes/Adafruit_Sensor.h": "36b98b9afd1e3233315fc4f658d63b1a30b1eb6ced10ae9f5d5a4100515956da",
+    "tests/firmware/fakes/Arduino.h": "8950ac58360359b72f57dcbb0d3c7ef5d087dc936f2c3ec3c53ef2a2006aab27",
+    "tests/firmware/fakes/SD.h": "02a7b305dfd8c4bf2c624b7d1570b7401bfbdc7424a414e33b99836ed73f7db2",
+    "tests/firmware/fakes/Wire.h": "830174f84aca4a35de5858b891df97371d75b00290026dca01dd08c7821405ef",
+    "tests/firmware/reliability_test.cpp": "c0f16104e4caaff7a2f5d53e530fcd8ef5d60ed499358ad049196482faf4142d",
+    "tools/test_firmware_reliability.py": "9bb9f55b75a3b7ea40d9ff182d171743acd37f226629f498c3b785f83dd78c74"
+  },
+  "upstream_bno055": {
+    "version": "1.6.4",
+    "origin": "installed Arduino library; upstream declared in library.properties",
+    "url": "https://github.com/adafruit/Adafruit_BNO055",
+    "original_sha256": {
+      "Adafruit_BNO055.cpp": "5142608a1661fe9fe859bb058b02a815e3c547dce965eeed6bb40e645e67d3eb",
+      "Adafruit_BNO055.h": "2e6eb6cac3e889e0e17778ce350d0918670278ca757de6af9ebb086b2c1d7f83",
+      "LICENSE": "cbe1999a9939970840681fa08a27ee753dc74a88631bd716a1a906ecbba88749",
+      "utility/imumaths.h": "e6161fda664ac7b7970693326b94607b5e777d7c27cace82bdf65f2454c8a184",
+      "utility/matrix.h": "70eea45f22c896ce515d751bf17fb612ddc204d344e76f2aa7e7b38d19fd8e81",
+      "utility/quaternion.h": "87b6113b44b2e57586d1cc8710ebe966fdbd085030d420324758bebdafd09fdc",
+      "utility/vector.h": "1901021bedb9d924121483400a818bff4c81ee0d1e4353133f5349a45d14c29b"
+    }
+  }
+}

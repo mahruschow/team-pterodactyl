@@ -1,8 +1,10 @@
 # Current status and resume checklist
 
-Updated October 19, 2026. Working branch: `saadat-dev`.
+Updated October 20, 2026. Working branch: `saadat-dev`.
 
 ## Where we stopped
+
+**Latest firmware:** [FIRMWARE_RELIABILITY.md](FIRMWARE_RELIABILITY.md). Version 4.0.1-draft requires all SD session files, detects write/sync/close failures, retries in a fresh folder, bounds BNO post-reset polling and adds a retry cooldown. Teensy build and ten host fault-injection groups pass. Sensor-transfer/CRC validity and GPS RMC freshness remain open; no hardware testing. See the [October 20 session](sessions/2026-10-20.md).
 
 **Meeting handoff:** [October 20 teammate meeting](TEAM_MEETING_2026-10-20.md) organizes completed work, outstanding tasks, team inputs, proposed owners and a decision log.
 
@@ -87,7 +89,7 @@ The physical DRC reproduced the October 7 categories/counts. Parity triage found
 
 ## Next concrete actions
 
-1. Check Git state and read POWER_ROUTING.md before editing. The footprint checkpoint was published as `d40fba3`; the following routing change is recorded in the latest session entry. The active design is `Native_KiCad_v4/PTERODACTYL_v4.kicad_pro`.
+1. Check Git state and read FIRMWARE_RELIABILITY.md for current firmware work (next: sensor transfer/CRC validity and GPS freshness). For PCB work, read LAYOUT_REVIEW_CLEANUP.md and POWER_ROUTING.md before editing. The footprint checkpoint was published as `d40fba3`; the following routing change is recorded in the latest session entry. The active design is `Native_KiCad_v4/PTERODACTYL_v4.kicad_pro`.
 2. Close GPS M01 with revision-matched #5440 CAD or actual measurements, then assign U5 and route its supply/UART/control connections. The legacy comparison footprint is not approved. Current zero-unconnected DRC excludes the missing GPS.
 3. Review LAYOUT_REVIEW_CLEANUP.md with the team. I2C order, ADC capacitor placement and silkscreen are corrected; continue GPS integration, power-capacitor/transient review and final manufacturer/assembly validation. Optional outer GND pours are deferred until GPS is settled.
 4. Close candidate part ratings, battery/startup/runtime, enclosure/retention and manufacturer rules with the team. At least 3 V at regulator VIN is required for startup, with additional sag/drop margin. Keep no telemetry and the exact spreadsheet modules.

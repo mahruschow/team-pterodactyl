@@ -1,6 +1,6 @@
 # PTERODACTYL teammate meeting — October 20, 2026
 
-Prepared from branch `saadat-dev`, design commit `f55657f` (October 19). Proposed owners below are suggestions to agree at the meeting, not assigned commitments.
+Updated October 20 from branch `saadat-dev`; PCB design commit `f55657f` (October 19), firmware 4.0.1-draft reliability checkpoint described in [FIRMWARE_RELIABILITY.md](FIRMWARE_RELIABILITY.md). Proposed owners below are suggestions to agree at the meeting, not assigned commitments.
 
 **Opening summary:** We have a new v4 schematic, a routed carrier PCB for the components currently placed, and firmware that compiles. The regulator and sensor/Teensy carrier footprints are implemented. The GPS footprint still needs exact #5440 geometry. We have not built or tested the complete hardware, and the board is not ready to order.
 
@@ -14,7 +14,7 @@ Prepared from branch `saadat-dev`, design commit `f55657f` (October 19). Propose
 | Carrier footprints | BNO055, MS8607, Teensy and Pololu S9V11F5 nominal geometry checked and integrated. | Real connector engagement, module revisions and retention need a dry fit. GPS comparison geometry is explicitly unverified. |
 | PCB routing | All connections among the 50 placed footprints are routed. ADC capacitor moved near its input; I2C order corrected; ground stitching and readable silkscreen added. | GPS is absent. Zero unconnected items excludes its missing connections. |
 | Digital checks | Latest enabled physical DRC: 0 violations; unconnected items: 0; only missing U5/GPS in schematic parity. I2C order/length, ADC proximity, separation and width checks pass. | These are checks under the current project rules, not a manufacturer's approval or measured interference results. |
-| Firmware foundation | New logger compiles; session folders, sensor/GPS/health logs and control handling are drafted. | Four reliability defects are open; no complete-system hardware tests. |
+| Firmware foundation | New logger compiles; SD failure recovery and BNO reset timeout/cooldown now pass host fault tests. | Sensor transfer/CRC validity and GPS freshness remain open; no complete-system hardware tests. |
 | Handoff | Shared plans, source evidence, review reports, validation tools and session notes are in `docs/`. | Use the latest checkpoint; older reports describe historical boards. |
 
 The measured quantities in scope are acceleration, gyro/rotation, orientation/magnetic field, GPS position/altitude/time, pressure, sensor temperature, humidity, derived pressure altitude and supply health. **10 Hz IMU, 1 Hz environment/GPS and a four-hour bench test remain proposals.** The workbook's three hours is a budget assumption.
@@ -25,7 +25,7 @@ The measured quantities in scope are acceleration, gyro/rotation, orientation/ma
 | --- | --- | --- | --- |
 | 1 | Verify current Adafruit GPS #5440 geometry, then assign U5 and route it. | Obtain matching CAD/drawing now, or measure an actual module when available. | Confirmed revision, pin order/coordinates, holes, outline, antenna and underside battery-holder clearance; updated schematic/PCB with clean parity and no unconnected items. |
 | 2 | Finalize power and procurement details. | Yes: datasheet/rating review and decision list. | Battery/input limits including startup margin, connector/switch/fuse ratings, capacitor/bead ratings, completed BOM with sockets, headers, spacers and fasteners. |
-| 3 | Fix firmware reliability. | Yes, independently of PCB work. | Failed sensor transfers/CRC cannot be logged as OK; BNO reset has a timeout; SD partial-open/write failures recover; GPS rejects stale RMC fields. Add targeted failure tests and rebuild. |
+| 3 | Fix firmware reliability. | Yes, independently of PCB work. | Next: failed sensor transfers/CRC cannot be logged as OK, and GPS must reject stale RMC fields. SD session recovery and BNO timeout/cooldown are implemented and host-tested; hardware verification remains. |
 | 4 | Confirm mechanical assembly and enclosure. | Nominal review now; physical fit needs modules/hardware. | M01–M04 records: hole/pin alignment, connector engagement, retention, USB/SD access, antenna view, sensor exposure and mounting orientation. |
 | 5 | Final board review and fabrication preparation. | Review now; release waits for GPS, mechanical and manufacturer decisions. | Apply actual manufacturer rules/stackup, review power-capacitor placement/transients, rerun checks and inspect newly generated Gerbers/drills. Independent teammate sign-off. |
 | 6 | Assemble and test a prototype. | Prepare the test plan/equipment now; execution needs hardware. | Startup/current/rail tests, sensor and GPS logs, SD faults/recovery, endurance and interference/thermal tests with results recorded. |
@@ -84,7 +84,7 @@ If the teammate is also mainly a PCB designer, prioritize an independent schemat
 - [Current copper/silkscreen view](validation/2026-10-19/layout-review/copper.svg) and [latest layout review](LAYOUT_REVIEW_CLEANUP.md).
 - [GPS/regulator geometry status](REGULATOR_GPS_FOOTPRINTS.md) and [assembly gates M01–M04](MODULE_ASSEMBLY_PLAN.md).
 - [Power architecture](POWER_ARCHITECTURE.md) and the [historical candidate BOM](validation/2026-10-19/step5-schematic/bom.csv); refresh the BOM before procurement.
-- [Firmware review findings](V4_DESIGN_REVIEW.md), especially findings 2, 3, 4 and 6; its old PCB counts are historical.
+- [Firmware review findings](V4_DESIGN_REVIEW.md), findings 2 and 6 remain open; findings 3 and 4 have software fixes in [FIRMWARE_RELIABILITY.md](FIRMWARE_RELIABILITY.md). Its old PCB counts are historical.
 - [Interference and bench-test matrix](PLACEMENT_AND_INTERFERENCE.md), [requirements](V1_REQUIREMENTS.md), and [lead questions](TEAM_LEAD_REQUESTS.md).
 
 Open the native schematic for the current regulator symbol. The earlier Step 5 PDFs/renders are historical exports and should not be treated as the latest release. Do not rerun the full generators or whole-board autorouter over the hand-edited board.

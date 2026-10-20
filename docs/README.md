@@ -6,13 +6,15 @@ Start here when joining the project or resuming work. This directory contains th
 
 **Meeting handoff:** [October 20 teammate meeting](TEAM_MEETING_2026-10-20.md) organizes completed work, outstanding tasks, team inputs, proposed owners and a decision log.
 
-Latest implementation: [Layout review and cleanup](LAYOUT_REVIEW_CLEANUP.md) — ADC filter placement, I2C order, local ground stitching, readable silkscreen and validation.
+Latest implementation: [Firmware reliability](FIRMWARE_RELIABILITY.md) — checked SD sessions/recovery, bounded BNO reset, cooldown, host failure tests and current build evidence.
+
+Latest PCB implementation: [Layout review and cleanup](LAYOUT_REVIEW_CLEANUP.md) — ADC filter placement, I2C order, local ground stitching, readable silkscreen and validation.
 
 Previous implementation: [Power routing](POWER_ROUTING.md) — regulator/5 V/sensor rails connected, test points relocated, fresh DRC and preservation evidence. GPS remains absent.
 
 Previous implementation: [Regulator and GPS footprints](REGULATOR_GPS_FOOTPRINTS.md) — assigned regulator carrier, unassigned GPS comparison draft, source evidence, validation and remaining fit gates.
 
-Read the [October 19 v4 design review](V4_DESIGN_REVIEW.md) for the latest independent checks, seven prioritized findings and Step 1–7 completion assessment. Hardware and firmware fixes remain open.
+Read the [October 19 v4 design review](V4_DESIGN_REVIEW.md) for the historical independent checks, seven prioritized findings and Step 1–7 completion assessment. Hardware and firmware fixes remain open.
 
 0. [What's done and what's left](REMAINING_WORK.md) — one-page progress table and to-do list by owner (lead, Saadat, teammate).
 1. [Current status and resume checklist](CURRENT_STATUS.md) — where we stopped and the next concrete actions.

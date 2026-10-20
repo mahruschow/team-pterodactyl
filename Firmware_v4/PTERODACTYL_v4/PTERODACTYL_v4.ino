@@ -6,43 +6,23 @@
 // - Each power-up (or restart after a clean stop) creates a new session folder Snnn; nothing is overwritten.
 // - Independent schedules: IMU 10 Hz, environment 1 Hz, health 1 Hz, GPS on each GGA sentence.
 // - Every record has session, sequence number, monotonic millis() and a status field;
-//   missing or failed readings are written as empty fields, never as stale values.
-// - Files stay open; data is flushed at most every second. Write failures are counted.
-// - SW_MODE switched to GND closes all files cleanly (safe to remove the card).
+//   known missing readings are empty; sensor-transfer and GPS freshness fixes remain open.
+// - Files stay open; sync is scheduled each second. SD faults close the session and retry in a new folder.
+// - SW_MODE to GND requests close; failures latch the fault LED. Hardware timing still needs testing.
 
 #include <Wire.h>
 #include <SD.h>
 #include <Adafruit_Sensor.h>
-#include <Adafruit_BNO055.h>
+#include "src/bno055/Adafruit_BNO055.h"
 #include <Adafruit_MS8607.h>
 #include <Adafruit_GPS.h>
 #include "config.h"
+#include "storage.h"
 
 Adafruit_BNO055 bno(55, BNO055_ADDR, &Wire);
 Adafruit_MS8607 ms8607;
 Adafruit_GPS gps(&GPS_SERIAL);
 
-// ---------------------------------------------------------------- log streams
-enum StreamId { S_IMU, S_ENV, S_GPS, S_HEALTH, S_EVENTS, S_COUNT };
-
-struct LogStream {
-  const char *file;
-  const char *header;
-  File handle;
-  uint32_t seq;
-  uint32_t writeFails;
-};
-
-LogStream streams[S_COUNT] = {
-  {"imu.csv", "session,seq,t_ms,status,qw,qx,qy,qz,ax_mps2,ay_mps2,az_mps2,gx_rps,gy_rps,gz_rps,mx_uT,my_uT,mz_uT,cal_sys,cal_gyro,cal_accel,cal_mag", File(), 0, 0},
-  {"env.csv", "session,seq,t_ms,status,pressure_pa,temperature_c,humidity_rh,pressure_alt_isa_m", File(), 0, 0},
-  {"gps.csv", "session,seq,t_ms,status,fix,fix_quality,satellites,utc_date,utc_time,lat_deg,lon_deg,alt_msl_m,hdop,speed_mps,course_deg", File(), 0, 0},
-  {"health.csv", "session,seq,t_ms,vbat_v,imu_ok,env_ok,gps_age_ms,imu_fail_total,env_fail_total,imu_resets,gps_parse_fails,overruns,write_fail_total,max_loop_us,mode_stop,pbf_present", File(), 0, 0},
-  {"events.csv", "session,seq,t_ms,event,detail", File(), 0, 0},
-};
-
-int session = -1;          // folder number, -1 = not logging
-bool sdOk = false;
 bool stopRequested = false;
 char line[320];
 
@@ -54,6 +34,8 @@ uint8_t calSys = 0;
 uint32_t lastGgaMs = 0;
 bool gpsHadFix = false;
 uint32_t maxLoopUs = 0;
+uint32_t lastImuAttemptMs = 0;
+bool imuAttempted = false;
 
 struct Debounced {
   uint8_t pin; bool state; bool raw; uint32_t changedMs;
@@ -80,19 +62,11 @@ struct Schedule {
 };
 Schedule imuTick{IMU_PERIOD_MS, 0}, envTick{ENV_PERIOD_MS, 0}, healthTick{HEALTH_PERIOD_MS, 0},
          flushTick{FLUSH_PERIOD_MS, 0};
-uint32_t lastSdAttemptMs = 0;          // SD retry is not a sampling schedule, so it never counts overruns
 
 // ---------------------------------------------------------------- helpers
 bool i2cPresent(uint8_t address) {
   Wire.beginTransmission(address);
   return Wire.endTransmission() == 0;
-}
-
-void writeLine(StreamId id, const char *text) {
-  LogStream &s = streams[id];
-  if (session < 0 || !s.handle) return;
-  size_t n = strlen(text);
-  if (s.handle.write(text, n) != n || s.handle.write('\n') != 1) s.writeFails++;
 }
 
 // Prefix "session,seq,t_ms," then the formatted body.
@@ -111,80 +85,22 @@ void event(const char *name, const char *detail = "") {
   if (Serial) Serial.printf("[%lu] %s %s\n", (unsigned long)millis(), name, detail);
 }
 
-uint32_t writeFailTotal() {
-  uint32_t total = 0;
-  for (auto &s : streams) total += s.writeFails;
-  return total;
-}
-
-// ---------------------------------------------------------------- storage
-void writeMetadata(const char *dir) {
-  char path[24];
-  snprintf(path, sizeof(path), "%s/meta.txt", dir);
-  File m = SD.open(path, FILE_WRITE);
-  if (!m) { streams[S_EVENTS].writeFails++; return; }
-  m.printf("firmware=%s\nbuilt=%s %s\nsession=%d\n", FW_VERSION, __DATE__, __TIME__, session);
-  m.printf("board=PTERODACTYL v4 carrier (Native_KiCad_v4)\n");
-  m.printf("imu_period_ms=%lu\nenv_period_ms=%lu\nhealth_period_ms=%lu\nflush_period_ms=%lu\n",
-           (unsigned long)IMU_PERIOD_MS, (unsigned long)ENV_PERIOD_MS, (unsigned long)HEALTH_PERIOD_MS, (unsigned long)FLUSH_PERIOD_MS);
-  m.printf("i2c_hz=%lu\ngps_baud=%lu\ngps_rate=1 Hz, RMC+GGA\n", (unsigned long)I2C_CLOCK_HZ, (unsigned long)GPS_BAUD);
-  m.printf("imu_mode=BNO055 NDOF fusion, external crystal\n");
-  m.printf("imu_frame=BNO055 sensor axes, default remap (record board mounting per PLACEMENT_AND_INTERFERENCE.md PC8)\n");
-  m.printf("imu_units=quaternion unitless; accel m/s^2 including gravity; gyro rad/s; mag uT\n");
-  m.printf("env_units=pressure Pa; temperature C at sensor location (not ambient); humidity %%RH\n");
-  m.printf("pressure_alt_model=ISA 44330*(1-(p/p0)^0.190295), p0=%.0f Pa\n", ISA_P0_PA);
-  m.printf("gps_alt=metres above mean sea level as reported in GGA; time=UTC from RMC/GGA when valid\n");
-  m.printf("t_ms=Teensy millis() since boot, monotonic within a session\n");
-  m.printf("vbat_divider=%.4f\nadc_bits=%u\n", VBAT_DIVIDER, ADC_BITS);
-  m.close();
-}
-
-bool openSession() {
-  char dir[8];
-  for (int n = 0; n < 1000; n++) {
-    snprintf(dir, sizeof(dir), "S%03d", n);
-    if (SD.exists(dir)) continue;
-    if (!SD.mkdir(dir)) return false;
-    session = n;
-    for (auto &s : streams) {
-      char path[24];
-      snprintf(path, sizeof(path), "%s/%s", dir, s.file);
-      s.handle = SD.open(path, FILE_WRITE);
-      s.seq = 0;
-      if (!s.handle) { s.writeFails++; continue; }
-      s.handle.println(s.header);
-    }
-    writeMetadata(dir);
-    return true;
-  }
-  return false;  // 1000 sessions present: refuse to overwrite (LOG-07)
-}
-
-void closeSession() {
-  for (auto &s : streams) if (s.handle) { s.handle.flush(); s.handle.close(); }
-  session = -1;
-}
-
 void startLogging(const char *reason) {
-  lastSdAttemptMs = millis();
-  if (!sdOk) sdOk = SD.begin(BUILTIN_SDCARD);
-  if (!sdOk) return;
-  if (!openSession()) { sdOk = false; return; }
+  if (!startStorage(writeMetadata)) return;
   event("SESSION_START", reason);
   char detail[64];
-  snprintf(detail, sizeof(detail), "imu=%d env=%d", imuOk, envOk);
+  snprintf(detail, sizeof(detail), "imu=%d env=%d storage_faults=%lu", imuOk, envOk, (unsigned long)storageFaults);
   event("DEVICES", detail);
-}
-
-void flushAll() {
-  for (auto &s : streams) if (s.handle) s.handle.flush();
 }
 
 // ---------------------------------------------------------------- devices
 bool initImu() {
-  if (!bno.begin(OPERATION_MODE_NDOF)) return false;
-  bno.setExtCrystalUse(true);
-  return true;
+  calSys = 0;
+  const bool ok = bno.begin(OPERATION_MODE_NDOF, BNO_RESET_TIMEOUT_MS);
+  if (ok) bno.setExtCrystalUse(true);
+  lastImuAttemptMs = millis();  // cooldown starts after the blocking attempt
+  imuAttempted = true;
+  return ok;
 }
 
 void resetImu(uint32_t now) {
@@ -203,6 +119,10 @@ void resetImu(uint32_t now) {
 }
 
 void sampleImu(uint32_t now) {
+  if (!imuOk && imuAttempted && now - lastImuAttemptMs < IMU_RETRY_MS) {
+    record(S_IMU, now, "INIT_WAIT,,,,,,,,,,,,,,,,,");
+    return;
+  }
   if (!i2cPresent(BNO055_ADDR)) {
     imuOk = false; imuFailTotal++;
     record(S_IMU, now, "NO_RESPONSE,,,,,,,,,,,,,,,,,");
@@ -276,20 +196,20 @@ void serviceGps(uint32_t now) {
 void writeHealth(uint32_t now) {
   float vbat = analogRead(PIN_VBAT) * ADC_REF_V / ((1 << ADC_BITS) - 1) * VBAT_DIVIDER;
   long gpsAge = lastGgaMs ? (long)(now - lastGgaMs) : -1;
-  record(S_HEALTH, now, "%.3f,%d,%d,%ld,%lu,%lu,%lu,%lu,%lu,%lu,%lu,%d,%d", vbat, imuOk, envOk, gpsAge,
+  record(S_HEALTH, now, "%.3f,%d,%d,%ld,%lu,%lu,%lu,%lu,%lu,%lu,%lu,%d,%d,%lu", vbat, imuOk, envOk, gpsAge,
          (unsigned long)imuFailTotal, (unsigned long)envFailTotal, (unsigned long)imuResets, (unsigned long)gpsParseFails,
          (unsigned long)overruns, (unsigned long)writeFailTotal(), (unsigned long)maxLoopUs,
-         modeSwitch.state == LOW, pbf.state == LOW);
-  if (Serial) Serial.printf("t=%lu session=%d vbat=%.2f imu=%d env=%d gps_age=%ld fix=%d sats=%u cal=%u overruns=%lu wfail=%lu\n",
+         modeSwitch.state == LOW, pbf.state == LOW, (unsigned long)storageFaults);
+  if (Serial) Serial.printf("t=%lu session=%d vbat=%.2f imu=%d env=%d gps_age=%ld fix=%d sats=%u cal=%u overruns=%lu wfail=%lu storage_faults=%lu\n",
                             (unsigned long)now, session, vbat, imuOk, envOk, gpsAge, gps.fix, gps.satellites, calSys,
-                            (unsigned long)overruns, (unsigned long)writeFailTotal());
+                            (unsigned long)overruns, (unsigned long)writeFailTotal(), (unsigned long)storageFaults);
   maxLoopUs = 0;
 }
 
 void updateLeds(uint32_t now) {
   bool gpsFresh = gps.fix && lastGgaMs && now - lastGgaMs < GPS_STALE_MS;
   bool logging = session >= 0;
-  bool fault = (!logging && !stopRequested) || !imuOk || !envOk || writeFailTotal() > 0;
+  bool fault = (!logging && !stopRequested) || !imuOk || !envOk || storageFaults > 0;
   digitalWrite(PIN_LED_FAULT, fault);
   digitalWrite(PIN_LED_GPS, gpsFresh);
   digitalWrite(PIN_LED_LOG, logging && (now / 500) % 2);
@@ -300,8 +220,13 @@ void serviceInputs(uint32_t now) {
   if (modeSwitch.update(now)) {
     if (modeSwitch.state == LOW) {
       stopRequested = true;
-      event("CLEAN_STOP", "mode switch");
-      closeSession();
+      event("STOP_REQUEST", "mode switch");
+      const uint32_t faultsBeforeStop = storageFaults;
+      const bool wasLogging = session >= 0;
+      const bool closed = closeSession();
+      // This result cannot be appended to files that are already closed.
+      if (Serial) Serial.println(wasLogging && closed && storageFaults == faultsBeforeStop
+                                 ? "SD_STOP_OK" : "SD_STOP_FAILED_OR_INACTIVE");
     } else {
       stopRequested = false;
       startLogging("mode switch released");
@@ -345,13 +270,17 @@ void loop() {
   uint32_t start = micros();
   uint32_t now = millis();
   serviceInputs(now);
+  now = millis();
   serviceGps(now);
   if (imuTick.due(now)) sampleImu(now);
+  now = millis();
   if (envTick.due(now)) sampleEnv(now);
+  now = millis();
   if (healthTick.due(now)) writeHealth(now);
   if (flushTick.due(now)) flushAll();
+  now = millis();  // flush/reset may have updated retry timestamps after loop entry
   if (session < 0 && !stopRequested && now - lastSdAttemptMs >= SD_RETRY_MS) startLogging("sd retry");
-  updateLeds(now);
+  updateLeds(millis());
   uint32_t elapsed = micros() - start;
   if (elapsed > maxLoopUs) maxLoopUs = elapsed;
 }
