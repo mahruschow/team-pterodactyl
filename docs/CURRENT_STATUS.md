@@ -4,6 +4,8 @@ Updated October 19, 2026. Working branch: `saadat-dev`.
 
 ## Where we stopped
 
+**Latest layout cleanup:** [LAYOUT_REVIEW_CLEANUP.md](LAYOUT_REVIEW_CLEANUP.md). C2 is now 4.493 mm from the carrier ADC pin; I2C follows Teensy → MS8607 → BNO055 (135.163/128.209 mm). Added three return-path stitching vias and readable silkscreen. Fresh enabled physical DRC and present-footprint unconnected counts are both 0; U5 remains missing. See the review for unchanged geometry, test evidence and remaining power-integrity/mechanical/manufacturer gates.
+
 **Latest routing checkpoint:** [POWER_ROUTING.md](POWER_ROUTING.md). All connections among the 50 placed footprints are now routed: 0 enabled physical DRC violations, 0 unconnected items, and only U5/GPS missing in schematic parity. U5 is still absent, so this does not mean all schematic connections are implemented. TP1/TP2/TP4 were moved near their rails; a 68.667 mm unloaded TP1 spur was removed. No new vias; original signal routes and design rules are preserved. GPS geometry, layout/assembly review and fabrication gates remain open.
 
 The entries below are historical checkpoints; the routing checkpoint above takes precedence.
@@ -85,7 +87,7 @@ The physical DRC reproduced the October 7 categories/counts. Parity triage found
 
 1. Check Git state and read POWER_ROUTING.md before editing. The footprint checkpoint was published as `d40fba3`; the following routing change is recorded in the latest session entry. The active design is `Native_KiCad_v4/PTERODACTYL_v4.kicad_pro`.
 2. Close GPS M01 with revision-matched #5440 CAD or actual measurements, then assign U5 and route its supply/UART/control connections. The legacy comparison footprint is not approved. Current zero-unconnected DRC excludes the missing GPS.
-3. Review all existing signal routes and the remaining layout cleanup: I2C topology/return paths, ADC filter placement, detours, silkscreen, and any outer GND pours/stitching. The added power routes are checked against existing rules; a complete independent layout review remains open.
+3. Review LAYOUT_REVIEW_CLEANUP.md with the team. I2C order, ADC capacitor placement and silkscreen are corrected; continue GPS integration, power-capacitor/transient review and final manufacturer/assembly validation. Optional outer GND pours are deferred until GPS is settled.
 4. Close candidate part ratings, battery/startup/runtime, enclosure/retention and manufacturer rules with the team. At least 3 V at regulator VIN is required for startup, with additional sag/drop margin. Keep no telemetry and the exact spreadsheet modules.
 5. Address the four open firmware reliability findings in V4_DESIGN_REVIEW.md (sensor read errors, bounded BNO reset, SD recovery and GPS field freshness), then bench-test when modules arrive.
 6. Do not rerun the full schematic, PCB or autoroute generators over this routed board. Refill and run DRC/parity after targeted edits, update current evidence, and retain explicit GPS/mechanical/fabrication gates.

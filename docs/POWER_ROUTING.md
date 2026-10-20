@@ -49,6 +49,8 @@ New-Item -ItemType Directory -Force work | Out-Null
 
 Inspect all three report sections: `violations`, `unconnected_items` and `schematic_parity`. Keep the GPS warning visible. The current project's source hashes and comparison baseline are in the saved evidence.
 
+**Later checkpoint:** [LAYOUT_REVIEW_CLEANUP.md](LAYOUT_REVIEW_CLEANUP.md) corrects ADC placement and I2C order and adds readable labels/local stitching. The metrics above preserve this earlier routing checkpoint.
+
 ## Remaining work
 
 1. Close GPS M01 using revision-matched #5440 evidence or actual measurements, then assign and connect U5. The legacy comparison footprint remains unverified.

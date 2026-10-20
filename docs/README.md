@@ -4,7 +4,9 @@ Start here when joining the project or resuming work. This directory contains th
 
 ## Reading order
 
-Latest implementation: [Power routing](POWER_ROUTING.md) — regulator/5 V/sensor rails connected, test points relocated, fresh DRC and preservation evidence. GPS remains absent.
+Latest implementation: [Layout review and cleanup](LAYOUT_REVIEW_CLEANUP.md) — ADC filter placement, I2C order, local ground stitching, readable silkscreen and validation.
+
+Previous implementation: [Power routing](POWER_ROUTING.md) — regulator/5 V/sensor rails connected, test points relocated, fresh DRC and preservation evidence. GPS remains absent.
 
 Previous implementation: [Regulator and GPS footprints](REGULATOR_GPS_FOOTPRINTS.md) — assigned regulator carrier, unassigned GPS comparison draft, source evidence, validation and remaining fit gates.
 

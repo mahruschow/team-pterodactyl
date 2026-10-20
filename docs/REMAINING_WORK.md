@@ -4,6 +4,8 @@ Updated October 19, 2026 by Saadat (with Claude). Branch: `saadat-dev`. This is 
 
 ## Where the project is
 
+**Latest layout cleanup:** [LAYOUT_REVIEW_CLEANUP.md](LAYOUT_REVIEW_CLEANUP.md). C2 is now 4.493 mm from the carrier ADC pin; I2C follows Teensy → MS8607 → BNO055 (135.163/128.209 mm). Added three return-path stitching vias and readable silkscreen. Fresh enabled physical DRC and present-footprint unconnected counts are both 0; U5 remains missing. See the review for unchanged geometry, test evidence and remaining power-integrity/mechanical/manufacturer gates.
+
 **Latest routing checkpoint:** [POWER_ROUTING.md](POWER_ROUTING.md). All connections among the 50 placed footprints are now routed: 0 enabled physical DRC violations, 0 unconnected items, and only U5/GPS missing in schematic parity. U5 is still absent, so this does not mean all schematic connections are implemented. TP1/TP2/TP4 were moved near their rails; a 68.667 mm unloaded TP1 spur was removed. No new vias; original signal routes and design rules are preserved. GPS geometry, layout/assembly review and fabrication gates remain open.
 
 **Footprint update:** [REGULATOR_GPS_FOOTPRINTS.md](REGULATOR_GPS_FOOTPRINTS.md). U2 is assigned and placed; U5 remains unassigned. Fresh checks find 12 unconnected items, only U5 missing, and zero ERC/enabled physical DRC violations. GPS legacy comparison geometry is drafted but M01 is still open. Earlier autoroute counts below are historical.
@@ -54,7 +56,8 @@ Send [TEAM_LEAD_REQUESTS.md](TEAM_LEAD_REQUESTS.md). The most important items:
 ### Saadat (PCB design)
 - [x] First-pass autoroute (DRC clean; 6 supply connections open).
 - [x] Finish open power connections on present footprints; move TP1/TP2 near power and TP4 near the sensor rail. Current DRC: 0 violations / 0 unconnected, with U5 still absent.
-- [ ] Finish [layout cleanup](PCB_LAYOUT_V4.md#clean-up-list-for-hand-routing): full route/return-path review, silkscreen, and outer GND/stitching decisions; add GPS only after M01.
+- [x] Review and correct I2C order, ADC filter proximity and labels; add local ground stitching. See LAYOUT_REVIEW_CLEANUP.md.
+- [ ] Final independent layout review, power-transient/decoupling verification and GPS integration after M01; reassess optional outer pours after GPS routing.
 - [x] Create, verify, assign and place the Pololu S9V11F5 three-pin carrier footprint. Installed socket/retention fit remains open.
 - [ ] Confirm current GPS #5440 geometry (M01), then revise/approve and assign the newly created UNVERIFIED legacy comparison footprint.
 - [ ] Set the manufacturer's rules once R5 is answered, and rerun the checks.

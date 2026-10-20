@@ -11,7 +11,10 @@ import collections,hashlib,json,math,subprocess,sys
 ROOT=Path(__file__).resolve().parents[1]
 PCB=ROOT/'Native_KiCad_v4/PTERODACTYL_v4.kicad_pcb'
 OUT=ROOT/'docs/validation/2026-10-19/step7-pcb'
-POWER={'J1','F1','Q1','D1','R1','J2','C1','R2','R3','C2','U2','C3','C4'}
+# C2 is the high-impedance ADC shunt filter, relocated to U1 pin 26 per PC13.
+# It is not a converter/high-current source; its proximity is checked separately
+# by verify_v4_layout.py. Keep the actual power section in PC1/PC4/PC5.
+POWER={'J1','F1','Q1','D1','R1','J2','C1','R2','R3','U2','C3','C4'}
 EXPECTED_MISSING={'U5'}
 # Step 4 PC1-PC7 (PLACEMENT_AND_INTERFERENCE.md): (rule, group a, group b, minimum mm)
 RULES=[('PC1',{'U3'},POWER,40.0),('PC2',{'U3'},{'U1'},25.0),('PC3',{'U3'},{'U5'},20.0),

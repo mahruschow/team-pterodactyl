@@ -1,0 +1,37 @@
+{
+  "baseline_commit": "46f926a",
+  "preserved_track_via_objects": 220,
+  "removed_objects": 14,
+  "added_objects": 30,
+  "modified_nets": [
+    "+3V3",
+    "/BTN_USER",
+    "/I2C_SCL",
+    "/I2C_SDA",
+    "/VBAT_SENSE",
+    "GND"
+  ],
+  "unchanged_footprint_placements": 47,
+  "moved_footprints": [
+    "C2",
+    "TP3",
+    "TP5"
+  ],
+  "schematic_project_symbol_unchanged": true,
+  "board_outline_stackup_zone_boundaries_rules_unchanged": true,
+  "negative_regression_prior_board_i2c_order_rejected": [
+    {
+      "net": "/I2C_SDA",
+      "length_mm": 110.452,
+      "host_to_imu_connected": true,
+      "environment_pad_is_on_host_to_imu_path": false
+    },
+    {
+      "net": "/I2C_SCL",
+      "length_mm": 100.044,
+      "host_to_imu_connected": true,
+      "environment_pad_is_on_host_to_imu_path": false
+    }
+  ],
+  "scope": "Reference/value visibility and label placement intentionally changed; footprint libraries, pad shapes and net identities preserved."
+}

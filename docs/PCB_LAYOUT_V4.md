@@ -6,7 +6,11 @@ Open `Native_KiCad_v4/PTERODACTYL_v4.kicad_pro` in KiCad 10 and switch to the PC
 
 ![Draft v4 board, top view](validation/2026-10-19/step7-pcb/v4-top.png)
 
-## Current routing update
+## Current layout cleanup
+
+**Latest layout cleanup:** [LAYOUT_REVIEW_CLEANUP.md](LAYOUT_REVIEW_CLEANUP.md). C2 is now 4.493 mm from the carrier ADC pin; I2C follows Teensy → MS8607 → BNO055 (135.163/128.209 mm). Added three return-path stitching vias and readable silkscreen. Fresh enabled physical DRC and present-footprint unconnected counts are both 0; U5 remains missing. See the review for unchanged geometry, test evidence and remaining power-integrity/mechanical/manufacturer gates.
+
+## Previous routing checkpoint
 
 **Latest routing checkpoint:** [POWER_ROUTING.md](POWER_ROUTING.md). All connections among the 50 placed footprints are now routed: 0 enabled physical DRC violations, 0 unconnected items, and only U5/GPS missing in schematic parity. U5 is still absent, so this does not mean all schematic connections are implemented. TP1/TP2/TP4 were moved near their rails; a 68.667 mm unloaded TP1 spur was removed. No new vias; original signal routes and design rules are preserved. GPS geometry, layout/assembly review and fabrication gates remain open.
 
@@ -86,8 +90,8 @@ Freerouting oscillated between 6 and 10 unrouted on every pass. The bottleneck i
 
 1. **Done for present footprints:** regulator VIN/VOUT, +5V, SENSOR_3V3 and their test-point/decoupling connections. TP1/TP2 are now in the power area and TP4 beside the sensor rail; the long TP1 spur was removed. See POWER_ROUTING.md.
 2. Confirm current GPS #5440 geometry, assign U5, then route and check its connections. Do not interpret today's zero-unconnected result as GPS completion.
-3. Review the full layout against PC6/PC7/PC11, including the existing I2C topology, return paths and ADC filter placement. Targeted new power routes passed DRC and the In2 GND plot was visually reviewed; prototype interference/load testing remains necessary.
-4. Tidy remaining autorouter detours and place readable silkscreen labels. Evaluate outer GND pours/stitching after GPS integration and final route review.
+3. **Cleanup implemented:** corrected I2C order, moved C2 near ADC, added three local ground stitching vias and checked geometry. See LAYOUT_REVIEW_CLEANUP.md. Independent team review and prototype interference/load testing remain necessary.
+4. **Readable silkscreen implemented.** Preserve unrelated routes; evaluate any further cleanup and optional outer GND pours after GPS integration and final route review.
 5. Apply the selected manufacturer's rules/stackup, refill zones and rerun DRC/parity before review sign-off.
 
 Do not rerun `tools/build_v4_pcb.py` or `tools/autoroute_v4_pcb.py`; both replace board content.
@@ -97,8 +101,8 @@ Do not rerun `tools/build_v4_pcb.py` or `tools/autoroute_v4_pcb.py`; both replac
 1. **Routing:** all present footprints connected; GPS connections and final review/cleanup remain.
 2. **U5 footprint:** close M01 (current GPS geometry) before assignment; U2 is now integrated, with physical fit/retention still pending.
 3. **Track widths:** net classes are set (Power 0.5 mm). Confirm them against the manufacturer's rules and the measured currents.
-4. **Silkscreen references:** currently on the assembly layer only (F.Fab). Place them on silkscreen during routing.
+4. **Silkscreen references:** now placed and DRC-checked; confirm stroke/height with the manufacturer and visibility with fitted modules.
 5. **Manufacturer rules (D08):** minimum track/space, drill sizes and stackup must be set once a fabricator is chosen.
-6. **Outer-layer GND pours, stitching vias:** after routing.
+6. **Outer-layer GND pours:** deferred until GPS integration. Three local return stitching vias are already added.
 7. **3D models for the module footprints:** cosmetic.
 8. **Mechanical approval:** M01–M04 and the enclosure (R3, R6).

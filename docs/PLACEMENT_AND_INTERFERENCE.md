@@ -54,6 +54,9 @@ Separations are planning targets chosen with the estimates below. They are not m
 | PC14 | One continuous ground plane. No split under I2C, UART or the sensors. Resolve the legacy A3V3/AGND labels during Step 5 instead of splitting planes. | Return paths; see SENSOR_CONNECTION_MAP.md. |
 | PC15 | Corner holes keep a 4 mm radius clear of courtyards (M3 head/washer). Module courtyards ≥ 0.5 mm from the board edge. | Mechanical. |
 
+October 19 layout implementation: C2 is now beside Teensy pin 26 (4.493 mm carrier-pad separation, checked against a ≤5 mm layout target). As a high-impedance ADC shunt filter, C2 is checked by PC13 rather than included in the power-source separation group for PC1/PC4/PC5. Converter/high-current component separation targets are unchanged. See [LAYOUT_REVIEW_CLEANUP.md](LAYOUT_REVIEW_CLEANUP.md).
+
+
 ## Supporting estimates
 
 **Magnetic field from supply current.** For a single long conductor, B = μ0·I/(2π·r). With an assumed 0.3 A peak (Teensy, sensors and SD write combined; not measured):
