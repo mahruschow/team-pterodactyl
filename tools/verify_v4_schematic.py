@@ -9,7 +9,7 @@ import csv,hashlib,io,json,subprocess,sys,xml.etree.ElementTree as ET
 
 ROOT=Path(__file__).resolve().parents[1]
 SCH=ROOT/'Native_KiCad_v4/PTERODACTYL_v4.kicad_sch'
-OUT=ROOT/'docs/validation/2026-10-19/step5-schematic'
+OUT=Path(sys.argv[2]).resolve() if len(sys.argv)>2 else ROOT/'work/v4-schematic-validation'
 
 EXPECTED={
     'VBAT_IN':{'J1.1','F1.1'},
@@ -45,7 +45,7 @@ EXPECTED_NC={
 }
 UNUSED_TEENSY={'6','10','11','12','13','20','21','22','23','24','25','27','28','29','33','34','35','36','37','38','39','40','41'}
 EXPECTED_NC.update({'U1.'+p:'spare Teensy pin, no carrier connection' for p in UNUSED_TEENSY})
-NO_FOOTPRINT={'U5':'exact #5440 geometry pending (M01); legacy comparison footprint deliberately unassigned'}
+NO_FOOTPRINT={}  # U5 integrated after user visual acceptance, 2026-10-20.
 
 
 def main():
@@ -54,11 +54,14 @@ def main():
     erc=OUT/'erc.json';net=OUT/'netlist.xml';bom=OUT/'bom.csv'
     subprocess.run([cli,'sch','erc','--format','json','--severity-all','--output',str(erc),str(SCH)],check=True,capture_output=True)
     subprocess.run([cli,'sch','export','netlist','--format','kicadxml','--output',str(net),str(SCH)],check=True,capture_output=True)
-    subprocess.run([cli,'sch','export','bom','--output',str(bom),'--fields','Reference,Value,Footprint,MPN,Notes,${DNP},${QUANTITY}',
-                    '--labels','Refs,Value,Footprint,MPN,Notes,DNP,Qty','--group-by','Value,Footprint,MPN,${DNP}',
+    subprocess.run([cli,'sch','export','bom','--output',str(bom),'--fields','Reference,Value,Footprint,MPN,SelectionStatus,Datasheet,Notes,${DNP},${QUANTITY}',
+                    '--labels','Refs,Value,Footprint,MPN,SelectionStatus,Datasheet,Notes,DNP,Qty','--group-by','',
                     '--sort-field','Reference',str(SCH)],check=True,capture_output=True)
     subprocess.run([cli,'sch','export','pdf','--output',str(OUT/'PTERODACTYL_v4.pdf'),str(SCH)],check=True,capture_output=True)
     violations=[v for s in json.loads(erc.read_text())['sheets'] for v in s['violations']]
+    bom_rows=list(csv.DictReader(bom.read_text(encoding='utf-8-sig').splitlines()))
+    assert len(bom_rows)==47 and all(r['Qty']=='1' for r in bom_rows),'BOM must have one row per schematic reference'
+    assert all(r['MPN'] and r['Footprint'] for r in bom_rows),'Missing MPN or footprint'
     root=ET.parse(net).getroot()
     nets={};nc=set()
     for n in root.iter('net'):
@@ -79,6 +82,8 @@ def main():
     result={'schematic_sha256':hashlib.sha256(SCH.read_bytes()).hexdigest(),'erc_violations':len(violations),
             'erc_types':sorted({v['type'] for v in violations}),'nets_checked':len(EXPECTED),'intentional_no_connects':len(EXPECTED_NC),
             'components':len(comps),'teensy_footprint':teensy,'parts_without_footprint':NO_FOOTPRINT,
+            'bom_reference_rows':len(bom_rows),'bom_blank_mpn_fields':sum(not r['MPN'] for r in bom_rows),
+            'bom_candidate_references':[r['Refs'] for r in bom_rows if r['SelectionStatus'].startswith('Candidate')],
             'problems':problems,'result':'pass' if not problems and not violations else 'fail',
             'scope':'Native ERC, exported netlist against an independent expected net list, and BOM export. '
                     'Not a simulation, part-rating approval or physical test.'}

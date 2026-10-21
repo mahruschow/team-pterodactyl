@@ -1,0 +1,21 @@
+{
+  "schematic_sha256": "430b6bb52dab2902e64b517d1a0f8c81940add06692e45550b44755db550aafd",
+  "erc_violations": 0,
+  "erc_types": [],
+  "nets_checked": 32,
+  "intentional_no_connects": 35,
+  "components": 51,
+  "teensy_footprint": "Pterodactyl_Modules:Teensy41_SSW_Carrier",
+  "parts_without_footprint": {},
+  "bom_reference_rows": 47,
+  "bom_blank_mpn_fields": 0,
+  "bom_candidate_references": [
+    "FB1",
+    "J3",
+    "SW1",
+    "SW2"
+  ],
+  "problems": [],
+  "result": "pass",
+  "scope": "Native ERC, exported netlist against an independent expected net list, and BOM export. Not a simulation, part-rating approval or physical test."
+}

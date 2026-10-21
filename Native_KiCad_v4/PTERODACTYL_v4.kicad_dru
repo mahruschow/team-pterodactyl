@@ -1,0 +1,16 @@
+(version 1)
+
+# AISLER 4-layer 35 um ENIG limits, checked 2026-10-21.
+# https://community.aisler.net/t/4-layer-35-m-enig-design-rules/3733
+# Preserve existing stricter net-class clearance, track widths and edge gap.
+(rule "AISLER component PTH ring and drill"
+  (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole'")
+  (constraint annular_width (min 0.30mm))
+  (constraint hole_size (min 0.50mm) (max 5.60mm)))
+(rule "AISLER NPTH drill"
+  (condition "A.Type == 'Pad' && A.Pad_Type == 'NPTH, mechanical'")
+  (constraint hole_size (min 0.50mm) (max 5.60mm)))
+(rule "AISLER via ring and drill"
+  (condition "A.Type == 'Via'")
+  (constraint annular_width (min 0.10mm))
+  (constraint hole_size (min 0.25mm) (max 0.45mm)))

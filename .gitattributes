@@ -2,3 +2,9 @@
 Native_KiCad_v11/Pterodactyl_Modules.pretty/*.kicad_mod text eol=lf
 docs/reference/step3-cad-geometry.json text eol=lf
 Native_KiCad_v11/Pterodactyl_Modules.kicad_sym text eol=lf
+
+# Preserve the exact native P1 bytes used for validation and AISLER upload.
+Native_KiCad_v4/PTERODACTYL_v4.kicad_pcb -text
+Native_KiCad_v4/PTERODACTYL_v4.kicad_sch -text
+Native_KiCad_v4/PTERODACTYL_v4.kicad_pro -text
+Native_KiCad_v4/PTERODACTYL_v4.kicad_dru -text

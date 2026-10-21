@@ -1,7 +1,7 @@
 """Read-only native validation of the targeted v4 layout cleanup.
 
 Run with KiCad's Python. Does not regenerate or save the source board.
-GPS remains an explicit missing-footprint gate, even when connectivity is clean.
+All schematic footprints, including GPS, must be present and connected.
 """
 from pathlib import Path
 import collections
@@ -15,7 +15,7 @@ import check_v4_pcb as placement
 
 ROOT = Path(__file__).resolve().parents[1]
 PCB = ROOT / 'Native_KiCad_v4/PTERODACTYL_v4.kicad_pcb'
-OUT = ROOT / 'docs/validation/2026-10-19/layout-review'
+OUT = Path(sys.argv[2]).resolve() if len(sys.argv) > 2 else ROOT / 'work/v4-layout-validation'
 
 
 def key(layer, point):
@@ -76,15 +76,31 @@ def main():
     drc = json.loads((OUT/'drc.json').read_text())
     assert not drc['violations'], drc['violations']
     assert not drc['unconnected_items'], drc['unconnected_items']
-    assert len(drc['schematic_parity']) == 1 and drc['schematic_parity'][0]['description'].startswith('Missing footprint U5 ')
+    assert not drc['schematic_parity'], drc['schematic_parity']
     board = pcbnew.LoadBoard(str(PCB))
+    gps = next(f for f in board.GetFootprints() if f.GetReference() == 'U5')
+    assert str(gps.GetFPID().GetLibItemName()) == 'Adafruit_GPS_5440_Carrier'
+    pins = {p.GetNumber(): p for p in gps.Pads() if p.GetNumber()}
+    names = ('PPS', 'VIN', 'GND', 'RX', 'TX', 'FIX', 'VBAT', 'EN', '3V3_OUT')
+    assert set(pins) == set(names)
+    nets = {'VIN': '/SENSOR_3V3', 'GND': 'GND', 'RX': '/GPS_RXD', 'TX': '/GPS_TXD'}
+    for i, name in enumerate(names):
+        p = pins[name]
+        assert abs(pcbnew.ToMM(p.GetPosition().x) - 163.036) < 1e-5
+        assert abs(pcbnew.ToMM(p.GetPosition().y) - (87.867 - 2.54*i)) < 1e-5
+        assert p.GetNetname() == nets.get(name, 'unconnected-(U5-Pad%s)' % name)
+        assert abs(pcbnew.ToMM(p.GetDrillSize().x) - 1.04) < 1e-5
+    holes = [p for p in gps.Pads() if not p.GetNumber()]
+    assert len(holes) == 2
+    assert sorted((round(pcbnew.ToMM(p.GetPosition().x), 3), round(pcbnew.ToMM(p.GetPosition().y), 3)) for p in holes) == [(192.754, 67.547), (192.754, 87.867)]
+    assert all(p.GetAttribute() == pcbnew.PAD_ATTRIB_NPTH and abs(pcbnew.ToMM(p.GetDrillSize().x) - 2.7) < 1e-5 for p in holes)
     buses = [bus_order(board, '/I2C_SDA', '18', '5', '4'), bus_order(board, '/I2C_SCL', '19', '4', '5')]
     assert all(v['environment_pad_is_on_host_to_imu_path'] and v['length_mm'] <= 150 for v in buses), buses
     positions = placement.actual_placement(board)
     separations = [{'rule': rule, 'gap_mm': round(min(placement.gap(positions[a], positions[b]) for a in aa for b in bb), 3), 'minimum_mm': minimum}
                    for rule, aa, bb, minimum in placement.RULES]
     assert all(v['gap_mm'] >= v['minimum_mm'] for v in separations), separations
-    routing = placement.routing_metrics(positions)
+    routing = placement.routing_metrics(positions, board)
     assert not routing['thin_power_nets'] and not routing['inner_plane_tracks'] and not routing['tracks_in_envelopes']
     pads = {(f.GetReference(), p.GetNumber()): (p.GetPosition().x, p.GetPosition().y) for f in board.GetFootprints() for p in f.Pads()}
     cap_gap = math.dist(pads['C2', '1'], pads['U1', '26']) / 1e6
@@ -97,11 +113,11 @@ def main():
     ground_vias = [v for v in tracks if v.GetClass() == 'PCB_VIA' and v.GetNetname() == 'GND']
     assert len(ground_vias) >= 3
     assert all(z.GetFilledPolysList(z.GetLayer()).Contains(v.GetPosition()) for z in planes for v in ground_vias)
-    report = {'result': 'pass', 'baseline_review_commit': '46f926a', 'pcb_sha256': hashlib.sha256(PCB.read_bytes()).hexdigest(),
-              'physical_drc_violations': 0, 'unconnected_present_footprints': 0, 'missing_footprints': ['U5'],
+    report = {'result': 'pass', 'baseline_review_commit': 'e2664ad', 'pcb_sha256': hashlib.sha256(PCB.read_bytes()).hexdigest(),
+              'physical_drc_violations': 0, 'unconnected_present_footprints': 0, 'missing_footprints': [],
               'i2c': buses, 'adc_cap_to_carrier_pin_mm': round(cap_gap, 3), 'adc_carrier_target_mm': 5,
               'ground_vias_connected_to_both_inner_planes': len(ground_vias), 'routing': routing, 'separations': separations,
-              'scope': 'Current carrier layout only. GPS absent; manufacturer/stackup, fit, retention, ADC accuracy, rise time and interference need further review or hardware measurements.'}
+              'scope': 'All 51 footprints present, including user-visually-accepted GPS carrier. Manufacturer/stackup, physical fit, holder clearance, retention, ADC accuracy, rise time and interference still need review or hardware measurements.'}
     (OUT/'layout-check.json').write_text(json.dumps(report, indent=2)+'\n', newline='\n')
     print(json.dumps(report, indent=2))
 

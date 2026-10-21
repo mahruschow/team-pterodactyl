@@ -3,7 +3,7 @@
 Run with KiCad Python; optional first argument selects kicad-cli.exe.
 Reads current footprint courtyards and named module envelopes from the PCB. Once tracks exist
 it also reports routing metrics: I2C length (PC11), power track widths, vias, and
-tracks inside the U2/U5 envelopes (which must stay empty).
+tracks inside any explicitly expected missing-module envelopes.
 """
 from pathlib import Path
 import collections,hashlib,json,math,subprocess,sys
@@ -15,7 +15,7 @@ OUT=ROOT/'docs/validation/2026-10-19/step7-pcb'
 # It is not a converter/high-current source; its proximity is checked separately
 # by verify_v4_layout.py. Keep the actual power section in PC1/PC4/PC5.
 POWER={'J1','F1','Q1','D1','R1','J2','C1','R2','R3','U2','C3','C4'}
-EXPECTED_MISSING={'U5'}
+EXPECTED_MISSING=set()
 # Step 4 PC1-PC7 (PLACEMENT_AND_INTERFERENCE.md): (rule, group a, group b, minimum mm)
 RULES=[('PC1',{'U3'},POWER,40.0),('PC2',{'U3'},{'U1'},25.0),('PC3',{'U3'},{'U5'},20.0),
        ('PC4-teensy',{'U5'},{'U1'},20.0),('PC4-power',{'U5'},POWER,20.0),
@@ -32,12 +32,13 @@ POWER_MIN_MM=0.5
 SUPPLY3V3_MIN_MM=0.3
 
 
-def routing_metrics(placement):
+def routing_metrics(placement, board=None):
     import pcbnew
-    board=pcbnew.LoadBoard(str(PCB))
+    board=board if board is not None else pcbnew.LoadBoard(str(PCB))
     e=board.GetBoardEdgesBoundingBox();ox,oy=pcbnew.ToMM(e.GetLeft()),pcbnew.ToMM(e.GetTop())
-    tracks=[t for t in board.GetTracks() if t.GetClass()=='PCB_TRACK']
-    vias=[t for t in board.GetTracks() if t.GetClass()=='PCB_VIA']
+    items=board.GetTracks()  # Retain the owning SWIG container.
+    tracks=[t for t in items if t.GetClass()=='PCB_TRACK']
+    vias=[t for t in items if t.GetClass()=='PCB_VIA']
     length=collections.defaultdict(float)
     for t in tracks:length[t.GetNetname()]+=pcbnew.ToMM(t.GetLength())
     minimum={'Power':POWER_MIN_MM,'Supply3V3':SUPPLY3V3_MIN_MM}
@@ -93,12 +94,14 @@ def main():
     parity=report.get('schematic_parity',[])
     missing={v['description'].split()[2] for v in parity if v['type']=='missing_footprint'}
     other_parity=[v['description'] for v in parity if v['type']!='missing_footprint']
-    placement=actual_placement()
+    import pcbnew
+    board=pcbnew.LoadBoard(str(PCB))
+    placement=actual_placement(board)
     separations=[]
     for rule,a,b,minimum in RULES:
         d=min(gap(placement[x],placement[y]) for x in a for y in b)
         separations.append({'rule':rule,'gap_mm':round(d,2),'minimum':minimum,'pass':d>=minimum})
-    routing=routing_metrics(placement)
+    routing=routing_metrics(placement,board)
     problems=[]
     if routing['track_segments']:
         if not routing['i2c_pass']:problems.append(('PC11 I2C length',routing['i2c_longest_mm']))
@@ -106,13 +109,14 @@ def main():
         if routing['tracks_in_envelopes']:problems.append(('envelope',routing['tracks_in_envelopes']))
         if routing['inner_plane_tracks']:problems.append(('inner GND plane cut',routing['inner_plane_tracks']))
     if violations:problems.append(('drc',dict(violations)))
+    if report.get('unconnected_items'):problems.append(('unconnected',len(report['unconnected_items'])))
     if missing!=EXPECTED_MISSING or other_parity:problems.append(('parity',sorted(missing),other_parity))
     problems+=[('separation',s) for s in separations if not s['pass']]
     result={'pcb_sha256':hashlib.sha256(PCB.read_bytes()).hexdigest(),'drc_violations':dict(violations),
             'unconnected_items':len(report.get('unconnected_items',[])),'parity_missing_footprints':sorted(missing),
             'separations':separations,'routing':routing,'problems':problems,'result':'pass' if not problems else 'fail',
-            'scope':'Draft routed placement with inner GND planes; unconnected items are reported but do not fail this draft check. '
-                    'Not a fabrication check: GPS revision/footprint, remaining routing, manufacturer rules and review remain.'}
+            'scope':'All schematic footprints must be present and connected. '
+                    'Not a fabrication check: actual module fit, manufacturer rules and review remain.'}
     (OUT/'pcb-check.json').write_text(json.dumps(result,indent=2)+'\n',newline='\n')
     assert not problems,problems
     print('PASS: DRC 0 violations; parity only missing %s; %d Step 4 separations met; %d unconnected.'%(

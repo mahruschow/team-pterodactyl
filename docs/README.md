@@ -1,8 +1,18 @@
 # Team planning and handoff
 
+## First prototype scope and order checkpoint - October 21, 2026
+
+**Current authority: [FIRST_PROTOTYPE_RELEASE.md](FIRST_PROTOTYPE_RELEASE.md).** PCB checks and AISLER upload/preview passed; project TCVOYNZG revision 1 is ready for checkout. FB1/SW1/SW2/J3 are selected for P1. The user explicitly excludes physical testing, flight qualification, subsequent redesign and casing from this phase; older statements requiring those before PCB fabrication are superseded. Assembly receipt/polarity checks remain part of building the prototype. No order placed. Updated known cost is USD 129.37 (15 price lines missing); entered mass 170.25 g (three missing). The provisional EUR board quote is separate.
+
+**Current implementation — October 21:** Start with [RESUME_HERE.md](RESUME_HERE.md) and [COMPONENT_IMPLEMENTATION.md](COMPONENT_IMPLEMENTATION.md). Targeted component changes and the budget update are applied; fresh native checks pass. FB1 needs replacement and switch/header, harness, physical-fit and cold-test gates remain open. Earlier dated statements below are historical where superseded.
+
 Start here when joining the project or resuming work. This directory contains the shared plan, current status, requirements, session notes and validation evidence. It travels with the repository; no previous chat or access to Saadat's computer is needed to read it.
 
 ## Reading order
+
+Latest budget: [Power, cost and mass](POWER_COST_MASS_BUDGET.md) — lead's updated direction, checked calculations, source evidence, partial totals and battery-selection dependencies.
+
+Latest PCB implementation: [GPS carrier integration](GPS_CARRIER_INTEGRATION.md) — all 51 footprints assigned and routed. Earlier missing-GPS entries below are historical.
 
 **Meeting handoff:** [October 20 teammate meeting](TEAM_MEETING_2026-10-20.md) organizes completed work, outstanding tasks, team inputs, proposed owners and a decision log.
 

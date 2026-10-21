@@ -1,0 +1,25 @@
+Item,Quantity for one assembly,Manufacturer,MPN or dimensional purchasing specification,Assembly notes,Source
+AA primary lithium cells,4,Energizer,L91,Four in series; do not recharge or solder to cells,https://data.energizer.com/pdfs/L91GL0225.pdf
+Wired battery holder,1,MPD,BH4AAW,-40 C published minimum; support leads and strap cells,https://www.batteryholders.com/uploads/parts/BH4AAW/datasheets/BH4AAW-datasheet.pdf
+Pack-side fuse,1,Littelfuse,025101.5MXL,1.5 A axial; insulate/support near holder positive lead; separate from board F1,https://www.mouser.com/datasheet/2/240/media-3323600.pdf
+microSD card,1,Kingston,SDCIT2/8GB,Industrial pSLC; use microSD directly in Teensy slot,https://www.kingston.com/datasheets/SDCIT2_en.pdf
+J1/J2 mating housings,2,Molex,0022012027,"J1 battery; J2 switch loop, neither switch-loop lead is ground",https://www.molex.com/en-us/products/part-detail/22012027
+J1/J2 crimp contacts,4,Molex,0008500113,Installed quantity; purchase extra contacts for assembly losses. Use selected wire/tool.,https://www.molex.com/en-us/products/part-detail/0008500113
+J3 shunt,1,Samtec,SNT-100-BK-T,"Tin; fits HTSW-102-07-T-S. Removal logs a marker, does not switch power.",https://www.samtec.com/products/snt-100-bk-t
+BNO055 6-pin row,1,Samtec,HTSW-106-15-T-S,"Solder both boards; 12 mm nominal gap, long posts upward",https://suddendocs.samtec.com/catalog_english/tsw_th.pdf
+BNO055 4-pin row,1,Samtec,HTSW-104-15-T-S,"Solder both boards; 12 mm nominal gap, long posts upward",https://suddendocs.samtec.com/catalog_english/tsw_th.pdf
+MS8607 5-pin row,1,Samtec,HTSW-105-15-T-S,"Solder both boards; 12 mm nominal gap, long posts upward",https://suddendocs.samtec.com/catalog_english/tsw_th.pdf
+GPS 9-pin row,1,Samtec,HTSW-109-15-T-S,"Solder both boards; 12 mm nominal gap, long posts upward",https://suddendocs.samtec.com/catalog_english/tsw_th.pdf
+Teensy carrier sockets,2,Samtec,SSW-124-01-L-S,Check whether module includes equivalent headers before buying duplicates,https://suddendocs.samtec.com/catalog_english/ssw_th.pdf
+Teensy module headers,2,Samtec,HTSW-124-07-L-S,Check whether module includes equivalent headers before buying duplicates,https://suddendocs.samtec.com/catalog_english/tsw_th.pdf
+Regulator carrier socket,1,Samtec,SSW-103-01-L-S,Check whether module includes equivalent headers before buying duplicates,https://suddendocs.samtec.com/catalog_english/ssw_th.pdf
+Regulator module header,1,Samtec,HTSW-103-07-L-S,Check whether module includes equivalent headers before buying duplicates,https://suddendocs.samtec.com/catalog_english/tsw_th.pdf
+External main power switch,1,C&K,7101SYZQE,5 A at 28 VDC; first room-temperature build; -30 C minimum. Common 2 plus one outer terminal.,https://www.littelfuse.com/assetdocs/littelfuse-ck-toggle-7000-series-datasheet?assetguid=fed01bc6-88d0-4bda-b896-13c98cf9e90e
+Red harness wire,0.5 m allowance,Alpha Wire,3050 red (3050 RD005 reel code),24 AWG stranded; 1.422 +/-0.051 mm insulation. Cut-to-length stock acceptable.,https://www.farnell.com/datasheets/428386.pdf
+Black harness wire,0.5 m allowance,Alpha Wire,3050 black (3050 BK005 reel code),24 AWG stranded; use only for battery return or relabel clearly.,https://www.farnell.com/datasheets/428386.pdf
+Insulating module spacers,10,Commodity dimensional specification,12 mm length; 2.2 mm bore; OD <=4 mm,"Nylon or equivalent nonconductive sleeve; four BNO055, four MS8607, two GPS. Assembly receipt fit check.",docs/FIRST_PROTOTYPE_RELEASE.md
+Module screws and nuts,10 each,Commodity dimensional specification,M2 x 20 mm fully threaded nylon screws + M2 nuts,Head OD <=6 mm; supports 12 mm gap plus board thickness; do not force a contacting module flat.,docs/FIRST_PROTOTYPE_RELEASE.md
+Carrier bench feet and screws,4 each,Commodity dimensional specification,M3 female nylon standoffs 10 mm high + M3 x 6 mm screws,Existing 3.2 mm corner holes; supports board clear of bench.,docs/FIRST_PROTOTYPE_RELEASE.md
+Insulation and strain relief,1 workshop lot,Commodity dimensional specification,Electrical heat-shrink sleeves; nonconductive cable ties; labels,Sizes must fully cover each splice/fuse body and grip its wire; mechanically support fuse and holder lead exit.,docs/FIRST_PROTOTYPE_RELEASE.md
+Cell restraint,2,Commodity dimensional specification,Nonconductive hook-and-loop straps,Wrap holder/cells without shorting terminals or pulling leads; custom casing later.,docs/FIRST_PROTOTYPE_RELEASE.md
+Crimp tool (bench equipment),1,Molex,0640160201,Borrow if available; ServiceGrade tool lists 0008500113. Not installed mass.,https://www.tme.eu/Document/d946c5a6efd66b5855487ea546568486/ATS-640160201.pdf

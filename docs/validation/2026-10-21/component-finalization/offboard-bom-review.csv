@@ -1,0 +1,19 @@
+Item,Quantity,Manufacturer,MPN,Status,Notes,Source
+Battery cells,4,Energizer,L91,Prototype selection; cold loaded runtime test required,"15 g each; four in series, primary/non-rechargeable",https://data.energizer.com/pdfs/L91GL0225.pdf
+Battery holder,1,MPD,BH4AAW,"Candidate; harness, restraint and cold lead behavior open",15.05 g manufacturer estimate incl leads; body 61.72 x 57.15 x 15.88 mm,https://www.batteryholders.com/uploads/parts/BH4AAW/datasheets/BH4AAW-datasheet.pdf
+Storage,1,Kingston,SDCIT2/8GB,Prototype selection; current/endurance unmeasured,Do not fly SD adapter; 30/200 mA planning allowances,https://www.kingston.com/datasheets/SDCIT2_en.pdf
+J1/J2 mating housing,2,Molex,0022012027,Candidate harness; verify retention/polarity,"J2 is switch loop, not a ground output",https://www.molex.com/en-us/products/part-detail/22012027
+J1/J2 contacts,4,Molex,0008500113,Candidate harness; tooling and insulation diameter open,22-30 AWG; maximum insulation diameter 1.57 mm,https://www.molex.com/en-us/products/part-detail/0008500113
+BNO055 6-pin row,1,Samtec,HTSW-106-15-T-S,Candidate; dry-fit and spacer stack open,Through-hole soldered at both boards; nominal -15 length screened,https://suddendocs.samtec.com/catalog_english/tsw_th.pdf
+BNO055 4-pin row,1,Samtec,HTSW-104-15-T-S,Candidate; dry-fit and spacer stack open,Through-hole soldered at both boards; nominal -15 length screened,https://suddendocs.samtec.com/catalog_english/tsw_th.pdf
+MS8607 5-pin row,1,Samtec,HTSW-105-15-T-S,Candidate; dry-fit and spacer stack open,Through-hole soldered at both boards; nominal -15 length screened,https://suddendocs.samtec.com/catalog_english/tsw_th.pdf
+GPS 9-pin row,1,Samtec,HTSW-109-15-T-S,Candidate; dry-fit and spacer stack open,Through-hole soldered at both boards; nominal -15 length screened,https://suddendocs.samtec.com/catalog_english/tsw_th.pdf
+Teensy carrier sockets,2,Samtec,SSW-124-01-L-S,Historical mounting candidate; assembled fit not closed,See MODULE_ASSEMBLY_PLAN; check included module headers before ordering,docs/MODULE_ASSEMBLY_PLAN.md
+Teensy module pins,2,Samtec,HTSW-124-07-L-S,Historical mounting candidate; assembled fit not closed,See MODULE_ASSEMBLY_PLAN; check included module headers before ordering,docs/MODULE_ASSEMBLY_PLAN.md
+Regulator carrier socket,1,Samtec,SSW-103-01-L-S,Historical mounting candidate; assembled fit not closed,See MODULE_ASSEMBLY_PLAN; check included module headers before ordering,docs/MODULE_ASSEMBLY_PLAN.md
+Regulator module pins,1,Samtec,HTSW-103-07-L-S,Historical mounting candidate; assembled fit not closed,See MODULE_ASSEMBLY_PLAN; check included module headers before ordering,docs/MODULE_ASSEMBLY_PLAN.md
+External power switch,1,,,Unselected,"Cold rating, DC load and enclosure fit open",docs/COMPONENT_IMPLEMENTATION.md
+J3 shunt,1,,,Unselected,PBF role and mating fit open,docs/COMPONENT_IMPLEMENTATION.md
+Module spacers and screws,,,,Unselected,"Nonmagnetic hardware, actual module thickness and clearance open",docs/COMPONENT_IMPLEMENTATION.md
+Harness strain relief / protection,,,,Unselected,"Pack-side short protection, wire insulation and added length open",docs/COMPONENT_IMPLEMENTATION.md
+Cell restraint,,,,Unselected,Secure all cells through vibration and cold without relying only on springs,docs/COMPONENT_IMPLEMENTATION.md

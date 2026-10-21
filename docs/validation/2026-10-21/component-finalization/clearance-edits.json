@@ -1,0 +1,66 @@
+[
+  {
+    "footprint": "TP4",
+    "delta_mm": [
+      0,
+      1.0
+    ]
+  },
+  {
+    "footprint": "C2",
+    "delta_mm": [
+      0,
+      -0.3
+    ]
+  },
+  {
+    "footprint": "C8",
+    "delta_mm": [
+      0,
+      0.15
+    ]
+  },
+  {
+    "footprint": "C6",
+    "delta_mm": [
+      0,
+      0.2
+    ]
+  },
+  {
+    "segment": "e709c0a7-dd2a-48a2-9ef7-d9de2f8cbb9c",
+    "endpoint": "start",
+    "old_mm": [
+      117.936,
+      119.9
+    ],
+    "new_mm": [
+      117.936,
+      119.6
+    ]
+  },
+  {
+    "segment": "8d2bf2fa-2c44-4118-b39c-96325e2720a5",
+    "endpoint": "end",
+    "old_mm": [
+      152.5,
+      89.5
+    ],
+    "new_mm": [
+      152.5,
+      90.5
+    ]
+  },
+  {
+    "segment": "c79f6166-f770-484a-9a4b-0925b87557f5",
+    "endpoint": "start",
+    "old_mm": [
+      101.599,
+      88.552
+    ],
+    "new_mm": [
+      101.599,
+      88.752
+    ]
+  }
+]

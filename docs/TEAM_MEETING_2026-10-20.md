@@ -1,5 +1,13 @@
 # PTERODACTYL teammate meeting — October 20, 2026
 
+**Latest decisions:** 3 h runtime; lead specifies -40 C battery minimum; sensors will use through-hole soldered headers; casing CAD follows the final board layout. Recalculate sensor stack height and verify pin/drill/underside fit, retention and access. The socket-based interconnect mass is withdrawn: current partial mass is 97.2 g with four missing mass inputs. Older mass/socket/temperature-open statements below are historical. See MODULE_ASSEMBLY_PLAN.md and POWER_COST_MASS_BUDGET.md.
+
+## Budget update after the lead's reply
+
+The lead confirmed nothing is ordered and asked the design team to choose a battery using power/cost/mass budgets, with dimensions as small as functional. [The first budget draft](POWER_COST_MASS_BUDGET.md) is complete and calculation-checked: 1.495 W average battery input, 8.01 Wh nameplate target for the three-hour powered runtime confirmed by Saadat on October 20, $118.30 in currently priced modules and 107.7 g provisional partial mass. Runtime is confirmed; energy allowances and procurement/flight totals remain provisional. Bring temperature, cost/mass constraints, PTC review, remaining quotes and mechanical-fit decisions to the meeting. This update supersedes earlier requests below for the lead to choose a battery/enclosure.
+
+**October 20 GPS update:** [U5 is now assigned, placed and routed](GPS_CARRIER_INTEGRATION.md) after Saadat visually accepted the source CAD geometry. Earlier requests to obtain geometry before assignment are superseded. Actual-module fit, socket/spacer choice, underside holder clearance, antenna exposure and retention still need evidence; this is not manufacturer confirmation or fabrication approval.
+
 Updated October 20 from branch `saadat-dev`; PCB design commit `f55657f` (October 19), firmware 4.0.2-draft checkpoint described in [SENSOR_READ_VALIDITY.md](SENSOR_READ_VALIDITY.md). Proposed owners below are suggestions to agree at the meeting, not assigned commitments.
 
 **Opening summary:** We have a new v4 schematic, a routed carrier PCB for the components currently placed, and firmware that compiles. The regulator and sensor/Teensy carrier footprints are implemented. The GPS footprint still needs exact #5440 geometry. We have not built or tested the complete hardware, and the board is not ready to order.
@@ -9,7 +17,7 @@ Updated October 20 from branch `saadat-dev`; PCB design commit `f55657f` (Octobe
 | Area | Completed deliverable | Limit / remaining approval |
 | --- | --- | --- |
 | Baseline review | Recorded the legacy board, its issues and the official parts workbook. | Old fabrication files are reference only. |
-| Core scope | Teensy 4.1, BNO055 #2472, MS8607 #4716, GPS #5440, microSD logging, power control, LEDs and supply monitoring. No telemetry. | Mission duration, ranges, accuracy and rates still need confirmation. |
+| Core scope | Teensy 4.1, BNO055 #2472, MS8607 #4716, GPS #5440, microSD logging, power control, LEDs and supply monitoring. No telemetry. | Three-hour powered runtime confirmed; ranges, accuracy and rates remain open. |
 | Schematic | New v4 design with protection, regulator, sensor power, battery sensing and module connections; latest recorded ERC has zero violations. | Candidate part ratings, battery contract and team review remain. |
 | Carrier footprints | BNO055, MS8607, Teensy and Pololu S9V11F5 nominal geometry checked and integrated. | Real connector engagement, module revisions and retention need a dry fit. GPS comparison geometry is explicitly unverified. |
 | PCB routing | All connections among the 50 placed footprints are routed. ADC capacitor moved near its input; I2C order corrected; ground stitching and readable silkscreen added. | GPS is absent. Zero unconnected items excludes its missing connections. |
@@ -17,7 +25,7 @@ Updated October 20 from branch `saadat-dev`; PCB design commit `f55657f` (Octobe
 | Firmware foundation | New logger compiles; SD recovery, BNO reset timeout/cooldown and sensor transfer/CRC handling pass sixteen host fault-test groups. | GPS freshness remains open; no complete-system hardware tests. |
 | Handoff | Shared plans, source evidence, review reports, validation tools and session notes are in `docs/`. | Use the latest checkpoint; older reports describe historical boards. |
 
-The measured quantities in scope are acceleration, gyro/rotation, orientation/magnetic field, GPS position/altitude/time, pressure, sensor temperature, humidity, derived pressure altitude and supply health. **10 Hz IMU, 1 Hz environment/GPS and a four-hour bench test remain proposals.** The workbook's three hours is a budget assumption.
+The measured quantities in scope are acceleration, gyro/rotation, orientation/magnetic field, GPS position/altitude/time, pressure, sensor temperature, humidity, derived pressure altitude and supply health. **10 Hz IMU, 1 Hz environment/GPS and a four-hour bench test remain proposals.** Three-hour powered runtime was confirmed by Saadat on October 20.
 
 ## 2. What is left, in practical order
 

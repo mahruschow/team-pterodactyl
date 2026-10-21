@@ -1,0 +1,22 @@
+[
+  {
+    "source": "https://www.farnell.com/datasheets/1685873.pdf",
+    "sha256": "460fcafdcbd32e30243ae355bb760f164ace2b5d651c5bb5505a8e596328c545",
+    "review": "Manufacturer drawing, page 1 dimensions/electrical ratings visually reviewed"
+  },
+  {
+    "source": "https://www.farnell.com/datasheets/1851186.pdf",
+    "sha256": "f4dc8113b9a964c87db2f2d79a9f4823c778806efaa67439f311340e4582d417",
+    "review": "C&K catalog, page 36 OS102011MS2QN1 visually reviewed"
+  },
+  {
+    "source": "https://datasheet.datasheetarchive.com/originals/dk/DKDS42/DSANUWW0042856.pdf",
+    "sha256": "a59e4e7e5006bea2c9d6c5a25713070bfbf309a696e93ab826d46bbca122ec58",
+    "review": "C&K catalog ordering and contact pairs, pages 1-2 reviewed"
+  },
+  {
+    "source": "https://suddendocs.samtec.com/prints/snt-100-xx-x-x-mkt.pdf",
+    "sha256": "04b812db965b8acb0f031f0b10a77f18371c8836cdd27e10da5a947c97cbd34f",
+    "review": "Samtec shunt drawing visually reviewed"
+  }
+]

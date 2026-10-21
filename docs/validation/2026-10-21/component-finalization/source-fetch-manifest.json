@@ -1,0 +1,97 @@
+[
+  {
+    "name": "molex-spec",
+    "url": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/productspecificationpdf/100/1007/PS-10-07-001.pdf",
+    "error": "The read operation timed out"
+  },
+  {
+    "name": "molex-drawing",
+    "url": "https://pdf.icgoo.net/productinfo/allpdf/e3d43691-686b-3180-93a1-4c7cc1d63d1d.pdf",
+    "sha256": "dc6c60a81debdf6e45b39a1741cfef5d82d9c89487f69a1d5eac9de4ec244ee3",
+    "pages": 4
+  },
+  {
+    "name": "os-alt",
+    "url": "https://www.ckswitches.com/media/1428/os.pdf",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "pts-alt",
+    "url": "https://www.ckswitches.com/media/1471/pts645.pdf",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "holder",
+    "url": "https://www.batteryholders.com/uploads/parts/BH4AAW/datasheets/BH4AAW-datasheet.pdf",
+    "sha256": "7b5b713db6b71dc5b390a182f0e45e8445347d774a325d16e2e7b077f706f311",
+    "pages": 1
+  },
+  {
+    "name": "molex",
+    "url": "https://cdn.soselectronic.com/productdata/cc/c9/a9231f3e/22-27-2021-1.pdf",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "os",
+    "url": "https://www.littelfuse.com/assetdocs/littelfuse-c-k-slide-os-series-datasheet?assetguid=f8954ac2-65ba-431f-af55-b0493370575e",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "pts",
+    "url": "https://www.littelfuse.com/assetdocs/littelfuse-c-k-tactile-pts645-series-datasheet?assetguid=d58fc8a8-f6e1-4527-ab68-27635e632e39",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "aos",
+    "url": "https://www.aosmd.com/pdfs/datasheet/AO3401A.pdf",
+    "sha256": "0d8e3261ae280e007b5837fff60c55142f2d92af71edc4d02aee6f7a760a785c",
+    "pages": 5
+  },
+  {
+    "name": "ptc",
+    "url": "https://www.bourns.com/docs/product-datasheets/mf-rht.pdf",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)>"
+  },
+  {
+    "name": "kemet100n",
+    "url": "https://search.kemet.com/component-documentation/download/specsheet/C322C104K5R5TA",
+    "sha256": "d8a28b9acfed74de271e24c1d6078365aacd5ecd27bb0c30dcf827bc92181460",
+    "pages": 4
+  },
+  {
+    "name": "kemet10u",
+    "url": "https://search.kemet.com/component-documentation/download/specsheet/C322C106K3R5TA",
+    "sha256": "113b75b533f046cf45b40082f504a3bff78c9eefbf5ea8ef43ef8eb1966ebb54",
+    "pages": 1
+  },
+  {
+    "name": "resistor",
+    "url": "https://www.vishay.com/docs/28724/mrs16m25.pdf",
+    "sha256": "645bb41aaa34f2a72fc19fc71d02ddb14ed400ae97634684ad1745189505f47e",
+    "pages": 4
+  },
+  {
+    "name": "header",
+    "url": "https://suddendocs.samtec.com/catalog_english/tsw_th.pdf",
+    "sha256": "3a5770b11668f4e5a11ba9ceeb4817a23f467b8507e3592f55fb6bd8f96e71bc",
+    "pages": 2
+  },
+  {
+    "name": "sd",
+    "url": "https://www.kingston.com/datasheets/SDCIT2_en.pdf",
+    "sha256": "fdffa21246496e2738ad6b7bdf27d8811eb8fa41c80b5cb434f67548fc89b85b",
+    "pages": 2
+  },
+  {
+    "name": "battery",
+    "url": "https://data.energizer.com/pdfs/L91GL0225.pdf",
+    "sha256": "15adaad59783d4b655e5b45f9349f82b1072a6bb25c056a3690401c57cdadb13",
+    "pages": 2
+  },
+  {
+    "name": "murata-eol",
+    "url": "https://285624.selcdn.ru/syms1/iblock/035/035d91d2fd3c7fc23f4a844cafed7b71/7c009e77a03a1be4e0c81a69e35476ba.pdf",
+    "sha256": "01c7dec89208bc7a814ce83952f11ccf518ceed4d0386808a3c08be55561a462",
+    "review": "Manufacturer-authored 2020 EOL slide, mirrored copy; page 1 visually checked"
+  }
+]

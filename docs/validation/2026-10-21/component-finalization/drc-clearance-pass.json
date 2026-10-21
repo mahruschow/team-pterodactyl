@@ -1,0 +1,237 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-21T12:57:00",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "PTERODACTYL_v4.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1227 mm)",
+            "items": [
+                {
+                    "description": "PTH pad 1 [+3V3] of TP3",
+                    "pos": {
+                        "x": 110.446,
+                        "y": 117.1
+                    },
+                    "uuid": "b1d91102-cc4e-4b7c-8509-0d22c215bdaf"
+                },
+                {
+                    "description": "Track [/BTN_USER] on F.Cu, length 8.3632 mm",
+                    "pos": {
+                        "x": 105.136,
+                        "y": 124.392
+                    },
+                    "uuid": "c7589c49-904e-4b6a-83fd-262b57c501a6"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1227 mm)",
+            "items": [
+                {
+                    "description": "PTH pad 1 [+3V3] of TP3",
+                    "pos": {
+                        "x": 110.446,
+                        "y": 117.1
+                    },
+                    "uuid": "b1d91102-cc4e-4b7c-8509-0d22c215bdaf"
+                },
+                {
+                    "description": "Track [/BTN_USER] on F.Cu, length 4.1494 mm",
+                    "pos": {
+                        "x": 110.8463,
+                        "y": 118.2817
+                    },
+                    "uuid": "efb70c13-3805-4ba8-95ed-d2d8b31d8541"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Footprint 'SOT-23' does not match copy in library 'Package_TO_SOT_SMD'",
+            "items": [
+                {
+                    "description": "Footprint Q1",
+                    "pos": {
+                        "x": 182.979,
+                        "y": 118.252
+                    },
+                    "uuid": "8531a566-00ba-48b4-bf75-ee43e0e21ea9"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
+            "items": [
+                {
+                    "description": "PCB text 'TP6 SDA   TP7 SCL\nTP8 GPS TX   TP9 GPS RX\nTP10 BAT SENSE' on F.Silkscreen",
+                    "pos": {
+                        "x": 172.0,
+                        "y": 99.25
+                    },
+                    "uuid": "e3ff18e2-a5be-42b4-974f-089ab8cd67fd"
+                },
+                {
+                    "description": "Reference field of C11",
+                    "pos": {
+                        "x": 172.1,
+                        "y": 96.802
+                    },
+                    "uuid": "e8b63f70-28db-46df-a4a6-f09b63aeda54"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.1150 mm)",
+            "items": [
+                {
+                    "description": "PCB text 'SENSOR 3V3' on F.Silkscreen",
+                    "pos": {
+                        "x": 155.5,
+                        "y": 92.3
+                    },
+                    "uuid": "7a024252-6ca0-4ca0-936b-d1011eb59143"
+                },
+                {
+                    "description": "Circle of TP4 on F.Silkscreen",
+                    "pos": {
+                        "x": 152.5,
+                        "y": 90.5
+                    },
+                    "uuid": "ae41feec-7d2f-492e-b36a-b372ee4a29b0"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
+            "items": [
+                {
+                    "description": "Reference field of D2",
+                    "pos": {
+                        "x": 103.75,
+                        "y": 92.2
+                    },
+                    "uuid": "9784a664-05b2-4bc1-91c9-fbbde3dc0d7b"
+                },
+                {
+                    "description": "Reference field of C6",
+                    "pos": {
+                        "x": 104.1,
+                        "y": 91.652
+                    },
+                    "uuid": "f4158f67-8a8f-4e61-b94f-4ce5b1f0e583"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Segment of Q1 on F.Silkscreen",
+                    "pos": {
+                        "x": 182.219,
+                        "y": 119.402
+                    },
+                    "uuid": "63029f8a-bc19-40a3-9c00-dd43dc46b698"
+                },
+                {
+                    "description": "Pad 2 [/VBAT_PROT] of Q1 on F.Cu",
+                    "pos": {
+                        "x": 182.0415,
+                        "y": 119.202
+                    },
+                    "uuid": "b82429c0-63bf-44ee-bf86-cb978f5028a2"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Segment of Q1 on F.Silkscreen",
+                    "pos": {
+                        "x": 182.219,
+                        "y": 119.402
+                    },
+                    "uuid": "f3ae07cc-f865-4652-bed7-6b4623775fe9"
+                },
+                {
+                    "description": "Pad 2 [/VBAT_PROT] of Q1 on F.Cu",
+                    "pos": {
+                        "x": 182.0415,
+                        "y": 119.202
+                    },
+                    "uuid": "b82429c0-63bf-44ee-bf86-cb978f5028a2"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of TP9",
+                    "pos": {
+                        "x": 135.646,
+                        "y": 115.155
+                    },
+                    "uuid": "7eacfe63-da59-40b4-a628-835e2d086fc3"
+                },
+                {
+                    "description": "Via [GND] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 134.8,
+                        "y": 115.8
+                    },
+                    "uuid": "f29168b3-1424-42bd-b9ee-5bf4516293b1"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        }
+    ]
+}

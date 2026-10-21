@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-20",
+  "artifactRef": "artifact_FUIBR-EQUnXhhV3JS2j9rrmri3HwRDLQ",
+  "checksPassed": 22,
+  "checks": [
+    "baseline average W", "baseline peak W", "controller current propagates",
+    "SD peak propagates", "runtime energy", "capacity uses pack voltage",
+    "peak uses minimum voltage", "PTC review triggered", "missing cost counted",
+    "missing mass counted", "incomplete cost guarded", "incomplete mass guarded",
+    "added quote propagates", "complete mass requires all inputs", "missing power guarded",
+    "summary cannot silently zero", "zero efficiency guarded", "runtime restored blank",
+    "nominal voltage restored blank", "minimum voltage restored blank", "cost restored", "mass restored"
+  ],
+  "formulaErrors": [],
+  "inputsRestored": true,
+  "visualReview": ["Budget summary", "Power", "Cost and mass", "source notes"],
+  "baseline": {
+    "averageBatteryW": 1.4948275247030287,
+    "peakBatteryAllowanceW": 3.283790532586594,
+    "exampleFourHourNameplateWh": 10.677339462164491,
+    "knownCostUSD": 118.30,
+    "missingCostLines": 17,
+    "massSubtotalG": 107.7,
+    "missingMassLines": 3,
+    "requiredRuntimeHours": null,
+    "selectedBattery": null
+  },
+  "runtimeConfirmationUpdate": {
+    "source": "Saadat, chat, 2026-10-20",
+    "requiredTotalPoweredHours": 3,
+    "consumptionWh": 4.484482574109086,
+    "requiredNameplateWh": 8.008004596623369,
+    "powerAndSummaryTargetsMatch": true,
+    "summaryRenderedAndReviewed": true,
+    "note": "Supersedes initial blank runtime in the historical baseline above; pack fields remain blank."
+  },
+  "temperatureAndAssemblyUpdate": {
+    "source": "Lead temperature reply and Saadat through-hole assembly confirmation, 2026-10-20",
+    "minimumBatteryTemperatureC": -40,
+    "sensorMounting": "Through-hole headers soldered at breakout and carrier; exact hardware unselected",
+    "casing": "Custom CAD after final PCB layout; reserve mounting/access envelope now",
+    "oldInterconnectMassWithdrawnG": 10.5,
+    "currentMassSubtotalG": 97.2,
+    "currentMissingMassLines": 4,
+    "requiredNameplateWhUnchanged": 8.008004596623369,
+    "liveValuesCheckedAndRendered": true
+  },
+  "limitations": "Planning allowances only; no hardware test, pack selection, complete quotation or measured assembly mass."
+}

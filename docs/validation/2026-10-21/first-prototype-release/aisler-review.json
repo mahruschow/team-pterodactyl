@@ -1,0 +1,29 @@
+{
+  "project": "TCVOYNZG",
+  "revision": 1,
+  "url": "https://aisler.net/p/TCVOYNZG",
+  "uploaded_native_sha256": "3939c94d0d2279776b6aff804f6814c09e275b59fea913cd9d96c8ba36f766a6",
+  "processing": "successful",
+  "preview": "top/bottom checked",
+  "dimension_mm": [
+    97.79,
+    97.79
+  ],
+  "copper_layers": 4,
+  "thickness_mm": 1.6,
+  "copper_um": 35,
+  "finish": "ENIG",
+  "mask": "green",
+  "legend": "white",
+  "quantity": 3,
+  "service": "Beautiful Boards",
+  "addons": [],
+  "quote_currency": "EUR",
+  "provisional_net": 51.37,
+  "default_vat_percent": 19,
+  "provisional_total": 61.13,
+  "estimated_dispatch": "2026-11-03",
+  "account": "anonymous",
+  "order_placed": false,
+  "quote_note": "Shipping/tax/destination and account pricing not finalized."
+}

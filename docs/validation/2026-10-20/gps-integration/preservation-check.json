@@ -1,0 +1,13 @@
+{
+  "segment_unchanged": 233,
+  "segment_added": 13,
+  "via_unchanged": 17,
+  "via_added": 8,
+  "footprint_unchanged": 50,
+  "footprint_added": 1,
+  "result": "pass",
+  "nets_unchanged": 32,
+  "intentional_no_connects": 35,
+  "project_bytes_unchanged": true,
+  "outline_stackup_setup_unchanged": true
+}

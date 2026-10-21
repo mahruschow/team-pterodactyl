@@ -1,8 +1,30 @@
 # Current status and resume checklist
 
-Updated October 20, 2026. Working branch: `saadat-dev`.
+## First prototype scope and order checkpoint - October 21, 2026
+
+**Current authority: [FIRST_PROTOTYPE_RELEASE.md](FIRST_PROTOTYPE_RELEASE.md).** PCB checks and AISLER upload/preview passed; project TCVOYNZG revision 1 is ready for checkout. FB1/SW1/SW2/J3 are selected for P1. The user explicitly excludes physical testing, flight qualification, subsequent redesign and casing from this phase; older statements requiring those before PCB fabrication are superseded. Assembly receipt/polarity checks remain part of building the prototype. No order placed. Updated known cost is USD 129.37 (15 price lines missing); entered mass 170.25 g (three missing). The provisional EUR board quote is separate.
+
+**Current implementation — October 21:** Targeted component/connector/capacitor edits and the budget update are now applied. Fresh ERC/DRC/connectivity/parity and preservation checks pass. Read [RESUME_HERE.md](RESUME_HERE.md), then [COMPONENT_IMPLEMENTATION.md](COMPONENT_IMPLEMENTATION.md) for the authoritative boundary. Four BOM references remain explicit candidates; holder/harness fit, cold runtime and flight qualification remain open. Earlier dated figures and research-only statements below are historical where superseded.
+
+## Latest component checkpoint
+
+Native v4 targeted edits are complete for the reviewed parts. 51 footprints / 246 segments / 25 vias retained; eight segments have bounded endpoint edits, four small nonmodule footprint moves, no changed pad nets. Fresh checks: 0 ERC, 0 enabled DRC, 0 unconnected, 0 parity; 32 nets and 35 no-connects verified. BOM: 47 individual reference rows, zero blank MPNs, four candidates (SW1, SW2, J3, FB1). Evidence is in `validation/2026-10-21/component-finalization/`.
+
+L91 x4 with BH4AAW is the prototype pack candidate; Kingston SDCIT2/8GB is in the budget. Updated model: 1.618 W average, 3.568 W peak, 8.669 Wh provisional nameplate target for 3 h. Entered mass 170.25 g with three missing mass lines; known price $118.30 with 16 unpriced lines. Detailed path-loss screening flags startup risk at a 4 V loaded pack. No physical validation or purchasing occurred.
+
+The following entries preserve prior checkpoints and are superseded by COMPONENT_IMPLEMENTATION.md where they conflict.
+
+Updated October 21, 2026. Working branch: `saadat-dev`.
 
 ## Where we stopped
+
+**Finalization started:** exported the current schematic BOM to `validation/2026-10-20/finalization-bom.csv`: 47 rows, zero missing footprints, 35 blank MPN fields and seven candidate MPN fields (not unique-product counts). Follow the finalization order in REMAINING_WORK.md: battery/SD and power ratings, exact passive/header fit, assembled geometry/casing, manufacturer/quotes, then final review and fabrication outputs. Generic 10 uF capacitor footprints need real part matching; Q1 remains SOT-23 despite through-hole sensor assembly. No board geometry changed in this checkpoint.
+
+**Latest requirements/assembly:** three-hour runtime and **-40 C minimum battery temperature** are recorded from Saadat/the lead. Sensors use **through-hole soldered headers**, superseding removable sensor sockets; verify pin/drill fit, solder tails, underside clearance and retention before release. Custom casing CAD follows the completed PCB layout, with mounting/access envelopes reserved now. No PCB geometry was changed. The live budget withdrew the old 10.5 g interconnect allowance: current entered mass is **97.2 g with four missing mass lines**; the earlier 107.7 g subtotal below is historical. See MODULE_ASSEMBLY_PLAN.md and POWER_COST_MASS_BUDGET.md.
+
+**Latest budget:** [POWER_COST_MASS_BUDGET.md](POWER_COST_MASS_BUDGET.md). The lead asks us to calculate power/cost/mass and choose the battery; nothing is ordered and the package should be as small as functional. A checked live workbook now models 1.495 W average battery input, 3.284 W peak allowance, and 8.01 Wh nameplate energy for the three-hour total powered runtime confirmed by Saadat on October 20. Temperature remains unconfirmed. Known module cost is $118.30, with 17 other lines unpriced; mass subtotal is 107.7 g of mixed published values/allowances, excluding three missing mass items. Review the 0.7 A PTC against low-voltage peaks before choosing a pack. Twenty-two calculation/guard checks passed. No PCB or firmware edits in the budget task; current work remains uncommitted.
+
+**Latest GPS/layout:** [GPS_CARRIER_INTEGRATION.md](GPS_CARRIER_INTEGRATION.md). Saadat visually accepted the legacy CAD geometry for #5440 and authorized integration. U5 is now assigned, placed and routed: 51 footprints, 246 tracks, 25 vias; zero ERC, enabled DRC, unconnected items or parity issues. All original routing and placements are preserved. Actual socket/holder/retention fit, battery/BOM and fabrication gates remain open. This supersedes earlier missing-U5 statements below.
 
 **Latest firmware:** [SENSOR_READ_VALIDITY.md](SENSOR_READ_VALIDITY.md). Version 4.0.2-draft checks BNO sample/configuration transfers and MS8607 reset/PROM/configuration/measurement transfers plus CRC results. Failed measurements produce empty READ_FAIL rows and unhealthy status; recovery is host-tested. Sixteen fault-test groups pass and the Teensy build passes with zero warnings. GPS freshness remains next; hardware validation is open.
 
@@ -14,7 +36,7 @@ Updated October 20, 2026. Working branch: `saadat-dev`.
 
 **Latest routing checkpoint:** [POWER_ROUTING.md](POWER_ROUTING.md). All connections among the 50 placed footprints are now routed: 0 enabled physical DRC violations, 0 unconnected items, and only U5/GPS missing in schematic parity. U5 is still absent, so this does not mean all schematic connections are implemented. TP1/TP2/TP4 were moved near their rails; a 68.667 mm unloaded TP1 spur was removed. No new vias; original signal routes and design rules are preserved. GPS geometry, layout/assembly review and fabrication gates remain open.
 
-The entries below are historical checkpoints; the routing checkpoint above takes precedence.
+The entries below are historical checkpoints; the latest GPS/layout and budget entries above take precedence.
 
 **Latest footprint work:** [REGULATOR_GPS_FOOTPRINTS.md](REGULATOR_GPS_FOOTPRINTS.md). U2 now has a source-checked three-pin carrier footprint assigned and placed; the unverified GPS comparison footprint exists separately and U5 remains unassigned. ERC and enabled physical DRC: 0 violations; parity: only U5; 12 unconnected items including the newly exposed regulator connections. All existing routing and the other 49 footprints are preserved. The placement checker now measures actual PCB geometry and detects a deliberate moved-IMU violation. Connector fit/retention, GPS M01 and remaining routing still need closure. Earlier review/implementation entries below describe their historical checkpoints.
 
@@ -63,7 +85,7 @@ The main schematic and PCB remain the imported v3.8 v11 baseline. New local symb
 
 - 10 Hz motion/orientation/magnetic logging, 1 Hz environment/GPS/health logging.
 - Automatic standalone startup, independent sampling schedules, structured logs and explicit invalid/stale status.
-- Four-hour bench endurance run. The workbook's three-hour duration is a budget assumption, not an accepted mission duration.
+- Four-hour bench endurance run. Three hours of total powered runtime was confirmed by Saadat on October 20; the four-hour bench test remains a proposal.
 - Exact power architecture, indicator behavior, supply-monitoring circuit and launch/stop workflow remain to be designed.
 
 See [V1_REQUIREMENTS.md](V1_REQUIREMENTS.md) for acceptance proposals and D01-D10 decisions. D01 (core feature package) and D05 (no telemetry) are resolved. D03 has confirmed measurement types but open performance targets; D10 has excluded heater/actuators but open control workflow. Feature selection is not approval of a specific circuit or proof of flight suitability.
@@ -92,9 +114,9 @@ The physical DRC reproduced the October 7 categories/counts. Parity triage found
 ## Next concrete actions
 
 1. Check Git state and read FIRMWARE_RELIABILITY.md for current firmware work (next: GPS RMC/GGA freshness; see SENSOR_READ_VALIDITY.md for completed transfer/CRC work). For PCB work, read LAYOUT_REVIEW_CLEANUP.md and POWER_ROUTING.md before editing. The footprint checkpoint was published as `d40fba3`; the following routing change is recorded in the latest session entry. The active design is `Native_KiCad_v4/PTERODACTYL_v4.kicad_pro`.
-2. Close GPS M01 with revision-matched #5440 CAD or actual measurements, then assign U5 and route its supply/UART/control connections. The legacy comparison footprint is not approved. Current zero-unconnected DRC excludes the missing GPS.
+2. GPS is now assigned and routed. Close actual module/socket/holder fit and retention using GPS_CARRIER_INTEGRATION.md and the assembly gates; earlier missing-U5 statements are historical.
 3. Review LAYOUT_REVIEW_CLEANUP.md with the team. I2C order, ADC capacitor placement and silkscreen are corrected; continue GPS integration, power-capacitor/transient review and final manufacturer/assembly validation. Optional outer GND pours are deferred until GPS is settled.
-4. Close candidate part ratings, battery/startup/runtime, enclosure/retention and manufacturer rules with the team. At least 3 V at regulator VIN is required for startup, with additional sag/drop margin. Keep no telemetry and the exact spreadsheet modules.
+4. Use POWER_COST_MASS_BUDGET.md to use the confirmed three-hour runtime and establish operating temperature, select the SD card and compare batteries. Review the PTC, candidate component ratings and startup margin; obtain exact BOM/fabrication quotes and installed masses. Then revisit compact packaging, retention and manufacturer rules. Keep no telemetry and the exact spreadsheet modules.
 5. Address the four open firmware reliability findings in V4_DESIGN_REVIEW.md (sensor read errors, bounded BNO reset, SD recovery and GPS field freshness), then bench-test when modules arrive.
 6. Do not rerun the full schematic, PCB or autoroute generators over this routed board. Refill and run DRC/parity after targeted edits, update current evidence, and retain explicit GPS/mechanical/fabrication gates.
 

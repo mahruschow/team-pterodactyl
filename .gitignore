@@ -18,3 +18,11 @@ __MACOSX/
 *.drl
 *.pos
 *.rpt~
+
+# Local working checkpoints, downloaded references and Python caches
+/work/
+__pycache__/
+*.pyc
+
+# Reviewed P1 fabrication evidence includes the audited drill files
+!docs/validation/2026-10-21/first-prototype-release/fabrication/*.drl

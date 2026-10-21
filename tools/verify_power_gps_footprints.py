@@ -1,5 +1,9 @@
 """Independent native checks for the regulator and UNVERIFIED GPS carrier.
 
+Historical October 19 checkpoint checker: expects U5 unassigned. For the current
+integrated GPS board use verify_v4_layout.py; do not overwrite historical evidence
+by running this against the current design.
+
 Run with KiCad Python. Checks source geometry, symbol/pad contracts, the current
 schematic and routed board, an isolated fixture, and a placement-move regression.
 Does not modify the main schematic, board, or libraries.

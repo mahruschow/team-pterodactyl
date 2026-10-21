@@ -1,8 +1,32 @@
 # Step 3 — module assembly proposal and closure gates
 
+## First prototype scope and order checkpoint - October 21, 2026
+
+**Current authority: [FIRST_PROTOTYPE_RELEASE.md](FIRST_PROTOTYPE_RELEASE.md).** PCB checks and AISLER upload/preview passed; project TCVOYNZG revision 1 is ready for checkout. FB1/SW1/SW2/J3 are selected for P1. The user explicitly excludes physical testing, flight qualification, subsequent redesign and casing from this phase; older statements requiring those before PCB fabrication are superseded. Assembly receipt/polarity checks remain part of building the prototype. No order placed. Updated known cost is USD 129.37 (15 price lines missing); entered mass 170.25 g (three missing). The provisional EUR board quote is separate.
+
+**Current implementation — October 21:** Targeted component/connector/capacitor edits and the budget update are now applied. Fresh ERC/DRC/connectivity/parity and preservation checks pass. Read [RESUME_HERE.md](RESUME_HERE.md), then [COMPONENT_IMPLEMENTATION.md](COMPONENT_IMPLEMENTATION.md) for the authoritative boundary. Four BOM references remain explicit candidates; holder/harness fit, cold runtime and flight qualification remain open. Earlier dated figures and research-only statements below are historical where superseded.
+
+## Current component and pack fit review
+
+J1/J2 are now Molex 0022272021 with proposed 0022012027 housings / 0008500113 crimps. J2 is a switch loop, not a power-and-ground output. Sensor soldered-header candidates are Samtec HTSW-106-15-T-S, HTSW-104-15-T-S, HTSW-105-15-T-S and HTSW-109-15-T-S. Their 0.635 mm square pins and nominal -15 lengths have been screened; actual finished-hole tolerance, module thickness, spacer height and solder protrusion still require dry-fit. No sensor sockets are reinstated.
+
+BH4AAW is the rated prototype holder candidate: 61.72 x 57.15 x 15.88 mm body, approximately 15.05 g, plus four L91 cells at 60 g. Harness exit, strain relief, secure cell restraint, nonmagnetic hardware and actual loaded envelope remain open. Panasonic capacitors are nominally 11.2 mm high; remove any older 7 mm height assumption. KEMET capacitor local footprints now use maximum body envelopes. The board outline and module positions remain unchanged; four small capacitor/test-pad moves are recorded in COMPONENT_IMPLEMENTATION.md.
+
+Older mounting alternatives below are historical where they conflict with the soldered-sensor requirement and current component review.
+
+## Current assembly direction — October 20
+
+Saadat confirms the sensors will use **through-hole soldering**. Working implementation: BNO055 #2472, MS8607 #4716 and GPS #5440 breakout boards connected through header pins soldered at both the breakout and carrier plated-through holes, without removable sensor sockets. This retains the selected breakout modules; it does not replace them with bare sensor ICs. Teensy/regulator mounting was not changed by this instruction.
+
+The earlier SSW sensor sockets and 12 mm socket-derived spacing below are historical proposals, superseded for the sensor modules. Select exact solderable header lengths and verify pin cross-section versus finished drill tolerance, sufficient solder-tail protrusion at both boards, insulator position, underside component/holder clearance, and a supported assembly sequence. Do not assume removing the sockets permits the modules to sit flush. Keep separate mechanical retention where required; solder joints alone are not a verified flight-load restraint. Existing PCB holes have not yet been requalified for the new header selection, and no footprint or routing was changed in this update.
+
+Saadat plans to CAD a custom casing after the PCB layout is complete. Reserve the mounting, battery, cable and access envelope now; perform casing CAD against final board/module heights and verify the fit before fabrication release. Include GPS antenna exposure, pressure venting and USB/microSD access. The battery minimum operating-temperature requirement is **-40 C**, supplied by the lead via Saadat; verify the selected interconnect/material ratings for their actual operating environment.
+
+**October 20 GPS update:** [U5 is now assigned, placed and routed](GPS_CARRIER_INTEGRATION.md) after Saadat visually accepted the source CAD geometry. Earlier requests to obtain geometry before assignment are superseded. Actual-module fit, socket/spacer choice, underside holder clearance, antenna exposure and retention still need evidence; this is not manufacturer confirmation or fabrication approval.
+
 October 18, 2026. This is a reviewable prototype proposal, not an order list or a flight-qualified assembly. Exact spreadsheet products remain unchanged. Main schematic and PCB integration belongs to Step 5.
 
-## Sensor connector selection
+## Historical socket proposal — superseded for sensors
 
 Use female sockets on the carrier and downward-facing male headers on the BNO055/MS8607 modules. Populate both BNO055 rows, including electrically unused pins. Keep the modules removable for bench troubleshooting, with separate mechanical retention.
 
@@ -18,7 +42,7 @@ SSW -01 sockets have a nominal 8.51 mm body height, 2.64 mm solder tail, and 3.6
 
 Teensy now has a separately reviewed two-row SSW-124 socket carrier and a candidate HTSW header arrangement; see TEENSY_MECHANICAL_REVIEW.md. Its fully seated spacing is nominally 11.05 mm. The sensor 12 mm standoff scheme does not apply to Teensy. GPS retains its exact-geometry gate.
 
-## Height and retention proposal
+## Historical socket height calculation — recalculate for through-hole assembly
 
 For the two sensor modules, target **12 mm from carrier top surface to module underside** using four insulating spacers per module. Start the fit review with M2 through-fasteners, spacer outside diameter at most 4 mm, and head/washer outside diameter at most 6 mm. Carrier holes remain 2.7 mm NPTH; module holes in the source CAD are 2.5 mm. This is a size envelope, not a qualified fastener part number. Final polymer, thread engagement, torque, creep, temperature and vibration retention need team review; do not assume generic nylon hardware is flight-qualified. Avoid assuming stainless hardware is nonmagnetic.
 

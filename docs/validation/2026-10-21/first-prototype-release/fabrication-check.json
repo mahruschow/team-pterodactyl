@@ -1,0 +1,23 @@
+{
+  "result": "pass",
+  "native_hashes": {
+    "PTERODACTYL_v4.kicad_pcb": "3939c94d0d2279776b6aff804f6814c09e275b59fea913cd9d96c8ba36f766a6",
+    "PTERODACTYL_v4.kicad_sch": "39d6b0c75259f510b298a408b1ae700c84622dc93b88eb56d1e584edec9e7154",
+    "PTERODACTYL_v4.kicad_pro": "6b6741a208c3b716519252bb4229848cdc5922948a758c8d4f4668998329ca82",
+    "PTERODACTYL_v4.kicad_dru": "e14084119c2cc54b0cac4186f663c33994e14025c7ea552a4c21899a039d987c"
+  },
+  "drill_counts": {
+    "PTH": 183,
+    "NPTH": 14
+  },
+  "all_drill_positions_and_diameters_match_native": true,
+  "drill_position_tolerance_mm": 0.000501,
+  "outline_centerline_mm": [
+    97.79,
+    97.79
+  ],
+  "gerber_layer_count": 9,
+  "copper_layers": 4,
+  "ipc_d356_exported": true,
+  "scope": "File integrity, layer attributes, native-vs-Excellon positions/diameters and outline bounds. Copper connectivity is covered separately by native DRC/net contract; AISLER native import was visually reviewed."
+}

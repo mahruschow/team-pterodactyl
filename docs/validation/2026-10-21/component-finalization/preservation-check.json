@@ -1,0 +1,489 @@
+{
+  "result": "pass",
+  "baseline_sha256": "dde1328daaae48dd68cea94614225affd30146d519a74f4dc4634c406fde1c2c",
+  "pcb_sha256": "bfa61f10db5c565da103afd3172880e875aae43eb892818baa89bac8df7184cf",
+  "footprints": 51,
+  "segments": 246,
+  "vias": 25,
+  "all_original_footprint_pad_track_via_uuids_retained": true,
+  "all_pad_nets_retained": true,
+  "board_outline_module_positions_zone_boundaries_retained": true,
+  "footprint_moves": [
+    {
+      "reference": "TP4",
+      "before": [
+        152.5,
+        89.5
+      ],
+      "after": [
+        152.5,
+        90.5
+      ],
+      "delta_mm": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "reference": "C2",
+      "before": [
+        117.936,
+        119.9,
+        180.0
+      ],
+      "after": [
+        117.936,
+        119.6,
+        180.0
+      ],
+      "delta_mm": [
+        0.0,
+        -0.3
+      ]
+    },
+    {
+      "reference": "C8",
+      "before": [
+        132.599,
+        81.052
+      ],
+      "after": [
+        132.599,
+        81.202
+      ],
+      "delta_mm": [
+        0.0,
+        0.15
+      ]
+    },
+    {
+      "reference": "C6",
+      "before": [
+        101.599,
+        88.552
+      ],
+      "after": [
+        101.599,
+        88.752
+      ],
+      "delta_mm": [
+        0.0,
+        0.2
+      ]
+    }
+  ],
+  "connector_pad_changes": [
+    {
+      "reference": "J1",
+      "pad": "1",
+      "before": {
+        "at": [
+          "at",
+          0.0,
+          0.0,
+          90.0
+        ],
+        "size": [
+          "size",
+          1.7,
+          2.0
+        ],
+        "drill": [
+          "drill",
+          1.0
+        ],
+        "layers": [
+          "layers",
+          "*.Cu",
+          "*.Mask"
+        ]
+      },
+      "after": {
+        "at": [
+          "at",
+          0.0,
+          0.0,
+          90.0
+        ],
+        "size": [
+          "size",
+          1.9,
+          2.19
+        ],
+        "drill": [
+          "drill",
+          1.19
+        ],
+        "layers": [
+          "layers",
+          "*.Cu",
+          "*.Mask"
+        ]
+      }
+    },
+    {
+      "reference": "J1",
+      "pad": "2",
+      "before": {
+        "at": [
+          "at",
+          2.5,
+          0.0,
+          90.0
+        ],
+        "size": [
+          "size",
+          1.7,
+          2.0
+        ],
+        "drill": [
+          "drill",
+          1.0
+        ],
+        "layers": [
+          "layers",
+          "*.Cu",
+          "*.Mask"
+        ]
+      },
+      "after": {
+        "at": [
+          "at",
+          2.54,
+          0.0,
+          90.0
+        ],
+        "size": [
+          "size",
+          1.9,
+          2.19
+        ],
+        "drill": [
+          "drill",
+          1.19
+        ],
+        "layers": [
+          "layers",
+          "*.Cu",
+          "*.Mask"
+        ]
+      }
+    },
+    {
+      "reference": "J2",
+      "pad": "1",
+      "before": {
+        "at": [
+          "at",
+          0.0,
+          0.0,
+          90.0
+        ],
+        "size": [
+          "size",
+          1.7,
+          2.0
+        ],
+        "drill": [
+          "drill",
+          1.0
+        ],
+        "layers": [
+          "layers",
+          "*.Cu",
+          "*.Mask"
+        ]
+      },
+      "after": {
+        "at": [
+          "at",
+          0.0,
+          0.0,
+          90.0
+        ],
+        "size": [
+          "size",
+          1.9,
+          2.19
+        ],
+        "drill": [
+          "drill",
+          1.19
+        ],
+        "layers": [
+          "layers",
+          "*.Cu",
+          "*.Mask"
+        ]
+      }
+    },
+    {
+      "reference": "J2",
+      "pad": "2",
+      "before": {
+        "at": [
+          "at",
+          2.5,
+          0.0,
+          90.0
+        ],
+        "size": [
+          "size",
+          1.7,
+          2.0
+        ],
+        "drill": [
+          "drill",
+          1.0
+        ],
+        "layers": [
+          "layers",
+          "*.Cu",
+          "*.Mask"
+        ]
+      },
+      "after": {
+        "at": [
+          "at",
+          2.54,
+          0.0,
+          90.0
+        ],
+        "size": [
+          "size",
+          1.9,
+          2.19
+        ],
+        "drill": [
+          "drill",
+          1.19
+        ],
+        "layers": [
+          "layers",
+          "*.Cu",
+          "*.Mask"
+        ]
+      }
+    }
+  ],
+  "changed_segment_count": 8,
+  "changed_segment_endpoints": [
+    {
+      "uuid": "198865de-d147-42da-85e2-7a56c5525d41",
+      "before": {
+        "start": [
+          "start",
+          190.6064,
+          126.7946
+        ],
+        "end": [
+          "end",
+          185.0376,
+          126.7946
+        ]
+      },
+      "after": {
+        "start": [
+          "start",
+          190.3064,
+          126.7946
+        ],
+        "end": [
+          "end",
+          185.0376,
+          126.7946
+        ]
+      }
+    },
+    {
+      "uuid": "e8896a0e-f364-4733-ba0c-3072648fcb61",
+      "before": {
+        "start": [
+          "start",
+          192.399,
+          125.002
+        ],
+        "end": [
+          "end",
+          190.6064,
+          126.7946
+        ]
+      },
+      "after": {
+        "start": [
+          "start",
+          192.399,
+          124.962
+        ],
+        "end": [
+          "end",
+          190.3064,
+          126.7946
+        ]
+      }
+    },
+    {
+      "uuid": "e709c0a7-dd2a-48a2-9ef7-d9de2f8cbb9c",
+      "before": {
+        "start": [
+          "start",
+          117.936,
+          119.9
+        ],
+        "end": [
+          "end",
+          117.836,
+          120.0
+        ]
+      },
+      "after": {
+        "start": [
+          "start",
+          117.936,
+          119.6
+        ],
+        "end": [
+          "end",
+          117.836,
+          120.0
+        ]
+      }
+    },
+    {
+      "uuid": "8d2bf2fa-2c44-4118-b39c-96325e2720a5",
+      "before": {
+        "start": [
+          "start",
+          149.047,
+          89.5
+        ],
+        "end": [
+          "end",
+          152.5,
+          89.5
+        ]
+      },
+      "after": {
+        "start": [
+          "start",
+          149.047,
+          89.5
+        ],
+        "end": [
+          "end",
+          152.5,
+          90.5
+        ]
+      }
+    },
+    {
+      "uuid": "c79f6166-f770-484a-9a4b-0925b87557f5",
+      "before": {
+        "start": [
+          "start",
+          101.599,
+          88.552
+        ],
+        "end": [
+          "end",
+          103.047,
+          90.0
+        ]
+      },
+      "after": {
+        "start": [
+          "start",
+          101.599,
+          88.752
+        ],
+        "end": [
+          "end",
+          103.047,
+          90.0
+        ]
+      }
+    },
+    {
+      "uuid": "82bef729-9d8f-4d3a-924e-7502b1a8f82f",
+      "before": {
+        "start": [
+          "start",
+          114.9957,
+          118.6817
+        ],
+        "end": [
+          "end",
+          116.4657,
+          117.2117
+        ]
+      },
+      "after": {
+        "start": [
+          "start",
+          114.9957,
+          118.45
+        ],
+        "end": [
+          "end",
+          116.4657,
+          117.2117
+        ]
+      }
+    },
+    {
+      "uuid": "c7589c49-904e-4b6a-83fd-262b57c501a6",
+      "before": {
+        "start": [
+          "start",
+          105.136,
+          124.392
+        ],
+        "end": [
+          "end",
+          110.8463,
+          118.6817
+        ]
+      },
+      "after": {
+        "start": [
+          "start",
+          105.136,
+          124.392
+        ],
+        "end": [
+          "end",
+          110.8463,
+          118.45
+        ]
+      }
+    },
+    {
+      "uuid": "efb70c13-3805-4ba8-95ed-d2d8b31d8541",
+      "before": {
+        "start": [
+          "start",
+          110.8463,
+          118.6817
+        ],
+        "end": [
+          "end",
+          114.9957,
+          118.6817
+        ]
+      },
+      "after": {
+        "start": [
+          "start",
+          110.8463,
+          118.45
+        ],
+        "end": [
+          "end",
+          114.9957,
+          118.45
+        ]
+      }
+    }
+  ],
+  "scope": "Original checkpoint geometry/net preservation; excludes changed silkscreen, component graphics, fields and zone-fill polygons. Hardware fit and operation are untested."
+}

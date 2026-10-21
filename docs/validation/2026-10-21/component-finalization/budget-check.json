@@ -1,0 +1,47 @@
+{
+  "average_battery_W": 1.618300653594771,
+  "peak_battery_W": 3.567647058823529,
+  "nameplate_Wh": 8.669467787114845,
+  "required_Ah": 1.4449112978524743,
+  "mass_subtotal_g": 170.25,
+  "missing_mass_lines": 3,
+  "known_cost_USD": 118.30000000000001,
+  "missing_cost_lines": 16,
+  "complete_cost": "Incomplete",
+  "complete_mass": "Incomplete",
+  "minimum_pack_voltage": null,
+  "resistance_screening": [
+    [
+      6,
+      1.456470588235294,
+      3.2108823529411765,
+      0.25345136366298693,
+      0.5939414705666815,
+      0.35276647045891213,
+      5.406058529433318,
+      "Above 3 V threshold"
+    ],
+    [
+      4.8,
+      1.456470588235294,
+      3.2108823529411765,
+      0.3255050224778306,
+      0.8034043570588001,
+      0.6454585609410639,
+      3.9965956429412,
+      "Above 3 V threshold"
+    ],
+    [
+      4,
+      1.456470588235294,
+      3.2108823529411765,
+      0.40515536438037136,
+      1.1116770592521976,
+      1.2358258840676142,
+      2.8883229407478024,
+      "Below 3 V startup"
+    ]
+  ],
+  "result": "pass",
+  "scope": "Formula reconciliation, missing-input totals and I-squared-R energy balance. No hardware measurements."
+}

@@ -1,5 +1,7 @@
 # Regulator and GPS footprint work — October 19, 2026
 
+**October 20 GPS update:** [U5 is now assigned, placed and routed](GPS_CARRIER_INTEGRATION.md) after Saadat visually accepted the source CAD geometry. Earlier requests to obtain geometry before assignment are superseded. Actual-module fit, socket/spacer choice, underside holder clearance, antenna exposure and retention still need evidence; this is not manufacturer confirmation or fabrication approval.
+
 **U2 now has a source-checked regulator footprint in the v4 schematic and PCB. The GPS has a separate, explicitly unverified comparison footprint; U5 remains unassigned.** Neither installed mechanical fit nor fabrication approval is implied.
 
 **Later update:** the power connections described below as open were completed in [POWER_ROUTING.md](POWER_ROUTING.md). The results here preserve the footprint-integration checkpoint.

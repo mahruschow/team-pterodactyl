@@ -82,9 +82,9 @@ PARTS=[
      {'MPN':'Adafruit 2472','Notes':'I2C 0x28. PS0/PS1/ADR use onboard pull-downs; INT unused; 3Vo not connected'},False),
     ('U4','Pterodactyl_Modules:Adafruit_MS8607_4716','Adafruit MS8607 #4716','Pterodactyl_Modules:Adafruit_MS8607_4716_Carrier',(66,100),
      {'1':'SENSOR_3V3','2':NC,'3':'GND','4':'I2C_SCL','5':'I2C_SDA'},{'MPN':'Adafruit 4716','Notes':'I2C 0x40/0x76; 3Vo not connected'},False),
-    ('U5','Pterodactyl_Modules:Adafruit_PA1616D_5440_Logical','Adafruit PA1616D #5440','',(100,80),
+    ('U5','Pterodactyl_Modules:Adafruit_PA1616D_5440_Logical','Adafruit PA1616D #5440','Pterodactyl_Modules:Adafruit_GPS_5440_Carrier',(100,80),
      {'VIN':'SENSOR_3V3','GND':'GND','TX':'GPS_TXD','RX':'GPS_RXD','3V3_OUT':NC,'EN':NC,'VBAT':NC,'FIX':NC,'PPS':NC},
-     {'MPN':'Adafruit 5440','Notes':'Footprint pending M01 (exact #5440 geometry). EN at onboard default; VBAT/FIX/PPS unused'},False),
+     {'MPN':'Adafruit 5440','Notes':'Carrier geometry visually accepted by Saadat 2026-10-20; physical fit/holder clearance pending. EN at onboard default; VBAT/FIX/PPS unused'},False),
     # User inputs (D10 still open) and expansion
     ('SW1','Switch:SW_SPDT','Mode','Button_Switch_THT:SW_Slide_SPDT_Straight_CK_OS102011MS2Q',(124,84),
      {'2':'SW_MODE','1':'GND','3':NC},{'MPN':'C&K OS102011MS2Q (candidate)','Notes':'Logic-level input, internal pull-up; role open (D10)'},False),
@@ -95,6 +95,13 @@ PARTS=[
      {'1':'+3V3','2':'GND','3':'SPARE_0','4':'SPARE_1','5':'SPARE_14','6':'SPARE_15','7':'SPARE_16','8':'SPARE_17'},
      {'Notes':'DNP by default; replaces legacy U$1/U$2 expansion. 3.3 V logic only'},True),
 ]
+# Keep source component fields aligned with the targeted native edits. Do not
+# run this full generator over the routed/native project.
+from component_selections import SELECTIONS
+PARTS=[(ref,lib,SELECTIONS.get(ref,{}).get('Value',value),
+        SELECTIONS.get(ref,{}).get('Footprint',footprint),position,nets,
+        {**fields,**{k:v for k,v in SELECTIONS.get(ref,{}).items() if k not in ('Value','Footprint')}},dnp)
+       for ref,lib,value,footprint,position,nets,fields,dnp in PARTS]
 TEST_POINTS=['VBAT_PROT','+5V','+3V3','SENSOR_3V3','GND','I2C_SDA','I2C_SCL','GPS_TXD','GPS_RXD','VBAT_SENSE']
 # Nets with a real source that ERC cannot see through passive/generic pins.
 PWR_FLAGS={'GND':'battery return',
@@ -102,7 +109,7 @@ PWR_FLAGS={'GND':'battery return',
 NOTES=[
     (6,5,'PTERODACTYL v4 carrier - DRAFT generated from tools/generate_v4_schematic.py. Connections by label; see docs/POWER_ARCHITECTURE.md.'),
     (6,7,'Battery -> J1 -> F1 -> Q1 (reverse protection) -> J2 panel switch -> VBAT_SW -> U2 5 V buck-boost -> +5V -> Teensy VIN.'),
-    (6,9,'U2 uses the verified three-pin module interface; installed fit pending. U5 footprint unassigned: exact #5440 geometry needs M01 confirmation.'),
+    (6,9,'U2 three-pin and U5 GPS carrier footprints assigned. GPS geometry visually accepted 2026-10-20; installed fit, holder clearance and retention pending.'),
     (6,11,'Teensy: cut the VUSB/VIN pads before applying external power (PJRC). +3V3 is the Teensy 3.3 V output (250 mA external max).'),
     (6,13,'I2C at 100 kHz for bring-up (see PLACEMENT_AND_INTERFERENCE.md). No GPIO may exceed 3.3 V.'),
 ]
@@ -283,7 +290,7 @@ def main():
             x,y,a=endpoints[number];sheet.connect(net,x,y,a)
         table[ref]={'lib_id':lib_id,'value':value,'footprint':footprint,'dnp':dnp,'pins':mapping}
     for i,net in enumerate(TEST_POINTS):
-        ref='TP%d'%(i+1);endpoints=sheet.place(ref,'Connector:TestPoint',net,'TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm',(14+i*9)*G,108*G)
+        ref='TP%d'%(i+1);endpoints=sheet.place(ref,'Connector:TestPoint',net,'TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm',(14+i*9)*G,108*G,fields=SELECTIONS.get(ref,{}))
         x,y,a=endpoints['1'];sheet.connect(net,x,y,a);table[ref]={'pins':{'1':net}}
     for i in range(4):
         sheet.place('H%d'%(i+1),'Mechanical:MountingHole','M3','MountingHole:MountingHole_3.2mm_M3',(100+i*4)*G,108*G,in_bom=False)

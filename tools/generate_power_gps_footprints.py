@@ -1,7 +1,7 @@
 """Build module-carrier libraries only; never regenerate the routed PCB.
 
 Pololu dimensions: official reg20a drawing (inch dimensions converted to mm).
-GPS: legacy Adafruit CAD, NOT verified against product #5440. CC BY-SA 3.0;
+GPS: legacy Adafruit CAD, visually accepted by Saadat on 2026-10-20; physical fit pending. CC BY-SA 3.0;
 see Native_KiCad_v11/Pterodactyl_Modules_LICENSE.txt and footprint notes.
 """
 from pathlib import Path
@@ -10,7 +10,7 @@ import json, math
 ROOT = Path(__file__).resolve().parents[1]
 LIB = ROOT / 'Native_KiCad_v11/Pterodactyl_Modules.pretty'
 REG = 'Pololu_S9V11F5_SSW_Carrier'
-GPS = 'Adafruit_GPS_5440_UNVERIFIED_Legacy_Carrier'
+GPS = 'Adafruit_GPS_5440_Carrier'
 
 
 def xy(p):
@@ -77,7 +77,7 @@ def gps():
     header=next(h for h in board['headers'] if h['element']=='JP1')
     origin=header['pads'][0]
     def transform(x,y): return (float(x)-origin['x'],origin['y']-float(y))
-    out=start(GPS,'UNVERIFIED product 5440 fit. Derived from legacy Adafruit PA6H CAD 70430c1; CC BY-SA 3.0, Adafruit Industries/Limor Fried. Do not assign to production schematic until M01 closes.')
+    out=start(GPS,'Adafruit 5440 carrier; legacy PA6H CAD 70430c1 geometry visually accepted by Saadat 2026-10-20. Physical fit/holder clearance pending. CC BY-SA 3.0, Adafruit Industries/Limor Fried.')
     for w in board['outline']:
         x1,y1,x2,y2=[float(w[k]) for k in ('x1','y1','x2','y2')]
         a,b=transform(x1,y1),transform(x2,y2)
@@ -105,12 +105,12 @@ def gps():
     keepout(out,(-22.86,-32.258,2.54,2.032))
     text(out,'REF**',(-10.16,-34.5),'F.SilkS',1,'reference')
     text(out,GPS,(-10.16,-21),'F.Fab',.5,'value')
-    text(out,'UNVERIFIED #5440',(-10.16,-17),'F.SilkS',.85)
-    text(out,'LEGACY CAD - DO NOT FAB',(-10.16,-14),'Dwgs.User',.8)
+    text(out,'GPS #5440',(-10.16,-17),'F.SilkS',.85)
+    text(out,'FIT / HOLDER CHECK PENDING',(-10.16,-14),'Dwgs.User',.8)
     text(out,'NO PARTS UNDER MODULE',(-10.16,-11),'Dwgs.User',.7)
     save(GPS,out)
 
 
 if __name__=='__main__':
     regulator(); gps()
-    print('Created regulator carrier and UNVERIFIED GPS legacy comparison footprint; no board edits.')
+    print('Created regulator and GPS carrier footprints; GPS visual acceptance only, physical fit pending; no board edits.')
