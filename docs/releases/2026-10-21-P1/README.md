@@ -5,6 +5,6 @@ Read ../../FIRST_PROTOTYPE_RELEASE.md for order configuration, assembly instruct
 - Pterodactyl-v4-P1-Gerbers.zip: audited alternative manufacturing upload, including PTH/NPTH drills and an internal SHA-256 manifest. The default .gbrjob is intentionally excluded; use the documented AISLER service stackup.
 - Pterodactyl-budget-2026-10-21.xlsx: exported current budget, with assumptions and incomplete prices/masses disclosed.
 
-AISLER project https://aisler.net/p/TCVOYNZG revision 1 contains the exact validated native PCB. No order or payment has been made. This is a first-prototype release, not a flight, cold-operation or three-hour-runtime qualification.
+The ZIP now includes the three team names on the back silkscreen. AISLER project https://aisler.net/p/TCVOYNZG revision 1 is superseded and does not contain those names. Sign in and upload the updated native PCB before ordering; anonymous revision uploads failed. No order or payment has been made. This is a first-prototype release, not a flight, cold-operation or three-hour-runtime qualification.
 
 The archive is the reviewed fabrication input. The .gbrjob in the validation evidence directory is retained only as historical export evidence and is not part of that input.

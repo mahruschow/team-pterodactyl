@@ -1,5 +1,11 @@
 # First prototype: fabrication and assembly handoff
 
+## Team-name silkscreen update — October 21, 2026
+
+Saadat Muyeen, Mahrus Chowdhury and Ryeed Zaman are now on the back silkscreen, with 2 mm text and 0.30 mm strokes. Fresh DRC, connectivity and schematic-parity checks report zero issues. All original PCB bytes are retained; only three text objects were added. The other eight Gerber layers match the prior geometry exactly, apart from export timestamps. Existing ERC evidence remains applicable to the unchanged schematic.
+
+**Order the updated native PCB or fabrication ZIP. AISLER TCVOYNZG revision 1 is superseded and does not contain the names.** Two revision-upload attempts failed; the alternate upload form says an anonymous project is already in progress and requires login to save it. Sign in and upload the updated board, then inspect the bottom preview before ordering. No new AISLER revision or order has been created. Earlier statements below about revision 1 being the exact current PCB or ready for checkout refer to the previous checkpoint.
+
 October 21, 2026. Active design: Native_KiCad_v4, first-prototype checkpoint developed on saadat-dev. **The PCB is ready for the first prototype order. No order has been placed.** Reviewed fabrication ZIP and budget workbook are stored in `releases/2026-10-21-P1/`; native files and validation evidence remain in their source locations.
 
 The user's scope ends at the first physical prototype. Cold-runtime testing, flight testing, qualification, revisions after testing and custom casing are outside this phase. Those activities are not prerequisites for ordering these boards. Ratings and calculations below are design evidence, not measured performance.

@@ -1,0 +1,38 @@
+{
+  "change": "Three mirrored B.Silkscreen name text objects only",
+  "names": [
+    "Saadat Muyeen",
+    "Mahrus Chowdhury",
+    "Ryeed Zaman"
+  ],
+  "positions_mm": [
+    [
+      178,
+      99
+    ],
+    [
+      178,
+      103
+    ],
+    [
+      178,
+      107
+    ]
+  ],
+  "text_size_mm": 2,
+  "stroke_mm": 0.3,
+  "all_preexisting_bytes_unchanged": true,
+  "previous_pcb_sha256": "3939c94d0d2279776b6aff804f6814c09e275b59fea913cd9d96c8ba36f766a6",
+  "pcb_sha256": "81e55601eedce1db9af4605c51e35552ac0a704867d0fd5996423eb1861b1d09",
+  "unchanged_gerber_geometry_excluding_timestamps": [
+    "PTERODACTYL_v4-B_Cu.gbl",
+    "PTERODACTYL_v4-B_Mask.gbs",
+    "PTERODACTYL_v4-Edge_Cuts.gm1",
+    "PTERODACTYL_v4-F_Cu.gtl",
+    "PTERODACTYL_v4-F_Mask.gts",
+    "PTERODACTYL_v4-F_Silkscreen.gto",
+    "PTERODACTYL_v4-In1_Cu.g1",
+    "PTERODACTYL_v4-In2_Cu.g2"
+  ],
+  "new_bottom_silkscreen_review": "Mirrored bottom PDF inspected: all three names readable, clear of pads"
+}

@@ -14,6 +14,13 @@ Repository `C:\Users\saada\OneDrive\Documents\team-pterodactyl`; development bra
 
 ## Current state
 
+## Team-name silkscreen update — October 21, 2026
+
+Saadat Muyeen, Mahrus Chowdhury and Ryeed Zaman are now on the back silkscreen, with 2 mm text and 0.30 mm strokes. Fresh DRC, connectivity and schematic-parity checks report zero issues. All original PCB bytes are retained; only three text objects were added. The other eight Gerber layers match the prior geometry exactly, apart from export timestamps. Existing ERC evidence remains applicable to the unchanged schematic.
+
+**Order the updated native PCB or fabrication ZIP. AISLER TCVOYNZG revision 1 is superseded and does not contain the names.** Two revision-upload attempts failed; the alternate upload form says an anonymous project is already in progress and requires login to save it. Sign in and upload the updated board, then inspect the bottom preview before ordering. No new AISLER revision or order has been created. Earlier statements below about revision 1 being the exact current PCB or ready for checkout refer to the previous checkpoint.
+
+
 AISLER project https://aisler.net/p/TCVOYNZG revision 1 successfully processed the exact native PCB. Preview checked top/bottom, four layers, 97.79 x 97.79 mm. Checkout prepared: Beautiful Boards, 3 bare PCBs, 1.6 mm, 35 um, ENIG, green/white, no addons. Anonymous quote EUR 51.37 net / EUR 61.13 with default 19% VAT, estimated dispatch Nov 3. Actual destination/tax/account pricing must be entered before payment. No order placed. The visible AISLER tab is retained for handoff.
 
 FB1 now Laird 28L0138-10R-10 with local P10 footprint; SW1 OS102011MS2QN1 and SW2 PTS645SL50-2 LFS drawings checked; J3 HTSW-102-07-T-S mates SNT-100-BK-T. Four previous held board references closed for P1. All 47 BOM references have MPNs; 36 purchased board components/modules after excluding J4 DNP and ten bare test pads. Grouped purchase and off-board BOMs are included.
@@ -30,7 +37,7 @@ Firmware unchanged at 4.0.2-draft; previous host/compile evidence retained. GPS 
 
 An optional open PCB bench holder is available in `mechanical/pcb-holder/` (STEP, STL, editable source, preview and mounting instructions). It uses the existing four corner holes, with 10 mm clearance above its frame. CAD solid/mesh checks passed; printed fit and full component/hardware clearance remain unverified. No PCB changes were made for it. The user separately requested this quick holder and authorized publication to main; the flight enclosure remains deferred.
 
-Sign in to AISLER, enter shipping/tax details and finalize order. Procure parts for one populated prototype, then assemble. No requirement to fly, cold-test or iterate a prototype before placing the PCB order. Commodity assembly hardware is dimensionally specified; receipt checks occur while assembling, not as a fabrication prerequisite.
+Sign in to AISLER, upload the updated native PCB with team names, review its bottom preview, enter shipping/tax details and finalize order. Revision 1 is superseded. Procure parts for one populated prototype, then assemble. No requirement to fly, cold-test or iterate a prototype before placing the PCB order. Commodity assembly hardware is dimensionally specified; receipt checks occur while assembling, not as a fabrication prerequisite.
 
 ## Preservation and evidence
 
@@ -39,7 +46,7 @@ Initial native checkpoint: work/component-finalization-baseline/. Additional pre
 Use one pcbnew LoadBoard per process; keep GetTracks owner alive. Verification scripts accept CLI path and new evidence directory. verify_component_preservation.py takes original baseline and output JSON. verify_fabrication_package.py compares exported drills/layer metadata with current native. Do not rerun the old guarded migration scripts.
 
 Current native hashes:
-- `PTERODACTYL_v4.kicad_pcb`: `3939c94d0d2279776b6aff804f6814c09e275b59fea913cd9d96c8ba36f766a6`
+- `PTERODACTYL_v4.kicad_pcb`: `81e55601eedce1db9af4605c51e35552ac0a704867d0fd5996423eb1861b1d09`
 - `PTERODACTYL_v4.kicad_sch`: `39d6b0c75259f510b298a408b1ae700c84622dc93b88eb56d1e584edec9e7154`
 - `PTERODACTYL_v4.kicad_pro`: `6b6741a208c3b716519252bb4229848cdc5922948a758c8d4f4668998329ca82`
 - `PTERODACTYL_v4.kicad_dru`: `e14084119c2cc54b0cac4186f663c33994e14025c7ea552a4c21899a039d987c`

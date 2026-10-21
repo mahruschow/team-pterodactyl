@@ -1,5 +1,11 @@
 # Team planning and handoff
 
+## Team-name silkscreen update — October 21, 2026
+
+Saadat Muyeen, Mahrus Chowdhury and Ryeed Zaman are now on the back silkscreen, with 2 mm text and 0.30 mm strokes. Fresh DRC, connectivity and schematic-parity checks report zero issues. All original PCB bytes are retained; only three text objects were added. The other eight Gerber layers match the prior geometry exactly, apart from export timestamps. Existing ERC evidence remains applicable to the unchanged schematic.
+
+**Order the updated native PCB or fabrication ZIP. AISLER TCVOYNZG revision 1 is superseded and does not contain the names.** Two revision-upload attempts failed; the alternate upload form says an anonymous project is already in progress and requires login to save it. Sign in and upload the updated board, then inspect the bottom preview before ordering. No new AISLER revision or order has been created. Earlier statements below about revision 1 being the exact current PCB or ready for checkout refer to the previous checkpoint.
+
 PCB bench holder: [CAD files and mounting instructions](../mechanical/pcb-holder/README.md) — STEP, printable STL, editable CadQuery source and preview. Uses the existing four mounting holes; physical fit remains unverified. This holder is separate from the future flight enclosure.
 
 ## First prototype scope and order checkpoint - October 21, 2026

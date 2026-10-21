@@ -25,5 +25,10 @@
   "estimated_dispatch": "2026-11-03",
   "account": "anonymous",
   "order_placed": false,
-  "quote_note": "Shipping/tax/destination and account pricing not finalized."
+  "quote_note": "Shipping/tax/destination and account pricing not finalized.",
+  "current_native_sha256": "81e55601eedce1db9af4605c51e35552ac0a704867d0fd5996423eb1861b1d09",
+  "matches_current_native": false,
+  "current_revision_upload": "blocked: two revision uploads failed; alternate form reports an existing anonymous project and requires login",
+  "superseded_by": "Local PCB and refreshed Gerber ZIP with three team names",
+  "order_instruction": "Sign in and upload current native PCB; do not order revision 1 if names are wanted."
 }

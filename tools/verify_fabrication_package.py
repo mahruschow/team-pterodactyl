@@ -65,7 +65,7 @@ def main():
     net=(FAB/'PTERODACTYL_v4-P1.d356').read_text();assert net.rstrip().endswith('999')
     report={'result':'pass','native_hashes':hashes,'drill_counts':counts,'all_drill_positions_and_diameters_match_native':True,
             'drill_position_tolerance_mm':0.000501,'outline_centerline_mm':bounds,'gerber_layer_count':len(layers),'copper_layers':4,'ipc_d356_exported':True,
-            'scope':'File integrity, layer attributes, native-vs-Excellon positions/diameters and outline bounds. Copper connectivity is covered separately by native DRC/net contract; AISLER native import was visually reviewed.'}
+            'scope':'File integrity, layer attributes, native-vs-Excellon positions/diameters and outline bounds. Copper connectivity is covered separately by native DRC/net contract; current AISLER upload/review status is recorded in aisler-review.json.'}
     (OUT/'fabrication-check.json').write_text(json.dumps(report,indent=2)+'\n')
     (OUT/'native-hashes.json').write_text(json.dumps(hashes,indent=2)+'\n')
     print(json.dumps(report,indent=2))

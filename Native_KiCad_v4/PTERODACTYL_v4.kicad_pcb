@@ -24420,4 +24420,22 @@
 		)
 	)
 	(embedded_fonts no)
+	(gr_text "Saadat Muyeen"
+		(at 178 99 0)
+		(layer "B.SilkS")
+		(uuid "fbe494ed-619b-4fd8-86ae-a791e821ac24")
+		(effects (font (size 2 2) (thickness 0.3)) (justify mirror))
+	)
+	(gr_text "Mahrus Chowdhury"
+		(at 178 103 0)
+		(layer "B.SilkS")
+		(uuid "67cca00b-73aa-4110-a3e0-93c4c567a67f")
+		(effects (font (size 2 2) (thickness 0.3)) (justify mirror))
+	)
+	(gr_text "Ryeed Zaman"
+		(at 178 107 0)
+		(layer "B.SilkS")
+		(uuid "14c3eba3-4a21-4162-be42-48a477622a43")
+		(effects (font (size 2 2) (thickness 0.3)) (justify mirror))
+	)
 )
