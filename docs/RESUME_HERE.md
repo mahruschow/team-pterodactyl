@@ -28,6 +28,8 @@ Firmware unchanged at 4.0.2-draft; previous host/compile evidence retained. GPS 
 
 ## Remaining execution
 
+An optional open PCB bench holder is available in `mechanical/pcb-holder/` (STEP, STL, editable source, preview and mounting instructions). It uses the existing four corner holes, with 10 mm clearance above its frame. CAD solid/mesh checks passed; printed fit and full component/hardware clearance remain unverified. No PCB changes were made for it. The user separately requested this quick holder and authorized publication to main; the flight enclosure remains deferred.
+
 Sign in to AISLER, enter shipping/tax details and finalize order. Procure parts for one populated prototype, then assemble. No requirement to fly, cold-test or iterate a prototype before placing the PCB order. Commodity assembly hardware is dimensionally specified; receipt checks occur while assembling, not as a fabrication prerequisite.
 
 ## Preservation and evidence

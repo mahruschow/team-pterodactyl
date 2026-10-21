@@ -1,5 +1,7 @@
 # Team planning and handoff
 
+PCB bench holder: [CAD files and mounting instructions](../mechanical/pcb-holder/README.md) — STEP, printable STL, editable CadQuery source and preview. Uses the existing four mounting holes; physical fit remains unverified. This holder is separate from the future flight enclosure.
+
 ## First prototype scope and order checkpoint - October 21, 2026
 
 **Current authority: [FIRST_PROTOTYPE_RELEASE.md](FIRST_PROTOTYPE_RELEASE.md).** PCB checks and AISLER upload/preview passed; project TCVOYNZG revision 1 is ready for checkout. FB1/SW1/SW2/J3 are selected for P1. The user explicitly excludes physical testing, flight qualification, subsequent redesign and casing from this phase; older statements requiring those before PCB fabrication are superseded. Assembly receipt/polarity checks remain part of building the prototype. No order placed. Updated known cost is USD 129.37 (15 price lines missing); entered mass 170.25 g (three missing). The provisional EUR board quote is separate.

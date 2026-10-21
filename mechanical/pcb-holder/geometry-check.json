@@ -1,0 +1,42 @@
+{
+  "units": "mm",
+  "outer_dimensions": [
+    105.79,
+    105.79,
+    13.0
+  ],
+  "pcb_dimensions": [
+    97.79,
+    97.79,
+    1.6
+  ],
+  "hole_centers": [
+    [
+      -45.0851,
+      45.0846
+    ],
+    [
+      45.0849,
+      45.0846
+    ],
+    [
+      -45.0851,
+      -45.0854
+    ],
+    [
+      45.0849,
+      -45.0854
+    ]
+  ],
+  "through_hole_diameter": 3.4,
+  "head_recess_diameter": 6.4,
+  "head_recess_depth": 3.2,
+  "support_contact_diameter": 7.0,
+  "clearance_above_frame": 10,
+  "solid_volume_mm3": 10407.665838258567,
+  "watertight_stl": true,
+  "stl_single_body": true,
+  "step_reimport_valid": true,
+  "reference_pcb_intersection_mm3": 0,
+  "scope": "Geometry and file checks only; component/hardware interference and physical printed fit not proven."
+}
